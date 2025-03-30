@@ -1,28 +1,28 @@
-description = "Pro Spring 7: Chapter 1 - The Basics (of Spring Classic)"
+description = "Pro Spring 7: Chapter 2 - IoC and DI in Spring"
 
 group = "com.apress.prospring7.classic.two"
 
-
-// we are using Spring Boot dependency management, but we configure Spring MVC in the classic manner - explicitly, with no Spring Boot "magic"
-/*
-dependencyManagement {
-    imports {
-        mavenBom("org.springframework.boot:spring-boot-dependencies:3.5.0-SNAPSHOT")
-    }
-}
-*/
-
-
 dependencies {
-    // spring boot dependency-management does not work here at the moment,
-    // because Spring Dependency management does not point at this version yet
-    implementation("org.springframework:spring-context:7.0.0-M1")
-    implementation("org.springframework:spring-aop:7.0.0-M1")
-    implementation("org.springframework:spring-beans:7.0.0-M1")
-    implementation("org.springframework:spring-core:7.0.0-M1")
-    implementation("org.springframework:spring-expression:7.0.0-M1")
+    implementation("org.springframework:spring-context:7.0.0-M3")
+    implementation("ch.qos.logback:logback-classic:1.5.16")
+    implementation("jakarta.annotation:jakarta.annotation-api:3.0.0")
+    implementation("jakarta.inject:jakarta.inject-api:2.0.1")
+}
 
-    testImplementation("org.springframework:spring-test:7.0.0-M1")
-    testImplementation("org.junit.jupiter:junit-jupiter:5.11.4")
-    testRuntimeOnly("org.junit.platform:junit-platform-launcher:1.11.4")
+defaultTasks = mutableListOf("clean", "build") // it seems they are not inherited, so if we want to build this module in isolation, we need to redelcare them here
+
+tasks.withType<Jar>() {
+    manifest {
+        attributes["Main-Class"] = "com.apress.prospring7.classic.two.HelloWorldSpringDI"
+        attributes["Implementation-Version"] = "$version"
+        attributes["Created-By"] = "Iuliana Cosmina"
+        attributes["Specification-Title"] = "Pro Spring 7 - Chapter 2"
+    }
+    val dependencies = configurations
+        .runtimeClasspath
+        .get()
+        //.map(::zipTree)
+        .map { if (it.isDirectory) it else zipTree(it)}
+    from(dependencies)
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }

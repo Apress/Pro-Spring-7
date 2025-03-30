@@ -25,14 +25,29 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package com.apress.prospring7.boot.one;
+package com.apress.prospring7.classic.two.nesting;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import io.micrometer.common.util.StringUtils;
 
-@SpringBootApplication
-public class MainOne {
-    public static void main(String... args) {
-        SpringApplication.run(MainOne.class, args);
+/**
+ * @author iuliana.cosmina on 23/03/2025
+ */
+public class TitleProvider {
+    private String title = "Gravity";
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public static TitleProvider instance(final String title){
+        var childProvider = new TitleProvider();
+        if(StringUtils.isNotBlank(title)) {
+            childProvider.setTitle(title);
+        }
+        return childProvider;
     }
 }

@@ -25,14 +25,50 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package com.apress.prospring7.boot.one;
+package com.apress.prospring7.classic.two.scope;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
-@SpringBootApplication
-public class MainOne {
+/**
+ * @author iuliana.cosmina on 30/03/2025
+ */
+public class NonSingletonDemo {
+    private static final Logger logger = LoggerFactory.getLogger(NonSingletonDemo.class);
+
     public static void main(String... args) {
-        SpringApplication.run(MainOne.class, args);
+        var ctx = new AnnotationConfigApplicationContext();
+        ctx.register(Singer.class);
+        ctx.refresh();
+        var singer1 = ctx.getBean("nonSingleton", Singer.class);
+        var singer2 = ctx.getBean("nonSingleton", Singer.class);
+
+        logger.info("Identity Equal?: {}" , (singer1 == singer2));
+        logger.info("Value Equal:? {}" , singer1.equals(singer2));
+
+        logger.info(singer1.toString());
+        logger.info(singer2.toString());
+    }
+}
+
+@Component("nonSingleton")
+@Scope(scopeName = "prototype")
+class Singer {
+
+    private String name = "unknown";
+
+    public Singer(@Value("John Mayer") String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Singer{" +
+                "name='" + name + '\'' +
+                '}';
     }
 }

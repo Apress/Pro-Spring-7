@@ -13,7 +13,7 @@ buildscript {
 
     dependencies {
         classpath( "io.spring.gradle:dependency-management-plugin:2.0.0-SNAPSHOT")
-        classpath( "org.springframework.boot:spring-boot-gradle-plugin:3.5.0-M1")
+        classpath( "org.springframework.boot:spring-boot-gradle-plugin:3.5.0-M3")
     }
 }
 

@@ -25,14 +25,18 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package com.apress.prospring7.boot.one;
+package com.apress.prospring7.classic.two.alias;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import java.lang.annotation.*;
 
-@SpringBootApplication
-public class MainOne {
-    public static void main(String... args) {
-        SpringApplication.run(MainOne.class, args);
-    }
+/**
+ * @author iuliana.cosmina on 30/03/2025
+ */
+@Target({ElementType.TYPE})
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+public @interface Award {
+
+    String[] prize() default {};
 }
+

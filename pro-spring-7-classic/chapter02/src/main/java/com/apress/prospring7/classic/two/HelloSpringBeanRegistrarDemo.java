@@ -25,14 +25,42 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package com.apress.prospring7.boot.one;
+package com.apress.prospring7.classic.two;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import com.apress.prospring7.classic.two.annotated.HelloSpringMessageProvider;
+import com.apress.prospring7.classic.two.annotated.LogMessageRenderer;
+import com.apress.prospring7.classic.two.decoupled.MessageRenderer;
+import org.springframework.beans.factory.BeanRegistrar;
+import org.springframework.beans.factory.BeanRegistry;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
+import org.springframework.core.env.Environment;
 
-@SpringBootApplication
-public class MainOne {
+/**
+ * @author iuliana.cosmina on 23/03/2025
+ */
+public class HelloSpringBeanRegistrarDemo {
+
     public static void main(String... args) {
-        SpringApplication.run(MainOne.class, args);
+        ApplicationContext ctx = new AnnotationConfigApplicationContext(HelloWorldRegistrarConfiguration.class);
+        MessageRenderer mr = ctx.getBean("renderer", MessageRenderer.class);
+        mr.render();
+    }
+
+    @Configuration
+    @Import(HelloAppRegistrar.class)
+    public static class HelloWorldRegistrarConfiguration{
+    }
+}
+
+
+class HelloAppRegistrar implements BeanRegistrar {
+
+    @Override
+    public void register(BeanRegistry registry, Environment env) {
+        registry.registerBean("provider", HelloSpringMessageProvider.class);
+        registry.registerBean("renderer", LogMessageRenderer.class);
     }
 }

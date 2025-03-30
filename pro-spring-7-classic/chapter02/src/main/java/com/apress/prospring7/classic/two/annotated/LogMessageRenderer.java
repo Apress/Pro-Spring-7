@@ -25,14 +25,42 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package com.apress.prospring7.boot.one;
+package com.apress.prospring7.classic.two.annotated;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import com.apress.prospring7.classic.two.decoupled.MessageProvider;
+import com.apress.prospring7.classic.two.decoupled.MessageRenderer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-@SpringBootApplication
-public class MainOne {
-    public static void main(String... args) {
-        SpringApplication.run(MainOne.class, args);
+/**
+ * @author iuliana.cosmina on 18/02/2025
+ */
+@Component("renderer")
+public class LogMessageRenderer implements MessageRenderer {
+    private static final Logger LOGGER = LoggerFactory.getLogger(LogMessageRenderer.class);
+
+    private MessageProvider messageProvider;
+
+    public LogMessageRenderer() {
+        LOGGER.debug("--> LogMessageRenderer: constructor called");
+    }
+
+    @Override
+    public void render() {
+        LOGGER.info(messageProvider.getMessage());
+    }
+
+    @Autowired
+    @Override
+    public void setMessageProvider(MessageProvider provider) {
+        LOGGER.debug(" --> LogMessageRenderer: setting the provider");
+        this.messageProvider = provider;
+    }
+
+    @Override
+    public MessageProvider getMessageProvider() {
+        return this.messageProvider;
     }
 }

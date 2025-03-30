@@ -25,14 +25,37 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package com.apress.prospring7.boot.one;
+package com.apress.prospring7.classic.two.decoupled;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import static java.lang.System.out;
 
-@SpringBootApplication
-public class MainOne {
-    public static void main(String... args) {
-        SpringApplication.run(MainOne.class, args);
+/**
+ * @author iuliana.cosmina on 16/02/2025
+ */
+public class StandardOutMessageRenderer implements MessageRenderer {
+
+    private MessageProvider messageProvider;
+
+    public StandardOutMessageRenderer() {
+        out.println(" --> StandardOutMessageRenderer: constructor called");
+    }
+
+    @Override
+    public void render() {
+        if (messageProvider == null) {
+            throw new RuntimeException("A message provider is required!");
+        }
+        out.println(messageProvider.getMessage());
+    }
+
+    @Override
+    public void setMessageProvider(MessageProvider provider) {
+        out.println(" --> StandardOutMessageRenderer: setting the provider");
+        this.messageProvider = provider;
+    }
+
+    @Override
+    public MessageProvider getMessageProvider() {
+        return this.messageProvider;
     }
 }

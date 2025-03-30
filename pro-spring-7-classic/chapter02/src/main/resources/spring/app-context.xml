@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="provider" class="com.apress.prospring7.classic.two.decoupled.HelloWorldMessageProvider"/>
+
+    <bean id="renderer" class="com.apress.prospring7.classic.two.decoupled.StandardOutMessageRenderer">
+        <property name="messageProvider" ref="provider"/>
+    </bean>
+</beans>

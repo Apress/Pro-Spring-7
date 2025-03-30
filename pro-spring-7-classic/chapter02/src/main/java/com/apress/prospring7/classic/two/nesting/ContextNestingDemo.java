@@ -25,14 +25,32 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package com.apress.prospring7.boot.one;
+package com.apress.prospring7.classic.two.nesting;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-@SpringBootApplication
-public class MainOne {
+import static java.lang.System.out;
+
+/**
+ * @author iuliana.cosmina on 23/03/2025
+ */
+public class ContextNestingDemo {
+
     public static void main(String... args) {
-        SpringApplication.run(MainOne.class, args);
+        var parentCtx = new AnnotationConfigApplicationContext();
+        parentCtx.register(ParentConfig.class);
+        parentCtx.refresh();
+
+        var childCtx = new AnnotationConfigApplicationContext();
+        childCtx.register(ChildConfig.class);
+        childCtx.setParent(parentCtx);
+        childCtx.refresh();
+
+        var song1 = (Song) childCtx.getBean("song1");
+        var song2 = (Song) childCtx.getBean("song2");
+        var song3 = (Song) childCtx.getBean("song3");
+        out.println("song1: from parent ctx: " + song1.getTitle());
+        out.println("song2: from parent ctx: " + song2.getTitle());
+        out.println("song3: from child ctx: " + song3.getTitle());
     }
 }

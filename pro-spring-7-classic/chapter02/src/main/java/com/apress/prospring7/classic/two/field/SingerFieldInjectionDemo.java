@@ -1,7 +1,7 @@
 /*
 Freeware License, some rights reserved
 
-Copyright (c) 2025 Iuliana Cosmina
+Copyright (c) 2023 Iuliana Cosmina
 
 Permission is hereby granted, free of charge, to anyone obtaining a copy 
 of this software and associated documentation files (the "Software"), 
@@ -25,14 +25,50 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package com.apress.prospring7.boot.one;
+package com.apress.prospring7.classic.two.field;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.stereotype.Component;
 
-@SpringBootApplication
-public class MainOne {
+/**
+ * Created by iuliana.cosmina on 19/03/2025
+ */
+public class SingerFieldInjectionDemo {
+
     public static void main(String... args) {
-        SpringApplication.run(MainOne.class, args);
+        var ctx = new AnnotationConfigApplicationContext();
+        ctx.register(Singer.class, Inspiration.class);
+        ctx.refresh();
+
+        Singer singerBean = ctx.getBean(Singer.class);
+        singerBean.sing();
+    }
+}
+
+@Component("singer")
+class Singer {
+    @Autowired
+    private Inspiration inspirationBean;
+
+    public void sing() {
+        System.out.println("... " + inspirationBean.getLyric());
+    }
+}
+
+@Component
+class Inspiration {
+    private String lyric = "I can keep the door cracked open, to let light through";
+
+    public Inspiration(
+            @Value("For all my running, I can understand") String lyric) {
+        this.lyric = lyric;
+    }
+    public String getLyric() {
+        return lyric;
+    }
+    public void setLyric(String lyric) {
+        this.lyric = lyric;
     }
 }

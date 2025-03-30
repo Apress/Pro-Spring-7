@@ -25,14 +25,46 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package com.apress.prospring7.boot.one;
+package com.apress.prospring7.classic.two.valinject;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.stereotype.Component;
 
-@SpringBootApplication
-public class MainOne {
+import static java.lang.System.out;
+
+/**
+ * @author iuliana.cosmina on 23/03/2025
+ */
+@Component("injectSimple")
+public class InjectSimpleDemo {
+
+    @Value("John Mayer")
+    private String name;
+    @Value("40")
+    private int age;
+    @Value("1.92")
+    private float height;
+    @Value("false")
+    private boolean developer;
+    @Value("1241401112")
+    private Long ageInSeconds;
+
     public static void main(String... args) {
-        SpringApplication.run(MainOne.class, args);
+        var ctx = new AnnotationConfigApplicationContext();
+        ctx.register(InjectSimpleDemo.class);
+        ctx.refresh();
+
+        InjectSimpleDemo simple = (InjectSimpleDemo) ctx.getBean("injectSimple");
+        out.println(simple);
+    }
+
+
+    public String toString() {
+        return "Name: " + name + "\n"
+                + "Age: " + age + "\n"
+                + "Age in Seconds: " + ageInSeconds + "\n"
+                + "Height: " + height + "\n"
+                + "Is Developer?: " + developer;
     }
 }

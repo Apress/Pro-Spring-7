@@ -25,14 +25,40 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package com.apress.prospring7.boot.one;
+package com.apress.prospring7.classic.two.ci;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.stereotype.Component;
+import static java.lang.System.out;
 
-@SpringBootApplication
-public class MainOne {
+/**
+ * @author iuliana.cosmina on 19/03/2025
+ */
+@Component
+public class ConstructorConfusion {
+    private String someValue;
+    public ConstructorConfusion(String someValue) {
+        System.out.println("ConstructorConfusion(String) called");
+        this.someValue = someValue;
+    }
+
+    @Autowired // this is what makes this work
+    public ConstructorConfusion(@Value("90") int someValue) {
+        System.out.println("ConstructorConfusion(int) called");
+        this.someValue = "Number: " + someValue;
+    }
+    public String toString() {
+        return someValue;
+    }
+
     public static void main(String... args) {
-        SpringApplication.run(MainOne.class, args);
+        var ctx = new AnnotationConfigApplicationContext();
+        ctx.register(ConstructorConfusion.class);
+        ctx.refresh();
+
+        var cc = ctx.getBean(ConstructorConfusion.class);
+        out.println("Does this work? " + cc);
     }
 }

@@ -25,14 +25,16 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package com.apress.prospring7.boot.one;
+package com.apress.prospring7.classic.two;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+/**
+ * @author iuliana.cosmina on 19/02/2025
+ */
+public interface NewsletterSender {
+    void setSmtpServer(String smtpServer);
+    String getSmtpServer();
 
-@SpringBootApplication
-public class MainOne {
-    public static void main(String... args) {
-        SpringApplication.run(MainOne.class, args);
-    }
+    void setFromAddress(String fromAddress);
+    String getFromAddress();
+    void send();
 }

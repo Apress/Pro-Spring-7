@@ -25,14 +25,13 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package com.apress.prospring7.boot.one;
+package com.apress.prospring7.classic.two.banal;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-@SpringBootApplication
-public class MainOne {
+/**
+ * @author iuliana.cosmina on 16/02/2025
+ */
+public class HelloWorld {
     public static void main(String... args) {
-        SpringApplication.run(MainOne.class, args);
+        System.out.println("Hello World!");
     }
 }

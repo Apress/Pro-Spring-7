@@ -25,14 +25,26 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package com.apress.prospring7.boot.one;
+package com.apress.prospring7.classic.two;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import com.apress.prospring7.classic.two.decoupled.MessageRenderer;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 
-@SpringBootApplication
-public class MainOne {
+/**
+ * @author iuliana.cosmina on 18/02/2025
+ */
+public class HelloSpringAnnotatedDemo {
+
     public static void main(String... args) {
-        SpringApplication.run(MainOne.class, args);
+        ApplicationContext ctx = new AnnotationConfigApplicationContext(HelloWorldAnnotatedConfiguration.class);
+        MessageRenderer mr = ctx.getBean("renderer", MessageRenderer.class);
+        mr.render();
     }
+
+    @Configuration
+    @ComponentScan(basePackages = {"com.apress.prospring7.classic.two.annotated"})
+    public static class HelloWorldAnnotatedConfiguration { }
 }

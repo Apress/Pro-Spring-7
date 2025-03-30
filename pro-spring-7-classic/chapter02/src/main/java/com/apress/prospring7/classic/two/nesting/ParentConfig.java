@@ -25,14 +25,25 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package com.apress.prospring7.boot.one;
+package com.apress.prospring7.classic.two.nesting;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
-@SpringBootApplication
-public class MainOne {
-    public static void main(String... args) {
-        SpringApplication.run(MainOne.class, args);
+/**
+ * @author iuliana.cosmina on 23/03/2025
+ */
+@Configuration
+public class ParentConfig {
+
+    @Bean
+    public TitleProvider parentProvider(){
+        return TitleProvider.instance(null);
+    }
+
+    @Bean
+    public TitleProvider childProvider(){
+        return TitleProvider.instance("Daughters");
     }
 }
+

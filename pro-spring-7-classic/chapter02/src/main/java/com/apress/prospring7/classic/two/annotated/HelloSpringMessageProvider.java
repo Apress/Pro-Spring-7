@@ -25,14 +25,18 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package com.apress.prospring7.boot.one;
+package com.apress.prospring7.classic.two.annotated;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import com.apress.prospring7.classic.two.decoupled.MessageProvider;
+import org.springframework.stereotype.Component;
 
-@SpringBootApplication
-public class MainOne {
-    public static void main(String... args) {
-        SpringApplication.run(MainOne.class, args);
+/**
+ * @author iuliana.cosmina on 18/02/2025
+ */
+@Component("provider")
+public class HelloSpringMessageProvider implements MessageProvider {
+    @Override
+    public String getMessage() {
+        return "Hello Spring!";
     }
 }

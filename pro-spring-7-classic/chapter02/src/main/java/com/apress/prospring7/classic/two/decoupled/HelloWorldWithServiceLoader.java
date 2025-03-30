@@ -25,14 +25,24 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package com.apress.prospring7.boot.one;
+package com.apress.prospring7.classic.two.decoupled;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import java.util.ServiceLoader;
 
-@SpringBootApplication
-public class MainOne {
+/**
+ * @author iuliana.cosmina on 16/02/2025
+ */
+public class HelloWorldWithServiceLoader {
     public static void main(String... args) {
-        SpringApplication.run(MainOne.class, args);
+        ServiceLoader<MessageRenderer> slr = ServiceLoader.load(MessageRenderer.class);
+        ServiceLoader<MessageProvider> slp = ServiceLoader.load(MessageProvider.class);
+
+        MessageRenderer mr = slr.findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("Service of type 'MessageRenderer' was not found!"));
+        MessageProvider mp = slp.findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("Service of type 'MessageProvider' was not found!"));
+
+        mr.setMessageProvider(mp);
+        mr.render();
     }
 }

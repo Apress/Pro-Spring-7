@@ -25,14 +25,44 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package com.apress.prospring7.boot.one;
+package com.apress.prospring7.classic.two.nesting;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
-@SpringBootApplication
-public class MainOne {
-    public static void main(String... args) {
-        SpringApplication.run(MainOne.class, args);
+/**
+ * @author iuliana.cosmina on 23/03/2025
+ */
+@Configuration
+public class ChildConfig implements ApplicationContextAware {
+
+    public ApplicationContext applicationContext;
+
+    @Bean // overrides {@code childProvider} bean from parent context
+    public TitleProvider childProvider(){
+        return TitleProvider.instance("No Such Thing");
+    }
+
+    @Bean
+    public Song song1(@Value("#{parentProvider.title}") String title){
+        return new Song(title);
+    }
+
+    @Bean
+    public Song song2(@Value("#{childConfig.applicationContext.parent.getBean(\"childProvider\").title}") String title){
+        return new Song(title);
+    }
+
+    @Bean
+    public Song song3(@Value("#{childProvider.title}") String title){
+        return new Song(title);
+    }
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) {
+        this.applicationContext = applicationContext;
     }
 }
