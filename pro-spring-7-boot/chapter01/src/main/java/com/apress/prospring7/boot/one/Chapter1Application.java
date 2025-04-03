@@ -25,40 +25,24 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
+package com.apress.prospring7.boot.one;
 
-package com.apress.prospring7.classic.one;
-
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.Arrays;
 
-@Configuration
-public class MainOne {
-
-    @Bean
-    MyBeanContract myBean(){
-        return new MyBeanImpl();
-    }
+@SpringBootApplication
+public class Chapter1Application {
+    private static final Logger logger = LoggerFactory.getLogger(Chapter1Application.class);
 
     public static void main(String... args) {
-        var ctx = new AnnotationConfigApplicationContext(MainOne.class);
-        var myBean = ctx.getBean(MyBeanContract.class);
-        myBean.printMessage();
-
-        Arrays.stream(ctx.getBeanDefinitionNames()).forEach(
-                bn -> System.out.println(bn + ": " + ctx.getBean(bn).getClass())
-        );
+        var ctx = SpringApplication.run(Chapter1Application.class, args);
+        assert (ctx != null);
+        logger.info("---- All beans in the application context ----");
+        // listing all bean definition names
+        Arrays.stream(ctx.getBeanDefinitionNames()).forEach(logger::info);
     }
-}
-
-class MyBeanImpl implements  MyBeanContract {
-    public void printMessage(){
-        System.out.println("Hello World!");
-    }
-}
-
-interface MyBeanContract {
-    void printMessage();
 }

@@ -25,40 +25,15 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
+package com.apress.prospring7.boot.two;
 
-package com.apress.prospring7.classic.one;
+/**
+ * @author iuliana.cosmina on 03/04/2025
+ */
+public interface MessageRenderer {
+    void render();
 
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+    void setMessageProvider(MessageProvider provider);
 
-import java.util.Arrays;
-
-@Configuration
-public class MainOne {
-
-    @Bean
-    MyBeanContract myBean(){
-        return new MyBeanImpl();
-    }
-
-    public static void main(String... args) {
-        var ctx = new AnnotationConfigApplicationContext(MainOne.class);
-        var myBean = ctx.getBean(MyBeanContract.class);
-        myBean.printMessage();
-
-        Arrays.stream(ctx.getBeanDefinitionNames()).forEach(
-                bn -> System.out.println(bn + ": " + ctx.getBean(bn).getClass())
-        );
-    }
-}
-
-class MyBeanImpl implements  MyBeanContract {
-    public void printMessage(){
-        System.out.println("Hello World!");
-    }
-}
-
-interface MyBeanContract {
-    void printMessage();
+    MessageProvider getMessageProvider();
 }

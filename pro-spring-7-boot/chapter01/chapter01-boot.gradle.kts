@@ -10,5 +10,5 @@ dependencies {
 }
 
 springBoot {
-    mainClass = "$group.MainOne"
+    mainClass = "$group.Chapter1Application"
 }
