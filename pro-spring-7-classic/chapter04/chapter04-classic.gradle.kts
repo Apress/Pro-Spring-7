@@ -1,4 +1,4 @@
-description = "Pro Spring 7: Chapter 1 - The Basics (of Spring Classic)"
+description = "Pro Spring 7: Chapter 4 - The Basics (of Spring Classic)"
 
 group = "com.apress.prospring7.classic.four"
 
@@ -16,13 +16,13 @@ dependencyManagement {
 dependencies {
     // spring boot dependency-management does not work here at the moment,
     // because Spring Dependency management does not point at this version yet
-    implementation("org.springframework:spring-context:7.0.0-M1")
-    implementation("org.springframework:spring-aop:7.0.0-M1")
-    implementation("org.springframework:spring-beans:7.0.0-M1")
-    implementation("org.springframework:spring-core:7.0.0-M1")
-    implementation("org.springframework:spring-expression:7.0.0-M1")
+    implementation("org.springframework:spring-context:7.0.0-M4")
+    implementation("org.springframework:spring-aop:7.0.0-M4")
+    implementation("org.springframework:spring-beans:7.0.0-M4")
+    implementation("org.springframework:spring-core:7.0.0-M4")
+    implementation("org.springframework:spring-expression:7.0.0-M4")
 
-    testImplementation("org.springframework:spring-test:7.0.0-M1")
-    testImplementation("org.junit.jupiter:junit-jupiter:5.11.4")
-    testRuntimeOnly("org.junit.platform:junit-platform-launcher:1.11.4")
+    testImplementation("org.springframework:spring-test:7.0.0-M4")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.12.2")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher:1.12.2")
 }

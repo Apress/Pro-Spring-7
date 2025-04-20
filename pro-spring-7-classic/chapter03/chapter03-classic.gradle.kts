@@ -1,28 +1,36 @@
-description = "Pro Spring 7: Chapter 4 - The Basics (of Spring Classic)"
+description = "Pro Spring 7: Chapter 3 - Advanced Spring Configuration and Spring Boot"
 
 group = "com.apress.prospring7.classic.four"
 
-
-// we are using Spring Boot dependency management, but we configure Spring MVC in the classic manner - explicitly, with no Spring Boot "magic"
-/*
-dependencyManagement {
-    imports {
-        mavenBom("org.springframework.boot:spring-boot-dependencies:3.5.0-SNAPSHOT")
-    }
-}
-*/
-
-
 dependencies {
-    // spring boot dependency-management does not work here at the moment,
-    // because Spring Dependency management does not point at this version yet
-    implementation("org.springframework:spring-context:7.0.0-M1")
-    implementation("org.springframework:spring-aop:7.0.0-M1")
-    implementation("org.springframework:spring-beans:7.0.0-M1")
-    implementation("org.springframework:spring-core:7.0.0-M1")
-    implementation("org.springframework:spring-expression:7.0.0-M1")
+    implementation(project(":pro-spring-7-classic:chapter02-classic"))
+    implementation("org.springframework:spring-context:7.0.0-M4")
+    implementation("ch.qos.logback:logback-classic:1.5.16")
+    implementation("jakarta.annotation:jakarta.annotation-api:3.0.0")
+    implementation("jakarta.inject:jakarta.inject-api:2.0.1")
 
-    testImplementation("org.springframework:spring-test:7.0.0-M1")
-    testImplementation("org.junit.jupiter:junit-jupiter:5.11.4")
-    testRuntimeOnly("org.junit.platform:junit-platform-launcher:1.11.4")
+    implementation("org.apache.groovy:groovy-all:4.0.26")
+
+    testImplementation("org.springframework:spring-test:7.0.0-M4")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.12.2")
+    testImplementation("org.mockito:mockito-core:5.17.0")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher:1.12.2")
+}
+
+defaultTasks = mutableListOf("clean", "build") // it seems they are not inherited, so if we want to build this module in isolation, we need to redelcare them here
+
+tasks.withType<Jar> {
+    manifest {
+        attributes["Main-Class"] = "com.apress.prospring7.classic.three.MainThree"
+        attributes["Implementation-Version"] = "$version"
+        attributes["Created-By"] = "Iuliana Cosmina"
+        attributes["Specification-Title"] = "Pro Spring 7 - Chapter 3"
+    }
+    val dependencies = configurations
+        .runtimeClasspath
+        .get()
+        //.map(::zipTree)
+        .map { if (it.isDirectory) it else zipTree(it)}
+    from(dependencies)
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }

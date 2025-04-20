@@ -25,13 +25,31 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package com.apress.prospring7.boot.three;
+package com.apress.prospring7.four;
 
-import org.springframework.boot.SpringApplication;
+import com.apress.prospring7.classic.three.impl.renderer.LogMessageRenderer;
+import com.apress.prospring7.classic.two.decoupled.MessageProvider;
+import org.junit.jupiter.api.Test;
 
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.times;
 
-public class MainThree {
-    public static void main(String... args) {
-        SpringApplication.run(MainThree.class, args);
+/**
+ * @author iuliana.cosmina on 19/04/2025
+ */
+public class MessageRenderTest {
+
+    @Test
+    void testStandardOutMessageRenderer(){
+        var mockProvider =  mock(MessageProvider.class);
+        when(mockProvider.getMessage()).thenReturn("test message");
+
+        var messageRenderer = new LogMessageRenderer();
+        messageRenderer.setMessageProvider(mockProvider);
+
+        messageRenderer.render();
+        verify(mockProvider, times(1)).getMessage();
     }
 }
