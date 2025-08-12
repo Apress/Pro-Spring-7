@@ -70,7 +70,10 @@ class HelloWorldMessageProvider implements MessageProvider {
     }
 }
 
-//complex bean requiring a dependency
+/**
+ * Complex bean requiring a dependency
+ * Listing 2-15, 2-26
+ */
 @Component("renderer")
 class StandardOutMessageRenderer implements MessageRenderer {
     private MessageProvider messageProvider;
@@ -81,6 +84,9 @@ class StandardOutMessageRenderer implements MessageRenderer {
         this.messageProvider = messageProvider;
     }
 
+    /**
+     * Listing 2-16
+     */
     @Override
     public void setMessageProvider(MessageProvider provider) {
         this.messageProvider = provider;
@@ -99,4 +105,3 @@ class StandardOutMessageRenderer implements MessageRenderer {
         out.println(messageProvider.getMessage());
     }
 }
-

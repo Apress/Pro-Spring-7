@@ -29,6 +29,7 @@ package com.apress.prospring7.boot.two;
 
 /**
  * @author iuliana.cosmina on 03/04/2025
+ * Listing 2-70
  */
 public interface MessageRenderer {
     void render();

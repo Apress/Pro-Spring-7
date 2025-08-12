@@ -27,10 +27,25 @@ SOFTWARE.
 */
 package com.apress.prospring7.boot.four;
 
+//import com.apress.prospring7.boot.four.aspect.NewDocumentarist;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.io.IOException;
+
+@SpringBootApplication
 public class MainFour {
-    public static void main(String... args) {
-        SpringApplication.run(MainFour.class, args);
+    public static void main(String... args) throws IOException {
+        try(final var ctx = SpringApplication.run(MainFour.class, args)) {
+            assert (ctx != null);
+
+
+            // If you want to run this class to test the advice remove comment from the next 2 lines
+           /* var documentarist = ctx.getBean("documentarist", NewDocumentarist.class);
+            documentarist.execute();*/
+
+
+            System.in.read();
+        }
     }
 }

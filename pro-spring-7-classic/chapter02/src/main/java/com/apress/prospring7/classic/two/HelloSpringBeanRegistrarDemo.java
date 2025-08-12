@@ -49,13 +49,18 @@ public class HelloSpringBeanRegistrarDemo {
         mr.render();
     }
 
+    /**
+     * Listing 2-23
+     */
     @Configuration
     @Import(HelloAppRegistrar.class)
     public static class HelloWorldRegistrarConfiguration{
     }
 }
 
-
+/**
+ * Listing 2-24
+ */
 class HelloAppRegistrar implements BeanRegistrar {
 
     @Override

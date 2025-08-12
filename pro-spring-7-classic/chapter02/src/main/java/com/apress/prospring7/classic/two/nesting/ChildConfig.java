@@ -35,6 +35,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * @author iuliana.cosmina on 23/03/2025
+ * Listing 2-37
  */
 @Configuration
 public class ChildConfig implements ApplicationContextAware {

@@ -37,6 +37,7 @@ import java.util.UUID;
 
 /**
  * @author iuliana.cosmina on 01/04/2025
+ * Listing 2-66
  */
 public class InheritanceAutowiringDemo {
     private static final Logger logger = LoggerFactory.getLogger(InheritanceAutowiringDemo.class);
@@ -81,9 +82,12 @@ class Bar { }
 
 @Configuration
 @ComponentScan
+/**
+ * Listing 2-67
+ */
 class AutowiringCfg {
 
-    @Bean @Primary
+    @Bean //@Primary
     public Foo fooImplOne() { return new FooImplOne(); }
 
     @Bean
@@ -96,6 +100,9 @@ class AutowiringCfg {
     public TrickyTarget trickyTarget() { return new TrickyTarget(); }
 }
 
+/**
+ * Listing 2-68
+ */
 class TrickyTarget {
     private static Logger logger = LoggerFactory.getLogger(TrickyTarget.class);
 
@@ -120,7 +127,7 @@ class TrickyTarget {
 
     // comment @Qualifier annotation to cause NoUniqueBeanDefinitionException being thrown at runtime
     @Autowired
-    @Qualifier("fooImplOne")
+    //@Qualifier("fooImplOne")
     public void setFooOne(Foo fooOne) {
         this.fooOne = fooOne;
         logger.info(" --> Property fooOne set");
@@ -129,7 +136,7 @@ class TrickyTarget {
     // comment @Qualifier annotation to cause NoUniqueBeanDefinitionException being thrown at runtime
     // and make sure for @Primary in FooImpl to be commented as well
     @Autowired
-    @Qualifier("fooImplTwo")
+    //@Qualifier("fooImplTwo")
     public void setFooTwo(Foo foo) {
         this.fooTwo = foo;
         logger.info(" --> Property fooTwo set");

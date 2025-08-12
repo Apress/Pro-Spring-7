@@ -34,6 +34,7 @@ import java.security.MessageDigest;
 
 /**
  * @author iuliana.cosmina on 16/04/2025
+ * Listing 3-17
  */
 public class MessageDigestFactoryBean implements FactoryBean<MessageDigest>, InitializingBean {
     private String algorithmName = "MD5";
@@ -64,4 +65,3 @@ public class MessageDigestFactoryBean implements FactoryBean<MessageDigest>, Ini
         this.algorithmName = algorithmName;
     }
 }
-

@@ -48,6 +48,7 @@ import java.util.Map;
 
 /**
  * @author iuliana.cosmina on 17/04/2025
+ * Listing 3-24, Listing 3-25, Listing 3-26
  */
 public class CustomPropertyEditorDemo {
     private static final Logger logger = LoggerFactory.getLogger(CustomPropertyEditorDemo.class);
@@ -104,6 +105,9 @@ class CustomPropertyEditorCfg implements BeanFactoryPostProcessor {
 
 @Configuration
 @ComponentScan
+/**
+ * Listing 3-27
+ */
 class CustomPropertyEditorCfg {
     @Bean
     static PropertyEditorRegistrar customPropertyEditorRegistrar(){

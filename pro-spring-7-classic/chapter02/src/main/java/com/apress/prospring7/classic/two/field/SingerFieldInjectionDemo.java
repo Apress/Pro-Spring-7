@@ -48,6 +48,9 @@ public class SingerFieldInjectionDemo {
 }
 
 @Component("singer")
+/**
+ * Listing 2-29
+ */
 class Singer {
     @Autowired
     private Inspiration inspirationBean;
@@ -58,6 +61,9 @@ class Singer {
 }
 
 @Component
+/**
+ * Listing 2-30
+ */
 class Inspiration {
     private String lyric = "I can keep the door cracked open, to let light through";
 

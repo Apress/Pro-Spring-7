@@ -25,7 +25,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package com.apress.prospring7.four;
+package com.apress.prospring7.classic.three;
 
 import com.apress.prospring7.classic.three.impl.provider.ProviderConfig;
 import com.apress.prospring7.classic.three.impl.renderer.RendererConfig;
@@ -38,6 +38,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author iuliana.cosmina on 20/04/2025
+ * Listing 3-48
  */
 public class MessageRenderOneIT {
 

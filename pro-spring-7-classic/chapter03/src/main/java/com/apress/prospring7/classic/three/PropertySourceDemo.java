@@ -53,6 +53,9 @@ public class PropertySourceDemo {
     }
 }
 
+/**
+ * Listing 3-44
+ */
 class AppProperty {
     private String applicationHome;
     private String userHome;
@@ -86,6 +89,9 @@ class AppProperty {
 
 @Configuration
 @PropertySource("classpath:application.properties")
+/**
+ * Listing 3-45
+ */
 class PropDemoConfig{
 
     @Autowired

@@ -39,6 +39,7 @@ import java.util.Map;
 
 /**
  * @author iuliana.cosmina on 19/04/2025
+ * Listing 3-41
  */
 public class EnvironmentUsageDemo {
     private static final Logger logger = LoggerFactory.getLogger(EnvironmentUsageDemo.class);
@@ -51,7 +52,7 @@ public class EnvironmentUsageDemo {
             Map<String,Object> appMap = new HashMap<>();
             appMap.put("user.home", "CUSTOM_USER_HOME");
             propertySources.addLast(new MapPropertySource("prospring7_MAP", appMap)); // notice the addLast
-            //propertySources.addFirst(new MapPropertySource("prospring7_MAP", appMap)); // notice the addFirst
+            //propertySources.addFirst(new MapPropertySource("prospring7_MAP", appMap)); // notice the addFirst // Listing 3-43
 
             logger.info("-- Env Variables  from java.lang.System --");
             logger.info("user.home: {}" , System.getProperty("user.home"));

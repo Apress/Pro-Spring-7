@@ -34,6 +34,7 @@ import java.security.MessageDigest;
 
 /**
  * @author iuliana.cosmina on 16/04/2025
+ * Listing 3-18
  */
 public class MessageDigester {
     private static final Logger logger = LoggerFactory.getLogger(MessageDigester.class);

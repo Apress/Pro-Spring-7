@@ -40,6 +40,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * @author iuliana.cosmina on 18/04/2025
+ * Listing 3-32
  */
 @Component
 public class Publisher implements ApplicationContextAware {
@@ -69,6 +70,9 @@ public class Publisher implements ApplicationContextAware {
 @ComponentScan
 class EventsConfig{ }
 
+/**
+ * Listing 3-30
+ */
 class MessageEvent extends ApplicationEvent {
     private static final long serialVersionUID = 1L;
     private final String msg;
@@ -84,6 +88,9 @@ class MessageEvent extends ApplicationEvent {
 }
 
 @Component
+/**
+ * Listing 3-31
+ */
 class MessageEventListener implements ApplicationListener<MessageEvent> {
     private static final Logger logger = LoggerFactory.getLogger(MessageEventListener.class);
     @Override
@@ -91,4 +98,3 @@ class MessageEventListener implements ApplicationListener<MessageEvent> {
         logger.info("Received: {}" , event.getMessage());
     }
 }
-

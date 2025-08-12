@@ -40,6 +40,7 @@ import java.nio.file.Path;
 
 /**
  * @author iuliana.cosmina on 15/04/2025
+ * Listing 3-11, Listing 3-12
  */
 public class PreDestroyDemo {
     public static void main(String... args) {

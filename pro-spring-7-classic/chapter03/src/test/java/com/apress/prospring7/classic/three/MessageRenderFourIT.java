@@ -25,29 +25,39 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package com.apress.prospring7.four;
+package com.apress.prospring7.classic.three;
 
-import com.apress.prospring7.classic.three.impl.provider.ProviderConfig;
-import com.apress.prospring7.classic.three.impl.renderer.RendererConfig;
+import com.apress.prospring7.classic.three.impl.AllConfig;
 import com.apress.prospring7.classic.two.decoupled.MessageProvider;
 import com.apress.prospring7.classic.two.decoupled.MessageRenderer;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author iuliana.cosmina on 20/04/2025
+ * Listing 3-52
  */
-//@ExtendWith(SpringExtension.class)
-//@ContextConfiguration(classes = {RendererConfig.class, ProviderConfig.class})
-@SpringJUnitConfig(classes = {RendererConfig.class, ProviderConfig.class})
-public class MessageRenderThreeIT {
+
+@Configuration
+class TestConfig{
+    @Profile("test")
+    @Bean
+    MessageProvider messageProvider(){
+        return new TestMessageProvider("Test Message");
+    }
+}
+
+@ActiveProfiles("test")
+@SpringJUnitConfig(classes = {AllConfig.class, TestConfig.class})
+public class MessageRenderFourIT {
+
     @Autowired
     MessageRenderer messageRenderer;
 
@@ -55,16 +65,23 @@ public class MessageRenderThreeIT {
     MessageProvider messageProvider;
 
     @Test
-    void testProvider(){
-        assertNotNull(messageProvider);
-    }
+    void testConfig(){
 
-    @Test
-    void testRenderer(){
         assertAll( "messageTest" ,
                 () -> assertNotNull(messageRenderer),
-                () -> assertNotNull(messageRenderer.getMessageProvider())
+                () -> assertNotNull(messageProvider),
+                () -> assertTrue(messageProvider instanceof TestMessageProvider),
+                () -> assertEquals(messageProvider, messageRenderer.getMessageProvider())
         );
+
         messageRenderer.render();
+    }
+}
+
+record TestMessageProvider(String message) implements MessageProvider {
+
+    @Override
+    public String getMessage() {
+        return message;
     }
 }

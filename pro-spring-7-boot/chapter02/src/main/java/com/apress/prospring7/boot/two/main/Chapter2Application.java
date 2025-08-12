@@ -37,6 +37,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Component;
 
+/**
+ *  Listing 2-70
+ */
+
 @Component("renderer")
 class StandardOutMessageRenderer implements MessageRenderer {
     private static final Logger logger = LoggerFactory.getLogger(StandardOutMessageRenderer.class);

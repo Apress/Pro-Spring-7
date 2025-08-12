@@ -13,7 +13,7 @@ buildscript {
 
     dependencies {
         classpath( "io.spring.gradle:dependency-management-plugin:2.0.0-SNAPSHOT")
-        classpath( "org.springframework.boot:spring-boot-gradle-plugin:4.0.0-SNAPSHOT")
+        classpath( "org.springframework.boot:spring-boot-gradle-plugin:4.0.0-M1")
     }
 }
 
@@ -33,4 +33,3 @@ subprojects {
         options.encoding = "UTF-8"
     }
 }
-

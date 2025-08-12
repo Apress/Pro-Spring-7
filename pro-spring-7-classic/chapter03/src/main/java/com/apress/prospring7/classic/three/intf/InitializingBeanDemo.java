@@ -44,6 +44,9 @@ public class InitializingBeanDemo {
 }
 
 @Configuration
+/**
+ * Listing 3-6
+ */
 class SingerConfiguration {
 
     @Bean
@@ -69,6 +72,9 @@ class SingerConfiguration {
     }
 }
 
+/**
+ * Listing 3-5
+ */
 class Singer implements InitializingBean {
     private static final Logger logger = LoggerFactory.getLogger(Singer.class);
 
@@ -104,4 +110,3 @@ class Singer implements InitializingBean {
         }
     }
 }
-

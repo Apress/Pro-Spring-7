@@ -33,6 +33,7 @@ import org.springframework.context.support.GenericGroovyApplicationContext;
 
 /**
  * @author iuliana.cosmina on 20/04/2025
+ * Listing 3-55
  */
 public class GroovyBeansFromJavaDemo {
     private static final Logger logger = LoggerFactory.getLogger(GroovyBeansFromJavaDemo.class);

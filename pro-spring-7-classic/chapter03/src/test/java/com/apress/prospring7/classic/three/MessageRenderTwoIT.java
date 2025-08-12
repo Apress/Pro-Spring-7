@@ -25,63 +25,52 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package com.apress.prospring7.four;
+package com.apress.prospring7.classic.three;
 
-import com.apress.prospring7.classic.three.impl.AllConfig;
+import com.apress.prospring7.classic.three.impl.provider.ProviderConfig;
+import com.apress.prospring7.classic.three.impl.renderer.RendererConfig;
 import com.apress.prospring7.classic.two.decoupled.MessageProvider;
 import com.apress.prospring7.classic.two.decoupled.MessageRenderer;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
-import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
  * @author iuliana.cosmina on 20/04/2025
+ * Listing 3-49
  */
+public class MessageRenderTwoIT {
 
-@Configuration
-class TestConfig{
-    @Profile("test")
-    @Bean
-    MessageProvider messageProvider(){
-        return new TestMessageProvider("Test Message");
+    public static ConfigurableApplicationContext ctx;
+
+    @BeforeAll
+    static void setUp() {
+        ctx = new AnnotationConfigApplicationContext(RendererConfig.class, ProviderConfig.class);
     }
-}
-
-@ActiveProfiles("test")
-@SpringJUnitConfig(classes = {AllConfig.class, TestConfig.class})
-public class MessageRenderFourIT {
-
-    @Autowired
-    MessageRenderer messageRenderer;
-
-    @Autowired
-    MessageProvider messageProvider;
 
     @Test
-    void testConfig(){
+    void testProvider(){
+        var messageProvider = ctx.getBean(MessageProvider.class);
+        assertNotNull(messageProvider);
+    }
 
+    @Test
+    void testRenderer(){
+        var messageRenderer = ctx.getBean(MessageRenderer.class);
         assertAll( "messageTest" ,
                 () -> assertNotNull(messageRenderer),
-                () -> assertNotNull(messageProvider),
-                () -> assertTrue(messageProvider instanceof TestMessageProvider),
-                () -> assertEquals(messageProvider, messageRenderer.getMessageProvider())
+                () -> assertNotNull(messageRenderer.getMessageProvider())
         );
-
         messageRenderer.render();
     }
-}
 
-record TestMessageProvider(String message) implements MessageProvider {
-
-    @Override
-    public String getMessage() {
-        return message;
+    @AfterAll
+    static void tearDown(){
+        ctx.close();
     }
 }
-

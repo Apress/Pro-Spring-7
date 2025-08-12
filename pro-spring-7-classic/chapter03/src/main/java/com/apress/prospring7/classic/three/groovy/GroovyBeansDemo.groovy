@@ -30,8 +30,7 @@ package com.apress.prospring7.classic.three.groovy
 
 import org.springframework.beans.factory.groovy.GroovyBeanDefinitionReader
 import org.springframework.context.support.GenericApplicationContext
-
-
+// Listing 3-56
 def ctx = new GenericApplicationContext()
 def reader = new GroovyBeanDefinitionReader(ctx)
 

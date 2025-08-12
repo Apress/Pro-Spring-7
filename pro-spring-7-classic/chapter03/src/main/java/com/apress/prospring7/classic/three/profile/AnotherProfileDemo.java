@@ -35,6 +35,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 /**
  * @author iuliana.cosmina on 19/04/2025
+ * Listing 3-40
  */
 public class AnotherProfileDemo {
     private static final Logger logger = LoggerFactory.getLogger(AnotherProfileDemo.class);

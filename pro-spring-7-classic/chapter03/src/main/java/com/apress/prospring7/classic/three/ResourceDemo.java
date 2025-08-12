@@ -42,6 +42,7 @@ import java.util.stream.Collectors;
 
 /**
  * @author iuliana.cosmina on 18/04/2025
+ * Listing 3-33
  */
 public class ResourceDemo {
     private static final Logger logger = LoggerFactory.getLogger(ResourceDemo.class);

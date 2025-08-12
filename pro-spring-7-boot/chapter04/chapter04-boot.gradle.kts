@@ -1,9 +1,9 @@
-description = "Pro Spring 7: Chapter 4 - The Basics (of Spring Boot)"
+description = "Pro Spring 7: Chapter 4 - AOP (Spring Boot)"
 
 group = "com.apress.prospring7.boot.four"
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter")
+    implementation("org.springframework.boot:spring-boot-starter-aop")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }

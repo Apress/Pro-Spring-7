@@ -37,6 +37,7 @@ import java.util.UUID;
 
 /**
  * @author iuliana.cosmina on 31/03/2025
+ * Listing 2-59
  */
 public class AutowiringDemo {
     private static final Logger logger = LoggerFactory.getLogger(AutowiringDemo.class);
@@ -69,6 +70,9 @@ public class AutowiringDemo {
 
 @Component
 @Lazy
+/**
+ * Listing 2-61, Listing 2-65
+ */
 class FieldTarget {
 
     @Autowired /*@Qualifier("foo")*/ Foo fooOne;
@@ -123,6 +127,9 @@ class Target {
 
 @Component
 @Lazy
+/**
+ * Listing 2-60, Listing 2-62,  Listing 2-63, Listing 2-64
+ */
 class AnotherTarget {
 
     private static Logger logger = LoggerFactory.getLogger(AnotherTarget.class);

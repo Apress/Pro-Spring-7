@@ -25,17 +25,15 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package com.apress.prospring7.four;
+package com.apress.prospring7.classic.three;
 
 import com.apress.prospring7.classic.three.impl.provider.ProviderConfig;
 import com.apress.prospring7.classic.three.impl.renderer.RendererConfig;
 import com.apress.prospring7.classic.two.decoupled.MessageProvider;
 import com.apress.prospring7.classic.two.decoupled.MessageRenderer;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -43,33 +41,27 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 /**
  * @author iuliana.cosmina on 20/04/2025
  */
-public class MessageRenderTwoIT {
+//@ExtendWith(SpringExtension.class)
+//@ContextConfiguration(classes = {RendererConfig.class, ProviderConfig.class})
+@SpringJUnitConfig(classes = {RendererConfig.class, ProviderConfig.class})
+public class MessageRenderThreeIT {
+    @Autowired
+    MessageRenderer messageRenderer;
 
-    public static ConfigurableApplicationContext ctx;
-
-    @BeforeAll
-    static void setUp() {
-        ctx = new AnnotationConfigApplicationContext(RendererConfig.class, ProviderConfig.class);
-    }
+    @Autowired
+    MessageProvider messageProvider;
 
     @Test
     void testProvider(){
-        var messageProvider = ctx.getBean(MessageProvider.class);
         assertNotNull(messageProvider);
     }
 
     @Test
     void testRenderer(){
-        var messageRenderer = ctx.getBean(MessageRenderer.class);
         assertAll( "messageTest" ,
                 () -> assertNotNull(messageRenderer),
                 () -> assertNotNull(messageRenderer.getMessageProvider())
         );
         messageRenderer.render();
-    }
-
-    @AfterAll
-    static void tearDown(){
-        ctx.close();
     }
 }

@@ -25,31 +25,27 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package com.apress.prospring7.four;
+package com.apress.prospring7.classic.four.manual.performance;
 
-import com.apress.prospring7.classic.three.impl.renderer.LogMessageRenderer;
-import com.apress.prospring7.classic.two.decoupled.MessageProvider;
-import org.junit.jupiter.api.Test;
-
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.times;
 
 /**
- * @author iuliana.cosmina on 19/04/2025
+ * @author iulianacosmina on 02/08/2025
  */
-public class MessageRenderTest {
+public class TestResults {
 
-    @Test
-    void testStandardOutMessageRenderer(){
-        var mockProvider =  mock(MessageProvider.class);
-        when(mockProvider.getMessage()).thenReturn("test message");
+    long advisedMethodTime;
+    long unadvisedMethodTime;
+    long equalsTime;
+    long hashCodeTime;
+    long proxyTargetTime;
 
-        var messageRenderer = new LogMessageRenderer();
-        messageRenderer.setMessageProvider(mockProvider);
-
-        messageRenderer.render();
-        verify(mockProvider, times(1)).getMessage();
+    @Override
+    public String toString() {
+        return "TestResults: " +
+                "\n\t advised " + advisedMethodTime +
+                "\n\t unadvised " + unadvisedMethodTime +
+                "\n\t equals " + equalsTime +
+                "\n\t hashCode " + hashCodeTime +
+                "\n\t getProxyTargetClass " + proxyTargetTime;
     }
 }

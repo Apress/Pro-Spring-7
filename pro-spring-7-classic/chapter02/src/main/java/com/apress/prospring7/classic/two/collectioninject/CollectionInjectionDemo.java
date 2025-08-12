@@ -58,6 +58,9 @@ public class CollectionInjectionDemo {
 }
 
 @Component
+/**
+ * Listing 2-40
+ */
 class CollectingBean {
 
     @Autowired
@@ -112,6 +115,9 @@ class CollectingBean {
 }
 
 @Configuration
+/**
+ * Listing 2-39
+ */
 class CollectionConfig {
 
     @Bean

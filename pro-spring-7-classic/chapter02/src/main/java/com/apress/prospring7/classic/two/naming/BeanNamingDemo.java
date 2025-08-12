@@ -39,11 +39,11 @@ import java.util.Arrays;
 
 /**
  * @author iuliana.cosmina on 30/03/2025
+ * Listing 2-47
  */
 public class BeanNamingDemo {
 
     private static final Logger logger = LoggerFactory.getLogger(BeanNamingDemo.class);
-
 
     public static void main(String... args) {
         var ctx = new AnnotationConfigApplicationContext(BeanNamingCfg.class);
@@ -72,6 +72,9 @@ public class BeanNamingDemo {
 }
 @Configuration
 @ComponentScan
+/**
+ * Listing 2-48, 2-49, Listing 2-51
+ */
 class BeanNamingCfg {
 
     @Bean
@@ -95,6 +98,10 @@ class BeanNamingCfg {
 }
 
 // swap these two annotations to test explicit naming
-// @Component(value = "simpleBeanOne")
+// @Component(value = "simpleBeanOne")  // Listing 2-50
 //@Component
+
+/**
+ * Listing 2-46
+ */
 class SimpleBean { }

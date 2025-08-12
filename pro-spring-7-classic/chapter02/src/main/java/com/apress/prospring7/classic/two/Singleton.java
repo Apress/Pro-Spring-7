@@ -29,6 +29,7 @@ package com.apress.prospring7.classic.two;
 
 /**
  * @author iuliana.cosmina on 30/03/2025
+ * Listing 2-55
  */
 public class Singleton {
     private static final Singleton instance;

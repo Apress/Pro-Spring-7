@@ -62,6 +62,9 @@ class HelloWorldConfiguration {
 //  --- bean definitions using @Component ---
 //simple bean
 @Component("provider")
+/**
+ * Listing 2-28
+ */
 class ConfigurableMessageProvider implements MessageProvider {
 
     private String message;
@@ -106,4 +109,3 @@ class StandardOutMessageRenderer implements MessageRenderer {
         out.println(messageProvider.getMessage());
     }
 }
-

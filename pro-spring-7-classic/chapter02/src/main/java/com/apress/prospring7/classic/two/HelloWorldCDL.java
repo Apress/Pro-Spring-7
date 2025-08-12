@@ -46,10 +46,16 @@ public class HelloWorldCDL {
     }
 }
 
+/**
+ * Listing 2-12
+ */
 interface ManagedComponent {
     void performLookup(Container container);
 }
 
+/**
+ * Listing 2-13
+ */
 interface Container {
     Object getDependency(String key);
 }
@@ -64,6 +70,9 @@ class DefaultContainer implements Container {
     }
 }
 
+/**
+ * Listing 2-14
+ */
 interface MessageRenderer extends ManagedComponent {
     void render();
 }
@@ -84,6 +93,9 @@ class HelloCdlMessageProvider implements MessageProvider {
     }
 }
 
+/**
+ * Listing 2-14
+ */
 class XmlOutMessageRenderer implements MessageRenderer {
 
     private MessageProvider messageProvider;

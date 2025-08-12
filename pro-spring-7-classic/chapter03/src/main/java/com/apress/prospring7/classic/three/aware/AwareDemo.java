@@ -44,6 +44,7 @@ import java.nio.file.Path;
 
 /**
  * @author iuliana.cosmina on 15/04/2025
+ * Listing 3-14
  */
 public class AwareDemo {
     public static void main(String... args) {
@@ -57,6 +58,9 @@ public class AwareDemo {
 }
 
 @ComponentScan
+/**
+ * Listing 3-16
+ */
 class AwareConfig {
 
     @Bean
@@ -75,6 +79,9 @@ class AwareConfig {
     }
 }
 
+/**
+ * Listing 3-13
+ */
 class NamedSinger implements BeanNameAware {
     private static final Logger logger = LoggerFactory.getLogger(NamedSinger.class);
     private String name;
@@ -89,6 +96,9 @@ class NamedSinger implements BeanNameAware {
     }
 }
 
+/**
+ * Listing 3-15
+ */
 class ShutdownHookBean implements ApplicationContextAware {
     private ApplicationContext ctx;
 

@@ -37,6 +37,9 @@ import static java.lang.System.out;
  * @author iuliana.cosmina on 23/03/2025
  */
 @Component("injectSimple")
+/**
+ * Listing 2-31
+ */
 public class InjectSimpleDemo {
 
     @Value("John Mayer")

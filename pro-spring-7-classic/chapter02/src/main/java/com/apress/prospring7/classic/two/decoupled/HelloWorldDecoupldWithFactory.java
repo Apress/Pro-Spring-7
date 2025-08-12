@@ -35,6 +35,7 @@ import java.util.Properties;
  * I made the decision to put all classes related to this example in the same file.
  * It is easier to navigate the project, also you have all the components in the same file,
  * so there is no doubt where the bean definitions are coming from.
+ * Listing 2-9
  */
 public class HelloWorldDecoupldWithFactory {
     public static void main(String... args) {
@@ -47,6 +48,9 @@ public class HelloWorldDecoupldWithFactory {
     }
 }
 
+/**
+ * Listing 2-8
+ */
 class MessageSupportFactory {
 
     private static MessageSupportFactory instance;

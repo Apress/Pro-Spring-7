@@ -69,6 +69,9 @@ class SingerConfiguration {
     }
 }
 
+/**
+ * Listing 3-7
+ */
 class Singer {
     private static final Logger logger = LoggerFactory.getLogger(Singer.class);
 

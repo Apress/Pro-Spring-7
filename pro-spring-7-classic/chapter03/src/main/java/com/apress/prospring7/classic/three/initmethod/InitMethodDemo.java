@@ -35,6 +35,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * @author iuliana.cosmina on 08/04/2025
+ * Listing 3-3
  */
 public class InitMethodDemo {
 
@@ -44,6 +45,9 @@ public class InitMethodDemo {
 }
 
 @Configuration
+/**
+ * Listing 3-2
+ */
 class SingerConfiguration {
 
     @Bean(initMethod = "init")
@@ -69,6 +73,9 @@ class SingerConfiguration {
     }
 }
 
+/**
+ * Listing 3-1
+ */
 class Singer {
     private static final Logger logger = LoggerFactory.getLogger(Singer.class);
 

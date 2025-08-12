@@ -44,6 +44,9 @@ public class HelloSpringAnnotatedDemo {
         mr.render();
     }
 
+    /**
+     * Listing 2-22
+     */
     @Configuration
     @ComponentScan(basePackages = {"com.apress.prospring7.classic.two.annotated"})
     public static class HelloWorldAnnotatedConfiguration { }

@@ -36,6 +36,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * @author iuliana.cosmina on 16/04/2025
+ * Listing 3-20
  */
 public class FactoryBeanDemo {
     private static final Logger LOGGER = LoggerFactory.getLogger(FactoryBeanDemo.class);
@@ -62,6 +63,9 @@ public class FactoryBeanDemo {
 
 @Configuration
 @ComponentScan
+/**
+ * Listing 3-19
+ */
 class MessageDigestConfig {
 
     @Bean

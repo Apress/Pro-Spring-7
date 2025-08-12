@@ -35,8 +35,10 @@ import java.lang.annotation.*;
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
+/**
+ * Listing 2-53
+ */
 public @interface Award {
 
     String[] prize() default {};
 }
-
