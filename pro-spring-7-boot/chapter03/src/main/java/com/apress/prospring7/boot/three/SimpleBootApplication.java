@@ -27,8 +27,8 @@ SOFTWARE.
 */
 package com.apress.prospring7.boot.three;
 
-import com.apress.prospring7.classic.two.decoupled.MessageProvider;
-import com.apress.prospring7.classic.two.decoupled.MessageRenderer;
+import com.apress.prospring7.boot.zero.MessageProvider;
+import com.apress.prospring7.boot.zero.MessageRenderer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

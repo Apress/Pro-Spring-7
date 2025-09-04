@@ -46,6 +46,6 @@ public class Chapter1Application {
         assert (ctx != null);
         logger.info("---- All beans in the application context ----");
         // listing all bean definition names
-        Arrays.stream(ctx.getBeanDefinitionNames()).forEach(logger::info);
+        Arrays.stream(ctx.getBeanDefinitionNames()).forEach(logger::debug);
     }
 }

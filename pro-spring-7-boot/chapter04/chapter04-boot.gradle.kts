@@ -1,13 +1,17 @@
+plugins {
+    alias(libs.plugins.springBoot)
+    alias(libs.plugins.springManagement)
+}
+
 description = "Pro Spring 7: Chapter 4 - AOP (Spring Boot)"
 
 group = "com.apress.prospring7.boot.four"
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-aop")
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    implementation(libs.springBootStarterAop)
+    testImplementation(libs.springBootStarterTest)
 }
 
 springBoot {
-    mainClass = "$group.MainFour"
+    mainClass = "$group.Chapter4Application"
 }

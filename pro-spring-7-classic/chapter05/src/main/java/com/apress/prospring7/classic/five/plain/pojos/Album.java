@@ -25,12 +25,59 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package com.apress.prospring7.boot.five;
+package com.apress.prospring7.classic.five.plain.pojos;
 
-import org.springframework.boot.SpringApplication;
+import java.io.Serializable;
+import java.time.LocalDate;
 
-public class MainFive {
-    public static void main(String... args) {
-        SpringApplication.run(MainFive.class, args);
+/**
+ * @author iulianacosmina on 29/08/2025
+ */
+public class Album implements Serializable {
+    private static final long serialVersionUID = 2L;
+    private Long id;
+    private Long singerId;
+    private String title;
+    private LocalDate releaseDate;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getSingerId() {
+        return singerId;
+    }
+
+    public void setSingerId(Long singerId) {
+        this.singerId = singerId;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public LocalDate getReleaseDate() {
+        return releaseDate;
+    }
+
+    public void setReleaseDate(LocalDate releaseDate) {
+        this.releaseDate = releaseDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Album[id= " + id +
+                ", singerId= " + singerId +
+                ", title= " + title +
+                ", releaseDate= " + releaseDate+
+                "]";
     }
 }

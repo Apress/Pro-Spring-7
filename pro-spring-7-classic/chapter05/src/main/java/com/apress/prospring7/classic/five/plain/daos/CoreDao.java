@@ -25,27 +25,27 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package com.apress.prospring7.boot.four;
+package com.apress.prospring7.classic.five.plain.daos;
 
-//import com.apress.prospring7.boot.four.aspect.NewDocumentarist;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
-import java.io.IOException;
+/**
+ * @author iulianacosmina on 02/09/2025
+ */
+public interface CoreDao {
 
-@SpringBootApplication
-public class MainFour {
-    public static void main(String... args) throws IOException {
-        try(final var ctx = SpringApplication.run(MainFour.class, args)) {
-            assert (ctx != null);
+    default Connection getConnection() throws SQLException {
+        return DriverManager.getConnection(
+                "jdbc:mariadb://localhost:3306/musicdb?useSSL=false",
+                "prospring7", "prospring7");
+    }
 
-
-            // If you want to run this class to test the advice remove comment from the next 2 lines
-           /* var documentarist = ctx.getBean("documentarist", NewDocumentarist.class);
-            documentarist.execute();*/
-
-
-            System.in.read();
+    default void closeConnection(Connection connection) throws SQLException {
+        if (connection == null) {
+            return;
         }
+        connection.close();
     }
 }

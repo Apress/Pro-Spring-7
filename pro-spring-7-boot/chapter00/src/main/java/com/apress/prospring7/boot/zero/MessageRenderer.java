@@ -25,45 +25,14 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package com.apress.prospring7.boot.three;
-
-import com.apress.prospring7.boot.zero.MessageProvider;
-import com.apress.prospring7.boot.zero.MessageRenderer;
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.ApplicationContext;
-
-import static org.junit.jupiter.api.Assertions.*;
+package com.apress.prospring7.boot.zero;
 
 /**
- * @author iuliana.cosmina on 20/04/2025
- * Listing 3-58
+ * @author iuliana.cosmina on 16/02/2025
+ * Listing 2-4
  */
-@SpringBootTest//(classes = {SimpleBootApplication.class})
-public class BeansTest {
-    @Autowired
-    ApplicationContext context;
-
-    @Autowired
-    MessageRenderer messageRenderer;
-
-    @Autowired
-    MessageProvider messageProvider;
-
-    @Test
-    void contextLoaded(){
-        assertNotNull(context);
-    }
-
-    @Test
-    void rendererTest(){
-        assertAll( "messageTest" ,
-                () -> assertNotNull(messageRenderer),
-                () -> assertNotNull(messageProvider),
-                () -> assertEquals(messageProvider, messageRenderer.getMessageProvider())
-        );
-
-        messageRenderer.render();
-    }
+public interface MessageRenderer {
+    void render();
+    void setMessageProvider(MessageProvider provider);
+    MessageProvider getMessageProvider();
 }

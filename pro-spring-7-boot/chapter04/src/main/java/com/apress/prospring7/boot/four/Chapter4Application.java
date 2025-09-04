@@ -27,36 +27,25 @@ SOFTWARE.
 */
 package com.apress.prospring7.boot.four;
 
-import com.apress.prospring7.boot.four.aspect.GrammyGuitarist;
-import com.apress.prospring7.boot.four.aspect.NewDocumentarist;
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+//import com.apress.prospring7.boot.four.aspect.NewDocumentarist;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import java.io.IOException;
 
-/**
- * @author iulianacosmina on 11/08/2025
- */
-@SpringBootTest
-public class MainFourTest {
+@SpringBootApplication
+public class Chapter4Application {
+    public static void main(String... args) throws IOException {
+        try(final var ctx = SpringApplication.run(Chapter4Application.class, args)) {
+            assert (ctx != null);
 
-    @Autowired
-    NewDocumentarist documentarist;
 
-    @Autowired
-    GrammyGuitarist guitarist;
+            // If you want to run this class to test the advice remove comment from the next 2 lines
+           /* var documentarist = ctx.getBean("documentarist", NewDocumentarist.class);
+            documentarist.execute();*/
 
-  @Test
-  void testDocumentarist(){
-   assertAll(
-           () -> assertNotNull(documentarist),
-           () -> assertNotNull(documentarist.getGuitarist()),
-           () -> assertNotNull(guitarist),
-           () -> assertTrue(guitarist.getClass().getName().contains("SpringCGLIB"))
-   );
-   documentarist.execute();
-  }
+
+            System.in.read();
+        }
+    }
 }

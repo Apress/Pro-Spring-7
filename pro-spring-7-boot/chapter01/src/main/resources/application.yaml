@@ -2,7 +2,7 @@
 # Logging config
 logging:
   pattern:
-    console: " %-5level: %class{0} - %msg%n"
+    console: "%highlight(%-5level) %cyan(%logger{15}) - %msg %n"
   level:
     root: INFO
     org.springframework: INFO
