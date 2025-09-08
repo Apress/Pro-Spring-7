@@ -27,12 +27,13 @@ SOFTWARE.
 */
 package com.apress.prospring7.classic.two.nesting;
 
+
 import io.micrometer.common.util.StringUtils;
 
 /**
  * @author iuliana.cosmina on 23/03/2025
  */
-public class TitleProvider {
+class TitleProvider {
     private String title = "Gravity";
 
     public String getTitle() {

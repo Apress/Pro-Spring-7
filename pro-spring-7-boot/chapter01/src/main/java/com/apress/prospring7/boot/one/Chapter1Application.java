@@ -34,10 +34,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.Arrays;
 
-@SpringBootApplication
 /**
  * Listing 2-69
  */
+@SpringBootApplication
 public class Chapter1Application {
     private static final Logger logger = LoggerFactory.getLogger(Chapter1Application.class);
 

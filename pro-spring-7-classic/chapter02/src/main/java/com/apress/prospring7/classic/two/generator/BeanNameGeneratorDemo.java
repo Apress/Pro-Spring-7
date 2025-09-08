@@ -64,7 +64,7 @@ public class BeanNameGeneratorDemo {
 @ComponentScan(nameGenerator = SimpleBeanNameGenerator.class)
 class BeanNamingCfg {
     /*@Bean
-    public SimpleBean anotherSimpleBean(){
+    SimpleBean anotherSimpleBean(){
         return new SimpleBean();
     }*/
 }

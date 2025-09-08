@@ -51,6 +51,10 @@ public class NonSingletonDemo {
         logger.info("Identity Equal?: {}" , (singer1 == singer2));
         logger.info("Value Equal:? {}" , singer1.equals(singer2));
 
+        // or
+        logger.info("Is Singleton: {}" , ctx.isSingleton("nonSingleton"));
+        logger.info("Is Prototype: {}" , ctx.isPrototype("nonSingleton"));
+
         logger.info(singer1.toString());
         logger.info(singer2.toString());
     }

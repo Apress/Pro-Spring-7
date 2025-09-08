@@ -83,7 +83,7 @@ interface MessageProvider {
 
 class HelloCdlMessageProvider implements MessageProvider {
 
-    public HelloCdlMessageProvider(){
+    HelloCdlMessageProvider(){
         out.println(" --> HelloWorldMessageProvider: constructor caled");
     }
 
@@ -100,7 +100,7 @@ class XmlOutMessageRenderer implements MessageRenderer {
 
     private MessageProvider messageProvider;
 
-    public XmlOutMessageRenderer() {
+    XmlOutMessageRenderer() {
         out.println("<ctor>StandardOutMessageRenderer: constructor called</ctor>");
     }
 

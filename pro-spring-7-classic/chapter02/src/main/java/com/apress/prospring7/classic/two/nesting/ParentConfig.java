@@ -35,15 +35,15 @@ import org.springframework.context.annotation.Configuration;
  * Listing 2-36
  */
 @Configuration
-public class ParentConfig {
+class ParentConfig {
 
     @Bean
-    public TitleProvider parentProvider(){
+    TitleProvider parentProvider(){
         return TitleProvider.instance(null);
     }
 
     @Bean
-    public TitleProvider childProvider(){
+    TitleProvider childProvider(){
         return TitleProvider.instance("Daughters");
     }
 }

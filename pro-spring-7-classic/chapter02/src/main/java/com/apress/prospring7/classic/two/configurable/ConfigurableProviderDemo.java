@@ -67,7 +67,7 @@ class HelloWorldConfiguration {
  */
 class ConfigurableMessageProvider implements MessageProvider {
 
-    private String message;
+    private final String message;
 
     public ConfigurableMessageProvider(@Value("Configurable message") String message) {
         out.println("~~ Injecting '" + message+ "' value into constructor ~~");

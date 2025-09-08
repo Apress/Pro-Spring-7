@@ -43,7 +43,7 @@ import static java.lang.System.out;
 /**
  * Listing 2-33
  */
-public class InjectSpELSimpleDemo {
+class InjectSpELSimpleDemo {
     //@Value("#{injectValues.name.toUpperCase()}")
     @Value("#{(injectValues.name ?: 'Unknown').toUpperCase()}")
     private String name;
@@ -74,13 +74,13 @@ public class InjectSpELSimpleDemo {
 
     @Override
     public String toString() {
-        return "InjectSpELSimpleDemo{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                ", height=" + height +
-                ", developer=" + developer +
-                ", ageInSeconds=" + ageInSeconds +
-                ", songs=" + songs +
+        return "InjectSpELSimpleDemo {" +
+                "\n name='" + name + '\'' +
+                "\n age=" + age +
+                "\n height=" + height +
+                "\n developer=" + developer +
+                "\n ageInSeconds=" + ageInSeconds +
+                "\n songs=" + songs +
                 '}';
     }
 

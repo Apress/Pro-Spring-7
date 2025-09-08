@@ -40,7 +40,7 @@ import static java.lang.System.out;
 /**
  * Listing 2-31
  */
-public class InjectSimpleDemo {
+class InjectSimpleDemo {
 
     @Value("John Mayer")
     private String name;
@@ -61,7 +61,6 @@ public class InjectSimpleDemo {
         InjectSimpleDemo simple = (InjectSimpleDemo) ctx.getBean("injectSimple");
         out.println(simple);
     }
-
 
     public String toString() {
         return "Name: " + name + "\n"

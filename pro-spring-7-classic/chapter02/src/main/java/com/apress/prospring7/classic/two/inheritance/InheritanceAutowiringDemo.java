@@ -87,17 +87,19 @@ class Bar { }
  */
 class AutowiringCfg {
 
-    @Bean //@Primary
-    public Foo fooImplOne() { return new FooImplOne(); }
+    @Bean
+    // @Primary // use this to prioritize this bean for injection
+    // @Fallback // use this to prioritize this fooImplTwo for injection
+    Foo fooImplOne() { return new FooImplOne(); }
 
     @Bean
-    public Foo fooImplTwo() { return new FooImplTwo(); }
+    Foo fooImplTwo() { return new FooImplTwo(); }
 
     @Bean
-    public Bar bar() { return new Bar(); }
+    Bar bar() { return new Bar(); }
 
     @Bean
-    public TrickyTarget trickyTarget() { return new TrickyTarget(); }
+    TrickyTarget trickyTarget() { return new TrickyTarget(); }
 }
 
 /**

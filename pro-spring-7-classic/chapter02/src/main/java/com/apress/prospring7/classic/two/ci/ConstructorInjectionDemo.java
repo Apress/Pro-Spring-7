@@ -79,7 +79,7 @@ class StandardOutMessageRenderer implements MessageRenderer {
     private MessageProvider messageProvider;
 
     @Autowired
-    public StandardOutMessageRenderer(MessageProvider messageProvider) {
+    StandardOutMessageRenderer(MessageProvider messageProvider) {
         out.println(" ~~ Injecting dependency using constructor ~~");
         this.messageProvider = messageProvider;
     }

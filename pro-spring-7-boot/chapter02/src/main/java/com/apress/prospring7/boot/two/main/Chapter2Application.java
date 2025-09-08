@@ -69,7 +69,7 @@ class ConfigurableMessageProvider implements MessageProvider {
 
     private String message;
 
-    public ConfigurableMessageProvider(@Value("Hello Spring Boot!") String message) {
+    ConfigurableMessageProvider(@Value("Hello Spring Boot!") String message) {
         this.message = message;
     }
 

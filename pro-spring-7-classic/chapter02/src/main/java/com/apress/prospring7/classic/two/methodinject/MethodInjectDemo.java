@@ -84,10 +84,10 @@ interface LockOpener {
     void openLock();
 }
 
-@Component("standardLockOpener")
 /**
  * Listing 2-43
  */
+@Component("standardLockOpener")
 class StandardLockOpener implements LockOpener {
 
     private KeyHelper keyHelper;
@@ -109,10 +109,10 @@ class StandardLockOpener implements LockOpener {
     }
 }
 
-@Component("capableLockOpener")
 /**
  * Listing 2-44
  */
+@Component("capableLockOpener")
 abstract class CapableLockOpener implements LockOpener {
 
     @Lookup("keyHelper")
@@ -125,11 +125,11 @@ abstract class CapableLockOpener implements LockOpener {
     }
 }
 
-@Component("keyHelper")
-@Scope("prototype")
 /**
  * Listing 2-41
  */
+@Component("keyHelper")
+@Scope("prototype")
 class KeyHelper {
     public void open(){
     }

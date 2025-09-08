@@ -79,7 +79,7 @@ class ConfigurableMessageProvider implements MessageProvider, CommandLineRunner 
 
     private String message;
 
-    public ConfigurableMessageProvider(@Value("Configurable message") String message) {
+    ConfigurableMessageProvider(@Value("Configurable message") String message) {
         this.message = message;
     }
 

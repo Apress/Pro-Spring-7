@@ -58,7 +58,7 @@ public class BeanNamingDemo {
 
         logger.info(" ---- All beans of type: {}  --- ", SimpleBean.class.getSimpleName());
         var simpleBeans = ctx.getBeansOfType(SimpleBean.class);
-        simpleBeans.forEach((key, value) -> System.out.println(key));
+        simpleBeans.forEach((key, _) -> System.out.println(key));
 
         logger.info(" ---- Listing aliases for beans of type: {}  --- ", SimpleBean.class.getSimpleName());
         simpleBeans.forEach((k, _) -> {

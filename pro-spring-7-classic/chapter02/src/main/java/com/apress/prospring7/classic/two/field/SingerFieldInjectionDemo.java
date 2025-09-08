@@ -67,7 +67,7 @@ class Singer {
 class Inspiration {
     private String lyric = "I can keep the door cracked open, to let light through";
 
-    public Inspiration(
+    Inspiration(
             @Value("For all my running, I can understand") String lyric) {
         this.lyric = lyric;
     }

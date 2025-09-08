@@ -30,7 +30,10 @@ package com.apress.prospring7.classic.two.autowiring;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.*;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 import java.util.UUID;
@@ -43,7 +46,7 @@ public class AutowiringDemo {
     private static final Logger logger = LoggerFactory.getLogger(AutowiringDemo.class);
 
     public static void main(String... args) {
-        var ctx = new AnnotationConfigApplicationContext(AutowiringCfg.class);
+        final var ctx = new AnnotationConfigApplicationContext(AutowiringCfg.class);
 
         logger.info(" ---- Autowiring: constructor  --- ");
         var target = ctx.getBean(Target.class);
@@ -99,12 +102,11 @@ class Foo {
 @Component
 class Bar {}
 
-
 @Component
 @Lazy
 class Target {
+    private static final Logger logger = LoggerFactory.getLogger(Target.class);
 
-    private static Logger logger = LoggerFactory.getLogger(Target.class);
     Foo fooOne;
     Foo fooTwo;
     Bar bar;
@@ -125,14 +127,14 @@ class Target {
     }
 }
 
-@Component
-@Lazy
 /**
  * Listing 2-60, Listing 2-62,  Listing 2-63, Listing 2-64
  */
+@Component
+@Lazy
 class AnotherTarget {
 
-    private static Logger logger = LoggerFactory.getLogger(AnotherTarget.class);
+    private static final Logger logger = LoggerFactory.getLogger(AnotherTarget.class);
     Foo fooOne;
     Foo fooTwo;
     Bar bar;

@@ -38,18 +38,20 @@ import static java.lang.System.out;
  * Listing 2-27
  */
 @Component
-public class ConstructorConfusion {
-    private String someValue;
-    public ConstructorConfusion(String someValue) {
+class ConstructorConfusion {
+    private final String someValue;
+    ConstructorConfusion(String someValue) {
         System.out.println("ConstructorConfusion(String) called");
         this.someValue = someValue;
     }
 
     @Autowired // this is what makes this work
-    public ConstructorConfusion(@Value("90") int someValue) {
+    ConstructorConfusion(@Value("90") int someValue) {
         System.out.println("ConstructorConfusion(int) called");
         this.someValue = "Number: " + someValue;
     }
+
+    @Override
     public String toString() {
         return someValue;
     }

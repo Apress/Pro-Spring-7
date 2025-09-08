@@ -90,7 +90,7 @@ class CollectingBean {
     @Autowired
     Properties props;
 
-    public void printCollections(){
+    void printCollections(){
         out.println("-- list injected using @Autowired -- ");
         songList.forEach(s -> out.println(s.getTitle()));
 
@@ -121,7 +121,7 @@ class CollectingBean {
 class CollectionConfig {
 
     @Bean
-    public List<Song> list(){
+    List<Song> list(){
         return List.of(
                 new Song("Not the end"),
                 new Song("Rise Up")
@@ -129,7 +129,7 @@ class CollectionConfig {
     }
 
     @Bean
-    public Set<Song> set() {
+    Set<Song> set() {
         return Set.of(
                 new Song("Ordinary Day"),
                 new Song("Birds Fly")
@@ -137,7 +137,7 @@ class CollectionConfig {
     }
 
     @Bean
-    public Map<String, Song> map () {
+    Map<String, Song> map () {
         return Map.of(
                 "John Mayer", new Song("Gravity"),
                 "Ben Barnes", new Song("11:11")
@@ -152,12 +152,12 @@ class CollectionConfig {
     }
 
     @Bean
-    public Song song1(){
+    Song song1(){
         return new Song("Here's to hoping");
     }
 
     @Bean
-    public Song song2(){
+    Song song2(){
         return new Song("Wishing the best for you");
     }
 

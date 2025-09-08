@@ -38,27 +38,27 @@ import org.springframework.context.annotation.Configuration;
  * Listing 2-37
  */
 @Configuration
-public class ChildConfig implements ApplicationContextAware {
+class ChildConfig implements ApplicationContextAware {
 
     public ApplicationContext applicationContext;
 
     @Bean // overrides {@code childProvider} bean from parent context
-    public TitleProvider childProvider(){
+    TitleProvider childProvider(){
         return TitleProvider.instance("No Such Thing");
     }
 
     @Bean
-    public Song song1(@Value("#{parentProvider.title}") String title){
+    Song song1(@Value("#{parentProvider.title}") String title){
         return new Song(title);
     }
 
     @Bean
-    public Song song2(@Value("#{childConfig.applicationContext.parent.getBean(\"childProvider\").title}") String title){
+    Song song2(@Value("#{childConfig.applicationContext.parent.getBean(\"childProvider\").title}") String title){
         return new Song(title);
     }
 
     @Bean
-    public Song song3(@Value("#{childProvider.title}") String title){
+    Song song3(@Value("#{childProvider.title}") String title){
         return new Song(title);
     }
 
