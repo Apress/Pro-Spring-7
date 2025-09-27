@@ -56,7 +56,7 @@ class TestConfig{
 
 @ActiveProfiles("test")
 @SpringJUnitConfig(classes = {AllConfig.class, TestConfig.class})
-public class MessageRenderFourIT {
+ class MessageRenderFourIT {
 
     @Autowired
     MessageRenderer messageRenderer;

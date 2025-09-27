@@ -86,7 +86,7 @@ class NamedSinger implements BeanNameAware {
     private static final Logger logger = LoggerFactory.getLogger(NamedSinger.class);
     private String name;
 
-    @Override // @Implements {@link BeanNameAware#setBeanName(String)} /
+    @Override
     public void setBeanName(String beanName) {
         this.name = beanName;
     }
@@ -102,7 +102,7 @@ class NamedSinger implements BeanNameAware {
 class ShutdownHookBean implements ApplicationContextAware {
     private ApplicationContext ctx;
 
-    // @Implements {@link ApplicationContextAware#setApplicationContext(ApplicationContext)} }
+    @Override
     public void setApplicationContext(ApplicationContext ctx) {
         if (ctx instanceof GenericApplicationContext) {
             ((GenericApplicationContext) ctx).registerShutdownHook();

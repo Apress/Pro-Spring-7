@@ -40,7 +40,7 @@ import static org.mockito.Mockito.times;
  * @author iuliana.cosmina on 19/04/2025
  * Listing 3-47
  */
-public class MessageRenderTest {
+ class MessageRenderTest {
 
     @Test
     void testStandardOutMessageRenderer(){

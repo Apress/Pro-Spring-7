@@ -62,7 +62,7 @@ class TheOtherConfig {
     MessageProvider provider;
 
     @Bean(name = "messageRenderer")
-    public MessageRenderer messageRenderer() {
+    MessageRenderer messageRenderer() {
         MessageRenderer renderer = new StandardOutMessageRenderer();
         renderer.setMessageProvider(provider);
         return renderer;
@@ -74,7 +74,7 @@ class ConfigurableMessageProvider implements MessageProvider {
 
     private final String message;
 
-    public ConfigurableMessageProvider(@Value("Love on the weekend") String message) {
+    ConfigurableMessageProvider(@Value("Love on the weekend") String message) {
         this.message = message;
     }
 

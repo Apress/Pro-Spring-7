@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    # use this with @Sql config on class Chapter6ApplicationV2Test
+    #url: "jdbc:tc:mariadb:latest:///"
+    url: "jdbc:tc:mariadb:latest:///?TC_INITSCRIPT=testcontainers/create-schema.sql"
+
+
+# Logging config
+logging:
+  pattern:
+    console: "%-5level: %class{0} %red(%logger{15}) - %msg %n"
+  level:
+    root: INFO
+    # org.springframework.boot: DEBUG
+    com.apress.prospring7.boot.five: DEBUG
+    # org.testcontainers: DEBUG

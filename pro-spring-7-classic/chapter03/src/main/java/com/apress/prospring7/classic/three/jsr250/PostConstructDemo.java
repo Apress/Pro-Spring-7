@@ -94,7 +94,7 @@ class Singer {
     }
 
     @PostConstruct
-    private void postConstruct() throws Exception {
+    private void postConstruct() {
         logger.info("Initializing bean using 'postConstruct()'");
         if (name == null) {
             logger.info("Using default name");

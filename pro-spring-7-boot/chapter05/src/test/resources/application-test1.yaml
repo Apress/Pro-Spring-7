@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: "jdbc:h2:mem:mydb"
+    username: "sa"
+  sql:
+    init:
+      schema-locations: h2/create-schema.sql
+      data-locations: h2/test-data.sql
+
+# Logging config
+logging:
+  pattern:
+    console: "%-5level: %class{0} %cyan(%logger{15}) - %msg %n"
+  level:
+    root: INFO
+    # org.springframework.boot: DEBUG
+    com.apress.prospring6.six: DEBUG

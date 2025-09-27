@@ -65,7 +65,7 @@ class ValuesHolder {
     List<String> stringList;
     InputStream inputStream;
 
-    public ValuesHolder() {
+    ValuesHolder() {
         this.stringList = List.of("Mayer", "Psihoza", "Mazikeen");
         try {
             this.inputStream = new FileInputStream(
@@ -160,7 +160,7 @@ class DiverseValuesContainer {
         this.stringList = stringList;
     }
 
-    @Value("20/08/1981")
+    @Value("01/01/1970")
     public void setDate(Date date) {
         logger.info("Setting date: {}" , date);
         this.date = date;

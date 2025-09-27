@@ -47,10 +47,10 @@ public class PlainSingerDao implements SingerDao {
 
     @Override
     public Set<Singer> findAll() {
-        Set<Singer> result = new HashSet<>();
-        try (var connection = getConnection();
-             var statement = connection.prepareStatement(ALL_SELECT);
-             var resultSet = statement.executeQuery()) {
+        final Set<Singer> result = new HashSet<>();
+        try (final var connection = getConnection();
+             final var statement = connection.prepareStatement(ALL_SELECT);
+             final var resultSet = statement.executeQuery()) {
             while (resultSet.next()) {
                 var singer = new Singer();
                 singer.setId(resultSet.getLong("id"));
@@ -87,8 +87,8 @@ public class PlainSingerDao implements SingerDao {
 
     @Override
     public Singer insert(Singer singer) {
-        try ( var connection = getConnection()){
-            var statement = connection.prepareStatement(SIMPLE_INSERT, Statement.RETURN_GENERATED_KEYS);
+        try (final var connection = getConnection()){
+            final var statement = connection.prepareStatement(SIMPLE_INSERT, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, singer.getFirstName());
             statement.setString(2, singer.getLastName());
             statement.setDate(3, java.sql.Date.valueOf(singer.getBirthDate()));
@@ -111,8 +111,8 @@ public class PlainSingerDao implements SingerDao {
 
     @Override
     public void delete(Long singerId) {
-        try (var connection = getConnection();
-             var statement = connection.prepareStatement(SIMPLE_DELETE)) {
+        try (final var connection = getConnection();
+            final var statement = connection.prepareStatement(SIMPLE_DELETE)) {
             statement.setLong(1, singerId);
             statement.execute();
         } catch (SQLException ex) {

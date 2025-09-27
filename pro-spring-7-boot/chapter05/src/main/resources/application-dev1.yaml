@@ -1,0 +1,7 @@
+app:
+  datasource:
+    url: jdbc:mariadb://localhost:3306/musicdb?useSSL=false
+    username: prospring7
+    password: prospring7
+    configuration:
+      maximum-pool-size: 30

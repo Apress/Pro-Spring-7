@@ -52,7 +52,7 @@ class FileManager {
     private static final Logger logger = LoggerFactory.getLogger(FileManager.class);
     private Path file;
 
-    public FileManager() {
+    FileManager() {
         logger.info("Creating bean of type {}", FileManager.class);
         try {
             file = Files.createFile(Path.of("sample"));

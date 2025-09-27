@@ -57,14 +57,14 @@ class PropertySourcesCfg {
 
     @Bean
     @Lazy
-    public MessageProvider messageProvider() {
+    MessageProvider messageProvider() {
         return new ConfigurableMessageProvider(env.getProperty("message"));
     }
 
     @Bean(name = "messageRenderer")
     @Scope(value="prototype")
     @DependsOn(value="messageProvider")
-    public MessageRenderer messageRenderer() {
+    MessageRenderer messageRenderer() {
         MessageRenderer renderer = new StandardOutMessageRenderer();
         renderer.setMessageProvider(messageProvider());
         return renderer;
@@ -76,7 +76,7 @@ class ConfigurableMessageProvider implements MessageProvider {
 
     private String message;
 
-    public ConfigurableMessageProvider(@Value("Configurable message") String message) {
+    ConfigurableMessageProvider(@Value("Configurable message") String message) {
         this.message = message;
     }
 

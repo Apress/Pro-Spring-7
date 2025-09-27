@@ -54,7 +54,7 @@ class FileManager {
     private static final Logger LOGGER = LoggerFactory.getLogger(FileManager.class);
     private Path file;
 
-    public FileManager() {
+    FileManager() {
         LOGGER.info("Creating bean of type {}", FileManager.class);
         try {
             file = Files.createFile(Path.of("sample"));

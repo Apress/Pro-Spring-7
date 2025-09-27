@@ -44,7 +44,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
  * @author iuliana.cosmina on 20/04/2025
  * Listing 3-49
  */
-public class MessageRenderTwoIT {
+ class MessageRenderTwoIT {
 
     public static ConfigurableApplicationContext ctx;
 

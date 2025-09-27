@@ -1,0 +1,8 @@
+# Logging config
+logging:
+  pattern:
+    console: "%highlight(%-5level) %cyan(%logger{15}) - %msg %n"
+  level:
+    root: INFO
+    # org.springframework: INFO
+    com.apress.prospring7.boot.five: DEBUG

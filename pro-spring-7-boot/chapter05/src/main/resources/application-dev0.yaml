@@ -1,0 +1,7 @@
+app:
+  datasource0:
+    driverClassName: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/musicdb?useSSL=false
+    username: prospring7
+    password: prospring7
+    poolSize: 30

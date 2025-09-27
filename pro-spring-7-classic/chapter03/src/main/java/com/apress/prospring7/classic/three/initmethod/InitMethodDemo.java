@@ -83,7 +83,7 @@ class Singer {
     private String name;
     private int age = Integer.MIN_VALUE;
 
-    public Singer() {
+    Singer() {
         logger.info("Invoking constructor for bean of type {}.", Singer.class);
     }
 

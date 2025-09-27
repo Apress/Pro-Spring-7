@@ -82,7 +82,7 @@ class Singer implements InitializingBean {
     private String name;
     private int age = Integer.MIN_VALUE;
 
-    public Singer() {
+    Singer() {
         logger.info("Invoking constructor for bean of type {}.", Singer.class);
     }
 
@@ -98,7 +98,7 @@ class Singer implements InitializingBean {
     }
 
     @Override
-    public void afterPropertiesSet() throws Exception {
+    public void afterPropertiesSet() {
         logger.info("Initializing bean using 'afterPropertiesSet()'");
         if (name == null) {
             logger.info("Using default name");

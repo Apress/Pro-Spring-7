@@ -44,7 +44,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 //@ExtendWith(SpringExtension.class)
 //@ContextConfiguration(classes = {RendererConfig.class, ProviderConfig.class})
 @SpringJUnitConfig(classes = {RendererConfig.class, ProviderConfig.class})
-public class MessageRenderThreeIT {
+ class MessageRenderThreeIT {
     @Autowired
     MessageRenderer messageRenderer;
 

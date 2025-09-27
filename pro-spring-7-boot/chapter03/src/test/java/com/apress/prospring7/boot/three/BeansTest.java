@@ -41,7 +41,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * Listing 3-58
  */
 @SpringBootTest//(classes = {SimpleBootApplication.class})
-public class BeansTest {
+ class BeansTest {
     @Autowired
     ApplicationContext context;
 

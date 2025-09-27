@@ -36,23 +36,18 @@ import java.util.Set;
  * @author iulianacosmina on 02/09/2025
  */
 public interface SingerDao extends CoreDao {
-    Set<Singer> findAll();
-
-    Set<Singer> findByFirstName(String firstName);
-
-    String findNameById(Long id);
-
-    String findLastNameById(Long id);
-
-    String findFirstNameById(Long id);
-
+    // Create
     Singer insert(Singer singer);
-
-    void update(Singer singer);
-
-    void delete(Long singerId);
-
-    Set<Singer> findAllWithAlbums();
-
     void insertWithAlbum(Singer singer);
+    // Read
+    Set<Singer> findAll();
+    Set<Singer> findByFirstName(String firstName);
+    String findNameById(Long id);
+    String findLastNameById(Long id);
+    String findFirstNameById(Long id);
+    Set<Singer> findAllWithAlbums();
+    // Update
+    void update(Singer singer);
+    //Delete
+    void delete(Long singerId);
 }

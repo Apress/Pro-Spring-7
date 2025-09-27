@@ -1,4 +1,5 @@
 @file:Suppress("UnstableApiUsage")
+
 pluginManagement {
     repositories {
         mavenLocal()
@@ -28,6 +29,8 @@ include(":chapter03")
 findProject(":chapter03")?.name = "chapter03-boot"
 include(":chapter04")
 findProject(":chapter04")?.name = "chapter04-boot"
+include(":chapter05")
+findProject(":chapter05")?.name = "chapter05-boot"
 
 dependencyResolutionManagement {
     repositories {
@@ -43,20 +46,21 @@ dependencyResolutionManagement {
 
 class ProjectValidationException(message: String) : Exception(message)
 
-println("""
+println(
+    """
             >> This project is a collection of simple code samples.
             >> It is meant to be used together with the "Pro Spring 7" book published by Apress in order to learn and practice Spring.
-        """.trimIndent())
-
+        """.trimIndent()
+)
 
 
 //we validate the project structure
 rootProject.children.forEach {
     validateProject(it)
-    it.children.forEach { child -> validateProject(child)}
+    it.children.forEach { child -> validateProject(child) }
 }
 
-fun validateProject(projectDescriptor: ProjectDescriptor){
+fun validateProject(projectDescriptor: ProjectDescriptor) {
     val projectName = projectDescriptor.name
     projectDescriptor.buildFileName = "${projectName}.gradle.kts"
     if (!projectDescriptor.projectDir.isDirectory) {

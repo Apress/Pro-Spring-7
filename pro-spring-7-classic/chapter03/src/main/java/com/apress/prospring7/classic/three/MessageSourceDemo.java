@@ -60,7 +60,7 @@ public class MessageSourceDemo {
 class MessageSourceConfig {
 
     @Bean
-    public MessageSource messageSource(){
+    MessageSource messageSource(){
         var messageSource = new ResourceBundleMessageSource();
         messageSource.setBasenames("labels");
         return messageSource;

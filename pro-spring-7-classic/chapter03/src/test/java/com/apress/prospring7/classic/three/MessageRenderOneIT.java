@@ -40,7 +40,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author iuliana.cosmina on 20/04/2025
  * Listing 3-48
  */
-public class MessageRenderOneIT {
+ class MessageRenderOneIT {
 
     @Test
     void testConfig(){

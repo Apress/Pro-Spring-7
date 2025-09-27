@@ -41,7 +41,7 @@ public class GroovyBeansFromJavaDemo {
     public static void main(String... args) {
         try(var context =
                 new GenericGroovyApplicationContext("classpath:spring/beans.groovy")) {
-            var singer = context.getBean("singer", Singer.class);
+                var singer = context.getBean("singer", Singer.class);
 
             logger.info("Singer bean: {}", singer);
         }

@@ -35,6 +35,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
 /**
  * @author iuliana.cosmina on 13/04/2025
  * Listing 3-8
@@ -67,7 +68,7 @@ class MultiInit implements InitializingBean {
     private static final Logger logger = LoggerFactory.getLogger(MultiInit.class);
     private Dependency dependency;
 
-    public MultiInit() {
+    MultiInit() {
         logger.info("1. Calling constructor for bean of type {}.", MultiInit.class);
     }
 
@@ -82,16 +83,16 @@ class MultiInit implements InitializingBean {
     }
 
     @PostConstruct
-    private void postConstruct() throws Exception {
+    private void postConstruct() {
         logger.info("3. Calling postConstruct() for bean of type {}.", MultiInit.class);
     }
 
     @Override
-    public void afterPropertiesSet() throws Exception {
+    public void afterPropertiesSet() {
         logger.info("4. Calling afterPropertiesSet() for bean of type {}.", MultiInit.class);
     }
 
-    private void initMe() throws Exception {
+    private void initMe() {
         logger.info("5. Calling initMethod() for bean of type {}.", MultiInit.class);
     }
 }

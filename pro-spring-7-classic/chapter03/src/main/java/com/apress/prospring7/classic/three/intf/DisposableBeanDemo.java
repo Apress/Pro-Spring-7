@@ -54,7 +54,7 @@ class FileManager implements DisposableBean {
     private static final Logger LOGGER = LoggerFactory.getLogger(FileManager.class);
     private Path file;
 
-    public FileManager() {
+    FileManager() {
         LOGGER.info("Creating bean of type {}", FileManager.class);
         try {
             file = Files.createFile(Path.of("sample"));
@@ -64,7 +64,7 @@ class FileManager implements DisposableBean {
     }
 
     @Override
-    public void destroy() throws Exception {
+    public void destroy() throws IOException {
         LOGGER.info("Calling destroy() on bean of type {}", FileManager.class);
         if (file != null) {
             Files.deleteIfExists(file);
