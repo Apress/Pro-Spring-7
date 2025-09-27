@@ -1,0 +1,23 @@
+[versions]
+springBoot        = "4.0.0-M2"
+springManagement     = "2.0.0-SNAPSHOT"
+mariaDB     = "3.5.5"
+c3p0        = "0.11.2"
+h2          = "2.3.232"
+testcontainers = "1.21.3"
+
+[plugins]
+springManagement = { id = "io.spring.dependency-management", version.ref = "springManagement"}
+springBoot = { id = "org.springframework.boot", version.ref = "springBoot"}
+
+[libraries]
+springBootStarter = { module = "org.springframework.boot:spring-boot-starter"}
+springBootStarterAop = { module = "org.springframework.boot:spring-boot-starter-aop"}
+springBootStarterJdbc = { module = "org.springframework.boot:spring-boot-starter-jdbc"}
+springBootStarterWeb = { module = "org.springframework.boot:spring-boot-starter-web"}
+springBootStarterTest = { module = "org.springframework.boot:spring-boot-starter-test"}
+mariaDB = { module = "org.mariadb.jdbc:mariadb-java-client", version.ref = "mariaDB" }
+h2 = { module = "com.h2database:h2", version.ref = "h2"}
+c3p0 = { module = "com.mchange:c3p0", version.ref = "c3p0"}
+tcMariaDB = { module = "org.testcontainers:mariadb", version.ref = "testcontainers"}
+tcJJ = { module = "org.testcontainers:junit-jupiter", version.ref = "testcontainers"}
