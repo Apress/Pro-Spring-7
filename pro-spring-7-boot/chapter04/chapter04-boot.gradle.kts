@@ -8,7 +8,7 @@ description = "Pro Spring 7: Chapter 4 - AOP (Spring Boot)"
 group = "com.apress.prospring7.boot.four"
 
 dependencies {
-    implementation(libs.springBootStarterAop)
+    implementation(libs.springBootStarterAspectJ)
     testImplementation(libs.springBootStarterTest)
 }
 

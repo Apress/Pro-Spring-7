@@ -71,9 +71,9 @@ public class StoredFunctionV2Test {
     }
 
     @Test
-    @Sql({ "classpath:testcontainers/original-stored-function.sql" }) // this does not work!
+    //@Sql({ "classpath:testcontainers/original-stored-function.sql" }) // this does not work!
     // Testcontainers simply can't support all SQL dialects to 100%.
-    //@Sql({ "classpath:testcontainers/stored-function.sql" }) // different SQL syntax
+    @Sql({ "classpath:testcontainers/stored-function.sql" }) // different SQL syntax
     void testStoredFunction(){
         var firstName = singerRepo.findFirstNameById(2L).orElse(null);
         assertEquals("Ben", firstName);

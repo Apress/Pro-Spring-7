@@ -1,20 +1,22 @@
 [versions]
 spring        = "7.0.0-M9"
-springManagement     = "2.0.0-SNAPSHOT"
-groovy     = "5.0.0"
-jUnit     = "6.0.0-M2"
-mockito     = "5.19.0"
-logback     = "1.5.18"
-jakartaAnnotationApi     = "3.0.0"
-jakartaInjectApi     = "2.0.1"
-aspectj     = "1.9.24"
-mariaDB     = "3.5.5"
+groovy        = "5.0.0"
+jUnit        = "6.0.0"
+mockito        = "5.19.0"
+logback        = "1.5.18"
+jakartaAnnotationApi        = "3.0.0"
+jakartaInjectApi        = "2.0.1"
+aspectj        = "1.9.24"
+mariaDB        = "3.5.5"
 c3p0        = "0.11.2"
-h2          = "2.3.232"
-testcontainers = "1.21.3"
+hikari        = "7.0.2"
+h2         = "2.3.232"
+testcontainers        = "1.21.3"
+hibernate        = "7.1.1.Final"
+jooq        = "3.20.8"
 
 [plugins]
-springManagement = { id = "io.spring.dependency-management", version.ref = "springManagement"}
+jooqPlugin = { id = "org.jooq.jooq-codegen-gradle", version.ref = "jooq"}
 
 [libraries]
 aspectjweaver = { module = "org.aspectj:aspectjweaver", version.ref = "aspectj"}
@@ -28,9 +30,13 @@ junitJupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "jUni
 junitJupiterPlatform = { module = "org.junit.platform:junit-platform-launcher", version.ref = "jUnit" }
 springContext = { module = "org.springframework:spring-context", version.ref = "spring" }
 springJdbc = { module = "org.springframework:spring-jdbc", version.ref = "spring" }
+springOrm = { module = "org.springframework:spring-orm", version.ref = "spring" }
 springTest = { module = "org.springframework:spring-test", version.ref = "spring" }
 mariaDB = { module = "org.mariadb.jdbc:mariadb-java-client", version.ref = "mariaDB" }
+hibernateCore = { module = "org.hibernate.orm:hibernate-core", version.ref = "hibernate" }
 c3p0 = { module = "com.mchange:c3p0", version.ref = "c3p0"}
+hikariCP = { module = "com.zaxxer:HikariCP", version.ref = "hikari"}
 h2 = { module = "com.h2database:h2", version.ref = "h2"}
 tcMariaDB = { module = "org.testcontainers:mariadb", version.ref = "testcontainers"}
 tcJJ = { module = "org.testcontainers:junit-jupiter", version.ref = "testcontainers"}
+jooqCodeGen = { module = "org.jooq:jooq-codegen", version.ref = "jooq"}

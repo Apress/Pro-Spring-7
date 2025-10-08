@@ -1,3 +1,6 @@
+plugins {
+    id("java-library")
+}
 description = "Pro Spring 7: Chapter 3 - Advanced Spring Configuration and Spring Boot"
 
 group = "com.apress.prospring7.classic.four"

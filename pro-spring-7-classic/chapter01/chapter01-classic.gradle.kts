@@ -1,6 +1,5 @@
 plugins {
     id("java-library")
-    alias(libs.plugins.springManagement)
 }
 
 description = "Pro Spring 7: Chapter 1 - The Basics (of Spring Classic)"

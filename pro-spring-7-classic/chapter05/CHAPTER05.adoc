@@ -6,14 +6,14 @@ Change directory to `chapter05/podman-build` and run the following command to cr
 
 [source]
 ----
-podman build -t prospring7-mariadb:1.0 .
+podman build -t prospring7-mariadb:5.0 .
 ----
 
 Run the following to start the container:
 
 [source]
 ----
-podman run --name local-mariadb -d -p 3306:3306 prospring7-mariadb:1.0
+podman run --name local-mariadb -d -p 3306:3306 prospring7-mariadb:5.0
 ----
 
-Use the IntelliJ IDEA to create a connection to localhost with the credentials in the `Containerfile` and feel free to query the tables as you write your Spring code.
+Use IntelliJ IDEA to create a connection to localhost with the credentials in the `Containerfile` and feel free to query the tables as you write your Spring code.

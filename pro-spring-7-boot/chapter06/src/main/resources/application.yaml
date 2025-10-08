@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    driverClassName: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/musicdb?useSSL=false
+    username: prospring7
+    password: prospring7
+
+# Logging config
+logging:
+  pattern:
+    console: "%highlight(%-5level) %cyan(%logger{15}) - %msg %n"
+  level:
+    root: INFO
+    org.springframework.boot: INFO
+    com.apress.prospring6.seven: INFO
+    org.jooq: INFO
