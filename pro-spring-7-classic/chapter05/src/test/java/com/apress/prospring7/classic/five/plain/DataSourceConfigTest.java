@@ -30,6 +30,7 @@ package com.apress.prospring7.classic.five.plain;
 import com.apress.prospring7.classic.five.config.C3p0DataSourceCfg;
 import com.apress.prospring7.classic.five.config.EmbeddedJdbcConfig;
 import com.apress.prospring7.classic.five.config.SimpleDataSourceCfg;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -46,7 +47,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 public class DataSourceConfigTest {
     private static final Logger LOGGER = LoggerFactory.getLogger(DataSourceConfigTest.class);
 
-    // @Disabled("needs MariaDB running, set up container, comment this to run")
+    @Disabled("needs MariaDB running, set up container, comment this to run")
     @Test
     void testSimpleDataSource() {
         try(final var ctx = new AnnotationConfigApplicationContext(SimpleDataSourceCfg.class)) {
@@ -56,7 +57,7 @@ public class DataSourceConfigTest {
         }
     }
 
-    // @Disabled("needs MariaDB running, set up container, comment this to run")
+    @Disabled("needs MariaDB running, set up container, comment this to run")
     @Test
     void testC3p0DataSource() {
         try(final var ctx = new AnnotationConfigApplicationContext(C3p0DataSourceCfg.class)) {
@@ -75,7 +76,7 @@ public class DataSourceConfigTest {
         }
     }
 
-    // @Disabled("needs MariaDB running, set up container, comment this to run")
+    @Disabled("needs MariaDB running, set up container, comment this to run")
     @Test
     public void testSpringJdbc() {
         try(final var ctx = new AnnotationConfigApplicationContext(SpringDatasourceCfg.class)) {

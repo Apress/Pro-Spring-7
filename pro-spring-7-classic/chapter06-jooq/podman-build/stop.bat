@@ -1,4 +1,4 @@
 @echo off
 cls
 echo "... stop container image ..."
-podman rm -f local-mariadb
+podman rm -f chapter06-1-mariadb

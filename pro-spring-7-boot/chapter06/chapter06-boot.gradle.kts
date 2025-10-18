@@ -108,6 +108,7 @@ tasks.withType<JavaCompile> {
 tasks.withType<Jar> {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     dependsOn("jooqCodegen")
+    archiveFileName.set("chapter06-jooq-boot.jar")
 }
 
 tasks.withType<Test> {

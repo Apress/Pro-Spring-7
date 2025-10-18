@@ -1,4 +1,3 @@
-import java.nio.file.Paths
 
 plugins {
     id("java-library")
@@ -78,9 +77,6 @@ tasks.register<Exec>("buildAndStartJOOQImage") {
         workingDir("podman-build")
         commandLine("cmd", "/c", "start.bat")
     }
-    // or these two if they work on your system
-    // commandLine("podman", "build", "-t", "prospring7-mariadb:6.2", ".")
-    // commandLine("podman", "run", "--name", "local-mariadb", "-d", "-p", "3306:3306", "prospring7-mariadb:6.2")
 }
 
 tasks.register("waitForJOOQContainer") {
@@ -102,8 +98,6 @@ tasks.register<Exec>("stopJOOQContainer") {
         workingDir("podman-build")
         commandLine("cmd", "/c", "stop.bat")
     }
-    // or this if it works on your system
-    //commandLine("podman", "rm", "-f", "local-mariadb")
 }
 
 
@@ -116,6 +110,7 @@ tasks.withType<JavaCompile> {
 tasks.withType<Jar> {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     dependsOn("jooqCodegen")
+    archiveFileName.set("chapter06-jooq-classic.jar")
 }
 
 tasks.withType<Test> {

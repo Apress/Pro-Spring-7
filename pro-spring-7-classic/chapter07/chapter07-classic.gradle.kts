@@ -1,9 +1,9 @@
 plugins {
     id("java-library")
 }
-description = "Pro Spring 7: Chapter 6 - Hibernate and Spring Integration"
+description = "Pro Spring 7: Chapter 7 - Spring with Jakarta Persistence API"
 
-group = "com.apress.prospring7.classic.six"
+group = "com.apress.prospring7.classic.seven"
 
 dependencies {
     implementation(libs.logback)
@@ -12,7 +12,6 @@ dependencies {
     api(libs.jakartaAnnotation)
     api(libs.hibernateCore)
 
-    implementation(libs.logback)
     implementation(libs.mariaDB)
     implementation(libs.hikariCP)
 
