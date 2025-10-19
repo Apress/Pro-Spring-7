@@ -28,30 +28,42 @@ SOFTWARE.
 package com.apress.prospring7.classic.seven;
 
 import com.apress.prospring7.classic.seven.config.JpaConfig;
+import com.apress.prospring7.classic.seven.entities.Album;
+import com.apress.prospring7.classic.seven.entities.Singer;
 import com.apress.prospring7.classic.seven.service.SingerService;
 import com.apress.prospring7.classic.seven.service.SingerSummaryService;
-import jakarta.annotation.PostConstruct;
 import org.hibernate.cfg.Environment;
+import org.jetbrains.annotations.NotNull;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.Primary;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.test.context.jdbc.Sql;
+import org.springframework.test.context.jdbc.SqlGroup;
 import org.springframework.test.context.jdbc.SqlMergeMode;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import org.testcontainers.containers.MariaDBContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
+import java.time.LocalDate;
+import java.util.List;
 import java.util.Properties;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author iulianacosmina on 13/10/2025
@@ -87,7 +99,7 @@ public class SingerServiceTest {
     }
 
     @Test
-    @DisplayName("should return all singers")
+    @DisplayName("should return all singers with albums")
     void testFindAllWithAlbum(){
         var singers = singerService.findAllWithAlbum().toList();
         assertEquals(3, singers.size());
@@ -124,17 +136,151 @@ public class SingerServiceTest {
         assertEquals(2, singers.size());
     }
 
+
+    @Test
+    @DisplayName("should insert a singer with associations")
+    @Sql(statements =  { // avoid dirtying up the test context
+            "delete from ALBUM where SINGER_ID = (select ID from SINGER where FIRST_NAME = 'BB')",
+            "delete from SINGER_INSTRUMENT where SINGER_ID = (select ID from SINGER where FIRST_NAME = 'BB')",
+            "delete from SINGER where FIRST_NAME = 'BB'"
+    },
+            executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
+    public void testInsert(){
+        var singer = new Singer();
+        singer.setFirstName("BB");
+        singer.setLastName("King");
+        singer.setBirthDate(LocalDate.of(1940, 8, 16));
+
+        var album = new Album();
+        album.setTitle("My Kind of Blues");
+        album.setReleaseDate(LocalDate.of(1961, 7, 18));
+        singer.addAlbum(album);
+
+        album = new Album();
+        album.setTitle("A Heart Full of Blues");
+        album.setReleaseDate(LocalDate.of(1962, 3, 20));
+        singer.addAlbum(album);
+        singerService.save(singer);
+
+        assertNotNull(singer.getId());
+
+        var singers = findAndLogAllSingers();
+        assertEquals(4, singers.size());
+    }
+
+    @Test
+    @SqlGroup({
+            @Sql(scripts = {"classpath:testcontainers/add-nina.sql"},
+                    executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD),
+            @Sql(scripts = {"classpath:testcontainers/remove-nina.sql"},
+                    executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
+    })
+    @DisplayName("should update a singer")
+    void testUpdate() {
+        var singer = singerService.findById(5L).orElse(null);
+        //making sure such singer exists
+        assertNotNull(singer);
+        //making sure we got expected singer
+        assertEquals("Simone", singer.getLastName());
+        //retrieve the album
+        var album = singer.getAlbums().stream().filter(
+                a -> a.getTitle().equals("I Put a Spell on You")).findFirst().orElse(null);
+        assertNotNull(album);
+
+        singer.setFirstName("Eunice Kathleen");
+        singer.setLastName("Waymon");
+        singer.removeAlbum(album);
+        int version =  singer.getVersion();
+
+        singerService.save(singer);
+
+        var nina =  singerService.findById(5L).orElse(null);
+        assertAll( "nina was updated" ,
+                () -> {
+                    assertNotNull(nina);
+                    Assertions.assertEquals(version +1, nina.getVersion());
+                }
+        );
+    }
+
+    @Test
+    public void testUpdateAlbumSet() {
+        var singer = singerService.findById(1L).orElse(null);
+        //making sure such singer exists
+        assertNotNull(singer);
+        //making sure we got expected record
+        assertEquals("Mayer", singer.getLastName());
+        //retrieve the album
+        var album = singer.getAlbums().stream().filter(a -> a.getTitle().equals("Battle Studies")).findAny().orElse(null);
+
+        singer.setFirstName("John Clayton");
+        singer.removeAlbum(album);
+        singerService.save(singer);
+
+        var singers = findAndLogAllSingers();
+        assertEquals(3, singers.size());
+    }
+
+    @Test
+    @Sql(scripts = {"classpath:testcontainers/add-chuck.sql"},
+            executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
+    @DisplayName("should delete a singer")
+    public void testDelete() {
+        var singer = singerService.findById(6L).orElse(null);
+        //making sure such singer exists
+        assertNotNull(singer);
+        singerService.delete(singer);
+
+        var deleted = singerService.findById(6L);
+        assertTrue(deleted.isEmpty());
+    }
+
+    @Test
+    public void testFindAllByNativeQuery() {
+        var singers = singerService.findAllByNativeQuery().toList();
+        assertEquals(3, singers.size());
+    }
+
+    @Sql({ "classpath:testcontainers/stored-function.sql" })
+    @Test
+    void testFindFirstNameById () {
+        var res = singerService.findFirstNameById(1L);
+        assertEquals("John", res);
+    }
+
+    @Disabled("")
+    @Sql({ "classpath:testcontainers/stored-procedure.sql" })
+    @Test
+    void testFindFirstNameByIdUsingProc () {
+        var res = singerService.findFirstNameByIdUsingProc(1L);
+        assertEquals("John", res);
+    }
+
+    private @NotNull List<Singer> findAndLogAllSingers() {
+        return singerService.findAllWithAlbum().peek(
+                s -> {
+                    LOGGER.info(s.toString());
+                    if (s.getAlbums() != null) {
+                        s.getAlbums().forEach(a -> LOGGER.info("\tAlbum:{}", a.toString()));
+                    }
+                    if (s.getInstruments() != null) {
+                        s.getInstruments().forEach(i -> LOGGER.info("\tInstrument: {}", i.getInstrumentId()));
+                    }
+                }).toList();
+    }
+
     @Configuration
     @Import(JpaConfig.class)
     public static class TestContainersConfig {
-        @Autowired
-        Properties jpaProperties;
-
-        @PostConstruct
-        public void initialize() {
-            jpaProperties.put(Environment.FORMAT_SQL, true);
-            jpaProperties.put(Environment.USE_SQL_COMMENTS, true);
-            jpaProperties.put(Environment.SHOW_SQL, true);
+        @Primary
+        @Bean
+        public Properties jpaProperties() {
+            final var jpaProps = new Properties();
+            jpaProps.put(Environment.FORMAT_SQL, true);
+            jpaProps.put(Environment.USE_SQL_COMMENTS, true);
+            jpaProps.put(Environment.SHOW_SQL, true);
+            jpaProps.put(Environment.HIGHLIGHT_SQL, true);
+            return jpaProps;
         }
     }
 }

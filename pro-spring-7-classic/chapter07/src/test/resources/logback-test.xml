@@ -14,7 +14,8 @@
     <logger name="com.apress.prospring7.classic.seven" level="debug"/>
 
     <logger name="org.springframework.orm" level="debug"/>
-    <logger name="org.hibernate" level="debug"/>
+    <logger name="org.hibernate" level="info" />
+   <!-- <logger name="org.hibernate.query.hql" level="TRACE" />-->
 
     <root level="info">
         <appender-ref ref="console" />

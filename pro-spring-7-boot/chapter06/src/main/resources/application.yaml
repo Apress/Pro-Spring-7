@@ -12,5 +12,5 @@ logging:
   level:
     root: INFO
     org.springframework.boot: INFO
-    com.apress.prospring6.seven: INFO
+    com.apress.prospring7.boot.six: INFO
     org.jooq: INFO

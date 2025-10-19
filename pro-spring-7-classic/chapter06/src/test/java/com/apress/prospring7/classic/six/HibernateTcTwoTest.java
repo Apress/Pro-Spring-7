@@ -39,8 +39,10 @@ import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.Primary;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.test.context.jdbc.Sql;
@@ -210,14 +212,16 @@ public class HibernateTcTwoTest {
     @Configuration
     @Import(HibernateConfig.class)
     public static class TestContainersConfig {
-        @Autowired
-        Properties hibernateProperties;
-
-        @PostConstruct
-        public void initialize() {
-            hibernateProperties.put(Environment.FORMAT_SQL, true);
-            hibernateProperties.put(Environment.USE_SQL_COMMENTS, true);
-            hibernateProperties.put(Environment.SHOW_SQL, true);
+        @Primary
+        @Bean
+        public Properties hibernateProperties() {
+            final var jpaProps = new Properties();
+            jpaProps.put(Environment.FORMAT_SQL, true);
+            jpaProps.put(Environment.USE_SQL_COMMENTS, true);
+            jpaProps.put(Environment.SHOW_SQL, true);
+            jpaProps.put(Environment.HIGHLIGHT_SQL, true);
+            return jpaProps;
         }
+
     }
 }

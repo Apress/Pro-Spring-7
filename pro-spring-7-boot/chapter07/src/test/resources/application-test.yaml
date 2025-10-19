@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    url: "jdbc:tc:mariadb:latest:///testdb?TC_INITSCRIPT=testcontainers/create-schema.sql"
+    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
+app:
+  jpa:
+    properties:
+      hibernate:
+        show-sql: true
+        format-sql: true
+        use_sql_comments: true
+        highlight_sql: true
+        hbm2ddl:
+          auto: none
+
+# Logging config
+logging:
+  pattern:
+    console: " %-5level: %class{0} - %msg%n"
+  level:
+    root: INFO
+    #org.springframework.boot: DEBUG
+    com.apress.prospring6.seven.boot: INFO
+    #org.testcontainers: INFO

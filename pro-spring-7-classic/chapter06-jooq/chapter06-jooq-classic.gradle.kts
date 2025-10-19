@@ -110,6 +110,7 @@ tasks.withType<JavaCompile> {
 tasks.withType<Jar> {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     dependsOn("jooqCodegen")
+    // This fixes the Windows naming issues of jars - '(?)'is added to the end of the jar, making the name invalid
     archiveFileName.set("chapter06-jooq-classic.jar")
 }
 

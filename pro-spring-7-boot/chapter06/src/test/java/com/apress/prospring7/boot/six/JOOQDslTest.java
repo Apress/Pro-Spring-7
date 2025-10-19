@@ -41,8 +41,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.jdbc.SqlGroup;
+import org.testcontainers.junit.jupiter.Testcontainers;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -60,6 +62,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
  * @author iulianacosmina on 05/10/2025
  */
 @SpringBootTest(classes = Chapter6Application.class)
+@ActiveProfiles("testcontainers")
+@Testcontainers
 public class JOOQDslTest {
 
     @Autowired

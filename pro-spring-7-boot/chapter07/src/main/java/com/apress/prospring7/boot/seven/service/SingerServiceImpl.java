@@ -25,9 +25,9 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package com.apress.prospring7.classic.seven.service;
+package com.apress.prospring7.boot.seven.service;
 
-import com.apress.prospring7.classic.seven.entities.Singer;
+import com.apress.prospring7.boot.seven.entities.Singer;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.PersistenceContext;
@@ -45,7 +45,7 @@ import java.util.stream.Stream;
 /**
  * @author iulianacosmina on 13/10/2025
  */
-@Service("jpaSingerService")
+@Service
 @Repository
 @Transactional
 public class SingerServiceImpl implements SingerService {
@@ -96,7 +96,6 @@ public class SingerServiceImpl implements SingerService {
     public void delete(Singer singer) {
         var mergedContact = em.merge(singer);
         em.remove(mergedContact);
-
         LOGGER.info("Singer with id: {} deleted successfully" , singer.getId());
     }
 

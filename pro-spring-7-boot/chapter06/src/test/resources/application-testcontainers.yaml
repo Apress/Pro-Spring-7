@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: "jdbc:tc:mariadb:latest:///?TC_INITSCRIPT=testcontainers/create-schema.sql"
+    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
+
+# Logging config
+logging:
+  pattern:
+    console: "%-5level: %class{0} %red(%logger{15}) - %msg %n"
+  level:
+    root: INFO
+    org.springframework.boot: INFO
+    com.apress.prospring7.boot.six: INFO
+    org.jooq: INFO

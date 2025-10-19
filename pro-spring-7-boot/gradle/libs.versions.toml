@@ -1,4 +1,5 @@
 [versions]
+spring        = "7.0.0-M9"
 springBoot        = "4.0.0-M3"
 springManagement     = "1.1.7"
 mariaDB     = "3.5.5"
@@ -20,6 +21,7 @@ springBootStarterJdbc = { module = "org.springframework.boot:spring-boot-starter
 springBootStarterJooq = { module = "org.springframework.boot:spring-boot-starter-jooq"}
 springBootStarterWeb = { module = "org.springframework.boot:spring-boot-starter-web"}
 springBootStarterTest = { module = "org.springframework.boot:spring-boot-starter-test"}
+springOrm = { module = "org.springframework:spring-orm", version.ref = "spring" }
 mariaDB = { module = "org.mariadb.jdbc:mariadb-java-client", version.ref = "mariaDB" }
 hibernateCore = { module = "org.hibernate.orm:hibernate-core", version.ref = "hibernate" }
 h2 = { module = "com.h2database:h2", version.ref = "h2"}

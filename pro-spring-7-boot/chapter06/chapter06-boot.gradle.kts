@@ -17,6 +17,8 @@ dependencies {
     api(libs.hibernateCore)
     implementation(libs.jooqCore) //override boot version
 
+    testImplementation(libs.tcMariaDB)
+    testImplementation(libs.tcJJ)
     testImplementation(libs.springBootStarterTest)
 
     // needed for the jooqCodegen task
@@ -69,9 +71,6 @@ tasks.register<Exec>("buildAndStartJOOQImage") {
         workingDir("podman-build")
         commandLine("cmd", "/c", "start.bat")
     }
-    // or these two if they work on your system
-    // commandLine("podman", "build", "-t", "prospring7-mariadb:6.2", ".")
-    // commandLine("podman", "run", "--name", "local-mariadb", "-d", "-p", "3306:3306", "prospring7-mariadb:6.2")
 }
 
 tasks.register("waitForJOOQContainer") {
@@ -93,9 +92,6 @@ tasks.register<Exec>("stopJOOQContainer") {
         workingDir("podman-build")
         commandLine("cmd", "/c", "stop.bat")
     }
-
-    // or this if it works on your system
-    //commandLine("podman", "rm", "-f", "local-mariadb")
 }
 
 
@@ -108,6 +104,7 @@ tasks.withType<JavaCompile> {
 tasks.withType<Jar> {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     dependsOn("jooqCodegen")
+    // This fixes the Windows naming issues of jars - '(?)'is added to the end of the jar, making the name invalid
     archiveFileName.set("chapter06-jooq-boot.jar")
 }
 
