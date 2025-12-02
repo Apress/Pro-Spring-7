@@ -1,11 +1,11 @@
 [versions]
-spring        = "7.0.0-M9"
-springBoot        = "4.0.0-M3"
+spring            = "7.0.0"
+springBoot        = "4.0.0"
 springManagement     = "1.1.7"
 mariaDB     = "3.5.5"
 c3p0        = "0.11.2"
 h2          = "2.3.232"
-testcontainers = "1.21.3"
+testcontainers = "2.0.1"
 hibernate        = "7.1.1.Final"
 jooq        = "3.20.8"
 
@@ -26,7 +26,8 @@ mariaDB = { module = "org.mariadb.jdbc:mariadb-java-client", version.ref = "mari
 hibernateCore = { module = "org.hibernate.orm:hibernate-core", version.ref = "hibernate" }
 h2 = { module = "com.h2database:h2", version.ref = "h2"}
 c3p0 = { module = "com.mchange:c3p0", version.ref = "c3p0"}
-tcMariaDB = { module = "org.testcontainers:mariadb", version.ref = "testcontainers"}
-tcJJ = { module = "org.testcontainers:junit-jupiter", version.ref = "testcontainers"}
+tcMariaDB = { module = "org.testcontainers:testcontainers-mariadb", version.ref = "testcontainers"}
+springBootStarterTc = { module = "org.springframework.boot:spring-boot-testcontainers"}
+tcJJ = { module = "org.testcontainers:testcontainers-junit-jupiter", version.ref = "testcontainers"}
 jooqCodeGen = { module = "org.jooq:jooq-codegen", version.ref = "jooq"}
 jooqCore = { module = "org.jooq:jooq", version.ref = "jooq"}

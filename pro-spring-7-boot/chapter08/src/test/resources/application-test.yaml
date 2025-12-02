@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    url: "jdbc:tc:mariadb:latest:///testdb?TC_INITSCRIPT=testcontainers/create-schema.sql"
+    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
+app:
+  jpa:
+    properties:
+      hibernate:
+        jdbc:
+          batch_size: 5
+        show-sql: true
+        format-sql: true
+        #use_sql_comments: true
+        highlight_sql: true
+        #dialect: "org.hibernate.dialect.MariaDBDialect"
+        hbm2ddl:
+          auto: none
+
+# Logging config
+logging:
+  pattern:
+    console: "%highlight(%-5level) %green(%logger{15}) - %msg %n"
+  level:
+    root: INFO
+    org.springframework.boot: DEBUG
+    org.springframework.orm: TRACE
+    com.apress.prospring7.boot.eight: INFO
+    org.springframework.transaction: TRACE
+    org.testcontainers: INFO
+    org.hibernate: DEBUG

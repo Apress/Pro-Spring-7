@@ -8,7 +8,6 @@ spring:
       maximum-pool-size: 25
 app:
   jpa:
-    generate-ddl: false
     properties:
       hibernate:
         jdbc:
@@ -29,4 +28,4 @@ logging:
   level:
     root: INFO
     org.springframework.boot: INFO
-    com.apress.prospring6.seven.boot: INFO
+    com.apress.prospring7.boot.seven: INFO

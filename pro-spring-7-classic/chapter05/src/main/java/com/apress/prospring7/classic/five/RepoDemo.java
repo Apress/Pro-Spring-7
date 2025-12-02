@@ -43,7 +43,7 @@ import java.util.List;
 public class RepoDemo {
     private static final Logger LOGGER = LoggerFactory.getLogger(RepoDemo.class);
 
-    public static void main(String... args) {
+     static void main() {
         try(final var ctx = new AnnotationConfigApplicationContext(C3p0DataSourceCfg.class, SingerJdbcRepo.class)) {
             final var singerRepo = ctx.getBean("singerRepo", SingerRepo.class);
 

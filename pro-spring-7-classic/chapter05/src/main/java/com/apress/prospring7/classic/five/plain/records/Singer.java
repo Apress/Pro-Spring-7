@@ -37,4 +37,9 @@ public record Singer(Long id,
                      String firstName,
                      String lastName,
                      LocalDate birthDate,
-                     Set<Album> albums) {}
+                     Set<Album> albums) {
+
+    public Singer(Long id, String firstName, String lastName, LocalDate birthDate) {
+        this(id,firstName,lastName,birthDate, Set.of());
+    }
+}

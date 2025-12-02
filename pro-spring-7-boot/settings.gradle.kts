@@ -35,6 +35,8 @@ include(":chapter06")
 findProject(":chapter06")?.name = "chapter06-boot"
 include(":chapter07")
 findProject(":chapter07")?.name = "chapter07-boot"
+include(":chapter08")
+findProject(":chapter08")?.name = "chapter08-boot"
 
 dependencyResolutionManagement {
     repositories {

@@ -33,6 +33,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.Arrays;
+
 /**
  * @author iulianacosmina on 19/10/2025
  */
@@ -41,7 +43,7 @@ public class Chapter7Application {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Chapter7Application.class);
 
-    public static void main(String... args) {;
+     static void main(String... args) {
         try(final var ctx = SpringApplication.run(Chapter7Application.class, args)) {
             final var service = ctx.getBean(SingerService.class);
 

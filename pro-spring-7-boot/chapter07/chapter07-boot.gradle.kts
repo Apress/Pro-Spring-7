@@ -15,12 +15,12 @@ dependencies {
 
     api(libs.hibernateCore)
     implementation(libs.mariaDB)
-    implementation(libs.c3p0)
 
     testImplementation(libs.h2)
     testImplementation(libs.tcMariaDB)
     testImplementation(libs.tcJJ)
     testImplementation(libs.springBootStarterTest)
+    testImplementation(libs.springBootStarterTc)
 }
 
 

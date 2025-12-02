@@ -15,7 +15,6 @@ dependencies {
     implementation(libs.mariaDB)
     implementation(libs.hikariCP)
 
-    testImplementation(libs.h2)
     testImplementation(libs.tcMariaDB)
     testImplementation(libs.tcJJ)
     testImplementation(libs.springTest)

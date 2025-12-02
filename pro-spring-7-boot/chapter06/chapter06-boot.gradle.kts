@@ -20,6 +20,7 @@ dependencies {
     testImplementation(libs.tcMariaDB)
     testImplementation(libs.tcJJ)
     testImplementation(libs.springBootStarterTest)
+    testImplementation(libs.springBootStarterTc)
 
     // needed for the jooqCodegen task
     jooqCodegen(libs.jooqCodeGen)

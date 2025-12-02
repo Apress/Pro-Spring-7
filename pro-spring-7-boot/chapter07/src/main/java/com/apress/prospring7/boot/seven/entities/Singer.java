@@ -27,9 +27,6 @@ SOFTWARE.
 */
 package com.apress.prospring7.boot.seven.entities;
 
-import com.apress.prospring7.boot.seven.entities.AbstractEntity;
-import com.apress.prospring7.boot.seven.entities.Album;
-import com.apress.prospring7.boot.seven.entities.Instrument;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

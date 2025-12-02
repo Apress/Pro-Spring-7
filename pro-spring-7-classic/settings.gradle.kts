@@ -37,6 +37,8 @@ include(":chapter06-jooq")
 findProject(":chapter06-jooq")?.name = "chapter06-jooq-classic"
 include(":chapter07")
 findProject(":chapter07")?.name = "chapter07-classic"
+include(":chapter08")
+findProject(":chapter08")?.name = "chapter08-classic"
 
 dependencyResolutionManagement {
     repositories {
