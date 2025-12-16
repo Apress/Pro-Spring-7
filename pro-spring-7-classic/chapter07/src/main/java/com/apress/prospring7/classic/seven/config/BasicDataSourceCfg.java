@@ -68,6 +68,7 @@ public class BasicDataSourceCfg {
             hc.setPassword(password);
             final var dataSource= new HikariDataSource(hc);
             dataSource.setMaximumPoolSize(25); // 25 is a good enough data pool size, it is a database in a container after all
+            dataSource.setKeepaliveTime(60000); // This property controls how frequently HikariCP will attempt to keep a connection alive, in order to prevent it from being timed out by the database or network infrastructure. This value must be less than the maxLifetime value.
             return dataSource;
         } catch (Exception e) {
             LOGGER.error("Hikari DataSource bean cannot be created!", e);

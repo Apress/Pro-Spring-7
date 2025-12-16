@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
+        <resetJUL>true</resetJUL>
+    </contextListener>
+
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!--  %d{HH:mm:ss} [%thread] %-5p %class{0}.%method:%L - %m%n  -->
+            <pattern> %-5level: %class{0} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="com.apress.prospring7.classic.nine" level="debug"/>
+
+    <logger name="org.springframework.spring-tx" level="trace"/>
+     <logger name="org.springframework.transaction" level="trace"/>
+     <logger name="org.hibernate.envers" level="debug"/>
+     <logger name="org.hibernate.persister" level="trace"/>
+     <logger name="org.hibernate.query" level="trace"/>
+     <logger name="org.hibernate.orm.jdbc.bind" level="trace"/>
+     <logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="trace"/>
+
+    <root level="info">
+        <appender-ref ref="console" />
+    </root>
+</configuration>

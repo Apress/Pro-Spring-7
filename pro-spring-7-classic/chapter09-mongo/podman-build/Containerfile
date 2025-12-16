@@ -1,0 +1,16 @@
+FROM mongo:latest
+
+ENV MONGO_INITDB_ROOT_USERNAME=root
+ENV MONGO_INITDB_ROOT_PASSWORD=mainpass
+
+# 'docker-entrypoint-initdb.d' is the enforced entry point file name, even with podman
+# this masking is necessary otherwise the scripts are not executed
+RUN chown -R 999:999 /docker-entrypoint-initdb.d/
+#RUN echo "rs.initiate();" > /docker-entrypoint-initdb.d/replica-init.js
+COPY scripts /docker-entrypoint-initdb.d/
+RUN chown -R mongodb:mongodb /docker-entrypoint-initdb.d/
+
+ENV PORT 27017
+EXPOSE 27017
+
+#CMD [ "--replSet", "rs" ]
