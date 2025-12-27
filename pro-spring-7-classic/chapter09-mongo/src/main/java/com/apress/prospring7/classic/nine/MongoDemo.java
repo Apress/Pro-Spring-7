@@ -39,7 +39,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class MongoDemo {
     private static final Logger LOGGER = LoggerFactory.getLogger(MongoDemo.class);
 
-    public static void main(String... args) {
+    static void main() {
         try (var ctx = new AnnotationConfigApplicationContext(MongoCfg.class)) {
             var service = ctx.getBean(SingerService.class);
 

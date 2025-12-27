@@ -1,6 +1,8 @@
 
 db = connect( 'mongodb://prospring7:prospring7@localhost:27017/musicdb?authSource=admin' );
 
+db.createCollection('singers', { capped: false });
+
 db.singers.insertMany( [
     {
         firstName: "John",
