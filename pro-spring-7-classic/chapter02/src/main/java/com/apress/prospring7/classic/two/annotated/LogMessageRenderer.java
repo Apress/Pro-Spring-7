@@ -34,10 +34,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-/**
- * @author iuliana.cosmina on 18/02/2025
- * Listing 2-21, 2-25
- */
+///
+/// @author iuliana.cosmina on 18/02/2025
+/// Listing 2-21, 2-25
+///
 @Component("renderer")
 public class LogMessageRenderer implements MessageRenderer {
     private static final Logger LOGGER = LoggerFactory.getLogger(LogMessageRenderer.class);

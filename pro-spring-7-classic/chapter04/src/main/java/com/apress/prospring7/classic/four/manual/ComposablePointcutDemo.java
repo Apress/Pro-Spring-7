@@ -40,9 +40,9 @@ import org.springframework.aop.support.StaticMethodMatcher;
 
 import java.lang.reflect.Method;
 
-/**
- * @author iulianacosmina on 06/08/2025
- */
+///
+/// @author iulianacosmina on 06/08/2025
+///
 public class ComposablePointcutDemo {
  private static final Logger LOGGER = LoggerFactory.getLogger(ComposablePointcutDemo.class);
 

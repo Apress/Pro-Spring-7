@@ -38,9 +38,9 @@ import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 import javax.sql.DataSource;
 import java.sql.Driver;
 
-/**
- * @author iulianacosmina on 14/09/2025
- */
+///
+/// @author iulianacosmina on 14/09/2025
+///
 @Configuration
 @PropertySource( value = "classpath:db/jdbc.properties")
 public class SimpleDataSourceCfg {

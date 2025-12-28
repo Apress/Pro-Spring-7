@@ -31,10 +31,10 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import static java.lang.System.out;
 
-/**
- * @author iuliana.cosmina on 23/03/2025
- * Listing 2-34
- */
+///
+/// @author iuliana.cosmina on 23/03/2025
+/// Listing 2-34
+///
 public class ContextNestingDemo {
 
     public static void main(String... args) {

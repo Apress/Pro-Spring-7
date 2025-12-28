@@ -40,10 +40,10 @@ import org.springframework.aop.support.DynamicMethodMatcherPointcut;
 
 import java.lang.reflect.Method;
 
-/**
- * @author iulianacosmina on 24/07/2025
- * Listing 4-9
- */
+///
+/// @author iulianacosmina on 24/07/2025
+/// Listing 4-9
+///
 public class DynamicPointcutDemo {
 
  public static void main(String... args) {
@@ -66,9 +66,9 @@ public class DynamicPointcutDemo {
  }
 }
 
-/**
- * Listing 4-8
- */
+///
+/// Listing 4-8
+///
 class SimpleDynamicPointcut extends DynamicMethodMatcherPointcut {
  private static Logger LOGGER = LoggerFactory.getLogger(SimpleDynamicPointcut.class);
 

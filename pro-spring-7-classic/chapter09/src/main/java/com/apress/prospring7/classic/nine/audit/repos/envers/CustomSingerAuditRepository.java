@@ -31,9 +31,9 @@ import com.apress.prospring7.classic.nine.entities.SingerAudit;
 
 import java.util.Optional;
 
-/**
- * @author iulianacosmina on 14/12/2025
- */
+///
+/// @author iulianacosmina on 14/12/2025
+///
 public interface CustomSingerAuditRepository {
     Optional<SingerAudit> findAuditByIdAndRevision(Long id, int revision);
 }

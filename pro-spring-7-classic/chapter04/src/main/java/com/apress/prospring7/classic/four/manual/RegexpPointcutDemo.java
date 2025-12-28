@@ -33,9 +33,9 @@ import org.springframework.aop.framework.ProxyFactory;
 import org.springframework.aop.support.DefaultPointcutAdvisor;
 import org.springframework.aop.support.JdkRegexpMethodPointcut;
 
-/**
- * @author iulianacosmina on 28/07/2025
- */
+///
+/// @author iulianacosmina on 28/07/2025
+///
 public class RegexpPointcutDemo {
  public static void main(String... args) {
   final var pc = new JdkRegexpMethodPointcut();

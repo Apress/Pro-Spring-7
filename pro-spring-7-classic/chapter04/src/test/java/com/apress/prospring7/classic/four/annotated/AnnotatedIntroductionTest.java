@@ -39,9 +39,9 @@ import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-/**
- * @author iulianacosmina on 10/08/2025
- */
+///
+/// @author iulianacosmina on 10/08/2025
+///
 public class AnnotatedIntroductionTest {
     private static final Logger LOGGER = LoggerFactory.getLogger(AnnotatedIntroductionTest.class);
 

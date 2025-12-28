@@ -29,9 +29,9 @@ package com.apress.prospring7.classic.four.manual.introduction;
 
 import org.springframework.aop.support.DefaultIntroductionAdvisor;
 
-/**
- * @author iulianacosmina on 07/08/2025
- */
+///
+/// @author iulianacosmina on 07/08/2025
+///
 
 public class IsModifiedAdvisor extends DefaultIntroductionAdvisor {
  public IsModifiedAdvisor() {

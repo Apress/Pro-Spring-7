@@ -38,9 +38,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-/**
- * @author iulianacosmina on 10/08/2025
- */
+///
+/// @author iulianacosmina on 10/08/2025
+///
 @Component
 @Aspect
 public class AfterThrowingAdviceV2 {

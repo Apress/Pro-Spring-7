@@ -31,9 +31,9 @@ import com.apress.prospring7.classic.eight.repos.SingerRepo;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.support.TransactionTemplate;
 
-/**
- * @author iulianacosmina on 24/11/2025
- */
+///
+/// @author iulianacosmina on 24/11/2025
+///
 @Service
 public class ProgrammaticServiceImpl implements ProgrammaticService{
 
@@ -56,6 +56,6 @@ public class ProgrammaticServiceImpl implements ProgrammaticService{
                return singerRepo.countAllSingers();
             }
         });
-        */
+       */
     }
 }

@@ -34,10 +34,10 @@ import org.springframework.aop.framework.AopContext;
 import org.springframework.aop.framework.ProxyFactory;
 import org.springframework.aop.support.DefaultPointcutAdvisor;
 
-/**
- * @author iulianacosmina on 02/08/2025
- * Listing 4-19.
- */
+///
+/// @author iulianacosmina on 02/08/2025
+/// Listing 4-19.
+///
 public class StrangeTargetDemo {
  public static void main(String... args) {
   final var pc = new AspectJExpressionPointcut();
@@ -56,9 +56,9 @@ public class StrangeTargetDemo {
  }
 }
 
-/**
- * Listing 4-18.
- */
+///
+/// Listing 4-18.
+///
 class StrangeTarget implements Target {
 
  @Override

@@ -39,9 +39,9 @@ import org.springframework.util.StopWatch;
 
 import static java.lang.System.out;
 
-/**
- * @author iuliana.cosmina on 26/03/2025
- */
+///
+/// @author iuliana.cosmina on 26/03/2025
+///
 public class MethodInjectDemo {
 
     public static void main(String... args) {
@@ -76,17 +76,17 @@ public class MethodInjectDemo {
 @ComponentScan
 class LookupConfig {}
 
-/**
- * Listing 2-42
- */
+///
+/// Listing 2-42
+///
 interface LockOpener {
     KeyHelper getMyKeyOpener();
     void openLock();
 }
 
-/**
- * Listing 2-43
- */
+///
+/// Listing 2-43
+///
 @Component("standardLockOpener")
 class StandardLockOpener implements LockOpener {
 
@@ -109,9 +109,9 @@ class StandardLockOpener implements LockOpener {
     }
 }
 
-/**
- * Listing 2-44
- */
+///
+/// Listing 2-44
+///
 @Component("capableLockOpener")
 abstract class CapableLockOpener implements LockOpener {
 
@@ -125,9 +125,9 @@ abstract class CapableLockOpener implements LockOpener {
     }
 }
 
-/**
- * Listing 2-41
- */
+///
+/// Listing 2-41
+///
 @Component("keyHelper")
 @Scope("prototype")
 class KeyHelper {

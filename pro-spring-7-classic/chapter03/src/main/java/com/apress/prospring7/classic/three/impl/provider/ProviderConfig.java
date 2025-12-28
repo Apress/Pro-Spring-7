@@ -30,10 +30,9 @@ package com.apress.prospring7.classic.three.impl.provider;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
-/**
- * @author iuliana.cosmina on 20/04/2025
- */
+///
+/// @author iuliana.cosmina on 20/04/2025
+///
 @ComponentScan
 @Configuration
 public class ProviderConfig { }
-

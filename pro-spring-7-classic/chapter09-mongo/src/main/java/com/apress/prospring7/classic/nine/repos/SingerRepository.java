@@ -32,9 +32,9 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-/**
- * @author iulianacosmina on 16/12/2025
- */
+///
+/// @author iulianacosmina on 16/12/2025
+///
 public interface SingerRepository extends MongoRepository<Singer, String> {
 
     Iterable<Singer> findByFirstName(String firstName);

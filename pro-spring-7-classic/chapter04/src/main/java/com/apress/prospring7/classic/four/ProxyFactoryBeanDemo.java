@@ -106,9 +106,9 @@ class AopConfig implements BeanFactoryAware {
  }
 }
 
-/**
- * @author iulianacosmina on 07/08/2025
- */
+///
+/// @author iulianacosmina on 07/08/2025
+///
 public class ProxyFactoryBeanDemo {
  private static final Logger LOGGER = LoggerFactory.getLogger(ProxyFactoryBeanDemo.class);
 

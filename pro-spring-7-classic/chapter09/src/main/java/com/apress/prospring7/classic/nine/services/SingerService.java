@@ -33,9 +33,9 @@ import com.apress.prospring7.classic.nine.repos.SingerRepository;
 
 import java.util.stream.Stream;
 
-/**
- * @author iulianacosmina on 03/12/2025
- */
+///
+/// @author iulianacosmina on 03/12/2025
+///
 public interface SingerService {
 
     Stream<Singer> findAll() ;

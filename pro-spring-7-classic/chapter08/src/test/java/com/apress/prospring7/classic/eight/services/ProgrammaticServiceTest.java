@@ -46,9 +46,9 @@ import java.util.Properties;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- * @author iulianacosmina on 24/11/2025
- */
+///
+/// @author iulianacosmina on 24/11/2025
+///
 @Testcontainers
 @SqlMergeMode(SqlMergeMode.MergeMode.MERGE)
 @Sql({ "classpath:testcontainers/drop-schema.sql", "classpath:testcontainers/create-schema.sql" })

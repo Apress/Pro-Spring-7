@@ -39,9 +39,9 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.StandardEnvironment;
 import org.springframework.core.io.support.ResourcePropertySource;
 
-/**
- * @author iuliana.cosmina on 19/04/2025
- */
+///
+/// @author iuliana.cosmina on 19/04/2025
+///
 public class PropertySourceDemo {
     private static final Logger logger = LoggerFactory.getLogger(PropertySourceDemo.class);
 
@@ -53,9 +53,9 @@ public class PropertySourceDemo {
     }
 }
 
-/**
- * Listing 3-44
- */
+///
+/// Listing 3-44
+///
 class AppProperty {
     private String applicationHome;
     private String userHome;
@@ -89,9 +89,9 @@ class AppProperty {
 
 @Configuration
 @PropertySource("classpath:application.properties")
-/**
- * Listing 3-45
- */
+///
+/// Listing 3-45
+///
 class PropDemoConfig{
 
     @Autowired

@@ -40,10 +40,10 @@ import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-/**
- * @author iulianacosmina on 10/08/2025
- * Listing 4-42
- */
+///
+/// @author iulianacosmina on 10/08/2025
+/// Listing 4-42
+///
 public class AnnotatedAdviceTest {
  private static final Logger LOGGER = LoggerFactory.getLogger(AnnotatedAdviceTest.class);
 

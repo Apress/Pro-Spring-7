@@ -57,9 +57,9 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-/**
- * @author iulianacosmina on 19/11/2025
- */
+///
+/// @author iulianacosmina on 19/11/2025
+///
 @Testcontainers
 @SqlMergeMode(SqlMergeMode.MergeMode.MERGE)
 @Sql({ "classpath:testcontainers/drop-schema.sql", "classpath:testcontainers/create-schema.sql" })

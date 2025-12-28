@@ -36,9 +36,9 @@ import java.time.LocalDate;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
 
-/**
- * @author iulianacosmina on 06/12/2025
- */
+///
+/// @author iulianacosmina on 06/12/2025
+///
 @Entity
 @EntityListeners(AuditingEntityListener.class) // TODO underline
 @Table(name = "SINGER_AUDIT")

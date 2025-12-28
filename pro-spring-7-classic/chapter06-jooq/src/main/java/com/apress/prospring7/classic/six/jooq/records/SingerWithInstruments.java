@@ -29,9 +29,9 @@ package com.apress.prospring7.classic.six.jooq.records;
 
 import java.util.List;
 
-/**
- * @author iulianacosmina on 04/10/2025
- */
+///
+/// @author iulianacosmina on 04/10/2025
+///
 public record SingerWithInstruments(String firstName,
                                     String lastName,
                                     List<InstrumentRecord> albums) {

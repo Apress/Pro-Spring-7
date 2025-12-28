@@ -32,9 +32,9 @@ import com.apress.prospring7.classic.eight.entities.Singer;
 import java.util.Optional;
 import java.util.stream.Stream;
 
-/**
- * @author iulianacosmina on 01/11/2025
- */
+///
+/// @author iulianacosmina on 01/11/2025
+///
 public interface SingerRepo {
 
     Stream<Singer> findAll();

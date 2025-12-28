@@ -45,9 +45,9 @@ import javax.sql.DataSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- * @author iulianacosmina on 18/09/2025
- */
+///
+/// @author iulianacosmina on 18/09/2025
+///
 @SpringJUnitConfig(classes = {JdbcRepoV2Test.EmptyEmbeddedJdbcConfig.class, SingerJdbcRepo.class})
 public class JdbcRepoV2Test {
     private static final Logger LOGGER = LoggerFactory.getLogger(JdbcRepoV2Test.class);

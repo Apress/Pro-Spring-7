@@ -40,9 +40,9 @@ import org.springframework.context.annotation.Configuration;
 import javax.sql.DataSource;
 import java.sql.SQLException;
 
-/**
- * @author iulianacosmina on 04/10/2025
- */
+///
+/// @author iulianacosmina on 04/10/2025
+///
 @Configuration
 public class JOOQConfig {
     private static final Logger LOGGER = LoggerFactory.getLogger(JOOQConfig.class);

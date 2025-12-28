@@ -29,7 +29,7 @@ package com.apress.prospring7.classic.six.jooq.records;
 
 import java.time.LocalDate;
 
-/**
- * @author iulianacosmina on 04/10/2025
- */
+///
+/// @author iulianacosmina on 04/10/2025
+///
 public record AlbumRecord( String title, LocalDate releaseDate) {}

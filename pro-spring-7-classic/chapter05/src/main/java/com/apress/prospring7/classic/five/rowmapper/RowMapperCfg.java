@@ -47,9 +47,9 @@ import java.util.Set;
 import static com.apress.prospring7.classic.five.QueryConstants.ALL_JOIN_SELECT;
 import static com.apress.prospring7.classic.five.QueryConstants.ALL_SELECT;
 
-/**
- * @author iulianacosmina on 15/09/2025
- */
+///
+/// @author iulianacosmina on 15/09/2025
+///
 
 interface SingerDao {
     List<Singer> findAll();

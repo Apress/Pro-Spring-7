@@ -30,9 +30,9 @@ package com.apress.prospring7.classic.four.common;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
- * @author iulianacosmina on 04/08/2025
- */
+///
+/// @author iulianacosmina on 04/08/2025
+///
 public interface Target {
  Logger LOGGER = LoggerFactory.getLogger(Target.class);
 

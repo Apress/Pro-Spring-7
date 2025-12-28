@@ -35,9 +35,9 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Stream;
 
-/**
- * @author iulianacosmina on 01/11/2025
- */
+///
+/// @author iulianacosmina on 01/11/2025
+///
 public interface AllService {
 
     Stream<Singer> findAllWithAlbums();

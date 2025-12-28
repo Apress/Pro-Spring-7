@@ -35,10 +35,10 @@ import org.springframework.context.annotation.*;
 
 import java.util.UUID;
 
-/**
- * @author iuliana.cosmina on 01/04/2025
- * Listing 2-66
- */
+///
+/// @author iuliana.cosmina on 01/04/2025
+/// Listing 2-66
+///
 public class InheritanceAutowiringDemo {
     private static final Logger logger = LoggerFactory.getLogger(InheritanceAutowiringDemo.class);
 
@@ -82,9 +82,9 @@ class Bar { }
 
 @Configuration
 @ComponentScan
-/**
- * Listing 2-67
- */
+///
+/// Listing 2-67
+///
 class AutowiringCfg {
 
     @Bean
@@ -102,9 +102,9 @@ class AutowiringCfg {
     TrickyTarget trickyTarget() { return new TrickyTarget(); }
 }
 
-/**
- * Listing 2-68
- */
+///
+/// Listing 2-68
+///
 class TrickyTarget {
     private static Logger logger = LoggerFactory.getLogger(TrickyTarget.class);
 

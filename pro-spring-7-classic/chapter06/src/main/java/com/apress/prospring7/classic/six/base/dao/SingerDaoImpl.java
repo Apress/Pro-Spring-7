@@ -45,9 +45,9 @@ import java.util.Set;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 
-/**
- * @author iulianacosmina on 27/09/2025
- */
+///
+/// @author iulianacosmina on 27/09/2025
+///
 @Transactional
 @Repository("singerDao")
 public class SingerDaoImpl implements  SingerDao {
@@ -146,11 +146,11 @@ public class SingerDaoImpl implements  SingerDao {
                 .collect(Collectors.toSet());
     }
 
-    /*
-        CREATE FUNCTION IF NOT EXISTS
-            getFirstNameById (in_id INT) RETURNS VARCHAR(60)
-        RETURN (SELECT first_name FROM SINGER WHERE id = in_id);
-        */
+///
+///   CREATE FUNCTION IF NOT EXISTS
+///       getFirstNameById (in_id INT) RETURNS VARCHAR(60)
+///   RETURN (SELECT first_name FROM SINGER WHERE id = in_id);
+///
     @Transactional(readOnly = true)
     @Override
     public String findFirstNameById(final Long id) {

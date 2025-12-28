@@ -35,9 +35,9 @@ import org.slf4j.LoggerFactory;
 
 import java.time.LocalDate;
 
-/**
- * @author iulianacosmina on 11/09/2025
- */
+///
+/// @author iulianacosmina on 11/09/2025
+///
 public class PlainJdbcDemo {
     private static final Logger LOGGER = LoggerFactory.getLogger(PlainJdbcDemo.class);
 

@@ -36,10 +36,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 import org.springframework.stereotype.Service;
 
-/**
- * @author iuliana.cosmina on 19/04/2025
- * Listing 3-35
- */
+///
+/// @author iuliana.cosmina on 19/04/2025
+/// Listing 3-35
+///
 public class ImportDemo {
     public static void main(String... args) {
         try( var ctx = new AnnotationConfigApplicationContext(TheOtherConfig.class)) {

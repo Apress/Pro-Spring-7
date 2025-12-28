@@ -36,10 +36,10 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-/**
- * @author iuliana.cosmina on 18/02/2025
- * Listing 2-19
- */
+///
+/// @author iuliana.cosmina on 18/02/2025
+/// Listing 2-19
+///
 public class HelloWorldSpringJavaConfigDemo {
 
     public static void main(String... args) {
@@ -48,9 +48,9 @@ public class HelloWorldSpringJavaConfigDemo {
         mr.render();
     }
 
-    /**
-     *  * Listing 2-18
-     */
+    ///
+    /// /// Listing 2-18
+    ///
     @Configuration
     public static class HelloWorldConfiguration {
         @Bean // equivalent to <bean id="provider" class=".."/>

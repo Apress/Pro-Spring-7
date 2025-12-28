@@ -24,10 +24,41 @@ AUTHORS OR COPYRIGHT HOLDERS OR APRESS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-*/package com.apress.prospring7.boot.nine;
+*/
+package com.apress.prospring7.boot.nine;
+
+import com.apress.prospring7.boot.nine.service.SingerService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.persistence.autoconfigure.EntityScan;
+import org.springframework.core.env.AbstractEnvironment;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
  * @author iulianacosmina on 15/12/2025
  */
- public class Chapter9Application {
+@EntityScan(basePackages = {"com.apress.prospring7.boot.nine.entities"})
+@EnableTransactionManagement
+@EnableJpaRepositories("com.apress.prospring7.boot.nine.repos")
+@SpringBootApplication
+public class Chapter9Application {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(Chapter9Application.class);
+
+    static void main(String... args) {
+        System.setProperty(AbstractEnvironment.ACTIVE_PROFILES_PROPERTY_NAME, "dev");
+        try(final var ctx = SpringApplication.run(Chapter9Application.class, args)){
+            final var service = ctx.getBean(SingerService.class);
+
+            // Uncomment this and look for the `transactionManager` and `entityManagerFactory` beans
+          /*  Arrays.stream(ctx.getBeanDefinitionNames()).forEach(
+                    bn -> LOGGER.info(">>> {} ", bn + ": " + ctx.getBean(bn).getClass())
+            );*/
+            LOGGER.info(" ---- Listing singers:");
+            service.findAll().forEach(s -> LOGGER.info(s.toString()));
+        }
+    }
 }

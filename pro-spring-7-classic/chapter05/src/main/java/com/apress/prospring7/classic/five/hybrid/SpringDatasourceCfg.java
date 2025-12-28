@@ -43,9 +43,9 @@ import javax.sql.DataSource;
 
 import static com.apress.prospring7.classic.five.QueryConstants.PARAMETRIZED_FIND_NAME;
 
-/**
- * @author iulianacosmina on 14/09/2025
- */
+///
+/// @author iulianacosmina on 14/09/2025
+///
 interface SingerDao {
     String findNameById(Long id);
 }

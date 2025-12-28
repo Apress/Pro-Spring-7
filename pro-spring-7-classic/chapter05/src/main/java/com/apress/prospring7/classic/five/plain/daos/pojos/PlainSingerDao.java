@@ -39,9 +39,9 @@ import java.util.Set;
 
 import static com.apress.prospring7.classic.five.QueryConstants.*;
 
-/**
- * @author iulianacosmina on 02/09/2025
- */
+///
+/// @author iulianacosmina on 02/09/2025
+///
 public class PlainSingerDao implements SingerDao {
     private static final Logger LOGGER = LoggerFactory.getLogger(PlainSingerDao.class);
 

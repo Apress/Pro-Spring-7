@@ -30,10 +30,10 @@ package com.apress.prospring7.classic.four.common;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
- * @author iulianacosmina on 04/08/2025
- * Listing 4-7
- */
+///
+/// @author iulianacosmina on 04/08/2025
+/// Listing 4-7
+///
 public class BooTarget implements Target {
  private static Logger LOGGER = LoggerFactory.getLogger(BooTarget.class);
 

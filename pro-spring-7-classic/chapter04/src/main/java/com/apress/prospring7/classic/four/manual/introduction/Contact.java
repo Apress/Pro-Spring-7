@@ -27,9 +27,9 @@ SOFTWARE.
 */
 package com.apress.prospring7.classic.four.manual.introduction;
 
-/**
- * @author iulianacosmina on 07/08/2025
- */
+///
+/// @author iulianacosmina on 07/08/2025
+///
 public class Contact {
 
  private String name;

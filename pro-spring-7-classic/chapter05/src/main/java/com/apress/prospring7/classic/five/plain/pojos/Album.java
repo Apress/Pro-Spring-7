@@ -30,9 +30,9 @@ package com.apress.prospring7.classic.five.plain.pojos;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-/**
- * @author iulianacosmina on 29/08/2025
- */
+///
+/// @author iulianacosmina on 29/08/2025
+///
 public class Album implements Serializable {
     private static final long serialVersionUID = 2L;
     private Long id;

@@ -27,10 +27,10 @@ SOFTWARE.
 */
 package com.apress.prospring7.classic.two.decoupled;
 
-/**
-* @author iuliana.cosmina on 16/02/2025
-* Listing 2-7
-*/
+///
+/// @author iuliana.cosmina on 16/02/2025
+/// Listing 2-7
+///
 public class HelloWorldDecoupled {
 
     public static void main(String... args) {

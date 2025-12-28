@@ -26,9 +26,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */package com.apress.prospring7.classic.four.common;
 
-/**
- * @author iulianacosmina on 07/08/2025
- */
+///
+/// @author iulianacosmina on 07/08/2025
+///
 public class Guitar {
  private String brand =" Martin";
 

@@ -2,11 +2,12 @@
 spring            = "7.0.0"
 springBoot        = "4.0.0"
 springManagement     = "1.1.7"
-mariaDB     = "3.5.5"
+mariaDB     = "3.5.6"
+mongoDB        = "5.6.2"
 c3p0        = "0.11.2"
 h2          = "2.3.232"
-testcontainers = "2.0.1"
-hibernate        = "7.1.1.Final"
+testcontainers = "2.0.2"
+hibernate        = "7.2.0.Final"
 jooq        = "3.20.8"
 
 [plugins]
@@ -18,15 +19,19 @@ springBoot = { id = "org.springframework.boot", version.ref = "springBoot"}
 springBootStarter = { module = "org.springframework.boot:spring-boot-starter"}
 springBootStarterAspectJ = { module = "org.springframework.boot:spring-boot-starter-aspectj"}
 springBootStarterJdbc = { module = "org.springframework.boot:spring-boot-starter-jdbc"}
+springBootStarterDataJpa = { module = "org.springframework.boot:spring-boot-starter-data-jpa"}
+springBootStarterDataMongo = { module = "org.springframework.boot:spring-boot-starter-data-mongodb"}
 springBootStarterJooq = { module = "org.springframework.boot:spring-boot-starter-jooq"}
 springBootStarterWeb = { module = "org.springframework.boot:spring-boot-starter-web"}
 springBootStarterTest = { module = "org.springframework.boot:spring-boot-starter-test"}
 springOrm = { module = "org.springframework:spring-orm", version.ref = "spring" }
 mariaDB = { module = "org.mariadb.jdbc:mariadb-java-client", version.ref = "mariaDB" }
+mongoDB = { module = "org.mongodb:mongodb-driver-sync", version.ref = "mongoDB" }
 hibernateCore = { module = "org.hibernate.orm:hibernate-core", version.ref = "hibernate" }
 h2 = { module = "com.h2database:h2", version.ref = "h2"}
 c3p0 = { module = "com.mchange:c3p0", version.ref = "c3p0"}
 tcMariaDB = { module = "org.testcontainers:testcontainers-mariadb", version.ref = "testcontainers"}
+tcMongoDB = { module = "org.testcontainers:testcontainers-mongodb", version.ref = "testcontainers"}
 springBootStarterTc = { module = "org.springframework.boot:spring-boot-testcontainers"}
 tcJJ = { module = "org.testcontainers:testcontainers-junit-jupiter", version.ref = "testcontainers"}
 jooqCodeGen = { module = "org.jooq:jooq-codegen", version.ref = "jooq"}

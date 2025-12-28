@@ -27,9 +27,9 @@ SOFTWARE.
 */
 package spring
 
-/**
- * Listing 3-54
- */
+///
+/// Listing 3-54
+///
 import com.apress.prospring7.classic.three.groovy.Singer
 
 beans {

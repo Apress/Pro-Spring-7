@@ -37,9 +37,9 @@ import java.time.LocalDate;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
-/**
- * @author iulianacosmina on 05/12/2025
- */
+///
+/// @author iulianacosmina on 05/12/2025
+///
 @Service
 @Transactional(readOnly = true)
 public class AlbumServiceImpl implements  AlbumService {

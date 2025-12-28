@@ -35,10 +35,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
 
-/**
- * @author iulianacosmina on 12/05/2025
- * Description: Example showing {@code org.springframework.beans.factory.NoUniqueBeanDefinitionException} being thrown during context intialization.
- */
+///
+/// @author iulianacosmina on 12/05/2025
+/// Description: Example showing {@code org.springframework.beans.factory.NoUniqueBeanDefinitionException} being thrown during context intialization.
+///
 public class MultipleDefsDemo {
     private static final Logger logger = LoggerFactory.getLogger(MultipleDefsDemo.class);
 

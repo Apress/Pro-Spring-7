@@ -42,9 +42,9 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Optional;
 import java.util.stream.Stream;
 
-/**
- * @author iulianacosmina on 13/10/2025
- */
+///
+/// @author iulianacosmina on 13/10/2025
+///
 @Service("jpaSingerService")
 @Repository
 @Transactional

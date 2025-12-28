@@ -33,9 +33,9 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.DeclareParents;
 import org.springframework.stereotype.Component;
 
-/**
- * @author iulianacosmina on 10/08/2025
- */
+///
+/// @author iulianacosmina on 10/08/2025
+///
 @Component
 @Aspect
 public class AnnotatedIntroduction {

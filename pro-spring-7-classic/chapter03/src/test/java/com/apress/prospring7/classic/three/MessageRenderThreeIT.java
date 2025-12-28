@@ -38,9 +38,9 @@ import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-/**
- * @author iuliana.cosmina on 20/04/2025
- */
+///
+/// @author iuliana.cosmina on 20/04/2025
+///
 //@ExtendWith(SpringExtension.class)
 //@ContextConfiguration(classes = {RendererConfig.class, ProviderConfig.class})
 @SpringJUnitConfig(classes = {RendererConfig.class, ProviderConfig.class})

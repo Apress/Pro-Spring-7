@@ -34,9 +34,9 @@ import com.apress.prospring7.classic.eight.ex.TitleTooLongException;
 import java.util.Set;
 import java.util.stream.Stream;
 
-/**
- * @author iulianacosmina on 01/11/2025
- */
+///
+/// @author iulianacosmina on 01/11/2025
+///
 public interface AlbumRepo {
 
     Stream<Album> findBySinger(Singer singer);

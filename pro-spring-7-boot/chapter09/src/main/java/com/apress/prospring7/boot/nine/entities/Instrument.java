@@ -24,10 +24,52 @@ AUTHORS OR COPYRIGHT HOLDERS OR APRESS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-*/package com.apress.prospring7.boot.nine.entities;
+*/
+package com.apress.prospring7.boot.nine.entities;
+
+import jakarta.persistence.*;
+
+import java.io.Serial;
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author iulianacosmina on 15/12/2025
  */
- public class Instrument {
+@Entity
+//@Table(name = "INSTRUMENT")
+public class Instrument implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 4L;
+    @Id
+    //@Column(name = "INSTRUMENT_ID")
+    private String instrumentId;
+
+    @ManyToMany
+    @JoinTable(name = "SINGER_INSTRUMENT",
+            joinColumns = @JoinColumn(name = "INSTRUMENT_ID"),
+            inverseJoinColumns = @JoinColumn(name = "SINGER_ID"))
+    private Set<Singer> singers = new HashSet<>();
+
+    public String getInstrumentId() {
+        return this.instrumentId;
+    }
+
+    public Set<Singer> getSingers() {
+        return this.singers;
+    }
+
+    public void setSingers(Set<Singer> singers) {
+        this.singers = singers;
+    }
+
+    public void setInstrumentId(String instrumentId) {
+        this.instrumentId = instrumentId;
+    }
+
+    @Override
+    public String toString() {
+        return "Instrument :" + getInstrumentId();
+    }
 }

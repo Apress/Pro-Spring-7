@@ -31,9 +31,9 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 import java.util.Map;
 
-/**
- * @author iulianacosmina on 15/09/2025
- */
+///
+/// @author iulianacosmina on 15/09/2025
+///
 interface SingerDao {
     String findNameById(Long id);
 }

@@ -40,10 +40,10 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-/**
- * @author iuliana.cosmina on 20/04/2025
- * Listing 3-49
- */
+///
+/// @author iuliana.cosmina on 20/04/2025
+/// Listing 3-49
+///
  class MessageRenderTwoIT {
 
     public static ConfigurableApplicationContext ctx;

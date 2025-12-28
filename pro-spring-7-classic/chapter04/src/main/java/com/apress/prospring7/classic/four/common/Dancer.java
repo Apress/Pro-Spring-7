@@ -30,9 +30,9 @@ package com.apress.prospring7.classic.four.common;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
- * @author iulianacosmina on 10/08/2025
- */
+///
+/// @author iulianacosmina on 10/08/2025
+///
 public class Dancer implements Performer {
     private static final Logger LOGGER = LoggerFactory.getLogger(Dancer.class);
 

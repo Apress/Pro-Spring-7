@@ -38,9 +38,9 @@ import java.io.Serial;
 import java.time.LocalDate;
 import java.util.Objects;
 
-/**
- * @author iulianacosmina on 03/12/2025
- */
+///
+/// @author iulianacosmina on 03/12/2025
+///
 @Entity
 @Table(name = "ALBUM")
 @NamedQuery(name=Album.FIND_WITH_RELEASE_DATE_GREATER_THAN, query="select a from Album a where a.releaseDate > ?1")

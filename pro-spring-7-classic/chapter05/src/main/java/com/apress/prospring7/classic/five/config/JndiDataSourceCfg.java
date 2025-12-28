@@ -35,9 +35,9 @@ import org.springframework.jndi.JndiTemplate;
 
 import javax.sql.DataSource;
 
-/**
- * @author iulianacosmina on 14/09/2025
- */
+///
+/// @author iulianacosmina on 14/09/2025
+///
 @Configuration
 public class JndiDataSourceCfg {
     private static final Logger LOGGER = LoggerFactory.getLogger(JndiDataSourceCfg.class);

@@ -83,3 +83,9 @@ The `extra_hosts` section is used to map the `host.podman.internal/host.docker.i
 The data is persisted in a Podman/Docker volume named `mongo1_data`. This is a best practice to ensure that the data is not lost when the container is stopped. The, `mongo1_config` is used to persist the replica set configuration.
 
 When deleting the cluster, the columes are not deleted, so make sure you delete them manually.
+
+== References
+
+* https://java.testcontainers.org/modules/databases/mongodb/
+* https://github.com/silaev/mongodb-replica-set
+* https://medium.com/workleap/the-only-local-mongodb-replica-set-with-docker-compose-guide-youll-ever-need-2f0b74dd8384

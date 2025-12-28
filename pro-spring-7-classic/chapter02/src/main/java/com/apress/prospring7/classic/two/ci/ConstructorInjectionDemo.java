@@ -37,12 +37,12 @@ import org.springframework.stereotype.Component;
 
 import static java.lang.System.out;
 
-/**
- * @author iuliana.cosmina on 19/02/2025
- * I made the decision to put all classes related to this example in the same file.
- * It is easier to navigate the project, also you have all the components in the same file,
- * so there is no doubt where the bean definitions are coming from.
- */
+///
+/// @author iuliana.cosmina on 19/02/2025
+/// I made the decision to put all classes related to this example in the same file.
+/// It is easier to navigate the project, also you have all the components in the same file,
+/// so there is no doubt where the bean definitions are coming from.
+///
 public class ConstructorInjectionDemo {
 
     public static void main(String... args) {
@@ -70,10 +70,10 @@ class HelloWorldMessageProvider implements MessageProvider {
     }
 }
 
-/**
- * Complex bean requiring a dependency
- * Listing 2-15, 2-26
- */
+///
+/// Complex bean requiring a dependency
+/// Listing 2-15, 2-26
+///
 @Component("renderer")
 class StandardOutMessageRenderer implements MessageRenderer {
     private MessageProvider messageProvider;
@@ -84,9 +84,9 @@ class StandardOutMessageRenderer implements MessageRenderer {
         this.messageProvider = messageProvider;
     }
 
-    /**
-     * Listing 2-16
-     */
+    ///
+    /// Listing 2-16
+    ///
     @Override
     public void setMessageProvider(MessageProvider provider) {
         this.messageProvider = provider;

@@ -35,9 +35,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import java.util.Optional;
 import java.util.UUID;
 
-/**
- * Created by iuliana.cosmina on 04/08/2022
- */
+///
+/// Created by iuliana.cosmina on 04/08/2022
+///
 @EnableJpaAuditing
 @Configuration
 public class AuditCfg {

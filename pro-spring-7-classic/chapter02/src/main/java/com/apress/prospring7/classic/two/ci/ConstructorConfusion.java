@@ -33,10 +33,10 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.stereotype.Component;
 import static java.lang.System.out;
 
-/**
- * @author iuliana.cosmina on 19/03/2025
- * Listing 2-27
- */
+///
+/// @author iuliana.cosmina on 19/03/2025
+/// Listing 2-27
+///
 @Component
 class ConstructorConfusion {
     private final String someValue;

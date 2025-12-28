@@ -33,9 +33,9 @@ import org.springframework.jdbc.datasource.lookup.JndiDataSourceLookup;
 
 import javax.sql.DataSource;
 
-/**
- * @author iulianacosmina on 12/10/2025
- */
+///
+/// @author iulianacosmina on 12/10/2025
+///
 @Configuration
 public class JndiDataSourceCfg {
 

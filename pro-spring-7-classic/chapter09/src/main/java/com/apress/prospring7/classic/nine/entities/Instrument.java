@@ -40,9 +40,9 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * @author iulianacosmina on 03/12/2025
- */
+///
+/// @author iulianacosmina on 03/12/2025
+///
 @Entity
 @Table(name = "INSTRUMENT")
 public class Instrument implements Serializable {

@@ -32,9 +32,9 @@ import com.apress.prospring7.classic.five.plain.records.Singer;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * @author iulianacosmina on 15/09/2025
- */
+///
+/// @author iulianacosmina on 15/09/2025
+///
 public interface SingerRepo {
 
     List<Singer> findAll();

@@ -36,10 +36,10 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-/**
- * @author iuliana.cosmina on 13/04/2025
- * Listing 3-8
- */
+///
+/// @author iuliana.cosmina on 13/04/2025
+/// Listing 3-8
+///
 public class AllInitMethodsDemo {
 
     public static void main(String... args) {

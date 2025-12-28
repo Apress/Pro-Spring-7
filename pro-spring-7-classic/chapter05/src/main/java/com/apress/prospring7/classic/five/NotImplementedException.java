@@ -27,9 +27,9 @@ SOFTWARE.
 */
 package com.apress.prospring7.classic.five;
 
-/**
- * @author iulianacosmina on 02/09/2025
- */
+///
+/// @author iulianacosmina on 02/09/2025
+///
 public class NotImplementedException  extends UnsupportedOperationException {
 
     public NotImplementedException(String message) {

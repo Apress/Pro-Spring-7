@@ -39,9 +39,9 @@ import org.springframework.aop.support.NameMatchMethodPointcutAdvisor;
 
 import java.util.stream.IntStream;
 
-/**
- * @author iulianacosmina on 06/08/2025
- */
+///
+/// @author iulianacosmina on 06/08/2025
+///
 public class ProxyPerformanceDemo {
 
  private static final Logger LOGGER = LoggerFactory.getLogger(ProxyPerformanceDemo.class);

@@ -30,9 +30,9 @@ package com.apress.prospring7.classic.two.nesting;
 
 import io.micrometer.common.util.StringUtils;
 
-/**
- * @author iuliana.cosmina on 23/03/2025
- */
+///
+/// @author iuliana.cosmina on 23/03/2025
+///
 class TitleProvider {
     private String title = "Gravity";
 

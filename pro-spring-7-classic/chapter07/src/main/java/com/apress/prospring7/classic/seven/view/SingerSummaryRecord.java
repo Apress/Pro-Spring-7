@@ -27,9 +27,9 @@ SOFTWARE.
 */
 package com.apress.prospring7.classic.seven.view;
 
-/**
- * @author iulianacosmina on 13/10/2025
- */
+///
+/// @author iulianacosmina on 13/10/2025
+///
 public record SingerSummaryRecord (String firstName,
                                   String lastName,
                                   String latestAlbum) {

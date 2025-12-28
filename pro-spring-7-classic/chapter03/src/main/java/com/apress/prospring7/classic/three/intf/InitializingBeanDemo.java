@@ -34,9 +34,9 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-/**
- * @author iuliana.cosmina on 08/04/2025
- */
+///
+/// @author iuliana.cosmina on 08/04/2025
+///
 public class InitializingBeanDemo {
     public static void main(String... args) {
         new AnnotationConfigApplicationContext(SingerConfiguration.class);
@@ -44,9 +44,9 @@ public class InitializingBeanDemo {
 }
 
 @Configuration
-/**
- * Listing 3-6
- */
+///
+/// Listing 3-6
+///
 class SingerConfiguration {
 
     @Bean
@@ -72,9 +72,9 @@ class SingerConfiguration {
     }
 }
 
-/**
- * Listing 3-5
- */
+///
+/// Listing 3-5
+///
 class Singer implements InitializingBean {
     private static final Logger logger = LoggerFactory.getLogger(Singer.class);
 

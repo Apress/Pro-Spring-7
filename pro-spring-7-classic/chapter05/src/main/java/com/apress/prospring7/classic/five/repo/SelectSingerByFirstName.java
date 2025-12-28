@@ -40,9 +40,9 @@ import java.util.Set;
 
 import static com.apress.prospring7.classic.five.QueryConstants.FIND_BY_FIRST_NAME;
 
-/**
- * @author iulianacosmina on 15/09/2025
- */
+///
+/// @author iulianacosmina on 15/09/2025
+///
 public class SelectSingerByFirstName extends MappingSqlQuery<Singer> {
 
     public SelectSingerByFirstName(DataSource dataSource) {

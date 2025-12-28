@@ -24,10 +24,27 @@ AUTHORS OR COPYRIGHT HOLDERS OR APRESS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-*/package com.apress.prospring7.boot.nine.repos;
+*/
+package com.apress.prospring7.boot.nine.repos;
+
+import com.apress.prospring7.boot.nine.entities.Album;
+import com.apress.prospring7.boot.nine.entities.Singer;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import java.time.LocalDate;
 
 /**
  * @author iulianacosmina on 15/12/2025
  */
- public class AlbumRepository {
+public interface AlbumRepository extends JpaRepository<Album, Long> {
+
+    Iterable<Album> findBySinger(Singer singer);
+
+    Iterable<Album> findWithReleaseDateGreaterThan(LocalDate rd);
+
+    @Query("select a from Album a where a.title like %:title%")
+    Iterable<Album> findByTitle(@Param("title") String t);
+
 }

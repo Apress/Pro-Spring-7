@@ -41,9 +41,9 @@ import javax.sql.DataSource;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-/**
- * @author iulianacosmina on 14/09/2025
- */
+///
+/// @author iulianacosmina on 14/09/2025
+///
 public class DataSourceConfigTest {
     private static final Logger LOGGER = LoggerFactory.getLogger(DataSourceConfigTest.class);
 

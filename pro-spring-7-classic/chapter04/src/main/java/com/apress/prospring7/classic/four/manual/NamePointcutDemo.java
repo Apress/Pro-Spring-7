@@ -34,10 +34,10 @@ import org.springframework.aop.framework.ProxyFactory;
 import org.springframework.aop.support.DefaultPointcutAdvisor;
 import org.springframework.aop.support.NameMatchMethodPointcut;
 
-/**
- * @author iulianacosmina on 28/07/2025
- * Listing 4-11
- */
+///
+/// @author iulianacosmina on 28/07/2025
+/// Listing 4-11
+///
 public class NamePointcutDemo {
 
  public static void main(String... args) {

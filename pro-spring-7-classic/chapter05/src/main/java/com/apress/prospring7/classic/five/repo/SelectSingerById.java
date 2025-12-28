@@ -39,9 +39,9 @@ import java.util.Set;
 
 import static com.apress.prospring7.classic.five.QueryConstants.FIND_BY_ID;
 
-/**
- * @author iulianacosmina on 15/09/2025
- */
+///
+/// @author iulianacosmina on 15/09/2025
+///
 public class SelectSingerById extends MappingSqlQuery<Singer> {
 
     public SelectSingerById(DataSource dataSource) {

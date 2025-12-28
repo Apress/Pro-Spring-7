@@ -29,15 +29,15 @@ package com.apress.prospring7.classic.two.alias;
 
 import java.lang.annotation.*;
 
-/**
- * @author iuliana.cosmina on 30/03/2025
- */
+///
+/// @author iuliana.cosmina on 30/03/2025
+///
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-/**
- * Listing 2-53
- */
+///
+/// Listing 2-53
+///
 public @interface Award {
 
     String[] prize() default {};

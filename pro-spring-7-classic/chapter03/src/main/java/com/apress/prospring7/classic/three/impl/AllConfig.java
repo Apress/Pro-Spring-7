@@ -35,10 +35,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
-/**
- * @author iuliana.cosmina on 20/04/2025
- * Listing 3-51
- */
+///
+/// @author iuliana.cosmina on 20/04/2025
+/// Listing 3-51
+///
 @Configuration
 public class AllConfig {
 

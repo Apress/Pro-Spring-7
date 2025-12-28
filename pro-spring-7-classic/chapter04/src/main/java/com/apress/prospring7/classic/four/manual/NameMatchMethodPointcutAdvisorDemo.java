@@ -33,10 +33,10 @@ import com.apress.prospring7.classic.four.common.GooTarget;
 import org.springframework.aop.framework.ProxyFactory;
 import org.springframework.aop.support.NameMatchMethodPointcutAdvisor;
 
-/**
- * @author iulianacosmina on 28/07/2025
- * Listing 4-12
- */
+///
+/// @author iulianacosmina on 28/07/2025
+/// Listing 4-12
+///
 public class NameMatchMethodPointcutAdvisorDemo {
 
  public static void main(String... args) {

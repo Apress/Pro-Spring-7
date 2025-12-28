@@ -37,10 +37,10 @@ import org.springframework.stereotype.Component;
 
 import java.beans.PropertyEditorSupport;
 
-/**
- * @author iuliana.cosmina on 17/04/2025
- * Listing 3-22, Listing 3-23
- */
+///
+/// @author iuliana.cosmina on 17/04/2025
+/// Listing 3-22, Listing 3-23
+///
 public class CustomPropertyEditorDemo {
     private static final Logger logger = LoggerFactory.getLogger(CustomPropertyEditorDemo.class);
     public static void main(String... args) {

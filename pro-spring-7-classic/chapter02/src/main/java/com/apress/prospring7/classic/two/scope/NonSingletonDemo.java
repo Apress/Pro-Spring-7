@@ -34,10 +34,10 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-/**
- * @author iuliana.cosmina on 30/03/2025
- * Listing 2-57
- */
+///
+/// @author iuliana.cosmina on 30/03/2025
+/// Listing 2-57
+///
 public class NonSingletonDemo {
     private static final Logger logger = LoggerFactory.getLogger(NonSingletonDemo.class);
 
@@ -62,9 +62,9 @@ public class NonSingletonDemo {
 
 @Component("nonSingleton")
 @Scope(scopeName = "prototype")
-/**
- * Listing 2-56
- */
+///
+/// Listing 2-56
+///
 class Singer {
 
     private String name = "unknown";

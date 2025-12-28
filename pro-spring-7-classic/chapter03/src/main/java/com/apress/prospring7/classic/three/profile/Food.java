@@ -27,8 +27,8 @@ SOFTWARE.
 */
 package com.apress.prospring7.classic.three.profile;
 
-/**
- * @author iuliana.cosmina on 19/04/2025
- * Listing 3-36
- */
+///
+/// @author iuliana.cosmina on 19/04/2025
+/// Listing 3-36
+///
 public record Food(String name) { }

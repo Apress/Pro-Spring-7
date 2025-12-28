@@ -45,9 +45,9 @@ import javax.sql.DataSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- * @author iulianacosmina on 18/09/2025
- */
+///
+/// @author iulianacosmina on 18/09/2025
+///
 @SqlMergeMode(SqlMergeMode.MergeMode.MERGE)
 @Sql({ "classpath:h2/drop-schema.sql", "classpath:h2/create-schema.sql" })
 @SpringJUnitConfig(classes = {JdbcRepoV1Test.EmptyEmbeddedJdbcConfig.class, SingerJdbcRepo.class})

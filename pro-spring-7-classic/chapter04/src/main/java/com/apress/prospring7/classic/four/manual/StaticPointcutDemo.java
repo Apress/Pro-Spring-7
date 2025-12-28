@@ -38,10 +38,10 @@ import org.springframework.aop.support.StaticMethodMatcherPointcut;
 
 import java.lang.reflect.Method;
 
-/**
- * @author iulianacosmina on 24/07/2025
- * Listing 4-7
- */
+///
+/// @author iulianacosmina on 24/07/2025
+/// Listing 4-7
+///
 public class StaticPointcutDemo {
 
     public static void main(String... args) {

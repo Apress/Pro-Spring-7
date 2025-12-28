@@ -33,9 +33,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-/**
- * @author iulianacosmina on 19/10/2025
- */
+///
+/// @author iulianacosmina on 19/10/2025
+///
 public class JPADemo {
     private static final Logger LOGGER = LoggerFactory.getLogger(JPADemo.class);
 

@@ -1,0 +1,9 @@
+
+# Logging config
+logging:
+  pattern:
+    console: "%-5level: %class{0} - %msg%n"
+  level:
+    root: INFO
+    org.springframework.boot: DEBUG
+    com.apress.prospring7.boot.nine: DEBUG

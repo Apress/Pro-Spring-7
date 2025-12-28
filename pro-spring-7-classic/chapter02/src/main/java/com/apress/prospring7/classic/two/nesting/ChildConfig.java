@@ -33,10 +33,10 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-/**
- * @author iuliana.cosmina on 23/03/2025
- * Listing 2-37
- */
+///
+/// @author iuliana.cosmina on 23/03/2025
+/// Listing 2-37
+///
 @Configuration
 class ChildConfig implements ApplicationContextAware {
 

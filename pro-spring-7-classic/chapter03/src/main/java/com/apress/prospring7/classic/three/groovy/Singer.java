@@ -27,10 +27,10 @@ SOFTWARE.
 */
 package com.apress.prospring7.classic.three.groovy;
 
-/**
- * @author iuliana.cosmina on 20/04/2025
- * Listing 3-53
- */
+///
+/// @author iuliana.cosmina on 20/04/2025
+/// Listing 3-53
+///
 public class Singer {
     private String name;
     private int age;

@@ -51,9 +51,9 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-/**
- * @author iulianacosmina on 13/10/2025
- */
+///
+/// @author iulianacosmina on 13/10/2025
+///
 @Entity
 @Table(name = "SINGER")
 @NamedQueries({

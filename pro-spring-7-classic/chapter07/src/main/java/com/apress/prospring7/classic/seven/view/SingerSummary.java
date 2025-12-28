@@ -29,9 +29,9 @@ package com.apress.prospring7.classic.seven.view;
 
 import java.io.Serializable;
 
-/**
- * @author iulianacosmina on 13/10/2025
- */
+///
+/// @author iulianacosmina on 13/10/2025
+///
 public class SingerSummary implements Serializable {
     private static final long serialVersionUID = 5L;
     private String firstName;

@@ -4,16 +4,14 @@ plugins {
     alias(libs.plugins.springManagement)
 }
 
-description = "Pro Spring 7: Chapter 8 - Transactions"
+description = "Pro Spring 7: Chapter 9 - Spring Data JPA"
 
-group = "com.apress.prospring7.boot.eight"
+group = "com.apress.prospring7.boot.nine"
 
 
 dependencies {
-    implementation(libs.springBootStarterJdbc)
-    implementation(libs.springOrm)
-
-    api(libs.hibernateCore)
+    implementation(libs.springBootStarterDataJpa)
+    api(libs.hibernateCore) // to use 7.2.0.Final
     implementation(libs.mariaDB)
 
     testImplementation(libs.tcMariaDB)

@@ -29,9 +29,9 @@ package com.apress.prospring7.classic.four.common;
 
 import java.io.Serial;
 
-/**
- * @author iulianacosmina on 10/08/2025
- */
+///
+/// @author iulianacosmina on 10/08/2025
+///
 public class RejectedInstrumentException extends RuntimeException {
     @Serial
     private static final long serialVersionUID = 3L;

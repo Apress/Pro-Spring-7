@@ -33,13 +33,13 @@ import org.springframework.stereotype.Component;
 
 import static java.lang.System.out;
 
-/**
- * @author iuliana.cosmina on 23/03/2025
- */
+///
+/// @author iuliana.cosmina on 23/03/2025
+///
 @Component("injectSimple")
-/**
- * Listing 2-31
- */
+///
+/// Listing 2-31
+///
 class InjectSimpleDemo {
 
     @Value("John Mayer")

@@ -32,9 +32,9 @@ import org.aopalliance.intercept.MethodInvocation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
- * @author iulianacosmina on 04/08/2025
- */
+///
+/// @author iulianacosmina on 04/08/2025
+///
 public class LogAroundAdvice  implements MethodInterceptor {
     private static final Logger LOGGER = LoggerFactory.getLogger(LogAroundAdvice.class);
 

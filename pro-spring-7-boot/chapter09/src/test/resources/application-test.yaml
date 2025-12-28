@@ -21,10 +21,8 @@ logging:
   level:
     root: INFO
     # org.springframework.boot: DEBUG
-    com.apress.prospring6.ten.boot: DEBUG
+    com.apress.prospring7.boot.nine: DEBUG
     # org.springframework.orm.jpa: TRACE
     # org.springframework.transaction: TRACE
-    # org.hibernate: DEBUG
+    org.hibernate: DEBUG
     # org.testcontainers: INFO
-
-

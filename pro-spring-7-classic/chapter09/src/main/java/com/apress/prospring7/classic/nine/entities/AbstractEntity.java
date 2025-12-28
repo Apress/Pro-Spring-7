@@ -39,9 +39,9 @@ import java.io.Serializable;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
 
-/**
- * @author iulianacosmina on 03/12/2025
- */
+///
+/// @author iulianacosmina on 03/12/2025
+///
 @MappedSuperclass
 public abstract class AbstractEntity implements Serializable {
     @Serial

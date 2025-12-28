@@ -41,9 +41,9 @@ import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-/**
- * @author iulianacosmina on 04/10/2025
- */
+///
+/// @author iulianacosmina on 04/10/2025
+///
 public class GenerateJOOQSources {
     private static final Logger LOGGER = LoggerFactory.getLogger(GenerateJOOQSources.class);
     private static final String PATH_TO_GENERATED_DIR = "PATH_TO_GENERATED_DIR";

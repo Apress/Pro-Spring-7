@@ -44,9 +44,9 @@ import static com.apress.prospring7.classic.five.QueryConstants.ALL_SELECT;
 import static com.apress.prospring7.classic.five.QueryConstants.FIND_BY_FIRST_NAME;
 import static com.apress.prospring7.classic.five.QueryConstants.PARAMETRIZED_FIND_NAME;
 
-/**
- * @author iulianacosmina on 02/11/2025
- */
+///
+/// @author iulianacosmina on 02/11/2025
+///
 
 interface SingerDao {
     String findNameById(Long id);

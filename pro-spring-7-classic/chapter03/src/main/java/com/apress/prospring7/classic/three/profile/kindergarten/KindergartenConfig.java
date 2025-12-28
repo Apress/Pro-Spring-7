@@ -32,10 +32,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
-/**
- * @author iuliana.cosmina on 19/04/2025
- * Listing 3-38
- */
+///
+/// @author iuliana.cosmina on 19/04/2025
+/// Listing 3-38
+///
 @Configuration
 @Profile("kindergarten")
 public class KindergartenConfig {

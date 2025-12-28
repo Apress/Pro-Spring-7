@@ -36,10 +36,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-/**
- * @author iulianacosmina on 10/08/2025
- * Listing 4-43.
- */
+///
+/// @author iulianacosmina on 10/08/2025
+/// Listing 4-43.
+///
 
 @Component
 @Aspect

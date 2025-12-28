@@ -32,9 +32,9 @@ import com.apress.prospring7.classic.seven.entities.Singer;
 import java.util.Optional;
 import java.util.stream.Stream;
 
-/**
- * @author iulianacosmina on 13/10/2025
- */
+///
+/// @author iulianacosmina on 13/10/2025
+///
 public interface SingerService {
 
     String ALL_SINGER_NATIVE_QUERY =

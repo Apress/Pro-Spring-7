@@ -43,9 +43,9 @@ import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * @author iulianacosmina on 15/09/2025
- */
+///
+/// @author iulianacosmina on 15/09/2025
+///
 public class RepoBeanTest {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(RepoBeanTest.class);

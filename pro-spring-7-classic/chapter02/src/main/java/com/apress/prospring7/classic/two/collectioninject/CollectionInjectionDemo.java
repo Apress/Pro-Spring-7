@@ -42,9 +42,9 @@ import java.util.Set;
 
 import static java.lang.System.out;
 
-/**
- * @author iuliana.cosmina on 23/03/2025
- */
+///
+/// @author iuliana.cosmina on 23/03/2025
+///
 public class CollectionInjectionDemo {
 
     public static void main(String... args) {
@@ -58,9 +58,9 @@ public class CollectionInjectionDemo {
 }
 
 @Component
-/**
- * Listing 2-40
- */
+///
+/// Listing 2-40
+///
 class CollectingBean {
 
     @Autowired
@@ -115,9 +115,9 @@ class CollectingBean {
 }
 
 @Configuration
-/**
- * Listing 2-39
- */
+///
+/// Listing 2-39
+///
 class CollectionConfig {
 
     @Bean

@@ -36,9 +36,9 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.function.Predicate;
 
-/**
- * @author iulianacosmina on 07/08/2025
- */
+///
+/// @author iulianacosmina on 07/08/2025
+///
 public class IsModifiedMixin extends DelegatingIntroductionInterceptor implements IsModified {
 
  private boolean isModified = false;

@@ -33,9 +33,9 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
-/**
- * @author iuliana.cosmina on 18/02/2025
- */
+///
+/// @author iuliana.cosmina on 18/02/2025
+///
 public class HelloSpringAnnotatedDemo {
 
     public static void main(String... args) {
@@ -44,9 +44,9 @@ public class HelloSpringAnnotatedDemo {
         mr.render();
     }
 
-    /**
-     * Listing 2-22
-     */
+    ///
+    /// Listing 2-22
+    ///
     @Configuration
     @ComponentScan(basePackages = {"com.apress.prospring7.classic.two.annotated"})
     public static class HelloWorldAnnotatedConfiguration { }

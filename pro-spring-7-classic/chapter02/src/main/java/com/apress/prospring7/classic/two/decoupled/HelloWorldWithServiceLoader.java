@@ -29,10 +29,10 @@ package com.apress.prospring7.classic.two.decoupled;
 
 import java.util.ServiceLoader;
 
-/**
- * @author iuliana.cosmina on 16/02/2025
- * Listing 2-11
- */
+///
+/// @author iuliana.cosmina on 16/02/2025
+/// Listing 2-11
+///
 public class HelloWorldWithServiceLoader {
     public static void main(String... args) {
         ServiceLoader<MessageRenderer> slr = ServiceLoader.load(MessageRenderer.class);

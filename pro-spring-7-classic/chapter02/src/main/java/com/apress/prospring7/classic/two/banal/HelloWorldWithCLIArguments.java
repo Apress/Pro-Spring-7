@@ -27,10 +27,10 @@ SOFTWARE.
 */
 package com.apress.prospring7.classic.two.banal;
 
-/**
- * @author iuliana.cosmina on 16/02/2025
- * Listing 2-2
- */
+///
+/// @author iuliana.cosmina on 16/02/2025
+/// Listing 2-2
+///
 public class HelloWorldWithCLIArguments {
     public static void main(String... args) {
         System.out.println(args.length > 0 ? args[0] : "Hello World");

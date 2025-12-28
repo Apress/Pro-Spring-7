@@ -29,10 +29,10 @@ package com.apress.prospring7.classic.two.decoupled;
 
 import static java.lang.System.out;
 
-/**
- * @author iuliana.cosmina on 16/02/2025
- * Listing 2-6
- */
+///
+/// @author iuliana.cosmina on 16/02/2025
+/// Listing 2-6
+///
 public class StandardOutMessageRenderer implements MessageRenderer {
 
     private MessageProvider messageProvider;

@@ -57,9 +57,9 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-/**
- * @author iulianacosmina on 06/12/2025
- */
+///
+/// @author iulianacosmina on 06/12/2025
+///
 @Testcontainers
 @Sql({ "classpath:testcontainers/audit/drop-schema.sql", "classpath:testcontainers/audit/create-schema.sql" })
 @SpringJUnitConfig(classes = {AuditServiceTest.TestContainersConfig.class})

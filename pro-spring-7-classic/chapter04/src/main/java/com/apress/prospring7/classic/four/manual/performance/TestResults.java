@@ -28,9 +28,9 @@ SOFTWARE.
 package com.apress.prospring7.classic.four.manual.performance;
 
 
-/**
- * @author iulianacosmina on 02/08/2025
- */
+///
+/// @author iulianacosmina on 02/08/2025
+///
 public class TestResults {
 
     long advisedMethodTime;

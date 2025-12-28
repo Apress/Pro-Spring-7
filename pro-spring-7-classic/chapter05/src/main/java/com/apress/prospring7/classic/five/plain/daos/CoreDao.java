@@ -31,9 +31,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-/**
- * @author iulianacosmina on 02/09/2025
- */
+///
+/// @author iulianacosmina on 02/09/2025
+///
 public interface CoreDao {
 
     default Connection getConnection() throws SQLException {

@@ -41,9 +41,9 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
-/**
- * @author iulianacosmina on 06/12/2025
- */
+///
+/// @author iulianacosmina on 06/12/2025
+///
 @MappedSuperclass
 @Audited
 public abstract class AuditableEntity<U> implements Serializable {

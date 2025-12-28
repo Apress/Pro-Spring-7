@@ -42,9 +42,9 @@ import java.util.Arrays;
 import java.util.Locale;
 import java.util.UUID;
 
-/**
- * @author iuliana.cosmina on 30/03/2025
- */
+///
+/// @author iuliana.cosmina on 30/03/2025
+///
 public class BeanNameGeneratorDemo {
     private static final Logger logger = LoggerFactory.getLogger(BeanNameGeneratorDemo.class);
 

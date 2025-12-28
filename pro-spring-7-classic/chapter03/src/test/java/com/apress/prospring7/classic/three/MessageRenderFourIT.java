@@ -40,10 +40,10 @@ import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * @author iuliana.cosmina on 20/04/2025
- * Listing 3-52
- */
+///
+/// @author iuliana.cosmina on 20/04/2025
+/// Listing 3-52
+///
 
 @Configuration
 class TestConfig{

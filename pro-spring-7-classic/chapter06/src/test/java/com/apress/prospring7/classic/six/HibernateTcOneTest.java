@@ -51,9 +51,9 @@ import static com.apress.prospring7.classic.six.base.HibernateDemoV2.listSingers
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-/**
- * @author iulianacosmina on 30/09/2025
- */
+///
+/// @author iulianacosmina on 30/09/2025
+///
 @Testcontainers
 @Sql({ "classpath:testcontainers/drop-schema.sql", "classpath:testcontainers/create-schema.sql" })
 @SpringJUnitConfig(classes = {HibernateConfig.class})

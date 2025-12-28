@@ -42,9 +42,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.sql.DataSource;
 import java.util.Properties;
 
-/**
- * @author iulianacosmina on 27/09/2025
- */
+///
+/// @author iulianacosmina on 27/09/2025
+///
 @Import(BasicDataSourceCfg.class)
 @Configuration
 @ComponentScan(basePackages = {"com.apress.prospring7.classic.six.base"})

@@ -38,9 +38,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.core.env.Environment;
 
-/**
- * @author iuliana.cosmina on 23/03/2025
- */
+///
+/// @author iuliana.cosmina on 23/03/2025
+///
 public class HelloSpringBeanRegistrarDemo {
 
     public static void main(String... args) {
@@ -49,18 +49,18 @@ public class HelloSpringBeanRegistrarDemo {
         mr.render();
     }
 
-    /**
-     * Listing 2-23
-     */
+    ///
+    /// Listing 2-23
+    ///
     @Configuration
     @Import(HelloAppRegistrar.class)
     public static class HelloWorldRegistrarConfiguration{
     }
 }
 
-/**
- * Listing 2-24
- */
+///
+/// Listing 2-24
+///
 class HelloAppRegistrar implements BeanRegistrar {
 
     @Override

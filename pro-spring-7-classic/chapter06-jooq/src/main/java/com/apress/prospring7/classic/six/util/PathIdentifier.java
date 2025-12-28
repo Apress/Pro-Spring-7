@@ -30,9 +30,9 @@ package com.apress.prospring7.classic.six.util;
 import java.io.File;
 import java.nio.file.Path;
 
-/**
- * @author iulianacosmina on 04/10/2025
- */
+///
+/// @author iulianacosmina on 04/10/2025
+///
 public class PathIdentifier {
 
     static void main() {

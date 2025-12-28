@@ -30,10 +30,10 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-/**
- * @author iuliana.cosmina on 19/01/2025
- * //TODO
- */
+///
+/// @author iuliana.cosmina on 19/01/2025
+/// //TODO
+///
 public class MainTest {
 
     @Test

@@ -33,9 +33,9 @@ import org.springframework.data.history.Revision;
 import java.util.List;
 import java.util.stream.Stream;
 
-/**
- * @author iulianacosmina on 06/12/2025
- */
+///
+/// @author iulianacosmina on 06/12/2025
+///
 public interface SingerAuditService {
     Stream<SingerAudit> findAll();
     SingerAudit findById(Long id);

@@ -31,10 +31,10 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
-/**
- * @author iulianacosmina on 10/08/2025
- * Listing 4-41
- */
+///
+/// @author iulianacosmina on 10/08/2025
+/// Listing 4-41
+///
 @ComponentScan
 @Configuration
 @EnableAspectJAutoProxy(proxyTargetClass = true)

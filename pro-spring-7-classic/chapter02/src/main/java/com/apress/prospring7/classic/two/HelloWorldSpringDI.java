@@ -31,9 +31,9 @@ import com.apress.prospring7.classic.two.decoupled.MessageRenderer;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-/**
- * @author iuliana.cosmina on 17/02/2025
- */
+///
+/// @author iuliana.cosmina on 17/02/2025
+///
 public class HelloWorldSpringDI {
     public static void main(String... args) {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("spring/app-context.xml");

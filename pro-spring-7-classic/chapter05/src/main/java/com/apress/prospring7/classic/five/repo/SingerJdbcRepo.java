@@ -45,9 +45,9 @@ import java.util.*;
 
 import static com.apress.prospring7.classic.five.QueryConstants.FIND_SINGER_ALBUM;
 
-/**
- * @author iulianacosmina on 15/09/2025
- */
+///
+/// @author iulianacosmina on 15/09/2025
+///
 @Repository("singerRepo")
 public class SingerJdbcRepo implements SingerRepo {
 

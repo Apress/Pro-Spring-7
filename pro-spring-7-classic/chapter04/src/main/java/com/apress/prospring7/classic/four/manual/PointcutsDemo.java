@@ -40,9 +40,9 @@ import org.springframework.aop.support.Pointcuts;
 
 import static com.apress.prospring7.classic.four.manual.ComposablePointcutDemo.testInvoke;
 
-/**
- * @author iulianacosmina on 06/08/2025
- */
+///
+/// @author iulianacosmina on 06/08/2025
+///
 public class PointcutsDemo {
  private static final Logger LOGGER = LoggerFactory.getLogger(PointcutsDemo.class);
 

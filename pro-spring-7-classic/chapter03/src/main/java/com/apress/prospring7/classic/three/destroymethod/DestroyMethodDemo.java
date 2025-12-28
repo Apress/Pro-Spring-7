@@ -37,10 +37,10 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-/**
- * @author iuliana.cosmina on 15/04/2025
- * Listing 3-9
- */
+///
+/// @author iuliana.cosmina on 15/04/2025
+/// Listing 3-9
+///
 public class DestroyMethodDemo {
     public static void main(String... args) {
         var ctx = new AnnotationConfigApplicationContext(DestructionConfig.class);

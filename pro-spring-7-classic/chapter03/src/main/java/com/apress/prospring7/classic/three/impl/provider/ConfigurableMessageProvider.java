@@ -31,9 +31,9 @@ import com.apress.prospring7.classic.two.decoupled.MessageProvider;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-/**
- * @author iuliana.cosmina on 20/04/2025
- */
+///
+/// @author iuliana.cosmina on 20/04/2025
+///
 @Component
 public class ConfigurableMessageProvider implements MessageProvider {
 

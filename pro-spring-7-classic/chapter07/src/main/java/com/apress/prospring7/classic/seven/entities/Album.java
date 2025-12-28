@@ -37,9 +37,9 @@ import java.io.Serial;
 import java.time.LocalDate;
 import java.util.Objects;
 
-/**
- * @author iulianacosmina on 13/10/2025
- */
+///
+/// @author iulianacosmina on 13/10/2025
+///
 @Entity
 @Table(name = "ALBUM")
 public class Album extends AbstractEntity {

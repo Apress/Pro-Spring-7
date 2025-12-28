@@ -31,9 +31,9 @@ import org.hibernate.HibernateException;
 import org.hibernate.engine.spi.SharedSessionContractImplementor;
 import org.hibernate.id.enhanced.SequenceStyleGenerator;
 
-/**
- * @author iulianacosmina on 04/10/2025
- */
+///
+/// @author iulianacosmina on 04/10/2025
+///
 public class SequenceOrAssignedGenerator extends SequenceStyleGenerator {
     @Override
     public Object generate(SharedSessionContractImplementor session, Object object) throws HibernateException {

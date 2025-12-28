@@ -33,11 +33,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-/**
- * @author iulianacosmina on 16/12/2025
- */
+///
+/// @author iulianacosmina on 27/12/2025
+///
 public class MongoDemo {
-    private static final Logger LOGGER = LoggerFactory.getLogger(MongoDemo.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(TransactionalDemo.class);
 
     static void main() {
         try (var ctx = new AnnotationConfigApplicationContext(MongoCfg.class)) {

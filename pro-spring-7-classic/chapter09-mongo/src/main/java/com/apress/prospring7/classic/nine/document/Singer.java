@@ -33,9 +33,9 @@ import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.time.LocalDate;
 
-/**
- * @author iulianacosmina on 16/12/2025
- */
+///
+/// @author iulianacosmina on 16/12/2025
+///
 @Document(collection = "singers")
 public class Singer {
     @MongoId

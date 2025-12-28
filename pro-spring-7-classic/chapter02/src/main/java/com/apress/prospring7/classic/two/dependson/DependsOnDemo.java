@@ -35,10 +35,10 @@ import org.springframework.stereotype.Component;
 
 import static java.lang.System.out;
 
-/**
- * @author iuliana.cosmina on 31/03/2025
- * Listing 2-58
- */
+///
+/// @author iuliana.cosmina on 31/03/2025
+/// Listing 2-58
+///
 public class DependsOnDemo {
 
     public static void main(String... args) {

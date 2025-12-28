@@ -33,9 +33,9 @@ import org.springframework.aop.aspectj.AspectJExpressionPointcut;
 import org.springframework.aop.framework.ProxyFactory;
 import org.springframework.aop.support.DefaultPointcutAdvisor;
 
-/**
- * @author iulianacosmina on 28/07/2025
- */
+///
+/// @author iulianacosmina on 28/07/2025
+///
 public class AspectJExpressionDemo {
 
  public static void main(String... args) {

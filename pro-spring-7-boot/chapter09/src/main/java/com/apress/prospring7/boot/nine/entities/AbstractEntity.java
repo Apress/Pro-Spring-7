@@ -24,10 +24,50 @@ AUTHORS OR COPYRIGHT HOLDERS OR APRESS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-*/package com.apress.prospring7.boot.nine.entities;
+*/
+package com.apress.prospring7.boot.nine.entities;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.Version;
+
+import java.io.Serial;
+import java.io.Serializable;
+
+import static jakarta.persistence.GenerationType.IDENTITY;
 
 /**
  * @author iulianacosmina on 15/12/2025
  */
- public class AbstractEntity {
+@MappedSuperclass
+public abstract class AbstractEntity implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = IDENTITY)
+    @Column(name = "ID")
+    protected Long id;
+
+    @Version
+    @Column(name = "VERSION")
+    protected int version;
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public int getVersion() {
+        return version;
+    }
+
+    public void setVersion(int version) {
+        this.version = version;
+    }
 }

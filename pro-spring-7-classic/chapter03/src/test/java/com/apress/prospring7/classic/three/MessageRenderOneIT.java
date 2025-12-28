@@ -36,10 +36,10 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * @author iuliana.cosmina on 20/04/2025
- * Listing 3-48
- */
+///
+/// @author iuliana.cosmina on 20/04/2025
+/// Listing 3-48
+///
  class MessageRenderOneIT {
 
     @Test

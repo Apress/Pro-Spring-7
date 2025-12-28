@@ -44,51 +44,12 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import java.util.Collection;
 import java.util.Collections;
 
-/**
- * @author iulianacosmina on 16/12/2025
- */
+///
+/// @author iulianacosmina on 16/12/2025
+///
 @ComponentScan(basePackages = {"com.apress.prospring7.classic.nine.service"})
 @EnableMongoRepositories(basePackages = {"com.apress.prospring7.classic.nine.repos"})
 @Configuration
 @PropertySource("classpath:mongo.properties")
-@EnableTransactionManagement
-public class MongoCfg extends AbstractMongoClientConfiguration {
-
-    @Value("${mongo.url}")
-    private String url;
-
-    @Value("${mongo.db}")
-    private String database;
-
-    @Override
-    @NullMarked
-    protected String getDatabaseName() {
-        return database;
-    }
-
-    @Override
-    @NullMarked
-    protected Collection<String> getMappingBasePackages() {
-        return Collections.singleton(" com.apress.prospring7.classic.nine.document");
-    }
-
-    @Bean
-    MongoTransactionManager transactionManager(MongoDatabaseFactory dbFactory) {
-        return new MongoTransactionManager(dbFactory);
-    }
-
-    @Override
-    public boolean autoIndexCreation() {
-        return true;
-    }
-
-    @Override
-    @NullMarked
-    protected MongoClientSettings mongoClientSettings() {
-        final var builder = MongoClientSettings.builder();
-        builder.applyConnectionString(new ConnectionString(url));
-        this.configureClientSettings(builder);
-        return builder.build();
-    }
-
+public class MongoCfg extends CommonCfg {
 }

@@ -27,10 +27,10 @@ SOFTWARE.
 */
 package com.apress.prospring7.classic.two;
 
-/**
- * @author iuliana.cosmina on 19/02/2025
- * Listing 2-17
- */
+///
+/// @author iuliana.cosmina on 19/02/2025
+/// Listing 2-17
+///
 public interface NewsletterSender {
     void setSmtpServer(String smtpServer);
     String getSmtpServer();

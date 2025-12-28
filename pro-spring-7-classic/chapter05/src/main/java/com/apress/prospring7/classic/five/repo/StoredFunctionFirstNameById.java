@@ -33,9 +33,9 @@ import org.springframework.jdbc.object.SqlFunction;
 import javax.sql.DataSource;
 import java.sql.Types;
 
-/**
- * @author iulianacosmina on 16/09/2025
- */
+///
+/// @author iulianacosmina on 16/09/2025
+///
 public class StoredFunctionFirstNameById extends SqlFunction<String> {
 
     private static final String SQL_CALL = "select getfirstnamebyid(?)";

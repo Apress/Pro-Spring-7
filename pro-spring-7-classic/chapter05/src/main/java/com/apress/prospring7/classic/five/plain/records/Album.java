@@ -29,9 +29,9 @@ package com.apress.prospring7.classic.five.plain.records;
 
 import java.time.LocalDate;
 
-/**
- * @author iulianacosmina on 14/09/2025
- */
+///
+/// @author iulianacosmina on 14/09/2025
+///
 public record Album(Long id,
                     Long singerId,
                     String title,

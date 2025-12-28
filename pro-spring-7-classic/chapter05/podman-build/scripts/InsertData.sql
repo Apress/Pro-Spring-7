@@ -6,10 +6,10 @@ insert into ALBUM (id, singer_id, title, release_date) values (1, 1, 'The Search
 insert into ALBUM (id, singer_id, title, release_date) values (2, 1, 'Battle Studies', '2009-11-17');
 insert into ALBUM (id, singer_id, title, release_date) values (3, 2, ' 11:11 ', '2021-09-18');
 
-/* view the inserted data */
+/* view the inserted data///
 SELECT * FROM SINGER;
 SELECT * FROM ALBUM;
 
-/* simple join sample */
+/* simple join sample///
 SELECT * FROM ALBUM A, SINGER S
 WHERE SINGER_ID = S.ID AND S.ID=1;

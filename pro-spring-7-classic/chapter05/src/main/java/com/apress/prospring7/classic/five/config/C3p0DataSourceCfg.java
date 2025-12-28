@@ -37,9 +37,9 @@ import org.springframework.context.annotation.PropertySource;
 
 import javax.sql.DataSource;
 
-/**
- * @author iulianacosmina on 14/09/2025
- */
+///
+/// @author iulianacosmina on 14/09/2025
+///
 @Configuration
 @PropertySource("classpath:db/jdbc.properties")
 public class C3p0DataSourceCfg {

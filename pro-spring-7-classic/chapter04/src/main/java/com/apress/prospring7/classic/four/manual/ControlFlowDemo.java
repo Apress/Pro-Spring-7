@@ -36,9 +36,9 @@ import org.springframework.aop.framework.ProxyFactory;
 import org.springframework.aop.support.ControlFlowPointcut;
 import org.springframework.aop.support.DefaultPointcutAdvisor;
 
-/**
- * @author iulianacosmina on 06/08/2025
- */
+///
+/// @author iulianacosmina on 06/08/2025
+///
 public class ControlFlowDemo {
  private static final Logger LOGGER = LoggerFactory.getLogger(ControlFlowDemo.class);
 

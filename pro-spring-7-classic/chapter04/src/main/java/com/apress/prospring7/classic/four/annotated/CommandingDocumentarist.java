@@ -30,9 +30,9 @@ package com.apress.prospring7.classic.four.annotated;
 import com.apress.prospring7.classic.four.common.Guitar;
 import org.springframework.stereotype.Component;
 
-/**
- * @author iulianacosmina on 10/08/2025
- */
+///
+/// @author iulianacosmina on 10/08/2025
+///
 @Component("commandingDocumentarist")
 public class CommandingDocumentarist extends  NewDocumentarist {
 

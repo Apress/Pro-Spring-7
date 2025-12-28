@@ -30,10 +30,10 @@ package com.apress.prospring7.classic.two.nesting;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-/**
- * @author iuliana.cosmina on 23/03/2025
- * Listing 2-36
- */
+///
+/// @author iuliana.cosmina on 23/03/2025
+/// Listing 2-36
+///
 @Configuration
 class ParentConfig {
 

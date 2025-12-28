@@ -30,9 +30,9 @@ package com.apress.prospring7.classic.five.plain.records;
 import java.time.LocalDate;
 import java.util.Set;
 
-/**
- * @author iulianacosmina on 14/09/2025
- */
+///
+/// @author iulianacosmina on 14/09/2025
+///
 public record Singer(Long id,
                      String firstName,
                      String lastName,

@@ -24,10 +24,32 @@ AUTHORS OR COPYRIGHT HOLDERS OR APRESS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-*/package com.apress.prospring7.boot.nine.service;
+*/
+package com.apress.prospring7.boot.nine.service;
+
+import com.apress.prospring7.boot.nine.entities.Singer;
+import com.apress.prospring7.boot.nine.repos.SingerRepository;
+
+import java.util.Optional;
+import java.util.stream.Stream;
 
 /**
  * @author iulianacosmina on 15/12/2025
  */
- public class SingerService {
+public interface SingerService {
+
+    Stream<Singer> findAll();
+
+    Optional<Singer> findById(Long id);
+
+    Stream<Singer> findAllWithAlbums();
+
+    Stream<Singer> findByFirstName(String firstName);
+
+    Stream<Singer> findByFirstNameAndLastName(String firstName, String lastName);
+
+    Singer updateFirstName(String firstName, Long id);
+
+    Stream<SingerRepository.FullName> findByLastName(String lastName);
+
 }

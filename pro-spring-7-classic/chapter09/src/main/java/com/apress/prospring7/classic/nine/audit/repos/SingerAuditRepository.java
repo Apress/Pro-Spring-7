@@ -32,9 +32,9 @@ import com.apress.prospring7.classic.nine.audit.repos.envers.CustomSingerAuditRe
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.history.RevisionRepository;
 
-/**
- * @author iulianacosmina on 06/12/2025
- */
+///
+/// @author iulianacosmina on 06/12/2025
+///
 //public interface SingerAuditRepository extends JpaRepository<SingerAudit, Long>, CrudRepository<SingerAudit, Long> {
 
 public interface SingerAuditRepository extends JpaRepository<SingerAudit, Long>,

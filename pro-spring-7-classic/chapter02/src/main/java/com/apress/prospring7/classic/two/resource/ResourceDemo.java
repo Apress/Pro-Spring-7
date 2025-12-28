@@ -37,12 +37,12 @@ import jakarta.annotation.Resource;
 
 import static java.lang.System.out;
 
-/**
- * @author iuliana.cosmina on 19/03/2025
- * I made the decision to put all classes related to this example in the same file.
- * It is easier to navigate the project, also you have all the components in the same file,
- * so there is no doubt where the bean definitions are coming from.
- */
+///
+/// @author iuliana.cosmina on 19/03/2025
+/// I made the decision to put all classes related to this example in the same file.
+/// It is easier to navigate the project, also you have all the components in the same file,
+/// so there is no doubt where the bean definitions are coming from.
+///
 public class ResourceDemo {
 
     public static void main(String... args) {

@@ -37,12 +37,12 @@ import org.springframework.stereotype.Component;
 
 import static java.lang.System.out;
 
-/**
- * Created by iuliana.cosmina on 19/03/2025
- * I made the decision to put all classes related to this example in the same file.
- * It is easier to navigate the project, also you have all the components in the same file,
- * so there is no doubt where the bean definitions are coming from.
- */
+///
+/// Created by iuliana.cosmina on 19/03/2025
+/// I made the decision to put all classes related to this example in the same file.
+/// It is easier to navigate the project, also you have all the components in the same file,
+/// so there is no doubt where the bean definitions are coming from.
+///
 public class InjectDemo {
 
     public static void main(String... args) {

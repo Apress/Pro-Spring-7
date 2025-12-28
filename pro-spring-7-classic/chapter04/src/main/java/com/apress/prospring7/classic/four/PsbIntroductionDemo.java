@@ -37,9 +37,9 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-/**
- * @author iulianacosmina on 07/08/2025
- */
+///
+/// @author iulianacosmina on 07/08/2025
+///
 public class PsbIntroductionDemo {
  private static final Logger LOGGER = LoggerFactory.getLogger(PsbIntroductionDemo.class);
 

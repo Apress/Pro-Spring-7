@@ -27,9 +27,9 @@ SOFTWARE.
 */
 package com.apress.prospring7.classic.eight.programmatic;
 
-/**
- * @author iulianacosmina on 24/11/2025
- */
+///
+/// @author iulianacosmina on 24/11/2025
+///
 public interface ProgrammaticService {
     Long countSingers();
 }

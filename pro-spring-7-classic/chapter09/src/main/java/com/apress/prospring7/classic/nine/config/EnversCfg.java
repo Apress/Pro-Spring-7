@@ -45,9 +45,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.sql.DataSource;
 import java.util.Properties;
 
-/**
- * @author iulianacosmina on 14/12/2025
- */
+///
+/// @author iulianacosmina on 14/12/2025
+///
 @Import(BasicDataSourceCfg.class)
 @Configuration
 @EnableTransactionManagement

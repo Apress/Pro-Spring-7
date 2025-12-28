@@ -36,10 +36,10 @@ import static org.mockito.Mockito.when;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.times;
 
-/**
- * @author iuliana.cosmina on 19/04/2025
- * Listing 3-47
- */
+///
+/// @author iuliana.cosmina on 19/04/2025
+/// Listing 3-47
+///
  class MessageRenderTest {
 
     @Test

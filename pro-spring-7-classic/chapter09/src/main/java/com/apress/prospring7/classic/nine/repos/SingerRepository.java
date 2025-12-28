@@ -36,9 +36,9 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.data.util.Streamable;
 
 
-/**
- * @author iulianacosmina on 03/12/2025
- */
+///
+/// @author iulianacosmina on 03/12/2025
+///
 public interface SingerRepository extends CrudRepository<Singer, Long> {
 
     Streamable<Singer> findByFirstName(String firstName);

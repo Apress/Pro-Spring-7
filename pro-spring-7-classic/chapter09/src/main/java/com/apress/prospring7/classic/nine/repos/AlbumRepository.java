@@ -35,9 +35,9 @@ import org.springframework.data.repository.query.Param;
 
 import java.time.LocalDate;
 
-/**
- * @author iulianacosmina on 05/12/2025
- */
+///
+/// @author iulianacosmina on 05/12/2025
+///
 public interface AlbumRepository extends CrudRepository<Album, Long> {
     Iterable<Album> findBySinger(Singer singer);
 

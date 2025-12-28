@@ -27,9 +27,9 @@ SOFTWARE.
 */
 package com.apress.prospring7.classic.five;
 
-/**
- * @author iulianacosmina on 02/09/2025
- */
+///
+/// @author iulianacosmina on 02/09/2025
+///
 public enum QueryConstants {
     ;
     public static final String FIND_BY_FIRST_NAME = "select id, first_name, last_name, birth_date from SINGER where first_name = :first_name";

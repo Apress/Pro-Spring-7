@@ -36,9 +36,9 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import java.util.List;
 
-/**
- * @author iulianacosmina on 29/09/2025
- */
+///
+/// @author iulianacosmina on 29/09/2025
+///
 public class HibernateDemoV2 {
     private static final Logger LOGGER = LoggerFactory.getLogger(HibernateDemoV2.class);
 

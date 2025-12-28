@@ -33,9 +33,9 @@ import com.apress.prospring7.classic.nine.entities.Singer;
 import java.time.LocalDate;
 import java.util.stream.Stream;
 
-/**
- * @author iulianacosmina on 05/12/2025
- */
+///
+/// @author iulianacosmina on 05/12/2025
+///
 public interface AlbumService {
     Stream<Album> findBySinger(Singer singer);
 

@@ -34,9 +34,9 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-/**
- * @author iuliana.cosmina on 13/04/2025
- */
+///
+/// @author iuliana.cosmina on 13/04/2025
+///
 public class PostConstructDemo {
     public static void main(String... args) {
         new AnnotationConfigApplicationContext(SingerConfiguration.class);
@@ -69,9 +69,9 @@ class SingerConfiguration {
     }
 }
 
-/**
- * Listing 3-7
- */
+///
+/// Listing 3-7
+///
 class Singer {
     private static final Logger logger = LoggerFactory.getLogger(Singer.class);
 

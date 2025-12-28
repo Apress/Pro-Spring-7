@@ -27,10 +27,10 @@ SOFTWARE.
 */
 package com.apress.prospring7.classic.two.decoupled;
 
-/**
- * @author iuliana.cosmina on 16/02/2025
- * Listing 2-5
- */
+///
+/// @author iuliana.cosmina on 16/02/2025
+/// Listing 2-5
+///
 public class HelloWorldMessageProvider implements MessageProvider {
 
     @Override

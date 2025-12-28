@@ -44,11 +44,11 @@ import org.testcontainers.containers.MariaDBContainer;
 
 import javax.sql.DataSource;
 
-/**
- * @author iulianacosmina on 20/09/2025
- * This class uses the mariaDB container as a bean,
- * which works if you implement the behaviour to stop it when the test context is destroyed.
- */
+///
+/// @author iulianacosmina on 20/09/2025
+/// This class uses the mariaDB container as a bean,
+/// which works if you implement the behaviour to stop it when the test context is destroyed.
+///
 @SqlMergeMode(SqlMergeMode.MergeMode.MERGE)
 @Sql({ "classpath:testcontainers/drop-schema.sql", "classpath:testcontainers/create-schema.sql" })
 @SpringJUnitConfig(classes = {StoredFunctionV1Test.TestContainersConfig.class, SingerJdbcRepo.class})

@@ -29,12 +29,12 @@ package com.apress.prospring7.classic.two;
 
 import static java.lang.System.out;
 
-/**
- * @author iuliana.cosmina on 18/02/2025
- * I made the decision to put all classes related to this example in the same file.
- * It is easier to navigate the project, also you have all the components in the same file,
- * so there is no doubt where the bean definitions are coming from.
- */
+///
+/// @author iuliana.cosmina on 18/02/2025
+/// I made the decision to put all classes related to this example in the same file.
+/// It is easier to navigate the project, also you have all the components in the same file,
+/// so there is no doubt where the bean definitions are coming from.
+///
 public class HelloWorldCDL {
     public static void main(String... args) {
         Container container = new DefaultContainer();
@@ -46,16 +46,16 @@ public class HelloWorldCDL {
     }
 }
 
-/**
- * Listing 2-12
- */
+///
+/// Listing 2-12
+///
 interface ManagedComponent {
     void performLookup(Container container);
 }
 
-/**
- * Listing 2-13
- */
+///
+/// Listing 2-13
+///
 interface Container {
     Object getDependency(String key);
 }
@@ -70,9 +70,9 @@ class DefaultContainer implements Container {
     }
 }
 
-/**
- * Listing 2-14
- */
+///
+/// Listing 2-14
+///
 interface MessageRenderer extends ManagedComponent {
     void render();
 }
@@ -93,9 +93,9 @@ class HelloCdlMessageProvider implements MessageProvider {
     }
 }
 
-/**
- * Listing 2-14
- */
+///
+/// Listing 2-14
+///
 class XmlOutMessageRenderer implements MessageRenderer {
 
     private MessageProvider messageProvider;

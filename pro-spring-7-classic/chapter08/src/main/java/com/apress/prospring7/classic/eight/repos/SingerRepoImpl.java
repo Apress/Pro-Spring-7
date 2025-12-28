@@ -39,9 +39,9 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 import java.util.stream.Stream;
 
-/**
- * @author iulianacosmina on 01/11/2025
- */
+///
+/// @author iulianacosmina on 01/11/2025
+///
 @Repository
 public class SingerRepoImpl implements SingerRepo {
     private static final Logger LOGGER = LoggerFactory.getLogger(SingerRepoImpl.class);

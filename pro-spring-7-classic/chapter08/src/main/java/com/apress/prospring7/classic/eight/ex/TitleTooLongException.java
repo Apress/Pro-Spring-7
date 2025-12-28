@@ -29,9 +29,9 @@ package com.apress.prospring7.classic.eight.ex;
 
 import java.io.Serial;
 
-/**
- * @author iulianacosmina on 01/11/2025
- */
+///
+/// @author iulianacosmina on 01/11/2025
+///
 public class  TitleTooLongException extends Exception {
     @Serial
     private static final long serialVersionUID = 42L;

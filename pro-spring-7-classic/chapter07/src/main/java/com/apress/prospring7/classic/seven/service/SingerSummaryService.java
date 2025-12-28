@@ -32,9 +32,9 @@ import com.apress.prospring7.classic.seven.view.SingerSummaryRecord;
 
 import java.util.stream.Stream;
 
-/**
- * @author iulianacosmina on 13/10/2025
- */
+///
+/// @author iulianacosmina on 13/10/2025
+///
 public interface SingerSummaryService {
 
     String ALL_SINGER_SUMMARY_JPQL_QUERY ="""

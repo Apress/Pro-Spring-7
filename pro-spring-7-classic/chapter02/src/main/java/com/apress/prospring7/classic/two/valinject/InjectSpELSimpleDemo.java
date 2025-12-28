@@ -36,13 +36,13 @@ import java.util.Optional;
 
 import static java.lang.System.out;
 
-/**
- * @author iuliana.cosmina on 23/03/2025
- */
+///
+/// @author iuliana.cosmina on 23/03/2025
+///
 @Service("injectSimpleSpEL")
-/**
- * Listing 2-33
- */
+///
+/// Listing 2-33
+///
 class InjectSpELSimpleDemo {
     //@Value("#{injectValues.name.toUpperCase()}")
     @Value("#{(injectValues.name ?: 'Unknown').toUpperCase()}")
@@ -94,9 +94,9 @@ class InjectSpELSimpleDemo {
 }
 
 @Component("injectValues")
-/**
- * Listing 2-32
- */
+///
+/// Listing 2-32
+///
 class InjectValues {
     private String name = "John Mayer";
     // test SpEL support for null values

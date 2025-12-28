@@ -32,9 +32,9 @@ import com.apress.prospring7.classic.five.plain.pojos.Singer;
 
 import java.util.Set;
 
-/**
- * @author iulianacosmina on 02/09/2025
- */
+///
+/// @author iulianacosmina on 02/09/2025
+///
 public interface SingerDao extends CoreDao {
     // Create
     Singer insert(Singer singer);

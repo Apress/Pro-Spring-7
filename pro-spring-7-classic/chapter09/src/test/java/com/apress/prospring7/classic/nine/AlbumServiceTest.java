@@ -47,9 +47,9 @@ import java.util.Properties;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- * @author iulianacosmina on 05/12/2025
- */
+///
+/// @author iulianacosmina on 05/12/2025
+///
 @Testcontainers
 @Sql({ "classpath:testcontainers/drop-schema.sql", "classpath:testcontainers/create-schema.sql" })
 @SpringJUnitConfig(classes = {AlbumServiceTest.TestContainersConfig.class})

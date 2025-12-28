@@ -35,9 +35,9 @@ import org.springframework.aop.framework.ProxyFactory;
 import java.lang.reflect.Method;
 import java.util.Random;
 
-/**
- * @author iulianacosmina on 22/05/2025
- */
+///
+/// @author iulianacosmina on 22/05/2025
+///
 public class KeyGeneratorAdviceDemo {
  private static Logger LOGGER = LoggerFactory.getLogger(KeyGeneratorAdviceDemo.class);
 

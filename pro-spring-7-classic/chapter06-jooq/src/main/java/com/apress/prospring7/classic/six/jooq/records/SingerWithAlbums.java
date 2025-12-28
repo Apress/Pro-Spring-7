@@ -30,9 +30,9 @@ package com.apress.prospring7.classic.six.jooq.records;
 import java.time.LocalDate;
 import java.util.List;
 
-/**
- * @author iulianacosmina on 04/10/2025
- */
+///
+/// @author iulianacosmina on 04/10/2025
+///
 public record SingerWithAlbums(String firstName,
                                String lastName,
                                LocalDate birthDate,

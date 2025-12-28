@@ -34,9 +34,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-/**
- * @author iuliana.cosmina on 20/04/2025
- */
+///
+/// @author iuliana.cosmina on 20/04/2025
+///
 @Component
 public class LogMessageRenderer implements MessageRenderer {
     private static final Logger logger = LoggerFactory.getLogger(LogMessageRenderer.class);

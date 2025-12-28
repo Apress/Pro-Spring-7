@@ -32,9 +32,9 @@ import com.apress.prospring7.classic.six.base.entities.Singer;
 import java.util.List;
 import java.util.Set;
 
-/**
- * @author iulianacosmina on 27/09/2025
- */
+///
+/// @author iulianacosmina on 27/09/2025
+///
 public interface SingerDao {
     List<Singer> findAll();
     List<Singer> findAllWithAlbum();

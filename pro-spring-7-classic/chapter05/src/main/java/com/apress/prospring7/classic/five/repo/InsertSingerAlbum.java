@@ -37,9 +37,9 @@ import java.sql.Types;
 import static com.apress.prospring7.classic.five.QueryConstants.BATCH_SIZE;
 import static com.apress.prospring7.classic.five.QueryConstants.INSERT_SINGER_ALBUM;
 
-/**
- * @author iulianacosmina on 16/09/2025
- */
+///
+/// @author iulianacosmina on 16/09/2025
+///
 public class InsertSingerAlbum extends BatchSqlUpdate {
 
     public InsertSingerAlbum(DataSource dataSource) {

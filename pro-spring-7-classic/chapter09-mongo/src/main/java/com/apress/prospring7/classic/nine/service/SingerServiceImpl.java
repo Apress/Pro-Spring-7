@@ -35,9 +35,9 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
-/**
- * @author iulianacosmina on 16/12/2025
- */
+///
+/// @author iulianacosmina on 16/12/2025
+///
 @Transactional
 @Service
 public class SingerServiceImpl implements SingerService

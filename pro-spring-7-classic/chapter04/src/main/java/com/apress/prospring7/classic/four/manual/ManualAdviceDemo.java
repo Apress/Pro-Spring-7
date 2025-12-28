@@ -41,10 +41,10 @@ import java.lang.reflect.Method;
 
 import static java.time.Duration.ofMillis;
 
-/**
- * @author iulianacosmina on 15/05/2025
- * Listing 4-3
- */
+///
+/// @author iulianacosmina on 15/05/2025
+/// Listing 4-3
+///
 public class ManualAdviceDemo {
 
  public static void main(String... args) {
@@ -61,17 +61,17 @@ public class ManualAdviceDemo {
 
 }
 
-/**
- * Listing 4-2
- */
+///
+/// Listing 4-2
+///
 interface Performance {
  void execute();
 }
 
 
-/**
- * Listing 4-2
- */
+///
+/// Listing 4-2
+///
 class Concert  implements Performance {
  private static Logger LOGGER = LoggerFactory.getLogger(Concert.class);
  @Override
@@ -85,9 +85,9 @@ class Concert  implements Performance {
 
 
 // -- AOP custom stuff--
-/**
- * Listing 4-1
- */
+///
+/// Listing 4-1
+///
 class SimpleBeforeAdvice implements MethodBeforeAdvice {
  private static Logger LOGGER = LoggerFactory.getLogger(SimpleBeforeAdvice.class);
 
@@ -96,9 +96,9 @@ class SimpleBeforeAdvice implements MethodBeforeAdvice {
   LOGGER.info("Before: set up concert hall.");
  }
 }
-/**
- * Listing 4-1
- */
+///
+/// Listing 4-1
+///
 class SimpleAfterAdvice implements AfterReturningAdvice {
  private static Logger LOGGER = LoggerFactory.getLogger(SimpleAfterAdvice.class);
 
@@ -107,9 +107,9 @@ class SimpleAfterAdvice implements AfterReturningAdvice {
   LOGGER.info("After: offer standing ovation.");
  }
 }
-/**
- * Listing 4-1
- */
+///
+/// Listing 4-1
+///
 class SimpleAroundAdvice implements MethodInterceptor {
  private static Logger LOGGER = LoggerFactory.getLogger(SimpleAroundAdvice.class);
 

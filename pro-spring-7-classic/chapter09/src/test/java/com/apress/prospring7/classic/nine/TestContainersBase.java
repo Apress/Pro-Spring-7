@@ -32,9 +32,9 @@ import org.springframework.test.context.DynamicPropertySource;
 import org.testcontainers.containers.MariaDBContainer;
 import org.testcontainers.junit.jupiter.Container;
 
-/**
- * @author iulianacosmina on 04/12/2025
- */
+///
+/// @author iulianacosmina on 04/12/2025
+///
 public class TestContainersBase {
 
     @Container

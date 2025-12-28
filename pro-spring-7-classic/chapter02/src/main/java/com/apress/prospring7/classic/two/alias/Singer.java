@@ -29,15 +29,15 @@ package com.apress.prospring7.classic.two.alias;
 
 import org.springframework.stereotype.Component;
 
-/**
- * @author iuliana.cosmina on 30/03/2025
- */
+///
+/// @author iuliana.cosmina on 30/03/2025
+///
 @Component("johnMayer")
 //@Award(prize = {"grammy", "platinum disk"})
 @Trophy(name={"grammy", "platinum disk"})
-/**
- * Listing 2-54
- */
+///
+/// Listing 2-54
+///
 public class Singer {
     private String lyric = "I used to crave the sight of you";
 

@@ -40,9 +40,9 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import javax.sql.DataSource;
 
-/**
- * @author iulianacosmina on 15/09/2025
- */
+///
+/// @author iulianacosmina on 15/09/2025
+///
 public class JdbcNamedTemplateConfigTest {
     private static final Logger LOGGER = LoggerFactory.getLogger(JdbcNamedTemplateConfigTest.class);
 

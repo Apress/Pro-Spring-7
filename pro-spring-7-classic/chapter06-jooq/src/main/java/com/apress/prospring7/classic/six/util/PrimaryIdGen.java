@@ -35,9 +35,9 @@ import java.lang.annotation.Target;
 
 import static java.lang.annotation.ElementType.FIELD;
 
-/**
- * @author iulianacosmina on 04/10/2025
- */
+///
+/// @author iulianacosmina on 04/10/2025
+///
 @IdGeneratorType(SequenceOrAssignedGenerator.class)
 @Retention(RetentionPolicy.RUNTIME)
 @Target({FIELD})

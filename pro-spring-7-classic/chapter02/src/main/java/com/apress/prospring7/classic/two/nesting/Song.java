@@ -27,10 +27,10 @@ SOFTWARE.
 */
 package com.apress.prospring7.classic.two.nesting;
 
-/**
- * @author iuliana.cosmina on 23/03/2025
- * Listing 2-35
- */
+///
+/// @author iuliana.cosmina on 23/03/2025
+/// Listing 2-35
+///
 public class Song {
     private String title;
 

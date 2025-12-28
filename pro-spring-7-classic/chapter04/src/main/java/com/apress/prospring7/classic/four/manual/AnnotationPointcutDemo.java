@@ -40,9 +40,9 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-/**
- * @author iulianacosmina on 28/07/2025
- */
+///
+/// @author iulianacosmina on 28/07/2025
+///
 public class AnnotationPointcutDemo {
  public static void main(String... args) {
   final var pc = AnnotationMatchingPointcut.forMethodAnnotation(AdviceRequired.class);

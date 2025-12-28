@@ -43,9 +43,9 @@ import org.springframework.transaction.support.TransactionTemplate;
 import javax.sql.DataSource;
 import java.util.Properties;
 
-/**
- * @author iulianacosmina on 22/10/2025
- */
+///
+/// @author iulianacosmina on 22/10/2025
+///
 @Import(BasicDataSourceCfg.class)
 @Configuration
 @ComponentScan(basePackages = {"com.apress.prospring7.classic.eight.repos",

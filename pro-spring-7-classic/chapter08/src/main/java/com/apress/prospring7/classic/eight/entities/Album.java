@@ -41,9 +41,9 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 
-/**
- * @author iulianacosmina on 21/10/2025
- */
+///
+/// @author iulianacosmina on 21/10/2025
+///
 @Entity
 @Table(name = "ALBUM")
 @NamedQueries({

@@ -27,10 +27,10 @@ SOFTWARE.
 */
 package com.apress.prospring7.classic.two.decoupled;
 
-/**
- * @author iuliana.cosmina on 16/02/2025
- * Listing 2-4
- */
+///
+/// @author iuliana.cosmina on 16/02/2025
+/// Listing 2-4
+///
 public interface MessageRenderer {
     void render();
     void setMessageProvider(MessageProvider provider);

@@ -30,13 +30,13 @@ package com.apress.prospring7.classic.two.decoupled;
 import java.util.Optional;
 import java.util.Properties;
 
-/**
- * @author iuliana.cosmina on 16/02/2025
- * I made the decision to put all classes related to this example in the same file.
- * It is easier to navigate the project, also you have all the components in the same file,
- * so there is no doubt where the bean definitions are coming from.
- * Listing 2-9
- */
+///
+/// @author iuliana.cosmina on 16/02/2025
+/// I made the decision to put all classes related to this example in the same file.
+/// It is easier to navigate the project, also you have all the components in the same file,
+/// so there is no doubt where the bean definitions are coming from.
+/// Listing 2-9
+///
 public class HelloWorldDecoupldWithFactory {
     public static void main(String... args) {
         MessageRenderer mr = MessageSupportFactory.getInstance().getMessageRenderer()
@@ -48,9 +48,9 @@ public class HelloWorldDecoupldWithFactory {
     }
 }
 
-/**
- * Listing 2-8
- */
+///
+/// Listing 2-8
+///
 class MessageSupportFactory {
 
     private static MessageSupportFactory instance;

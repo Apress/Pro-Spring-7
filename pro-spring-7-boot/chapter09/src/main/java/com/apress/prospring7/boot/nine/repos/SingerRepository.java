@@ -24,10 +24,36 @@ AUTHORS OR COPYRIGHT HOLDERS OR APRESS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-*/package com.apress.prospring7.boot.nine.repos;
+*/
+package com.apress.prospring7.boot.nine.repos;
+
+import com.apress.prospring7.boot.nine.entities.Singer;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
 
 /**
  * @author iulianacosmina on 15/12/2025
  */
- public class SingerRepository {
+public interface SingerRepository extends CrudRepository<Singer, Long> {
+    Iterable<Singer> findByFirstName(String firstName);
+    Iterable<Singer> findByFirstNameAndLastName(String firstName, String lastName);
+
+    Iterable<Singer> findAllWithAlbums();
+
+    @Modifying(clearAutomatically = true)
+    @Query("update Singer s set s.firstName = ?1 where s.id = ?2")
+    int setFirstNameFor(String firstName, Long id);
+
+    Iterable<FullName> findByLastName(String lastName);
+
+    interface FullName {
+
+        String getFirstName();
+        String getLastName();
+
+        default String getFullName() {
+            return getFirstName().concat(" ").concat(getLastName());
+        }
+    }
 }

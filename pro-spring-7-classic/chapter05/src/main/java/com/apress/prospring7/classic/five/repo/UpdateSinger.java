@@ -36,9 +36,9 @@ import java.sql.Types;
 
 import static com.apress.prospring7.classic.five.QueryConstants.UPDATE_SINGER;
 
-/**
- * @author iulianacosmina on 16/09/2025
- */
+///
+/// @author iulianacosmina on 16/09/2025
+///
 public class UpdateSinger  extends SqlUpdate {
 
     public UpdateSinger(DataSource dataSource) {

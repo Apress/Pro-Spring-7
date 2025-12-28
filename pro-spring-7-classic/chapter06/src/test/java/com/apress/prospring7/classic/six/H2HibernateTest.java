@@ -47,9 +47,9 @@ import java.time.LocalDate;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-/**
- * @author iulianacosmina on 01/10/2025
- */
+///
+/// @author iulianacosmina on 01/10/2025
+///
 @SpringJUnitConfig(classes = {HibernateTestConfig.class})
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class H2HibernateTest {

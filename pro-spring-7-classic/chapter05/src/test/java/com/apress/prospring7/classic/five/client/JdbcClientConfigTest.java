@@ -43,9 +43,9 @@ import java.time.LocalDate;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-/**
- * @author iulianacosmina on 02/11/2025
- */
+///
+/// @author iulianacosmina on 02/11/2025
+///
 public class JdbcClientConfigTest {
 
     @Test

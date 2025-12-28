@@ -27,9 +27,9 @@ SOFTWARE.
 */
 package com.apress.prospring7.classic.four.common;
 
-/**
- * @author iulianacosmina on 06/08/2025
- */
+///
+/// @author iulianacosmina on 06/08/2025
+///
 public class TestTarget implements SimpleTarget {
     @Override
     public void advised() {}

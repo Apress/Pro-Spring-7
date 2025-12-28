@@ -32,10 +32,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-/**
- * @author iulianacosmina on 08/08/2025
- * Listing 4-39
- */
+///
+/// @author iulianacosmina on 08/08/2025
+/// Listing 4-39
+///
 @Component("documentarist")
 public class NewDocumentarist {
 

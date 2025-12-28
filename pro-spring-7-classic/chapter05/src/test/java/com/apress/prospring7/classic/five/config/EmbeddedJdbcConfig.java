@@ -36,9 +36,9 @@ import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 
 import javax.sql.DataSource;
 
-/**
- * @author iulianacosmina on 14/09/2025
- */
+///
+/// @author iulianacosmina on 14/09/2025
+///
 @Configuration
 public class EmbeddedJdbcConfig {
     private static final Logger LOGGER = LoggerFactory.getLogger(EmbeddedJdbcConfig.class);

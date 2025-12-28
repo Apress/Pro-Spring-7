@@ -31,9 +31,9 @@ import org.springframework.aop.MethodBeforeAdvice;
 
 import java.lang.reflect.Method;
 
-/**
- * Listing 4-20.
- */
+///
+/// Listing 4-20.
+///
 public class NoOpBeforeAdvice implements MethodBeforeAdvice {
     @Override
     public void before(Method method, Object[] args, Object target) throws Throwable {

@@ -34,9 +34,9 @@ import org.hibernate.envers.AuditReaderFactory;
 
 import java.util.Optional;
 
-/**
- * @author iulianacosmina on 14/12/2025
- */
+///
+/// @author iulianacosmina on 14/12/2025
+///
 public class CustomSingerAuditRepositoryImpl implements CustomSingerAuditRepository {
 
     @PersistenceContext

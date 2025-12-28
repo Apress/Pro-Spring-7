@@ -46,9 +46,9 @@ import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * @author iulianacosmina on 27/09/2025
- */
+///
+/// @author iulianacosmina on 27/09/2025
+///
 @Entity
 @Table(name = "SINGER")
 @NamedQueries({

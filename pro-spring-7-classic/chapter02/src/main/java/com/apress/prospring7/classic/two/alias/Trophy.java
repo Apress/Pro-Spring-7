@@ -29,13 +29,13 @@ package com.apress.prospring7.classic.two.alias;
 
 import org.springframework.core.annotation.AliasFor;
 
-/**
- * @author iuliana.cosmina on 30/03/2025
- */
+///
+/// @author iuliana.cosmina on 30/03/2025
+///
 @Award
-/**
- * Listing 2-53
- */
+///
+/// Listing 2-53
+///
 public @interface Trophy {
 
     @AliasFor(annotation = Award.class, attribute = "value")

@@ -32,9 +32,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
 
-/**
- * Created by iuliana.cosmina on 19/03/2025
- */
+///
+/// Created by iuliana.cosmina on 19/03/2025
+///
 public class SingerFieldInjectionDemo {
 
     public static void main(String... args) {
@@ -48,9 +48,9 @@ public class SingerFieldInjectionDemo {
 }
 
 @Component("singer")
-/**
- * Listing 2-29
- */
+///
+/// Listing 2-29
+///
 class Singer {
     @Autowired
     private Inspiration inspirationBean;
@@ -61,9 +61,9 @@ class Singer {
 }
 
 @Component
-/**
- * Listing 2-30
- */
+///
+/// Listing 2-30
+///
 class Inspiration {
     private String lyric = "I can keep the door cracked open, to let light through";
 
