@@ -1,5 +1,8 @@
 @file:Suppress("UnstableApiUsage")
 
+import org.gradle.kotlin.dsl.maven
+
+
 pluginManagement {
     repositories {
         mavenLocal()
@@ -43,6 +46,10 @@ include(":chapter09")
 findProject(":chapter09")?.name = "chapter09-classic"
 include(":chapter09-mongo")
 findProject(":chapter09-mongo")?.name = "chapter09-mongo-classic"
+include(":chapter10-r2dbc")
+findProject(":chapter10-r2dbc")?.name = "chapter10-r2dbc-classic"
+include(":chapter10-mongo")
+findProject(":chapter10-mongo")?.name = "chapter10-mongo-classic"
 
 dependencyResolutionManagement {
     repositories {

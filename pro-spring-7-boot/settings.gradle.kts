@@ -41,6 +41,10 @@ include(":chapter09")
 findProject(":chapter09")?.name = "chapter09-boot"
 include(":chapter09-mongo")
 findProject(":chapter09-mongo")?.name = "chapter09-mongo-boot"
+include(":chapter10-r2dbc")
+findProject(":chapter10-r2dbc")?.name = "chapter10-r2dbc-boot"
+include(":chapter10-mongo")
+findProject(":chapter10-mongo")?.name = "chapter10-mongo-boot"
 
 dependencyResolutionManagement {
     repositories {

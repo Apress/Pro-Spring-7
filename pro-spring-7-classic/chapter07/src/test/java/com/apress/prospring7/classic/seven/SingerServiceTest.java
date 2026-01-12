@@ -52,9 +52,9 @@ import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.jdbc.SqlGroup;
 import org.springframework.test.context.jdbc.SqlMergeMode;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
-import org.testcontainers.containers.MariaDBContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
+import org.testcontainers.mariadb.MariaDBContainer;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -76,7 +76,7 @@ public class SingerServiceTest {
     private static final Logger LOGGER = LoggerFactory.getLogger(SingerServiceTest.class);
 
     @Container
-    static MariaDBContainer<?> mariaDB = new MariaDBContainer<>("mariadb:latest");
+    static MariaDBContainer mariaDB = new MariaDBContainer("mariadb:latest");
 
     @DynamicPropertySource // this does the magic
     static void setUp(DynamicPropertyRegistry registry) {

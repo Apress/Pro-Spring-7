@@ -29,8 +29,12 @@ allprojects {
     repositories {
         mavenLocal()
         mavenCentral()
+        gradlePluginPortal()
         maven { url = uri("https://repo.spring.io/snapshot") }
         maven { url = uri("https://repo.spring.io/milestone") }
         maven { url = uri("https://repo.spring.io/release") }
+        maven { url = uri("https://repo.spring.io/plugins-snapshot") }
+        maven { url = uri("https://repo.spring.io/plugins-milestone") }
+        maven { url = uri("https://repo.spring.io/plugins-release") }
     }
 }

@@ -1,0 +1,25 @@
+# datasource config
+spring:
+  data:
+    mongodb:
+      repositories:
+        type: imperative
+      auto-index-creation: true
+  mongodb:
+    uri: mongodb://prospring7:prospring7@localhost:27017/musicdb?authSource=admin
+    #uri: mongodb://localhost:27017
+    #database: musicdb
+    #username: prospring7
+    #password: prospring7
+    #port: 27017
+    #host: localhost
+    #authentication-database: admin
+
+# Logging config
+logging:
+  pattern:
+    console: "%-5level: %class{0} - %msg%n"
+  level:
+    root: INFO
+    org.springframework.boot: DEBUG
+    com.apress.prospring7.boot.ten: INFO

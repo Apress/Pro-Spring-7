@@ -1,0 +1,22 @@
+# datasource config
+spring:
+  data:
+    r2dbc:
+      repositories:
+        enabled: true  # default value
+  r2dbc:
+    url: r2dbc:mariadb://localhost:3306/musicdb
+    username: prospring7
+    password: prospring7
+
+
+# Logging config
+logging:
+  pattern:
+    console: "%-5level: %class{0} - %msg%n"
+  level:
+    root: INFO
+    org.springframework: INFO
+    org.springframework.boot: DEBUG
+    org.springframework.data.r2dbc: DEBUG
+    com.apress.prospring7.boot.ten: INFO

@@ -42,9 +42,9 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- * @author iulianacosmina on 21/09/2025
- */
+///
+/// @author iulianacosmina on 21/09/2025
+///
 @ActiveProfiles("testcontainers")
 @Testcontainers
 /*@Sql(value = "classpath:testcontainers/create-schema.sql",

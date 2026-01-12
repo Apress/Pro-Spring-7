@@ -1,0 +1,20 @@
+# datasource config
+#spring:
+#  data:
+#    r2dbc:
+#      repositories:
+#        enabled: true
+#
+#  r2dbc:
+#    url: "r2dbc:tc:mariadb:///databasename?TC_IMAGE_TAG=latest&TC_INITSCRIPT=testcontainers/create-schema.sql"
+
+# Logging config
+logging:
+  pattern:
+    console: "%-5level: %class{0} - %msg%n"
+  level:
+    root: INFO
+    org.springframework: INFO
+    org.springframework.boot: DEBUG
+    org.springframework.data.r2dbc: DEBUG
+    com.apress.prospring7.boot.ten: INFO

@@ -11,8 +11,6 @@ group = "com.apress.prospring7.boot.nine"
 
 dependencies {
     implementation(libs.springBootStarterDataMongo)
-    api(libs.hibernateCore) // to use 7.2.0.Final
-    implementation(libs.mariaDB)
 
     testImplementation(libs.tcMongoDB)
     testImplementation(libs.tcJJ)
@@ -22,5 +20,5 @@ dependencies {
 
 
 springBoot {
-    mainClass = "$group.Chapter7Application"
+    mainClass = "$group.Chapter9Application"
 }

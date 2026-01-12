@@ -3,7 +3,7 @@ plugins {
 }
 description = "Pro Spring 7: Chapter 9 - Spring Data"
 
-group = "com.apress.prospring7.classic.eight"
+group = "com.apress.prospring7.classic.nine"
 
 dependencies {
     implementation(libs.logback)

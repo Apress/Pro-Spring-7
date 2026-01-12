@@ -1,0 +1,43 @@
+= Spring Data: MongoDB
+
+You can choose to install MongoDB locally following the instructions on the official site. But you can also use MongoDB in a docker container (https://hub.docker.com/_/mongo).
+
+There are two ways to run MongoDB: as a Standalone Self-Managed instance and as a Replica Set. The reason to use one way of the other depends on one thing: if you need transactions or not. Transactions were introduced in MongoDB 4.0. But unfortunately, most tools for installing and running MongoDB start a standalone server as opposed to a replica set. If you try to start a session on a standalone server, you'll get this error.
+
+[source, text]
+----
+Mongodb v4.0 Transaction, MongoError: Transaction numbers are only allowed on a replica set member or mongos
+----
+
+== Running a Standalone Self-Managed MongoDB Instance using Podman
+
+Change directory to `chapter10-mongo/podman-build` and run the following command to create the container image:
+
+[source]
+----
+cd chapter10-mongo/podman-build
+podman build -t prospring7-mongodb:10.4 .
+----
+
+Run the following to start the container:
+
+[source, bash]
+----
+podman run --name chapter10-4-mongodb -d -p 27017:27017 prospring7-mongodb:10.4
+----
+
+Use the IntelliJ IDEA to create a connection to localhost with the credentials in the `Containerfile` and feel free to query the documents as you write your Spring code.
+
+
+Use the default QL console in IntelliJ IDEA and try these:
+
+[source]
+----
+db
+
+db.singers.find({})
+
+db.singers.findOne({})
+
+db.singers.findOne({'firstName': 'Ben'})
+----

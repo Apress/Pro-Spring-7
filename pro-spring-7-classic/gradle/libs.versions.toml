@@ -12,6 +12,7 @@ jakartaAnnotationApi        = "3.0.0"
 jakartaInjectApi        = "2.0.1"
 aspectj        = "1.9.24"
 mariaDB        = "3.5.6"
+mariaDBr2dbc     = "1.3.0"
 mongoDB        = "5.6.2"
 c3p0        = "0.11.2"
 hikari        = "7.0.2"
@@ -19,6 +20,8 @@ h2         = "2.3.232"
 testcontainers = "2.0.2"
 hibernate        = "7.2.0.Final"
 jooq        = "3.20.10"
+jackson     = "3.0.3"
+reactor = "3.8.1"
 
 [plugins]
 jooqPlugin = { id = "org.jooq.jooq-codegen-gradle", version.ref = "jooq"}
@@ -50,7 +53,9 @@ springDataMongo = { module = "org.springframework.data:spring-data-mongodb", ver
 springSecurityWeb = { module = "org.springframework.security:spring-security-web", version.ref = "springSecurity" }
 springSecurityConfig = { module = "org.springframework.security:spring-security-config", version.ref = "springSecurity" }
 mariaDB = { module = "org.mariadb.jdbc:mariadb-java-client", version.ref = "mariaDB" }
+mariaDBr2dbc = { module = "org.mariadb:r2dbc-mariadb", version.ref = "mariaDBr2dbc" }
 mongoDB = { module = "org.mongodb:mongodb-driver-sync", version.ref = "mongoDB" }
+mongoDBReactive = { module = "org.mongodb:mongodb-driver-reactivestreams", version.ref = "mongoDB" }
 hibernateCore = { module = "org.hibernate.orm:hibernate-core", version.ref = "hibernate" }
 c3p0 = { module = "com.mchange:c3p0", version.ref = "c3p0"}
 hikariCP = { module = "com.zaxxer:HikariCP", version.ref = "hikari"}
@@ -59,3 +64,6 @@ tcMariaDB = { module = "org.testcontainers:testcontainers-mariadb", version.ref 
 tcMongoDB = { module = "org.testcontainers:testcontainers-mongodb", version.ref = "testcontainers"}
 tcJJ = { module = "org.testcontainers:testcontainers-junit-jupiter", version.ref = "testcontainers"}
 jooqCodeGen = { module = "org.jooq:jooq-codegen", version.ref = "jooq"}
+jacksonDatabind = {module = "tools.jackson.core:jackson-databind", version.ref = "jackson"}
+reactorTest = {module = "io.projectreactor:reactor-test", version.ref = "reactor"}
+reactorCore = {module = "io.projectreactor:reactor-core", version.ref = "reactor"}

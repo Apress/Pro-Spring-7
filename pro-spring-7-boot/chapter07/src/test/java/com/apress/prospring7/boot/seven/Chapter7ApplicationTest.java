@@ -27,13 +27,10 @@ SOFTWARE.
 */
 package com.apress.prospring7.boot.seven;
 
-import com.apress.prospring7.boot.seven.entities.Album;
 import com.apress.prospring7.boot.seven.entities.Singer;
 import com.apress.prospring7.boot.seven.service.SingerService;
 import com.apress.prospring7.boot.seven.service.SingerSummaryService;
 import org.jetbrains.annotations.NotNull;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -42,25 +39,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.jdbc.Sql;
-import org.springframework.test.context.jdbc.SqlGroup;
-import org.springframework.test.context.jdbc.SqlMergeMode;
-import org.testcontainers.junit.jupiter.Testcontainers;
 
-import java.time.LocalDate;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
-/**
- * @author iulianacosmina on 19/10/2025
- */
+///
+/// @author iulianacosmina on 19/10/2025
+///
 @ActiveProfiles("test")
-@Testcontainers
-@SqlMergeMode(SqlMergeMode.MergeMode.MERGE)
-@Sql({ "classpath:testcontainers/drop-schema.sql", "classpath:testcontainers/create-schema.sql" })
 @SpringBootTest(classes = Chapter7Application.class)
 public class Chapter7ApplicationTest {
     private static final Logger LOGGER = LoggerFactory.getLogger(Chapter7ApplicationTest.class);

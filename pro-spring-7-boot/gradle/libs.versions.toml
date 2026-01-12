@@ -1,6 +1,6 @@
 [versions]
-spring            = "7.0.0"
-springBoot        = "4.0.0"
+spring            = "7.0.2"
+springBoot        = "4.0.1"
 springManagement     = "1.1.7"
 mariaDB     = "3.5.6"
 mongoDB        = "5.6.2"
@@ -9,6 +9,8 @@ h2          = "2.3.232"
 testcontainers = "2.0.2"
 hibernate        = "7.2.0.Final"
 jooq        = "3.20.8"
+mariaDBr2dbc     = "1.3.0"
+reactor = "3.8.1"
 
 [plugins]
 jooqPlugin = { id = "org.jooq.jooq-codegen-gradle", version.ref = "jooq"}
@@ -21,11 +23,14 @@ springBootStarterAspectJ = { module = "org.springframework.boot:spring-boot-star
 springBootStarterJdbc = { module = "org.springframework.boot:spring-boot-starter-jdbc"}
 springBootStarterDataJpa = { module = "org.springframework.boot:spring-boot-starter-data-jpa"}
 springBootStarterDataMongo = { module = "org.springframework.boot:spring-boot-starter-data-mongodb"}
+springBootStarterDataMongoReactive = { module = "org.springframework.boot:spring-boot-starter-data-mongodb-reactive"}
+springBootStarterDataR2dbc = { module = "org.springframework.boot:spring-boot-starter-data-r2dbc"}
 springBootStarterJooq = { module = "org.springframework.boot:spring-boot-starter-jooq"}
 springBootStarterWeb = { module = "org.springframework.boot:spring-boot-starter-web"}
 springBootStarterTest = { module = "org.springframework.boot:spring-boot-starter-test"}
 springOrm = { module = "org.springframework:spring-orm", version.ref = "spring" }
 mariaDB = { module = "org.mariadb.jdbc:mariadb-java-client", version.ref = "mariaDB" }
+mariaDBr2dbc = { module = "org.mariadb:r2dbc-mariadb", version.ref = "mariaDBr2dbc" }
 mongoDB = { module = "org.mongodb:mongodb-driver-sync", version.ref = "mongoDB" }
 hibernateCore = { module = "org.hibernate.orm:hibernate-core", version.ref = "hibernate" }
 h2 = { module = "com.h2database:h2", version.ref = "h2"}
@@ -33,6 +38,9 @@ c3p0 = { module = "com.mchange:c3p0", version.ref = "c3p0"}
 tcMariaDB = { module = "org.testcontainers:testcontainers-mariadb", version.ref = "testcontainers"}
 tcMongoDB = { module = "org.testcontainers:testcontainers-mongodb", version.ref = "testcontainers"}
 springBootStarterTc = { module = "org.springframework.boot:spring-boot-testcontainers"}
+springBootR2dbcTest = { module = "org.springframework.boot:spring-boot-data-r2dbc-test"}
+springBootJdbcTest = { module = "org.springframework.boot:spring-boot-data-jdbc-test"}
 tcJJ = { module = "org.testcontainers:testcontainers-junit-jupiter", version.ref = "testcontainers"}
 jooqCodeGen = { module = "org.jooq:jooq-codegen", version.ref = "jooq"}
 jooqCore = { module = "org.jooq:jooq", version.ref = "jooq"}
+reactorTest = {module = "io.projectreactor:reactor-test", version.ref = "reactor"}
