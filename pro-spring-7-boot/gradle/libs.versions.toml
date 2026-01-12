@@ -26,6 +26,7 @@ springBootStarterDataMongo = { module = "org.springframework.boot:spring-boot-st
 springBootStarterDataMongoReactive = { module = "org.springframework.boot:spring-boot-starter-data-mongodb-reactive"}
 springBootStarterDataR2dbc = { module = "org.springframework.boot:spring-boot-starter-data-r2dbc"}
 springBootStarterJooq = { module = "org.springframework.boot:spring-boot-starter-jooq"}
+springBootStarterValidator = { module = "org.springframework.boot:spring-boot-starter-validation"}
 springBootStarterWeb = { module = "org.springframework.boot:spring-boot-starter-web"}
 springBootStarterTest = { module = "org.springframework.boot:spring-boot-starter-test"}
 springOrm = { module = "org.springframework:spring-orm", version.ref = "spring" }
