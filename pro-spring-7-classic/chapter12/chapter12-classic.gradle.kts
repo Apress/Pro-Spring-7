@@ -1,3 +1,6 @@
+plugins {
+    id("java-library")
+}
 description = "Pro Spring 7: Chapter 12 - Validation, Formatting, and Type Conversion"
 
 group = "com.apress.prospring7.classic.twelve"
@@ -10,7 +13,7 @@ dependencies {
 
     api(libs.hibernateValidator)
     //implementation("org.glassfish:jakarta.el:5.0.0-M1")
-    implementation("org.apache.tomcat.embed:tomcat-embed-el:11.0.15")
+    implementation(libs.tomcatEl)
 
     testImplementation(libs.springTest)
     testImplementation(libs.junitJupiter)

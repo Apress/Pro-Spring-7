@@ -31,8 +31,8 @@ include(":chapter04")
 findProject(":chapter04")?.name = "chapter04-boot"
 include(":chapter05")
 findProject(":chapter05")?.name = "chapter05-boot"
-include(":chapter06")
-findProject(":chapter06")?.name = "chapter06-boot"
+/*include(":chapter06")
+findProject(":chapter06")?.name = "chapter06-boot"*/
 include(":chapter07")
 findProject(":chapter07")?.name = "chapter07-boot"
 include(":chapter08")
@@ -47,6 +47,8 @@ include(":chapter10-mongo")
 findProject(":chapter10-mongo")?.name = "chapter10-mongo-boot"
 include(":chapter12")
 findProject(":chapter12")?.name = "chapter12-boot"
+include(":chapter13")
+findProject(":chapter13")?.name = "chapter13-boot"
 
 
 dependencyResolutionManagement {

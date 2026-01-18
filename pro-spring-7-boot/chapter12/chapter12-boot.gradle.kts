@@ -10,12 +10,12 @@ group = "com.apress.prospring7.boot.twelve"
 
 
 dependencies {
-    implementation(libs.springBootStarterValidator)
+    implementation(libs.springBootStarterValidation)
 
     testImplementation(libs.springBootStarterTest)
 }
 
 
 springBoot {
-    mainClass = "$group.Chapter11Application"
+    mainClass = "$group.Chapter12Application"
 }

@@ -1,3 +1,6 @@
+plugins {
+    id("java-library")
+}
 description = "Pro Spring 7: Chapter 11 - TaskScheduling"
 
 group = "com.apress.prospring7.classic.eleven"
