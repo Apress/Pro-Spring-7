@@ -1,0 +1,63 @@
+<!--
+Created by IntelliJ IDEA.
+User: iulianacosmina
+Date: 2022-12-26
+-->
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="~{templates/layout :: pageTitle('Singers Home Page')}"></head>
+
+    <body>
+        <div class="container">
+            <header th:replace="~{templates/layout :: pageHeader}" ></header>
+
+            <header th:replace="~{templates/layout :: pageMenu}" ></header>
+
+            <section th:fragment="~{templates/layout :: pageContent}">
+                <script type="text/javascript" th:inline="javascript">
+                    /*<![CDATA[*/
+                    $(window).on( "load", function() {
+                        function createEventSource() {
+                            var eventSource = new EventSource(/*[[@{|/beans|}]]*/);
+                            eventSource.addEventListener('message', function (e) {
+                                console.log(e);
+                                $("#beans").append('<li>'+ event.data +'</li>')
+                            }, false);
+                            return eventSource;
+                        }
+
+                        var eventSource;
+
+                        $("#startButton").click(function() {
+                            if (eventSource) {
+                                eventSource.close();
+                            }
+                            eventSource = createEventSource();
+                        });
+
+                        $("#stopButton").click(function() {
+                            eventSource.close();
+                        });
+                    });
+                    /*]]>*/
+                </script>
+                <div class="card border-success mb-3" style="max-width: 40rem; left:30px;">
+                    <div class="card-header">
+                            <span class="col-sm-6">Reactive Application Beans</span>
+                            <input type="submit" th:value="#{command.start}" id="startButton" class="btn btn-success"/>
+                            <input type="submit" th:value="#{command.stop}" id="stopButton" class="btn btn-warning"/>
+                    </div>
+                    <div class="row mb-1 m-sm-1">
+                        <div class="scrollable">
+                            <ul id="beans">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <footer th:replace="~{templates/layout :: pageFooter}" ></footer>
+        </div>
+    </body>
+</html>

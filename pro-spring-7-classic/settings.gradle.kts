@@ -56,6 +56,10 @@ include(":chapter12")
 findProject(":chapter12")?.name = "chapter12-classic"
 include(":chapter13")
 findProject(":chapter13")?.name = "chapter13-classic"
+include(":chapter13-fct")
+findProject(":chapter13-fct")?.name = "chapter13-fct-classic"
+include(":chapter14")
+findProject(":chapter14")?.name = "chapter14-classic"
 
 
 dependencyResolutionManagement {

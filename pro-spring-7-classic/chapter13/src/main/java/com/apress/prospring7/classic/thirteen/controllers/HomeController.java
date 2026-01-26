@@ -27,21 +27,43 @@ SOFTWARE.
 */
 package com.apress.prospring7.classic.thirteen.controllers;
 
+import org.jspecify.annotations.NonNull;
+import org.springframework.beans.BeansException;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 ///
 /// @author iulianacosmina on 14/01/2026
 ///
-
 @Controller
-public class HomeController {
+public class HomeController implements ApplicationContextAware {
+    private ApplicationContext ctx;
+
+    @Override
+    public void setApplicationContext(@NonNull ApplicationContext applicationContext) throws BeansException {
+        ctx = applicationContext;
+    }
 
     @RequestMapping(path = "home", method = RequestMethod.GET)
     public String home(Model model) {
         model.addAttribute("message", "Spring MVC Thymeleaf Example!!");
         return "home";
+    }
+
+    @ResponseBody // The response payload for this request will be rendered in text
+    @GetMapping(path = { "beans"}, produces = MediaType.TEXT_HTML_VALUE)
+    public String beans() {
+        return Arrays.stream(ctx.getBeanDefinitionNames()).sorted()
+                .collect(Collectors.joining("</li><li>", "<!DOCTYPE html><html><body><ul><li>", "</li></ul></body></html>"));
     }
 }

@@ -74,15 +74,10 @@ public class R2dbcTemplateRepoTest {
     @DynamicPropertySource // this does the magic
     static void setUp(DynamicPropertyRegistry registry) {
         registry.add("r2dbc.database", mariaDB::getDatabaseName);
-        registry.add("r2dbc.host", () -> "localhost");
+        registry.add("r2dbc.host", () -> mariaDB.getHost());
         registry.add("r2dbc.username", mariaDB::getUsername);
         registry.add("r2dbc.password", mariaDB::getPassword);
-        registry.add("r2dbc.port", () -> {
-            // needed because mariaDB.getExposedPorts() returns 3306, not the mapped port
-            var url = mariaDB.getJdbcUrl();
-            var idx = url.indexOf("localhost:");
-            return url.substring(idx + 10,  url.lastIndexOf("/"));
-        });
+        registry.add("r2dbc.port", () -> mariaDB.getFirstMappedPort());
     }
 
     @Autowired

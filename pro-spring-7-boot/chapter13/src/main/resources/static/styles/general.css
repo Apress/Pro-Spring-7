@@ -14,7 +14,7 @@
 
 .error{
     border: 1px solid;
-    margin: 3px 0px;
+    margin: 3px 0;
     padding:3px 3px 3px 3px;
 }
 
@@ -25,7 +25,7 @@
 }
 
 .banner {
-    background: url("../images/banner-green.png") no-repeat 0px center;
+    background: url("../images/banner-green.png") no-repeat 0 center;
     height: 90px;
 }
 
@@ -57,6 +57,6 @@ a:hover {
 
 ul {
     list-style-image: url("../images/arrow-green.png");
-    background: no-repeat 0px center;
+    background: no-repeat 0 center;
     padding-left: 30px;
 }

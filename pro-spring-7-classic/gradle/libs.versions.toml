@@ -1,5 +1,5 @@
 [versions]
-spring              = "7.0.2"
+spring              = "7.0.3"
 springData          = "4.0.1"
 springSecurity      = "7.0.0"
 springDataNoSql     = "5.0.1"
@@ -21,7 +21,7 @@ testcontainers       = "2.0.2"
 hibernate            = "7.2.0.Final"
 hibernateValidator   = "9.1.0.Final"
 jooq                 = "3.20.10"
-jackson              = "3.0.3"
+jackson              = "3.1.0-rc1"
 reactor              = "3.8.1"
 lang3Version         = "3.20.0"
 servletVersion       = "6.2.0-M1"
@@ -72,6 +72,7 @@ tcMongoDB = { module = "org.testcontainers:testcontainers-mongodb", version.ref 
 tcJJ = { module = "org.testcontainers:testcontainers-junit-jupiter", version.ref = "testcontainers"}
 jooqCodeGen = { module = "org.jooq:jooq-codegen", version.ref = "jooq"}
 jacksonDatabind = {module = "tools.jackson.core:jackson-databind", version.ref = "jackson"}
+jacksonDataformatXml = {module = "tools.jackson.dataformat:jackson-dataformat-xml", version.ref = "jackson"}
 reactorTest = {module = "io.projectreactor:reactor-test", version.ref = "reactor"}
 reactorCore = {module = "io.projectreactor:reactor-core", version.ref = "reactor"}
 commonsLang3 = {module = "org.apache.commons:commons-lang3", version.ref = "lang3Version"}

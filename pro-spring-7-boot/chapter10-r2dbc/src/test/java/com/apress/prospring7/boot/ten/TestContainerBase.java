@@ -45,7 +45,6 @@ public abstract class TestContainerBase {
 
     static Singer NICK = new Singer(1L, "Nick", "Drake", LocalDate.of(1948,6, 19));
 
-
     @Container
     static MariaDBContainer mariaDB = new MariaDBContainer("mariadb:latest")
             .withCopyFileToContainer(MountableFile.forClasspathResource("testcontainers/create-schema.sql"), "/docker-entrypoint-initdb.d/init.sql");

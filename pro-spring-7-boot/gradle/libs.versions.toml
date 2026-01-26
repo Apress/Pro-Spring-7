@@ -1,6 +1,6 @@
 [versions]
-spring            = "7.0.2"
-springBoot        = "4.0.1"
+spring            = "7.0.3"
+springBoot        = "4.0.2"
 springManagement     = "1.1.7"
 mariaDB     = "3.5.6"
 mongoDB        = "5.6.2"
@@ -32,6 +32,8 @@ springBootStarterWeb = { module = "org.springframework.boot:spring-boot-starter-
 springBootStarterThymeleaf = { module = "org.springframework.boot:spring-boot-starter-thymeleaf"}
 springBootStarterTest = { module = "org.springframework.boot:spring-boot-starter-test"}
 springBootStarterWebMvcTest = { module = "org.springframework.boot:spring-boot-starter-webmvc-test"}
+springBootStarterWebFlux = { module = "org.springframework.boot:spring-boot-starter-webflux"}
+springBootStarterJson = { module = "org.springframework.boot:spring-boot-starter-json"}
 springOrm = { module = "org.springframework:spring-orm", version.ref = "spring" }
 mariaDB = { module = "org.mariadb.jdbc:mariadb-java-client", version.ref = "mariaDB" }
 mariaDBr2dbc = { module = "org.mariadb:r2dbc-mariadb", version.ref = "mariaDBr2dbc" }

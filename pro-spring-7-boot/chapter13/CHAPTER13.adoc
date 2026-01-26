@@ -1,4 +1,4 @@
-= Spring Data
+= Spring Boot WebMVC
 
 You can choose to install MariaDB locally following the instructions on the official site. But you can also use MariaDB in a docker container.
 

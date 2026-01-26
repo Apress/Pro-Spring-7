@@ -1,0 +1,26 @@
+GET http://localhost:8080/ch14/home
+###
+
+GET http://localhost:8080/ch14/beans
+Accept: application/json
+###
+
+GET http://localhost:8080/ch14/singer/
+Accept: application/xml
+###
+
+GET http://localhost:8080/ch14/singer/
+Accept: application/json
+###
+
+GET http://localhost:8080/ch14/singer/1
+# No Accept, defaults to JSON
+###
+
+GET http://localhost:8080/ch14/singer/1
+Accept: application/xml
+###
+
+GET http://localhost:8080/ch14/singer/1
+Accept: application/json
+###

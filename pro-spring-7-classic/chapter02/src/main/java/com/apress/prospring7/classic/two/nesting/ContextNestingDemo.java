@@ -37,7 +37,7 @@ import static java.lang.System.out;
 ///
 public class ContextNestingDemo {
 
-    public static void main(String... args) {
+     static void main() {
         var parentCtx = new AnnotationConfigApplicationContext();
         parentCtx.register(ParentConfig.class);
         parentCtx.refresh();
