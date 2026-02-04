@@ -29,6 +29,7 @@ springBootStarterDataR2dbc = { module = "org.springframework.boot:spring-boot-st
 springBootStarterJooq = { module = "org.springframework.boot:spring-boot-starter-jooq"}
 springBootStarterValidation = { module = "org.springframework.boot:spring-boot-starter-validation"}
 springBootStarterWeb = { module = "org.springframework.boot:spring-boot-starter-web"}
+springBootStarterWebsocket = { module = "org.springframework.boot:spring-boot-starter-websocket"}
 springBootStarterThymeleaf = { module = "org.springframework.boot:spring-boot-starter-thymeleaf"}
 springBootStarterTest = { module = "org.springframework.boot:spring-boot-starter-test"}
 springBootStarterWebMvcTest = { module = "org.springframework.boot:spring-boot-starter-webmvc-test"}

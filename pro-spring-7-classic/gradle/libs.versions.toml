@@ -48,9 +48,9 @@ springJdbc = { module = "org.springframework:spring-jdbc", version.ref = "spring
 springOrm = { module = "org.springframework:spring-orm", version.ref = "spring" }
 springTest = { module = "org.springframework:spring-test", version.ref = "spring" }
 springWebMvc = { module = "org.springframework:spring-webmvc", version.ref = "spring" }
+springWebSocket = { module = "org.springframework:spring-websocket", version.ref = "spring" }
 springMessaging = { module = "org.springframework:spring-messaging", version.ref = "spring" }
 springJms = { module = "org.springframework:spring-jms", version.ref = "spring" }
-springWebSocket = { module = "org.springframework:spring-websocket", version.ref = "spring" }
 springKafka = { module = "org.springframework.data:spring-kafka", version.ref = "springKafka" }
 springDataJpa = { module = "org.springframework.data:spring-data-jpa", version.ref = "springData" }
 springDataEnvers = { module = "org.springframework.data:spring-data-envers", version.ref = "springData" }
