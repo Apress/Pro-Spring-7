@@ -29,6 +29,7 @@ dependencies {
     compileOnly(libs.servletApi)
 
     testImplementation(libs.servletApi) // check if needed
+    testImplementation(libs.springSecurityTest)
     testImplementation(libs.springTest)
     testImplementation(libs.hamcrest)
     testImplementation(libs.restAssured)

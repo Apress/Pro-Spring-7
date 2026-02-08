@@ -47,11 +47,10 @@ import java.util.Properties;
 ///
 /// @author iulianacosmina on 13/01/2026
 ///
-@Import(BasicDataSourceCfg.class)
 @Configuration
 @EnableJpaRepositories(basePackages = {"com.apress.prospring7.classic.sixteen.repos"})
 @EnableTransactionManagement
-@ComponentScan(basePackages = {"com.apress.prospring7.classic.sixteen.services"})
+//@ComponentScan(basePackages = {"com.apress.prospring7.classic.sixteen.services"})
 public class TransactionCfg {
 
     final DataSource dataSource;

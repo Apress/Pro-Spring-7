@@ -205,7 +205,7 @@ public class JOOQDslTest {
             executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
     @DisplayName("should delete a singer")
     void testDelete() {
-        // TODO  FAILS with Hibernate 7.2.0.Final
+        // TODO  FAILS with Hibernate 7.2.3.Final
        /* assertThrows(DataAccessException.class, () -> dslContext.deleteFrom(SINGER)
                 .where(SINGER.ID.eq(6))
                 .execute());*/

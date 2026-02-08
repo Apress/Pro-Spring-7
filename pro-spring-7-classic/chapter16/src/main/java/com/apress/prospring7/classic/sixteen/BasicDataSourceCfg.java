@@ -43,7 +43,7 @@ import javax.sql.DataSource;
 ///
 @Configuration
 @PropertySource("classpath:db/jdbc.properties")
-public class BasicDataSourceCfg {
+class BasicDataSourceCfg {
     private static final Logger LOGGER = LoggerFactory.getLogger(BasicDataSourceCfg.class);
 
     @Value("${jdbc.driverClassName}")
@@ -59,7 +59,7 @@ public class BasicDataSourceCfg {
     private String password;
 
     @Bean(destroyMethod = "close")
-    public DataSource dataSource() {
+    DataSource dataSource() {
         try {
             var hc = new HikariConfig();
             hc.setJdbcUrl(url);

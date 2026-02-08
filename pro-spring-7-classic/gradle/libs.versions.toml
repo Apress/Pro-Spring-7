@@ -18,7 +18,7 @@ c3p0                 = "0.11.2"
 hikari               = "7.0.2"
 h2                   = "2.3.232"
 testcontainers       = "2.0.2"
-hibernate            = "7.2.0.Final"
+hibernate            = "7.2.3.Final"
 hibernateValidator   = "9.1.0.Final"
 jooq                 = "3.20.10"
 jackson              = "3.1.0-rc1"
@@ -58,6 +58,7 @@ springDataR2dbc = { module = "org.springframework.data:spring-data-r2dbc", versi
 springDataMongo = { module = "org.springframework.data:spring-data-mongodb", version.ref = "springDataNoSql" }
 springSecurityWeb = { module = "org.springframework.security:spring-security-web", version.ref = "springSecurity" }
 springSecurityConfig = { module = "org.springframework.security:spring-security-config", version.ref = "springSecurity" }
+springSecurityTest = { module = "org.springframework.security:spring-security-test", version.ref = "springSecurity" }
 mariaDB = { module = "org.mariadb.jdbc:mariadb-java-client", version.ref = "mariaDB" }
 mariaDBr2dbc = { module = "org.mariadb:r2dbc-mariadb", version.ref = "mariaDBr2dbc" }
 mongoDB = { module = "org.mongodb:mongodb-driver-sync", version.ref = "mongoDB" }

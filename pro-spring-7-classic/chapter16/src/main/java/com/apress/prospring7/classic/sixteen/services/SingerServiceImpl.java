@@ -33,9 +33,14 @@ import com.apress.prospring7.classic.sixteen.ex.NotFoundException;
 import com.apress.prospring7.classic.sixteen.repos.SingerRepo;
 import com.apress.prospring7.classic.sixteen.util.CriteriaDto;
 import com.apress.prospring7.classic.sixteen.util.FieldGroup;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -52,6 +57,7 @@ import java.util.stream.StreamSupport;
 @Transactional
 @Service("singerService")
 public class SingerServiceImpl implements SingerService {
+    private static final Logger LOGGER = LoggerFactory.getLogger(SingerServiceImpl.class);
 
     private final SingerRepo singerRepo;
 
@@ -65,9 +71,20 @@ public class SingerServiceImpl implements SingerService {
         return singerRepo.findAll(Sort.unsorted());
     }
 
-    @Override
+    /*@Override
     public void delete(Long id) {
         singerRepo.deleteById(id);
+    }*/
+
+    @PreAuthorize("isAuthenticated() && hasRole('ADMIN')")
+    @Override
+    public void delete(Long id) {
+        Authentication authentication = SecurityContextHolder.getContext()
+                .getAuthentication();
+        if(authentication!= null) {
+            LOGGER.debug("User {} attempting to delete singer {}", authentication.getPrincipal(), id);
+        }
+         singerRepo.deleteById(id);
     }
 
     @Override

@@ -46,6 +46,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @Disabled("Deploy the war to Apache Tomcat and then enable this test")
 public class SingerControllerTest {
 
+    private static final String WEB_CONTEXT = "/ch16";
+
     @BeforeEach
     void setUp() {
         RestAssured.port = 8080;
@@ -54,13 +56,13 @@ public class SingerControllerTest {
 
     @Test
     void johnShouldNotSeeTheDeleteButton() {
-        var cfg = new FormAuthConfig("/ch16/auth", "user", "pass")
+        var cfg = new FormAuthConfig(WEB_CONTEXT + "/auth", "user", "pass")
                 .withLoggingEnabled();
 
         String responseStr =  given()
                 .contentType(ContentType.URLENC)
                 .auth().form("john","doe", cfg)
-                .when().get("/ch17/singer/1")
+                .when().get(WEB_CONTEXT + "/singer/1")
                 .then()
                 .assertThat().statusCode(HttpStatus.OK.value())
                 .extract().body().asString();
@@ -74,13 +76,13 @@ public class SingerControllerTest {
 
     @Test
     void johnShouldNotBeAllowedToDeleteSinger() {
-        var cfg = new FormAuthConfig("/ch16/auth", "user", "pass")
+        var cfg = new FormAuthConfig(WEB_CONTEXT + "/auth", "user", "pass")
                 .withLoggingEnabled();
 
         String responseStr =  given()
                 .contentType(ContentType.URLENC)
                 .auth().form("john","doe", cfg)
-                .when().delete("/ch16/singer/1")
+                .when().delete(WEB_CONTEXT + "/singer/1")
                 .then()
                 .assertThat().statusCode(HttpStatus.FORBIDDEN.value())
                 .extract().body().asString();
@@ -89,13 +91,13 @@ public class SingerControllerTest {
 
     @Test
     void adminShouldSeeTheDeleteButton() {
-        var cfg = new FormAuthConfig("/ch16/auth", "user", "pass")
+        var cfg = new FormAuthConfig(WEB_CONTEXT + "/auth", "user", "pass")
                 .withLoggingEnabled();
 
         String responseStr =  given()
                 .contentType(ContentType.URLENC)
                 .auth().form("admin","admin", cfg)
-                .when().get("/ch16/singer/1")
+                .when().get(WEB_CONTEXT + "/singer/1")
                 .then()
                 .assertThat().statusCode(HttpStatus.OK.value())
                 .extract().body().asString();

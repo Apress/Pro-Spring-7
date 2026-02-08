@@ -55,7 +55,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class ControllerTest {
     public static List<Singer> singers;
 
-
     @BeforeAll
     static void setUp(){
         singers = new ArrayList<>();

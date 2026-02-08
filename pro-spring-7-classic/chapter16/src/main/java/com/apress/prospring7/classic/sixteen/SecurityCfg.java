@@ -46,54 +46,55 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
-public class SecurityCfg {
+class SecurityCfg {
 
- @Bean
- public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-  http
-          .authorizeHttpRequests((authorize) -> authorize
-                  .requestMatchers( "/styles/**", "/images/**").permitAll()
-                  .anyRequest().authenticated())
-          //.httpBasic(Customizer.withDefaults()) // or .httpBasic
-          // .logout(Customizer.withDefaults()) // or .logout()
-          .logout(httpSecurityLogoutConfigurer -> httpSecurityLogoutConfigurer
-                  .logoutUrl("/exit")
-                  .permitAll()
-                  .clearAuthentication(true))
-          //.formLogin(Customizer.withDefaults())   // or .formLogin()
-          .formLogin(loginConfigurer -> loginConfigurer
-                  .loginPage("/auth")
-                  .loginProcessingUrl("/auth")
-                  .usernameParameter("user")
-                  .passwordParameter("pass")
-                  .defaultSuccessUrl("/home")
-                  .permitAll())
-          .csrf(AbstractHttpConfigurer::disable);
-  return http.build();
- }
- @Bean
- public PasswordEncoder encoder() {
-  return new BCryptPasswordEncoder();
- }
+     @Bean
+     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+          http
+              .authorizeHttpRequests(authorize -> authorize
+                      .requestMatchers( "/styles/**", "/images/**").permitAll()
+                      .anyRequest().authenticated())
+              //.httpBasic(Customizer.withDefaults()) // or .httpBasic
+              // .logout(Customizer.withDefaults()) // or .logout()
+              .logout(httpSecurityLogoutConfigurer -> httpSecurityLogoutConfigurer
+                      .logoutUrl("/exit")
+                      .permitAll()
+                      .clearAuthentication(true))
+              //.formLogin(Customizer.withDefaults())   // or .formLogin()
+              .formLogin(loginConfigurer -> loginConfigurer
+                      .loginPage("/auth")
+                      .loginProcessingUrl("/auth")
+                      .usernameParameter("user")
+                      .passwordParameter("pass")
+                      .defaultSuccessUrl("/home")
+                      .permitAll())
+              .csrf(AbstractHttpConfigurer::disable);
+      return http.build();
+     }
 
- @Bean
- public UserDetailsService userDetailsService(PasswordEncoder encoder) {
-  User.UserBuilder users  = User.builder().passwordEncoder(encoder::encode);
-  var joe = users
-          .username("john")
-          .password("doe")
-          .roles("USER")
-          .build();
-  var jane = users
-          .username("jane")
-          .password("doe")
-          .roles("USER", "ADMIN")
-          .build();
-  var admin = users
-          .username("admin")
-          .password("admin")
-          .roles("ADMIN")
-          .build();
-  return new InMemoryUserDetailsManager(jane, joe, admin);
- }
+     @Bean
+     PasswordEncoder encoder() {
+      return new BCryptPasswordEncoder();
+     }
+
+     @Bean
+      UserDetailsService userDetailsService(PasswordEncoder encoder) {
+      User.UserBuilder users  = User.builder().passwordEncoder(encoder::encode);
+      var joe = users
+              .username("john")
+              .password("doe")
+              .roles("USER")
+              .build();
+      var jane = users
+              .username("jane")
+              .password("doe")
+              .roles("USER", "ADMIN")
+              .build();
+      var admin = users
+              .username("admin")
+              .password("admin")
+              .roles("ADMIN")
+              .build();
+      return new InMemoryUserDetailsManager(jane, joe, admin);
+     }
 }

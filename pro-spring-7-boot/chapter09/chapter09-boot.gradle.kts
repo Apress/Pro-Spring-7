@@ -11,7 +11,7 @@ group = "com.apress.prospring7.boot.nine"
 
 dependencies {
     implementation(libs.springBootStarterDataJpa)
-    api(libs.hibernateCore) // to use 7.2.0.Final
+    api(libs.hibernateCore) // to use 7.2.3.Final
     implementation(libs.mariaDB)
 
     testImplementation(libs.tcMariaDB)

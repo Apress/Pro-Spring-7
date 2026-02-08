@@ -43,10 +43,6 @@ import java.nio.charset.StandardCharsets;
 public class WebInitializer
         extends AbstractAnnotationConfigDispatcherServletInitializer {
 
-    public WebInitializer() {
-        super();
-    }
-
     @Override
     protected Class<?>[] getRootConfigClasses() {
         return new Class[]{};

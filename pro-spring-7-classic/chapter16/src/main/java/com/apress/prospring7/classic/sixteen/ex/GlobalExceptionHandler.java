@@ -29,6 +29,7 @@ package com.apress.prospring7.classic.sixteen.ex;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -55,6 +56,15 @@ public class GlobalExceptionHandler {
     public ModelAndView notFound(HttpServletRequest req) {
         final var mav = new ModelAndView();
         mav.addObject("problem", "Not Supported " + req.getRequestURI());
+        mav.setViewName("error");
+        return mav;
+    }
+
+    @ExceptionHandler(AccessDeniedException.class)
+    @ResponseStatus(HttpStatus.FORBIDDEN)
+    public ModelAndView forbidden(HttpServletRequest req) {
+        final var mav = new ModelAndView();
+        mav.addObject("problem", "Method not allowed " + req.getRequestURI());
         mav.setViewName("error");
         return mav;
     }

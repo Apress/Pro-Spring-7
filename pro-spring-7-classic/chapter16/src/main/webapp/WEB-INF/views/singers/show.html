@@ -1,7 +1,7 @@
 <!--
 Created by IntelliJ IDEA.
 User: iulianacosmina
-Date: 2019-07-14
+Date: 2025-07-14
 Time: 11:43
 -->
 <!DOCTYPE HTML>
@@ -21,16 +21,16 @@ Time: 11:43
           <div class="card-body">
             <table>
               <tr>
-                <th th:text="#{label.Singer.firstname}" >FN</th>
-                <td th:text="${singer.firstName}" >FN</td>
+                <th th:text="#{label.Singer.firstname}">FN</th>
+                <td th:text="${singer.firstName}">FN</td>
               </tr>
               <tr>
-                <th th:text="#{label.Singer.lastname}" >LN</th>
-                <td th:text="${singer.lastName}" >LN</td>
+                <th th:text="#{label.Singer.lastname}">LN</th>
+                <td th:text="${singer.lastName}">LN</td>
               </tr>
               <tr>
-                <th th:text="#{label.Singer.birthDate}" >BD</th>
-                <td th:text="${singer.birthDate}" >BD</td>
+                <th th:text="#{label.Singer.birthDate}">BD</th>
+                <td th:text="${singer.birthDate}">BD</td>
               </tr>
               <tr th:if="${singer.photo != null}">
                 <td colspan="2">
@@ -43,7 +43,7 @@ Time: 11:43
                      th:text="#{command.edit}"
                      class="btn-success">EDIT</a>
                 </td>
-                <td >
+                <td>
                   <a th:href="@{/singer/} + ${singer.id} + '/upload'"
                      th:text="#{command.update.photo}"
                      class="btn-success">UPLOAD_PHOTO</a>
@@ -52,7 +52,8 @@ Time: 11:43
             </table>
             <div class="container col-lg-12">
               <form th:object="${singer}" th:action="@{/singer/} + ${singer.id}" th:method="delete"  class="col p-3">
-                <input type="submit" th:value="#{command.delete}" id="deleteButton" class="btn btn-danger"/>
+                <!-- temporarily remove sec:authorize="hasRole('ADMIN')" to test the @PreAuthorize annotation -->
+                <input sec:authorize="hasRole('ADMIN')"  type="submit" th:value="#{command.delete}" id="deleteButton" class="btn btn-danger"/>
               </form>
             </div>
           </div>
