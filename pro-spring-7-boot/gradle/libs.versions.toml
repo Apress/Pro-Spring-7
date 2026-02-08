@@ -13,6 +13,7 @@ jooq        = "3.20.8"
 mariaDBr2dbc     = "1.3.0"
 reactor = "3.8.1"
 commonsIO            = "2.21.0"
+jUnit               = "6.0.2"
 
 [plugins]
 jooqPlugin = { id = "org.jooq.jooq-codegen-gradle", version.ref = "jooq"}
@@ -24,6 +25,7 @@ springBootStarter = { module = "org.springframework.boot:spring-boot-starter"}
 springBootStarterAspectJ = { module = "org.springframework.boot:spring-boot-starter-aspectj"}
 springBootStarterJdbc = { module = "org.springframework.boot:spring-boot-starter-jdbc"}
 springBootStarterDataJpa = { module = "org.springframework.boot:spring-boot-starter-data-jpa"}
+springBootStarterDataRest = { module = "org.springframework.boot:spring-boot-starter-data-rest"}
 springBootStarterDataMongo = { module = "org.springframework.boot:spring-boot-starter-data-mongodb"}
 springBootStarterDataMongoReactive = { module = "org.springframework.boot:spring-boot-starter-data-mongodb-reactive"}
 springBootStarterDataR2dbc = { module = "org.springframework.boot:spring-boot-starter-data-r2dbc"}
@@ -45,6 +47,7 @@ mariaDBr2dbc = { module = "org.mariadb:r2dbc-mariadb", version.ref = "mariaDBr2d
 mongoDB = { module = "org.mongodb:mongodb-driver-sync", version.ref = "mongoDB" }
 hibernateCore = { module = "org.hibernate.orm:hibernate-core", version.ref = "hibernate" }
 h2 = { module = "com.h2database:h2", version.ref = "h2"}
+springBootH2Console = { module = "org.springframework.boot:spring-boot-h2console"}
 c3p0 = { module = "com.mchange:c3p0", version.ref = "c3p0"}
 tcMariaDB = { module = "org.testcontainers:testcontainers-mariadb", version.ref = "testcontainers"}
 tcMongoDB = { module = "org.testcontainers:testcontainers-mongodb", version.ref = "testcontainers"}
@@ -57,3 +60,4 @@ jooqCodeGen = { module = "org.jooq:jooq-codegen", version.ref = "jooq"}
 jooqCore = { module = "org.jooq:jooq", version.ref = "jooq"}
 reactorTest = {module = "io.projectreactor:reactor-test", version.ref = "reactor"}
 commonsIO = {module = "commons-io:commons-io", version.ref = "commonsIO"}
+junitJupiterPlatform = { module = "org.junit.platform:junit-platform-launcher", version.ref = "jUnit" }

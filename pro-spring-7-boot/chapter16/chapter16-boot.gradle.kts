@@ -28,6 +28,7 @@ dependencies {
     testImplementation(libs.springBootStarterWebMvcTest)
     testImplementation(libs.springBootStarterTc)
     testImplementation(libs.springSecurityTest)
+    testRuntimeOnly(libs.junitJupiterPlatform)
 }
 
 springBoot {

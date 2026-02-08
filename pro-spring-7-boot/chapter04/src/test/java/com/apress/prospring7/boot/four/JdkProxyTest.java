@@ -44,15 +44,15 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @SpringBootTest
 @ActiveProfiles("test")
 public class JdkProxyTest {
- @Autowired
- Target foo;
+  @Autowired
+  Target foo;
 
- @Test
- void testFoo(){
-  assertAll(
-          () -> assertNotNull(foo),
-          () -> assertTrue(foo.getClass().getName().contains("jdk.proxy"))
-  );
-  foo.foo();
- }
+  @Test
+  void testFoo(){
+   assertAll(
+           () -> assertNotNull(foo),
+           () -> assertTrue(foo.getClass().getName().contains("jdk.proxy"))
+   );
+   foo.foo();
+  }
 }

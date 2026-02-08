@@ -11,6 +11,7 @@ dependencies {
     api(project(":chapter00-boot"))
     implementation(libs.springBootStarter)
     testImplementation(libs.springBootStarterTest)
+    testRuntimeOnly(libs.junitJupiterPlatform)
 }
 
 springBoot {

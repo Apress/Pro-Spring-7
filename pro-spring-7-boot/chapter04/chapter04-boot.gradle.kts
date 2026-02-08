@@ -10,6 +10,7 @@ group = "com.apress.prospring7.boot.four"
 dependencies {
     implementation(libs.springBootStarterAspectJ)
     testImplementation(libs.springBootStarterTest)
+    testRuntimeOnly(libs.junitJupiterPlatform)
 }
 
 springBoot {

@@ -1,7 +1,7 @@
 /*
 Freeware License, some rights reserved
 
-Copyright (c) 2025 Iuliana Cosmina
+Copyright (c) 2026 Iuliana Cosmina
 
 Permission is hereby granted, free of charge, to anyone obtaining a copy
 of this software and associated documentation files (the "Software"),
@@ -25,38 +25,31 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package com.apress.prospring7.boot.four;
+package com.apress.prospring7.boot.seventeen;
 
-import com.apress.prospring7.boot.four.aspect.GrammyGuitarist;
-import com.apress.prospring7.boot.four.aspect.NewDocumentarist;
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.query.Param;
+import org.springframework.data.rest.core.annotation.Description;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import org.springframework.data.rest.core.annotation.RestResource;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import java.time.LocalDate;
+import java.util.List;
 
-/**
- * @author iulianacosmina on 11/08/2025
- */
-@SpringBootTest
-public class Chapter4ApplicationTest {
+///
+/// @author iulianacosmina on 08/02/2026
+///
+@RepositoryRestResource(collectionResourceRel = "mailbox",
+        path = "letters",
+        collectionResourceDescription = @Description("Letters and Letter API"))
+public interface LetterRepository extends JpaRepository<Letter, Long> {
 
-    @Autowired
-    NewDocumentarist documentarist;
+    @RestResource(path = "byCategory", rel = "customFindMethod")
+    List<Letter> findByCategory(@Param("category") Category category);
 
-    @Autowired
-    GrammyGuitarist guitarist;
+    List<Letter> findBySentOn(@Param("date") LocalDate sentOn);
 
-    @Test
-    void testDocumentarist(){
-       assertAll(
-               () -> assertNotNull(documentarist),
-               () -> assertNotNull(documentarist.getGuitarist()),
-               () -> assertNotNull(guitarist),
-               () -> assertTrue(guitarist.getClass().getName().contains("SpringCGLIB"))
-       );
-       documentarist.execute();
-    }
+    @Override
+    @RestResource(exported = false)
+    void deleteById(Long id);
 }

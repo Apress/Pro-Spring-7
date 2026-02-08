@@ -18,6 +18,7 @@ dependencies {
     testImplementation(libs.springBootStarterTest)
     //testImplementation(libs.springBootJdbcTest)
     testImplementation(libs.springBootStarterTc)
+    testRuntimeOnly(libs.junitJupiterPlatform)
 }
 
 springBoot {

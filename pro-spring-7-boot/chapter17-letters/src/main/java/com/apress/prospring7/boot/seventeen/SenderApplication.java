@@ -25,19 +25,44 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package com.apress.prospring7.boot.thirteen;
+package com.apress.prospring7.boot.seventeen;
 
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.client.RestTemplate;
+
 
 ///
-/// @author iulianacosmina on 21/01/2026
+/// @author iulianacosmina on 08/02/2026
 ///
-@SpringBootTest
-public class Chapter13ReactiveTest {
+/// gradle bootRun --args='--spring.profiles.active=tom'
+/// gradle bootRun --args='--spring.profiles.active=evelyn'
+@SpringBootApplication
+public class SenderApplication {
+    private static final Logger LOGGER = LoggerFactory.getLogger(SenderApplication.class);
 
-    @Test
-    void contextLoads() {
+    static void main(String... args) {
+       SpringApplication.run(SenderApplication.class, args);
+    }
+
+    @Value("${app.sender.name}")
+    public String sender;
+
+    @Value("${app.correspondent.address}")
+    public String correspondentAddress;
+
+    @Bean
+    RestTemplate restTemplate(){
+        return new RestTemplate();
+    }
+
+    @Bean
+    public CommandLineRunner initCmd(){
+        return (args) -> LOGGER.info(" >>> Sender {}  ready to send letters to {} ", sender, correspondentAddress);
     }
 }

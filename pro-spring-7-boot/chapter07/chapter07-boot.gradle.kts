@@ -21,6 +21,7 @@ dependencies {
     testImplementation(libs.tcJJ)
     testImplementation(libs.springBootStarterTest)
     testImplementation(libs.springBootStarterTc)
+    testRuntimeOnly(libs.junitJupiterPlatform)
 }
 
 

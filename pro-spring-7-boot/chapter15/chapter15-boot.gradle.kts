@@ -16,6 +16,7 @@ dependencies {
     implementation(libs.springBootStarterValidation)
 
     testImplementation(libs.springBootStarterTest)
+    testRuntimeOnly(libs.junitJupiterPlatform)
 }
 
 springBoot {

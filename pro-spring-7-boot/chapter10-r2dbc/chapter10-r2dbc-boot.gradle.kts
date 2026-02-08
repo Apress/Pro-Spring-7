@@ -24,6 +24,7 @@ dependencies {
     testImplementation(libs.springBootStarterTest)
     testImplementation(libs.springBootR2dbcTest)
     testImplementation(libs.springBootStarterTc)
+    testRuntimeOnly(libs.junitJupiterPlatform)
 }
 
 
