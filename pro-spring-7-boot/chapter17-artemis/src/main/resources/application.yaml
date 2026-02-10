@@ -1,0 +1,17 @@
+spring:
+  artemis:
+    mode: embedded
+    embedded:
+      queues: prospring7
+      enabled: true
+
+# Logging config
+logging:
+  pattern:
+    console: "%-5level: %class{0} - %msg%n"
+  level:
+    root: INFO
+    org.springframework: INFO
+    com.apress.prospring7.boot.seventeen: INFO
+    #logging.level.org.apache.activemq.audit.base: WARN
+    #logging.level.org.apache.activemq.audit.message: WARN

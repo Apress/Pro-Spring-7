@@ -1,0 +1,80 @@
+/*
+Freeware License, some rights reserved
+
+Copyright (c) 2026 Iuliana Cosmina
+
+Permission is hereby granted, free of charge, to anyone obtaining a copy
+of this software and associated documentation files (the "Software"),
+to work with the Software within the limits of freeware distribution and fair use.
+This includes the rights to use, copy, and modify the Software for personal use.
+Users are also allowed and encouraged to submit corrections and modifications
+to the Software for the benefit of other users.
+
+It is not allowed to reuse,  modify, or redistribute the Software for
+commercial use in any way, or for a user's educational materials such as books
+or blog articles without prior permission from the copyright holder.
+
+The above copyright notice and this permission notice need to be included
+in all copies or substantial portions of the software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS OR APRESS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
+package com.apress.prospring7.boot.seventeen;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.jms.support.converter.JacksonJsonMessageConverter;
+import org.springframework.jms.support.converter.MessageConverter;
+import org.springframework.jms.support.converter.MessageType;
+import tools.jackson.databind.DeserializationFeature;
+import tools.jackson.databind.SerializationFeature;
+import tools.jackson.databind.json.JsonMapper;
+
+import java.io.IOException;
+import java.time.LocalDate;
+import java.util.UUID;
+import java.util.stream.IntStream;
+
+///
+/// @author iulianacosmina on 09/02/2026
+///
+@SpringBootApplication
+public class ArtemisApplication {
+    private static final Logger LOGGER = LoggerFactory.getLogger(ArtemisApplication.class);
+
+    static void main(String... args) {
+        try (var ctx = SpringApplication.run(ArtemisApplication.class, args)){
+            // Arrays.stream(ctx.getBeanDefinitionNames()).forEach(cn -> log.info(" >>> {}: {}", cn, ctx.getBean(cn).getClass()));
+            var sender = ctx.getBean(Sender.class);
+            IntStream.range(0, 10).forEach(i -> {
+                    var letter = new Letter("Letter no. " + i, "Test", LocalDate.now(), UUID.randomUUID().toString());
+                    sender.send(letter);
+                });
+            System.in.read();
+        } catch (IOException e) {
+            LOGGER.error("Problem reading keystrokes.");
+        }
+    }
+
+    @Bean
+    public MessageConverter messageConverter() {
+        var mapper = JsonMapper.builder()
+                .enable(SerializationFeature.INDENT_OUTPUT)
+                .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
+                .build();
+        var converter =  new JacksonJsonMessageConverter(mapper);
+        converter.setTargetType(MessageType.TEXT); // <1>
+        converter.setTypeIdPropertyName("_type"); // <2>
+        return converter;
+    }
+
+}
