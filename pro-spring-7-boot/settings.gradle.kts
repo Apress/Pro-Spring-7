@@ -63,6 +63,8 @@ include(":chapter17-artemis")
 findProject(":chapter17-artemis")?.name = "chapter17-artemis-boot"
 include(":chapter17-kafka")
 findProject(":chapter17-kafka")?.name = "chapter17-kafka-boot"
+include(":chapter18")
+findProject(":chapter18")?.name = "chapter18-boot"
 
 dependencyResolutionManagement {
     repositories {

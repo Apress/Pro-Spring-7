@@ -1,0 +1,60 @@
+= Spring Actuator
+
+You can choose to install MariaDB locally following the instructions on the official site. But you can also use MariaDB in a docker container.
+
+Change directory to `chapter18/podman-build` and run the following command to create the container image:
+
+[source]
+----
+podman build -t prospring7-mariadb:18.1 .
+----
+
+Run the following to start the container:
+
+[source]
+----
+podman run --name chapter18-1-mariadb -d -p 3306:3306 prospring7-mariadb:18.1
+----
+
+Use IntelliJ IDEA to create a connection to localhost with the credentials in the `Containerfile` and feel free to query the tables as you write your Spring code.
+
+== Run Prometheus
+
+To compose metrics into useful reports and graphs we need an external tool called `Prometheus`. You can get that as a container.
+
+Open a terminal and run:
+[source]
+----
+$ podman pull prom/prometheus
+----
+
+Once the image is downloaded, you can type `podman image ls` command to view the list of images present locally:
+[source]
+----
+$ podman image ls
+REPOSITORY                         TAG                 IMAGE ID            CREATED             SIZE
+docker.io/prom/prometheus          latest              a234c37afacd        6 weeks ago         339 MB
+----
+
+
+Start the `chapter18-boot` application, or just run the `Chapter18Application` class. Then start the container (make sure to customize the `prometheus.yml` file as instructed in the book and replace {your_workspace} with your own).
+
+[source]
+----
+> podman run -d --name=prometheus -p 9090:9090 -v /{your_workspace}/pro-spring-7/pro-spring-7-boot/chapter18/src/main/resources/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus --config.file=/etc/prometheus/prometheus.yml
+
+> podman pull grafana/grafana
+
+> podman run -d --name=grafana -p 3000:3000 grafana/grafana
+----
+
+== Run Grafana
+
+[source]
+----
+> podman pull grafana/grafana
+
+> podman run -d --name=grafana -p 3000:3000 grafana/grafana
+----
+
+Log into the browser at http://localhost:3000 with user `admin` and password `admin`. You will be prompted for a new password.

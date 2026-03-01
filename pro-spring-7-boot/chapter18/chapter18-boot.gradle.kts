@@ -4,21 +4,23 @@ plugins {
     alias(libs.plugins.springManagement)
 }
 
-description = "Pro Spring 7: Chapter 13 - Spring Boot MVC"
+description = "Pro Spring 7: Chapter 18 - Spring Boot REST"
 
-group = "com.apress.prospring7.boot.thirteen"
+group = "com.apress.prospring7.boot.eighteen"
 
 
 dependencies {
-    implementation(libs.springBootStarterThymeleaf)
     implementation(libs.springBootStarterWeb)
     implementation(libs.springBootStarterValidation)
     implementation(libs.springBootStarterDataJpa)
+    implementation(libs.springBootStarterActuator)
     api(libs.hibernateCore) // to use 7.2.4.Final
     implementation(libs.mariaDB)
 
-    implementation(libs.commonsIO)
+    runtimeOnly("io.micrometer:micrometer-registry-prometheus")
 
+    testImplementation("org.apache.httpcomponents.client5:httpclient5:5.6")
+    testImplementation("org.springframework.boot:spring-boot-restclient:4.1.0-M1")
     testImplementation(libs.tcJJ)
     testImplementation(libs.tcMariaDB)
     testImplementation(libs.springBootStarterTest)
@@ -28,5 +30,5 @@ dependencies {
 }
 
 springBoot {
-    mainClass = "$group.Chapter13Application"
+    mainClass = "$group.Chapter18Application"
 }
