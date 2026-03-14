@@ -1,0 +1,19 @@
+= Chapter 19 GraphQL Project
+
+You can choose to install MariaDB locally following the instructions on the official site. But you can also use MariaDB in a docker container.
+
+Change directory to `chapter19/podman-build` and run the following command to create the container image:
+
+[source]
+----
+podman build -t prospring7-mariadb:19.0 .
+----
+
+Run the following to start the container:
+
+[source]
+----
+podman run --name chapter17-0-mariadb -d -p 3306:3306 prospring7-mariadb:19.0
+----
+
+Use IntelliJ IDEA to create a connection to localhost with the credentials in the `Containerfile` and feel free to query the tables as you write your Spring code.

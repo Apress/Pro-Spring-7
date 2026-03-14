@@ -1,26 +1,38 @@
 [versions]
+modulith          = "2.0.3"
 spring            = "7.0.3"
 springSecurity      = "7.1.0-M2"
 springBoot        = "4.0.3"
 springManagement     = "1.1.7"
-mariaDB     = "3.5.6"
+mariaDB     = "3.5.7"
 mongoDB        = "5.6.2"
 c3p0        = "0.11.2"
 h2          = "2.3.232"
 testcontainers = "2.0.2"
-hibernate        = "7.2.4.Final"
+hibernate        = "7.2.6.Final"
 jooq        = "3.20.8"
 mariaDBr2dbc     = "1.3.0"
 reactor = "3.8.1"
 commonsIO            = "2.21.0"
 jUnit               = "6.0.2"
+graphQL             = "14.0.1"
+kotlinVersion       = "2.3.10"
 
 [plugins]
 jooqPlugin = { id = "org.jooq.jooq-codegen-gradle", version.ref = "jooq"}
 springManagement = { id = "io.spring.dependency-management", version.ref = "springManagement"}
 springBoot = { id = "org.springframework.boot", version.ref = "springBoot"}
+kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlinVersion"}
+kotlinSpring = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = "kotlinVersion"}
+kotlinJpa = { id = "org.jetbrains.kotlin.plugin.jpa", version.ref = "kotlinVersion"}
 
 [libraries]
+springModulithCore = { module = "org.springframework.modulith:spring-modulith-starter-core", version.ref = "modulith"}
+springModulithJpa = { module = "org.springframework.modulith:spring-modulith-starter-jpa", version.ref = "modulith"}
+springModulithActuator = { module = "org.springframework.modulith:spring-modulith-actuator", version.ref = "modulith"}
+springModulithObservability = { module = "org.springframework.modulith:spring-modulith-observability", version.ref = "modulith"}
+springModulithStarterTest = { module = "org.springframework.modulith:spring-modulith-starter-test", version.ref = "modulith"}
+
 springBootStarter = { module = "org.springframework.boot:spring-boot-starter"}
 springBootStarterAspectJ = { module = "org.springframework.boot:spring-boot-starter-aspectj"}
 springBootStarterJdbc = { module = "org.springframework.boot:spring-boot-starter-jdbc"}
@@ -32,6 +44,7 @@ springBootStarterDataR2dbc = { module = "org.springframework.boot:spring-boot-st
 springBootStarterJooq = { module = "org.springframework.boot:spring-boot-starter-jooq"}
 springBootStarterValidation = { module = "org.springframework.boot:spring-boot-starter-validation"}
 springBootStarterWeb = { module = "org.springframework.boot:spring-boot-starter-web"}
+springBootStarterWebMvc = { module = "org.springframework.boot:spring-boot-starter-webmvc"}
 springBootStarterActuator = { module = "org.springframework.boot:spring-boot-starter-actuator"}
 springBootStarterWebsocket = { module = "org.springframework.boot:spring-boot-starter-websocket"}
 springBootStarterSecurity = { module = "org.springframework.boot:spring-boot-starter-security"}
@@ -44,6 +57,7 @@ springBootStarterJson = { module = "org.springframework.boot:spring-boot-starter
 springBootStarterArtemis = { module = "org.springframework.boot:spring-boot-starter-artemis"}
 springBootStarterKafka = { module = "org.springframework.boot:spring-boot-starter-kafka"}
 springBootStarterKafkaTest = { module = "org.springframework.boot:spring-boot-starter-kafka-test"}
+springBootStarterGraphQL = { module = "org.springframework.boot:spring-boot-starter-graphql"}
 thymeleafSecurity = {module = "org.thymeleaf.extras:thymeleaf-extras-springsecurity6", version = "3.1.3.RELEASE"}
 springOrm = { module = "org.springframework:spring-orm", version.ref = "spring" }
 springSecurityTest = { module = "org.springframework.security:spring-security-test", version.ref = "springSecurity" }
@@ -63,6 +77,7 @@ restAssured = {module = "io.rest-assured:rest-assured", version = "6.0.0"}
 tcJJ = { module = "org.testcontainers:testcontainers-junit-jupiter", version.ref = "testcontainers"}
 jooqCodeGen = { module = "org.jooq:jooq-codegen", version.ref = "jooq"}
 jooqCore = { module = "org.jooq:jooq", version.ref = "jooq"}
+graphQLTools = { module = "com.graphql-java-kickstart:graphql-java-tools", version.ref = "graphQL"}
 reactorTest = {module = "io.projectreactor:reactor-test", version.ref = "reactor"}
 commonsIO = {module = "commons-io:commons-io", version.ref = "commonsIO"}
 junitJupiterPlatform = { module = "org.junit.platform:junit-platform-launcher", version.ref = "jUnit" }

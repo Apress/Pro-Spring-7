@@ -65,6 +65,12 @@ include(":chapter17-kafka")
 findProject(":chapter17-kafka")?.name = "chapter17-kafka-boot"
 include(":chapter18")
 findProject(":chapter18")?.name = "chapter18-boot"
+include(":chapter19-graphql")
+findProject(":chapter19-graphql")?.name = "chapter19-graphql-boot"
+include(":chapter19-kotlin")
+findProject(":chapter19-kotlin")?.name = "chapter19-kotlin-boot"
+include(":chapter19-modulith")
+findProject(":chapter19-modulith")?.name = "chapter19-modulith"
 
 dependencyResolutionManagement {
     repositories {

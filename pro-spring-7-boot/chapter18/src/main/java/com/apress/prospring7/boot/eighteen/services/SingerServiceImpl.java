@@ -51,10 +51,6 @@ public class SingerServiceImpl implements SingerService {
 
     @Override
     public List<Singer> findAll() {
-        var singers = singerRepo.findAll();
-        if(singers.isEmpty()) {
-            throw new NotFoundException(Singer.class);
-        }
         return singerRepo.findAll();
     }
 
