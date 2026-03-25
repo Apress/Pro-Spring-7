@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: "jdbc:tc:mariadb:latest:///test?TC_INITSCRIPT=testcontainers/create-schema.sql"
+
+# Logging config
+logging:
+  pattern:
+    console: " %-5level: %class{0} - %msg%n"
+  level:
+    root: INFO
+    org.springframework.boot: DEBUG
+    com.apress.prospring7.boot.fourteen: INFO

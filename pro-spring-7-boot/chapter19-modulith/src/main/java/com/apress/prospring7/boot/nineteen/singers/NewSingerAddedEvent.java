@@ -25,31 +25,16 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package com.apress.prospring7.boot.nineteen;
+package com.apress.prospring7.boot.nineteen.singers;
 
-import org.junit.jupiter.api.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.modulith.core.ApplicationModules;
-import org.springframework.modulith.docs.Documenter;
-
+import org.springframework.context.ApplicationEvent;
 
 ///
-/// @author iulianacosmina on 14/03/2026
+/// @author iulianacosmina on 15/03/2026
 ///
-@SpringBootApplication
-public class ModulithApplicationTest {
-    private static final Logger LOGGER = LoggerFactory.getLogger(ModulithApplicationTest.class);
+public class NewSingerAddedEvent extends  ApplicationEvent {
 
-    @Test
-    void contextLoads() {
-        var modules = ApplicationModules.of(ModulithApplication.class);
-        for (var m : modules) LOGGER.info("{}:{}", m.getName() , m.getBasePackage());
-        modules.verify();
-
-        new Documenter(modules)
-                .writeIndividualModulesAsPlantUml()
-                .writeModulesAsPlantUml();
+    public NewSingerAddedEvent(Object source) {
+        super(source);
     }
 }

@@ -24,9 +24,6 @@ dependencies {
     runtimeOnly(libs.springModulithObservability)
 
     testImplementation(libs.springModulithStarterTest)
-    testImplementation(libs.tcJJ)
-    testImplementation(libs.tcMariaDB)
-    testImplementation(libs.springBootStarterTc)
     testRuntimeOnly(libs.junitJupiterPlatform)
 }
 

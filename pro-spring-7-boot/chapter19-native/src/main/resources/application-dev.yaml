@@ -3,43 +3,30 @@ server:
   servlet:
     context-path: /
   compression:
-    enabled: true
+    enabled: true # improves website performance by compressing response body
   address: 0.0.0.0
 
 spring:
-  sql:
-    init:
-      mode: never
-
   datasource:
     driverClassName: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://localhost:3306/musicdb?useSSL=false
-    username: prospring7
-    password: prospring7
+    url: jdbc:mariadb://${DB_HOST:localhost}:${DB_PORT:3306}/${DB_SCHEMA:musicdb}?useSSL=false
+    username: ${DB_USER:prospring7}
+    password: ${DB_PASS:prospring7}
     hikari:
       maximum-pool-size: 25
   jpa:
     generate-ddl: false
     properties:
       hibernate:
-        naming:
-          physical-strategy: com.apress.prospring7.boot.nineteen.CustomPhysicalNamingStrategy
         jdbc:
           batch_size: 10
           fetch_size: 30
         max_fetch_depth: 3
+        show-sql: true
+        format-sql: false
+        use_sql_comments: false
         hbm2ddl:
           auto: none
-    show-sql: true
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'
-  endpoint:
-    health:
-      show-details: always
 
 # Logging config
 logging:
@@ -49,4 +36,3 @@ logging:
     root: INFO
     org.springframework.boot: DEBUG
     com.apress.prospring7.boot.nineteen: INFO
-    sql: debug

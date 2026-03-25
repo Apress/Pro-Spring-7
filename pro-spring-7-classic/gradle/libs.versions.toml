@@ -1,5 +1,5 @@
 [versions]
-spring              = "7.0.3"
+spring              = "7.0.6"
 springData          = "4.0.1"
 springSecurity      = "7.1.0-M2"
 springDataNoSql     = "5.0.1"

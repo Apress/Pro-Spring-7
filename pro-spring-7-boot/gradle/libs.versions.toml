@@ -1,6 +1,6 @@
 [versions]
 modulith          = "2.0.3"
-spring            = "7.0.3"
+spring            = "7.0.6"
 springSecurity      = "7.1.0-M2"
 springBoot        = "4.0.3"
 springManagement     = "1.1.7"
@@ -17,6 +17,8 @@ commonsIO            = "2.21.0"
 jUnit               = "6.0.2"
 graphQL             = "14.0.1"
 kotlinVersion       = "2.3.10"
+springAiVersion     = "2.0.0-M2"
+graalvmVersion      = "0.11.1"
 
 [plugins]
 jooqPlugin = { id = "org.jooq.jooq-codegen-gradle", version.ref = "jooq"}
@@ -25,8 +27,12 @@ springBoot = { id = "org.springframework.boot", version.ref = "springBoot"}
 kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlinVersion"}
 kotlinSpring = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = "kotlinVersion"}
 kotlinJpa = { id = "org.jetbrains.kotlin.plugin.jpa", version.ref = "kotlinVersion"}
+graalvmTools = {id = "org.graalvm.buildtools.native", version.ref = "graalvmVersion"}
 
 [libraries]
+springAiOllama = { module = "org.springframework.ai:spring-ai-starter-model-ollama", version.ref = "springAiVersion"}
+springAiVectorStore = { module = "org.springframework.ai:spring-ai-advisors-vector-store", version.ref = "springAiVersion"}
+
 springModulithCore = { module = "org.springframework.modulith:spring-modulith-starter-core", version.ref = "modulith"}
 springModulithJpa = { module = "org.springframework.modulith:spring-modulith-starter-jpa", version.ref = "modulith"}
 springModulithActuator = { module = "org.springframework.modulith:spring-modulith-actuator", version.ref = "modulith"}

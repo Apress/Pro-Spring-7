@@ -5,9 +5,9 @@ pluginManagement {
         mavenLocal()
         mavenCentral()
         gradlePluginPortal()
+        maven { url = uri("https://repo.spring.io/release") }
         maven { url = uri("https://repo.spring.io/snapshot") }
         maven { url = uri("https://repo.spring.io/milestone") }
-        maven { url = uri("https://repo.spring.io/release") }
         maven { url = uri("https://repo.spring.io/plugins-snapshot") }
         maven { url = uri("https://repo.spring.io/plugins-milestone") }
         maven { url = uri("https://repo.spring.io/plugins-release") }
@@ -71,6 +71,11 @@ include(":chapter19-kotlin")
 findProject(":chapter19-kotlin")?.name = "chapter19-kotlin-boot"
 include(":chapter19-modulith")
 findProject(":chapter19-modulith")?.name = "chapter19-modulith"
+include(":chapter19-ai")
+findProject(":chapter19-ai")?.name = "chapter19-ai-boot"
+include(":chapter19-native")
+findProject(":chapter19-native")?.name = "chapter19-native-boot"
+
 
 dependencyResolutionManagement {
     repositories {

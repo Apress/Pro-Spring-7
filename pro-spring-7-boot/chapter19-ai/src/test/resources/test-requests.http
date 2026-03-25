@@ -1,0 +1,51 @@
+### Make sure the app works
+GET http://localhost:8081
+Content-Type: application/json
+
+###
+POST http://localhost:8081/
+Content-Type: application/json
+
+{
+  "prompt": "Generate a random number between 10 and 20."
+}
+###
+
+### Expect 'John Mayer', Actual:  JMMRR ???
+POST http://localhost:8081/
+Content-Type: application/json
+
+{
+  "prompt": "Convert first letter of each word in the name 'john mayer' to uppercase."
+}
+###
+
+### Expect 58023, Actual 57913 ???
+POST http://localhost:8081/
+Content-Type: application/json
+
+{
+  "prompt": "How much is 12345 plus 45678 ?"
+}
+###
+
+###
+POST http://localhost:8081/
+Content-Type: application/json
+
+{
+  "prompt": "Write a haiku about a regal cat."
+}
+###
+
+### Make sure the app works
+GET http://localhost:8081/images/describe/mayer
+Content-Type: application/json
+
+###
+
+### Make sure the app works
+GET http://localhost:8081/images/describe/heather
+Content-Type: application/json
+
+###

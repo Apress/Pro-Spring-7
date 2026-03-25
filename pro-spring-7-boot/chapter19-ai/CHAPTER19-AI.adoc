@@ -1,0 +1,23 @@
+= Spring Modulith
+
+Ollama makes it easy to get up and running with large language models locally.
+You can choose to install ollama locally or use a container.
+
+If you decide to use a container keep in mind you need to increase the Podman VM memory to at least 5GB.
+
+Run the following command to create the container image:
+
+[source]
+----
+podman run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama
+----
+
+Now you can run a model:
+
+[source]
+----
+
+podman exec -it ollama ollama run llava
+----
+
+But, for the `spring-ai` you do not need to run the model.

@@ -28,6 +28,7 @@ SOFTWARE.
 package com.apress.prospring7.boot.nineteen.albums;
 
 import com.apress.prospring7.boot.nineteen.NotFoundException;
+import com.apress.prospring7.boot.nineteen.singers.NewSingerAddedEvent;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -35,8 +36,12 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.transaction.Transactional;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.context.event.EventListener;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Controller;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -44,9 +49,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import tools.jackson.databind.json.JsonMapper;
 
+import java.io.IOException;
 import java.io.Serial;
+import java.time.Duration;
 import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -56,7 +65,6 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 ///
 /// @author iulianacosmina on 14/03/2026
 ///
-@Controller
 @RestController
 @RequestMapping("/albums")
 public class AlbumsController {
@@ -77,7 +85,7 @@ public class AlbumsController {
     }
 
     @PostMapping
-    void createSinger(@RequestBody Album album){
+    void create(@RequestBody Album album){
         albumService.save(album);
     }
 }
@@ -139,6 +147,22 @@ class Album {
     @Column(name = "SINGER_ID")
     private Long singerId;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getSingerId() {
+        return singerId;
+    }
+
+    public void setSingerId(Long singerId) {
+        this.singerId = singerId;
+    }
+
     public String getTitle() {
         return this.title;
     }
@@ -175,5 +199,36 @@ class Album {
     public String toString() {
         return "Album - Id: " + id + ", Singer id: " + singerId
                 + ", Title: " + title + ", Release Date: " + releaseDate;
+    }
+}
+
+@Service
+@Transactional
+class AlbumPopulator {
+    private static final Logger LOGGER = LoggerFactory.getLogger(AlbumPopulator.class);
+    private final AlbumRepository albumRepository;
+
+    public AlbumPopulator(AlbumRepository albumRepository) {
+        this.albumRepository = albumRepository;
+    }
+
+    @Async
+    @EventListener
+    void on(NewSingerAddedEvent event) throws InterruptedException, IOException {
+        Thread.sleep(Duration.ofMillis(5_000)); // wait about 5 seconds before loading the albums and saving them
+        final var singerId =  (Long) event.getSource();
+        LOGGER.info("-- Loading albums for singer with id {} ", singerId);
+        final var input = new ClassPathResource("album-data/nick-drake.json");
+        final var mapper = new JsonMapper();
+        var albums = mapper.readValue(input.getInputStream(), Album[].class);
+        Arrays.asList(albums).stream().forEach(
+                album -> {
+                    album.setSingerId(singerId);
+                    var saved = albumRepository.save(album);
+                    LOGGER.info("   >> Saved album with id {} for singer with id {} ", saved.id, singerId);
+                }
+        );
+        // could have used this, but singerId needed to be set on each,also we get nice lgging
+        //albumRepository.saveAll(Arrays.asList(albums));
     }
 }

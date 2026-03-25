@@ -28,18 +28,21 @@ SOFTWARE.
 package com.apress.prospring7.boot.nineteen.singers;
 
 import com.apress.prospring7.boot.nineteen.NotFoundException;
+//import com.apress.prospring7.boot.nineteen.albums.validation.AlbumValidation;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+//import org.springframework.beans.factory.annotation.Autowired;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.stereotype.Controller;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -47,7 +50,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.Serial;
@@ -63,7 +66,10 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 ///
 @RestController
 @RequestMapping("/singers")
-class SingersController {
+public class SingersController {
+
+/*    @Autowired
+    AlbumValidation validation;*/
 
     private final SingerService singerService;
 
@@ -77,7 +83,8 @@ class SingersController {
     }
 
     @PostMapping
-    void createSinger(Singer singer){
+    @ResponseStatus(HttpStatus.CREATED)
+    void createSinger(@RequestBody  Singer singer){
         singerService.save(singer);
     }
 
@@ -92,9 +99,13 @@ interface SingerRepository extends JpaRepository<Singer, Long> { }
 @Transactional
 @Service
 class SingerService {
+    private static final Logger LOGGER = LoggerFactory.getLogger(SingerService.class);
+
+    private final ApplicationEventPublisher events;
     private final SingerRepository singerRepo;
 
-     SingerService(SingerRepository singerRepository) {
+    SingerService(ApplicationEventPublisher events, SingerRepository singerRepository) {
+        this.events = events;
         this.singerRepo = singerRepository;
     }
 
@@ -107,7 +118,10 @@ class SingerService {
     }
 
     Singer save(Singer singer) {
-        return singerRepo.save(singer);
+        final var saved =  singerRepo.save(singer);
+        LOGGER.info("--- Saved singer {} {} with id  {}" , saved.getFirstName(), saved.getLastName(), saved.getId());
+        events.publishEvent(new NewSingerAddedEvent(saved.id));
+        return saved;
     }
 
      void delete(Long id) {
@@ -125,7 +139,7 @@ class Singer implements Serializable {
     @Serial
     private static final long serialVersionUID = 2L;
 
-    @Id @JsonProperty
+    @Id // @JsonProperty
     @GeneratedValue(strategy = IDENTITY)
     @Column(name = "ID")
     protected Long id;

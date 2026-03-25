@@ -1,0 +1,47 @@
+GET http://localhost:8081/albums
+###
+
+GET http://localhost:8081/albums/1
+Accept: application/json
+###
+
+### adding a new album
+POST http://localhost:8081/albums
+Content-Type: application/json
+
+{
+  "singerId": 4,
+  "title": "Five Leaves Left",
+  "releaseDate": "1969-08-18"
+}
+
+### adding a new album
+POST http://localhost:8081/albums
+Content-Type: application/json
+
+{
+  "singerId": 4,
+  "title": "Bryter Layter",
+  "releaseDate": "1971-09-06"
+}
+
+
+### adding a new album
+POST http://localhost:8081/albums
+Content-Type: application/json
+
+{
+  "singerId": 4,
+  "title": "Pink Moon",
+  "releaseDate": "1972-10-20"
+}
+
+###
+GET http://localhost:8081/albums/4
+Accept: application/json
+###
+
+###
+GET http://localhost:8081/albums/byId/4
+Accept: application/json
+###
