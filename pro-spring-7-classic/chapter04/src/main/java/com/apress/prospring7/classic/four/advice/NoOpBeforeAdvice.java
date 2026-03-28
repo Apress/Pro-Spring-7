@@ -27,6 +27,7 @@ SOFTWARE.
 */
 package com.apress.prospring7.classic.four.advice;
 
+import org.jspecify.annotations.NonNull;
 import org.springframework.aop.MethodBeforeAdvice;
 
 import java.lang.reflect.Method;
@@ -36,7 +37,7 @@ import java.lang.reflect.Method;
 ///
 public class NoOpBeforeAdvice implements MethodBeforeAdvice {
     @Override
-    public void before(Method method, Object[] args, Object target) throws Throwable {
+    public void before(@NonNull Method method, Object @NonNull [] args, Object target) throws Throwable {
         // no-op
     }
 }

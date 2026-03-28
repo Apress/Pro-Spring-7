@@ -36,7 +36,7 @@ import org.springframework.stereotype.Component;
  */
 @Component("documentarist")
 public class NewDocumentarist {
-    protected GrammyGuitarist guitarist;
+    private GrammyGuitarist guitarist;
 
     public void execute() {
         guitarist.sing();

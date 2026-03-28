@@ -30,6 +30,7 @@ package com.apress.prospring7.classic.four.manual;
 import com.apress.prospring7.classic.four.advice.LogAroundAdvice;
 import com.apress.prospring7.classic.four.common.Bar;
 import com.apress.prospring7.classic.four.common.GooTarget;
+import org.jspecify.annotations.NonNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.aop.ClassFilter;
@@ -43,13 +44,14 @@ import java.lang.reflect.Method;
 ///
 /// @author iulianacosmina on 06/08/2025
 ///
-public class ComposablePointcutDemo {
+class ComposablePointcutDemo {
  private static final Logger LOGGER = LoggerFactory.getLogger(ComposablePointcutDemo.class);
 
- public static void main(String... args) {
+ static void main() {
   final var target = new GooTarget();
 
-  final var pc = new ComposablePointcut(ClassFilter.TRUE, new FooMethodMatcher());
+  //final var pc = new ComposablePointcut(ClassFilter.TRUE, new FooMethodMatcher());
+  final var pc = new ComposablePointcut( new FooMethodMatcher());
 
   LOGGER.info("Test 1 >> ");
   GooTarget proxy = getProxy(pc, target);
@@ -85,21 +87,21 @@ public class ComposablePointcutDemo {
 }
 class FooMethodMatcher extends StaticMethodMatcher {
  @Override
- public boolean matches(Method method, Class<?> cls) {
+ public boolean matches(Method method, @NonNull Class<?> cls) {
   return (method.getName().startsWith("fo"));
  }
 }
 
 class BazMethodMatcher extends StaticMethodMatcher {
  @Override
- public boolean matches(Method method, Class<?> cls) {
+ public boolean matches(Method method, @NonNull Class<?> cls) {
   return "baz".equals(method.getName());
  }
 }
 
 class QuxMethodMatcher extends StaticMethodMatcher {
  @Override
- public boolean matches(Method method, Class<?> cls) {
+ public boolean matches(Method method, @NonNull Class<?> cls) {
   return (method.getName().endsWith("ux"));
  }
 }

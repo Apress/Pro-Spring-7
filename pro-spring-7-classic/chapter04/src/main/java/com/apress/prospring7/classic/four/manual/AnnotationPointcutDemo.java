@@ -43,8 +43,8 @@ import java.lang.annotation.Target;
 ///
 /// @author iulianacosmina on 28/07/2025
 ///
-public class AnnotationPointcutDemo {
- public static void main(String... args) {
+class AnnotationPointcutDemo {
+ static void main() {
   final var pc = AnnotationMatchingPointcut.forMethodAnnotation(AdviceRequired.class);
 
   final var pf = new ProxyFactory();
@@ -64,7 +64,7 @@ public class AnnotationPointcutDemo {
 @interface AdviceRequired { }
 
 class AnnotatedTarget implements com.apress.prospring7.classic.four.common.Target {
- private static Logger LOGGER = LoggerFactory.getLogger(AnnotatedTarget.class);
+ private static final Logger LOGGER = LoggerFactory.getLogger(AnnotatedTarget.class);
 
  @AdviceRequired
  public void foo(Bar bar) {

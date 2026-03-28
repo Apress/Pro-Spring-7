@@ -27,7 +27,6 @@ SOFTWARE.
 */
 package com.apress.prospring7.boot.nineteen.ex;
 
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -44,8 +43,8 @@ public class RestErrorHandler {
         return ResponseEntity.notFound().build();
     }*/
 
-    @ExceptionHandler(DataIntegrityViolationException.class)
-    public ResponseEntity<Object> handleBadRequest(DataIntegrityViolationException ex) {
+    @ExceptionHandler(DuplicateRecordException.class)
+    public ResponseEntity<Object> handleBadRequest(DuplicateRecordException ex) {
         return ResponseEntity.badRequest().body(ex.getMessage());
     }
 }

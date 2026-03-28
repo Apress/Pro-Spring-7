@@ -42,9 +42,9 @@ import java.lang.reflect.Method;
 /// @author iulianacosmina on 24/07/2025
 /// Listing 4-7
 ///
-public class StaticPointcutDemo {
+class StaticPointcutDemo {
 
-    public static void main(String... args) {
+    static void main() {
         final var advisor = new DefaultPointcutAdvisor(new SimpleStaticPointcut(), new LogAroundAdvice());
 
         var pf = new ProxyFactory(new FooTarget());

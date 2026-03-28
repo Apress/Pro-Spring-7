@@ -14,6 +14,7 @@ Run the following to start the container:
 [source]
 ----
 podman run --name chapter05-mariadb -d -p 3306:3306 prospring7-mariadb:5.0
+
 ----
 
 Use IntelliJ IDEA to create a connection to localhost with the credentials in the `Containerfile` and feel free to query the tables as you write your Spring code.

@@ -27,6 +27,7 @@ SOFTWARE.
 */
 package com.apress.prospring7.classic.four.annotated;
 
+import com.apress.prospring7.classic.four.common.Dancer;
 import com.apress.prospring7.classic.four.common.Guitar;
 import com.apress.prospring7.classic.four.common.Performer;
 import com.apress.prospring7.classic.four.common.Singer;
@@ -62,6 +63,7 @@ public class AnnotatedIntroductionTest {
 
             assertTrue(guitarist instanceof Performer);
             final var  performer = (Performer) guitarist;
+
             performer.perform();
         }
     }

@@ -28,6 +28,7 @@ SOFTWARE.
 package com.apress.prospring7.classic.four.manual.introduction;
 
 import org.aopalliance.intercept.MethodInvocation;
+import org.jspecify.annotations.NonNull;
 import org.springframework.aop.support.DelegatingIntroductionInterceptor;
 
 import java.lang.reflect.Method;
@@ -52,7 +53,7 @@ public class IsModifiedMixin extends DelegatingIntroductionInterceptor implement
  }
 
  @Override
- public Object invoke(final MethodInvocation invocation) throws Throwable {
+ public Object invoke(final @NonNull MethodInvocation invocation) throws Throwable {
   if (!isModified) {
    if (isSetter.test(invocation)) {
     Method getter = getGetter(invocation.getMethod());

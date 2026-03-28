@@ -28,28 +28,49 @@ SOFTWARE.
 package com.apress.prospring7.boot.nineteen.repos;
 
 import com.apress.prospring7.boot.nineteen.entities.Singer;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
+import com.apress.prospring7.boot.nineteen.ex.DuplicateRecordException;
+import com.apress.prospring7.boot.nineteen.ex.NotFoundException;
+import org.springframework.stereotype.Component;
 
-import java.time.LocalDate;
+import java.util.List;
+import java.util.Map;
 
 ///
 /// @author iulianacosmina on 01/02/2026
 ///
-public interface SingerRepo extends JpaRepository<Singer, Long> {
+@Component
+public class SingerRepo {
+    private Map<Long, Singer> data = Map.of(
+            1L, new Singer("John", "Mayer", "Sob Rock"),
+            2L, new Singer("Nick", "Drake", "Pink Moon "),
+            3L, new Singer("Nina", "Simone", "A Single Woman"),
+            4L, new Singer("Ben", "Barnes", "Where the Light Gets In")
+    );
 
-    @Query("select s from Singer s where s.firstName=:fn")
-    Iterable<Singer> findByFirstName(@Param("fn") String firstName);
-    @Query("select s from Singer s where s.firstName like %?1%")
-    Iterable<Singer> findByFirstNameLike(String firstName);
+    public List<Singer> findAll() {
+        return List.copyOf(data.values());
+    }
 
-    @Query("select s from Singer s where s.lastName=:ln")
-    Iterable<Singer> findByLastName(@Param("ln") String lastName);
+    public Singer findById(Long id) {
+        if(!data.containsKey(id)) throw new NotFoundException(Singer.class, id);
+        return data.get(id);
+    }
 
-    @Query("select s from Singer s where s.lastName like %?1%")
-    Iterable<Singer> findByLastNameLike(String lastName);
+    public Singer save(Singer singer) {
+        var res = data.values().stream().filter(s -> s.firstName().equals(singer.firstName()) && s.lastName().equals(singer.lastName())).findAny();
+        if (res.isPresent()) throw  new DuplicateRecordException("Duplicate entry '" + singer.firstName() + " " + singer.lastName() + "'" );
+        data.put((long) (data.size() + 1), singer);
+        return singer;
+    }
 
-    @Query("select s from Singer s where s.birthDate=:date")
-    Iterable<Singer> findByBirthDate(@Param("date") LocalDate date);
+    public Singer update(Long id, Singer singer) {
+        if(!data.containsKey(id)) throw new NotFoundException(Singer.class, id);
+        data.put(id, singer);
+         return singer;
+    }
+
+    public void delete(Long id) {
+        if(!data.containsKey(id)) throw new NotFoundException(Singer.class, id);
+        data.remove(id);
+    }
 }

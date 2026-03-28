@@ -38,7 +38,7 @@ import org.springframework.aop.support.DefaultPointcutAdvisor;
 ///
 public class AspectJExpressionDemo {
 
- public static void main(String... args) {
+ static void main() {
   final var pc = new AspectJExpressionPointcut();
   pc.setExpression("execution(* foo*(..))");
 

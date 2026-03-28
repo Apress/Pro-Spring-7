@@ -35,6 +35,7 @@ import org.slf4j.LoggerFactory;
 ///
 public class GooTarget  implements Target{
     Logger LOGGER = LoggerFactory.getLogger(GooTarget.class);
+
     @Override
     public void foo() {
         LOGGER.info("foo()");

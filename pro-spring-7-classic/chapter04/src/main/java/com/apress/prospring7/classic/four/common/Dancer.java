@@ -38,6 +38,6 @@ public class Dancer implements Performer {
 
     @Override
     public void perform() {
-        LOGGER.info(" Shake it to the left, shake it to the right!");
+        LOGGER.info("Shake it to the left, shake it to the right!");
     }
 }

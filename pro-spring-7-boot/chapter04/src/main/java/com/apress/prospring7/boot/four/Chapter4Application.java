@@ -34,8 +34,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.io.IOException;
 
 @SpringBootApplication
-public class Chapter4Application {
-    public static void main(String... args) throws IOException {
+class Chapter4Application {
+    static void main(String... args) throws IOException {
         try(final var ctx = SpringApplication.run(Chapter4Application.class, args)) {
             assert (ctx != null);
 

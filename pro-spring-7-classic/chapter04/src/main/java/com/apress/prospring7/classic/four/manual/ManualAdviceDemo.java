@@ -47,7 +47,7 @@ import static java.time.Duration.ofMillis;
 ///
 public class ManualAdviceDemo {
 
- public static void main(String... args) {
+  static void main() {
 
   var pf = new ProxyFactory(new Concert());
   pf.addAdvice(new SimpleBeforeAdvice());
@@ -64,6 +64,7 @@ public class ManualAdviceDemo {
 ///
 /// Listing 4-2
 ///
+@FunctionalInterface
 interface Performance {
  void execute();
 }
@@ -92,7 +93,7 @@ class SimpleBeforeAdvice implements MethodBeforeAdvice {
  private static Logger LOGGER = LoggerFactory.getLogger(SimpleBeforeAdvice.class);
 
  @Override
- public void before(@NonNull Method method, Object[] args, Object target) throws Throwable {
+ public void before(@NonNull Method method, Object @NonNull [] args, Object target) throws Throwable {
   LOGGER.info("Before: set up concert hall.");
  }
 }
@@ -103,7 +104,7 @@ class SimpleAfterAdvice implements AfterReturningAdvice {
  private static Logger LOGGER = LoggerFactory.getLogger(SimpleAfterAdvice.class);
 
  @Override
- public void afterReturning(Object returnValue, @NonNull Method method, Object[] args, Object target) throws Throwable {
+ public void afterReturning(Object returnValue, @NonNull Method method, Object @NonNull [] args, Object target) throws Throwable {
   LOGGER.info("After: offer standing ovation.");
  }
 }

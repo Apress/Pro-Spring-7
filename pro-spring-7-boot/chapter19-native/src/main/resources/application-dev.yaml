@@ -6,28 +6,6 @@ server:
     enabled: true # improves website performance by compressing response body
   address: 0.0.0.0
 
-spring:
-  datasource:
-    driverClassName: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://${DB_HOST:localhost}:${DB_PORT:3306}/${DB_SCHEMA:musicdb}?useSSL=false
-    username: ${DB_USER:prospring7}
-    password: ${DB_PASS:prospring7}
-    hikari:
-      maximum-pool-size: 25
-  jpa:
-    generate-ddl: false
-    properties:
-      hibernate:
-        jdbc:
-          batch_size: 10
-          fetch_size: 30
-        max_fetch_depth: 3
-        show-sql: true
-        format-sql: false
-        use_sql_comments: false
-        hbm2ddl:
-          auto: none
-
 # Logging config
 logging:
   pattern:

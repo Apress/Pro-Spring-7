@@ -109,10 +109,10 @@ class AopConfig implements BeanFactoryAware {
 ///
 /// @author iulianacosmina on 07/08/2025
 ///
-public class ProxyFactoryBeanDemo {
+class ProxyFactoryBeanDemo {
  private static final Logger LOGGER = LoggerFactory.getLogger(ProxyFactoryBeanDemo.class);
 
- public static void main(String... args) {
+ static void main() {
   var ctx = new AnnotationConfigApplicationContext(AopConfig.class);
 
   Documentarist documentaristOne =

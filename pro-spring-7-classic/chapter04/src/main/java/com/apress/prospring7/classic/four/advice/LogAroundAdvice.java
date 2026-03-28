@@ -29,6 +29,7 @@ package com.apress.prospring7.classic.four.advice;
 
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
+import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -39,6 +40,7 @@ public class LogAroundAdvice  implements MethodInterceptor {
     private static final Logger LOGGER = LoggerFactory.getLogger(LogAroundAdvice.class);
 
     @Override
+    @Nullable
     public Object invoke(MethodInvocation invocation) throws Throwable {
         LOGGER.debug(">> Invoking {}", invocation.getMethod().getName());
         Object retVal = invocation.proceed();

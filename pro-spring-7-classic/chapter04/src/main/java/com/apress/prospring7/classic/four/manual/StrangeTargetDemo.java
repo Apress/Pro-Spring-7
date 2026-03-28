@@ -38,10 +38,13 @@ import org.springframework.aop.support.DefaultPointcutAdvisor;
 /// @author iulianacosmina on 02/08/2025
 /// Listing 4-19.
 ///
-public class StrangeTargetDemo {
- public static void main(String... args) {
+class StrangeTargetDemo {
+  static void main() {
   final var pc = new AspectJExpressionPointcut();
   pc.setExpression("execution(* foo*(..))");
+
+   // JDK Dynamic Proxy
+   //final var pf = new ProxyFactory(new StrangeTarget());
 
   // CGLIB Proxy
   final var pf = new ProxyFactory();

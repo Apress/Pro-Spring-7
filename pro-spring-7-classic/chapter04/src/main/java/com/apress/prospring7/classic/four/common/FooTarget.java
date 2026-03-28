@@ -36,6 +36,7 @@ import org.slf4j.LoggerFactory;
 public class FooTarget implements Target{
     private static final Logger LOGGER = LoggerFactory.getLogger(FooTarget.class);
 
+    @Override
     public void foo() {
         LOGGER.info("foo()");
     }

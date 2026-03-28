@@ -39,12 +39,11 @@ import org.springframework.aop.support.DefaultPointcutAdvisor;
 ///
 /// @author iulianacosmina on 06/08/2025
 ///
-public class ControlFlowDemo {
+class ControlFlowDemo {
  private static final Logger LOGGER = LoggerFactory.getLogger(ControlFlowDemo.class);
 
- public static void main(String... args) {
-  ControlFlowDemo ex = new ControlFlowDemo();
-  ex.run();
+ static void main() {
+  new ControlFlowDemo().run();
  }
 
  public void run() {

@@ -28,8 +28,7 @@ SOFTWARE.
 package com.apress.prospring7.boot.nineteen.controllers;
 
 import com.apress.prospring7.boot.nineteen.entities.Singer;
-import com.apress.prospring7.boot.nineteen.services.SingerService;
-import jakarta.validation.Valid;
+import com.apress.prospring7.boot.nineteen.repos.SingerRepo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -52,37 +51,37 @@ public class SingerController {
 
     final Logger LOGGER = LoggerFactory.getLogger(SingerController.class);
 
-    private final SingerService singerService;
+    private final SingerRepo singerRepo;
 
-    public SingerController(SingerService singerService) {
-        this.singerService = singerService;
+    public SingerController(SingerRepo singerRepo) {
+        this.singerRepo = singerRepo;
     }
 
     @GetMapping(path={"/", ""})
     public List<Singer> all() {
-        return singerService.findAll();
+        return singerRepo.findAll();
     }
 
     @GetMapping(path = "/{id}")
     public Singer findSingerById(@PathVariable Long id) {
-        return singerService.findById(id);
+        return singerRepo.findById(id);
     }
 
     @PostMapping(path="/")
-    public Singer  create(@RequestBody @Valid Singer singer) {
+    public Singer  create(@RequestBody Singer singer) {
         LOGGER.info("Creating singer: {}" , singer);
-        return singerService.save(singer);
+        return singerRepo.save(singer);
     }
 
     @PutMapping(value="/{id}")
-    public Singer update(@RequestBody @Valid Singer singer, @PathVariable Long id) {
+    public Singer update(@RequestBody Singer singer, @PathVariable Long id) {
         LOGGER.info("Updating singer: {}" , singer);
-        return singerService.update(id, singer);
+        return singerRepo.update(id, singer);
     }
 
     @DeleteMapping(value="/{id}")
     public void delete(@PathVariable Long id) {
         LOGGER.info("Deleting singer with id: {}" , id);
-        singerService.delete(id);
+        singerRepo.delete(id);
     }
 }

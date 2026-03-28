@@ -31,32 +31,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.persistence.autoconfigure.EntityScan;
 import org.springframework.core.env.AbstractEnvironment;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-//import java.util.Arrays;
 
 ///
 /// @author iulianacosmina on 01/02/2026
 ///
-@EntityScan(basePackages = {"com.apress.prospring7.boot.nineteen.entities"})
-@EnableTransactionManagement
-@EnableJpaRepositories("com.apress.prospring7.boot.nineteen.repos")
 @SpringBootApplication
 public class NativeApplication {
     private static final Logger LOGGER = LoggerFactory.getLogger(NativeApplication.class);
 
     static void main(String... args) {
-        // Setting the logging provider explicitly to avoid
-        // Invalid logger interface org.hibernate.jpa.internal.JpaLogger (implementation not found) at runtime
-        System.setProperty("org.jboss.logging.provider", "slf4j");
         System.setProperty(AbstractEnvironment.ACTIVE_PROFILES_PROPERTY_NAME, "dev");
-        var ctx = SpringApplication.run(NativeApplication.class, args);
-
-       /* Arrays.stream(ctx.getBeanDefinitionNames()).forEach(
-                bn -> LOGGER.info(">> {} : {} ", bn, ctx.getBean(bn).getClass().getName())
-        );*/
+        SpringApplication.run(NativeApplication.class, args);
     }
 }

@@ -34,10 +34,10 @@ import org.springframework.aop.framework.ProxyFactory;
 ///
 /// @author iulianacosmina on 07/08/2025
 ///
-public class IntroductionDemo {
+class IntroductionDemo {
  private static final Logger LOGGER = LoggerFactory.getLogger(IntroductionDemo.class);
 
- public static void main(String... args) {
+ static void main() {
   final var target = new Contact();
   target.setName("John Doe");
 

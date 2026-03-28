@@ -52,7 +52,8 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 ///
 /// @author iulianacosmina on 27/12/2025
-/// Attempt at setting up a replica set using Testcontainers, approach inspired from here: [Testcontainers MongoDB ReplicaSet](https://dev.to/carc/testcontainers-mongodb-replicaset-4koa)
+/// Attempt at setting up a replica set using Testcontainers,
+/// approach inspired from here: [Testcontainers MongoDB ReplicaSet](https://dev.to/carc/testcontainers-mongodb-replicaset-4koa)
 ///
 @Disabled
 @Testcontainers

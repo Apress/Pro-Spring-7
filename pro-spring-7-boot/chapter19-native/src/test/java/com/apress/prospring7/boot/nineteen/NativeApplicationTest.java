@@ -46,7 +46,6 @@ import org.springframework.test.context.ActiveProfiles;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
@@ -76,7 +75,8 @@ public class NativeApplicationTest {
     public void testFindAll() {
         LOGGER.info("--> Testing retrieve all singers");
         var singers = restTemplate.getForObject("http://localhost:"+port+"/singer/", Singer[].class);
-        assertTrue( singers.length >= 15);
+        assert singers != null;
+        assertTrue( singers.length > 0);
         Arrays.stream(singers).forEach(s -> LOGGER.info(s.toString()));
     }
 
@@ -104,19 +104,15 @@ public class NativeApplicationTest {
         ResponseEntity<Singer> response = restTemplate.exchange(req, Singer.class);
         assertAll("testNegativeFindById",
                 () -> assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode()),
-                () -> assertNull(response.getBody().getFirstName()),
-                () -> assertNull(response.getBody().getLastName())
+                () -> assertNull(response.getBody().firstName()),
+                () -> assertNull(response.getBody().lastName())
         );
     }
-
 
     @Test
     public void testNegativeCreate() throws URISyntaxException {
         LOGGER.info("--> Testing create singer");
-        Singer singerNew = new Singer();
-        singerNew.setFirstName("Ben");
-        singerNew.setLastName("Barnes");
-        singerNew.setBirthDate(LocalDate.now());
+        Singer singerNew = new Singer("Ben", "Barnes", "Where the Light Gets In");
 
         RequestEntity<Singer>  req = new RequestEntity<>(singerNew, HttpMethod.POST, new URI("http://localhost:"+port+"/singer/"));
 
@@ -124,6 +120,6 @@ public class NativeApplicationTest {
         System.out.println(">>> response  " + response.getBody());
         assertAll("testNegativeCreate",
                 () -> assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode()),
-                ()-> assertTrue(response.getBody().contains("Duplicate entry 'Ben-Barnes'")));
+                ()-> assertTrue(response.getBody().contains("Duplicate entry 'Ben Barnes'")));
     }
 }

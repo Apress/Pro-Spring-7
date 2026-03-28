@@ -25,22 +25,18 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package com.apress.prospring7.boot.nineteen.services;
+package com.apress.prospring7.boot.nineteen.ex;
 
-import com.apress.prospring7.boot.nineteen.entities.Singer;
-
-import java.util.List;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 ///
-/// @author iulianacosmina on 01/02/2026
+/// @author iulianacosmina on 25/03/2026
 ///
-public interface SingerService {
-    List<Singer> findAll();
-    Singer findById(Long id);
+@ResponseStatus(value= HttpStatus.CONFLICT, reason="Submitted item exists")
+public class DuplicateRecordException extends RuntimeException {
 
-    Singer save(Singer singer);
-    Singer update(Long id, Singer singer);
-
-    void delete(Long id);
-
+    public DuplicateRecordException(String message) {
+        super(message);
+    }
 }

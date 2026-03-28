@@ -36,8 +36,8 @@ import org.springframework.aop.support.JdkRegexpMethodPointcut;
 ///
 /// @author iulianacosmina on 28/07/2025
 ///
-public class RegexpPointcutDemo {
- public static void main(String... args) {
+class RegexpPointcutDemo {
+ static void main() {
   final var pc = new JdkRegexpMethodPointcut();
   pc.setPattern(".*foo.*");
 

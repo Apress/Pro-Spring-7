@@ -30,9 +30,9 @@ package com.apress.prospring7.classic.four.manual.dy;
 import com.apress.prospring7.classic.four.advice.LogAroundAdvice;
 import com.apress.prospring7.classic.four.common.FooTarget;
 import com.apress.prospring7.classic.four.common.Target;
+import org.jspecify.annotations.NonNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.aop.Advisor;
 import org.springframework.aop.ClassFilter;
 import org.springframework.aop.framework.ProxyFactory;
 import org.springframework.aop.support.DefaultPointcutAdvisor;
@@ -44,17 +44,20 @@ import java.lang.reflect.Method;
 /// @author iulianacosmina on 24/07/2025
 /// Listing 4-9
 ///
-public class DynamicPointcutDemo {
+class DynamicPointcutDemo {
 
- public static void main(String... args) {
+ static void main() {
+
   // Listing 4-11
-  final var pf = new ProxyFactory(new FooTarget());
-  pf.addAdvisor(new DefaultPointcutAdvisor(new SimpleDynamicPointcut(), new LogAroundAdvice()));
+  /*final var pf = new ProxyFactory(new FooTarget());
+  pf.addAdvisor(new DefaultPointcutAdvisor(new SimpleDynamicPointcut(), new LogAroundAdvice()));*/
 
-  /*final var target = new FooTarget();
+
+  // Listing 4-10
+  final var target = new FooTarget();
   final var pf = new ProxyFactory();
   pf.setTarget(target);
-  pf.addAdvisor(new DefaultPointcutAdvisor(new SimpleDynamicPointcut(), new LogAroundAdvice()));*/
+  pf.addAdvisor(new DefaultPointcutAdvisor(new SimpleDynamicPointcut(), new LogAroundAdvice()));
 
   final var  proxy = (Target)pf.getProxy();
 
@@ -70,7 +73,7 @@ public class DynamicPointcutDemo {
 /// Listing 4-8
 ///
 class SimpleDynamicPointcut extends DynamicMethodMatcherPointcut {
- private static Logger LOGGER = LoggerFactory.getLogger(SimpleDynamicPointcut.class);
+ private static final Logger LOGGER = LoggerFactory.getLogger(SimpleDynamicPointcut.class);
 
  @Override
  public ClassFilter getClassFilter() {
@@ -78,13 +81,13 @@ class SimpleDynamicPointcut extends DynamicMethodMatcherPointcut {
  }
 
  @Override
- public boolean matches(Method method, Class<?> targetClass) {
+ public boolean matches(Method method, @NonNull Class<?> targetClass) {
   LOGGER.debug("Static check for {}", method.getName());
   return ("foo".equals(method.getName()));
  }
 
  @Override
- public boolean matches(Method method, Class<?> targetClass, Object... args) {
+ public boolean matches(Method method, @NonNull Class<?> targetClass, Object... args) {
   LOGGER.debug("Dynamic check for {}", method.getName());
 
   if(args.length == 0) {

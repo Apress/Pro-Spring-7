@@ -42,15 +42,15 @@ import java.util.stream.IntStream;
 ///
 /// @author iulianacosmina on 06/08/2025
 ///
-public class ProxyPerformanceDemo {
+class ProxyPerformanceDemo {
 
  private static final Logger LOGGER = LoggerFactory.getLogger(ProxyPerformanceDemo.class);
 
- public static void main(String... args) {
+ static void main() {
   final var target = new TestTarget();
 
   final var advisor = new NameMatchMethodPointcutAdvisor(new NoOpBeforeAdvice());
-  advisor.setMappedName("foo");
+  advisor.setMappedName("advised");
 
  LOGGER.info("Starting tests ...");
   runCglibTests(advisor, target);

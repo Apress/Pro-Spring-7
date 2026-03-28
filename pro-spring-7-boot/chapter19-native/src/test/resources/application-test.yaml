@@ -1,6 +1,3 @@
-spring:
-  datasource:
-    url: "jdbc:tc:mariadb:latest:///test?TC_INITSCRIPT=testcontainers/create-schema.sql"
 
 # Logging config
 logging:

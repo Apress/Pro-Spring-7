@@ -2,9 +2,10 @@ plugins {
     id("java-library")
 }
 
-defaultTasks = mutableListOf("clean", "build")
-
 allprojects {
+
+    defaultTasks = mutableListOf("clean", "build")
+
     version = "7.0-SNAPSHOT"
     group = "com.apress.prospring7"
     apply {
