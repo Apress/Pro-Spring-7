@@ -41,7 +41,7 @@ import org.springframework.core.env.AbstractEnvironment;
 public class Chapter5Application {
     private static final Logger LOGGER = LoggerFactory.getLogger(Chapter5Application.class);
 
-    public static void main(String... args) {
+    static void main(String... args) {
         var profile = System.getProperty("spring.profiles.active");
         System.setProperty(AbstractEnvironment.ACTIVE_PROFILES_PROPERTY_NAME, profile != null? profile : "dev2" );
         try( final var ctx = SpringApplication.run(Chapter5Application.class, args)) {

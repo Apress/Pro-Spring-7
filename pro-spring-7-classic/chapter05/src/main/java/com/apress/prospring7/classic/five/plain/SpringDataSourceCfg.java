@@ -52,7 +52,7 @@ interface SingerDao {
 class JdbcSingerDao implements SingerDao, InitializingBean {
     private static final Logger LOGGER = LoggerFactory.getLogger(JdbcSingerDao.class);
 
-    DataSource dataSource;
+    private DataSource dataSource;
 
     void setDataSource(DataSource dataSource) {
         this.dataSource = dataSource;
@@ -86,10 +86,10 @@ class JdbcSingerDao implements SingerDao, InitializingBean {
 class SpringDatasourceCfg {
 
     @Autowired
-    DataSource dataSource;
+    private DataSource dataSource;
 
     @Bean
-     SingerDao singerDao(){
+    SingerDao singerDao(){
         JdbcSingerDao dao = new JdbcSingerDao();
         dao.setDataSource(dataSource);
         return dao;

@@ -38,7 +38,7 @@ import java.time.LocalDate;
 ///
 /// @author iulianacosmina on 11/09/2025
 ///
-public class PlainJdbcDemo {
+class PlainJdbcDemo {
     private static final Logger LOGGER = LoggerFactory.getLogger(PlainJdbcDemo.class);
 
     private static final SingerDao singerDao = new PlainSingerDao();
@@ -51,7 +51,7 @@ public class PlainJdbcDemo {
         }
     }
 
-    public static void main(String... args) {
+    static void main() {
         LOGGER.info("Listing initial singer data:");
 
         listAllSingers();

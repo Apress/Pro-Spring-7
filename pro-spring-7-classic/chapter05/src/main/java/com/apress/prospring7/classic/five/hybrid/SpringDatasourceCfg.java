@@ -29,8 +29,6 @@ package com.apress.prospring7.classic.five.hybrid;
 
 import com.apress.prospring7.classic.five.MariaDBErrorCodesTranslator;
 import com.apress.prospring7.classic.five.config.C3p0DataSourceCfg;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.BeanCreationException;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,10 +49,9 @@ interface SingerDao {
 }
 
 class JdbcSingerDao implements SingerDao, InitializingBean {
-    private static final Logger LOGGER = LoggerFactory.getLogger(JdbcSingerDao.class);
     private JdbcTemplate jdbcTemplate;
 
-    DataSource dataSource;
+    private DataSource dataSource;
 
     public void setDataSource(DataSource dataSource) {
         this.dataSource = dataSource;

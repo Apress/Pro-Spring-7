@@ -164,7 +164,7 @@ class RowMapperDao implements SingerDao {
 public class RowMapperCfg {
 
     @Autowired
-    DataSource dataSource;
+    private DataSource dataSource;
 
     @Bean
     public NamedParameterJdbcTemplate namedTemplate(){

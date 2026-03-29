@@ -40,7 +40,7 @@ import java.util.List;
 ///
 /// @author iulianacosmina on 15/09/2025
 ///
-public class RepoDemo {
+class RepoDemo {
     private static final Logger LOGGER = LoggerFactory.getLogger(RepoDemo.class);
 
      static void main() {

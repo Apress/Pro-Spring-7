@@ -40,7 +40,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.jdbc.SqlMergeMode;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
-import org.testcontainers.containers.MariaDBContainer;
+import org.testcontainers.mariadb.MariaDBContainer;
 
 import javax.sql.DataSource;
 
@@ -68,7 +68,7 @@ public class StoredFunctionV1Test {
     public static class TestContainersConfig {
         private static final Logger LOGGER = LoggerFactory.getLogger(TestContainersConfig.class);
 
-        MariaDBContainer<?> mariaDB = new MariaDBContainer<>("mariadb:latest");
+        static MariaDBContainer mariaDB = new MariaDBContainer("mariadb:latest");
 
         @PostConstruct
         void initialize() {

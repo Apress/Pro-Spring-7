@@ -111,9 +111,7 @@ public class SingerJdbcRepo implements SingerRepo {
         /*final var singer =  selectSingerById.findObject(id);
         return  singer == null ? Optional.empty() : Optional.of( singer.firstName());*/
         var result = storedFunctionFirstNameById.execute(id).getFirst();
-        return result != null
-                ? Optional.ofNullable(storedFunctionFirstNameById.execute(id).getFirst())
-                : Optional.empty();
+        return result != null ? Optional.ofNullable(result) : Optional.empty();
     }
 
     @Override

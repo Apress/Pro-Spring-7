@@ -81,11 +81,11 @@ public class JdbcRepoV1Test {
     }
 
     @Configuration
-    public static class EmptyEmbeddedJdbcConfig {
+     static class EmptyEmbeddedJdbcConfig {
         private static final Logger LOGGER = LoggerFactory.getLogger(EmptyEmbeddedJdbcConfig.class);
 
         @Bean
-        public DataSource dataSource() {
+        DataSource dataSource() {
             try {
                 final var dbBuilder = new EmbeddedDatabaseBuilder();
                 return dbBuilder.setType(EmbeddedDatabaseType.H2).setName("musicdb").build();

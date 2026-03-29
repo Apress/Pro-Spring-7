@@ -63,7 +63,7 @@ class JdbcSingerDao implements SingerDao {
 class SpringJdbcTemplateCfg {
 
     @Autowired
-    DataSource dataSource;
+    private DataSource dataSource;
 
     @Bean
     JdbcTemplate jdbcTemplate(){
