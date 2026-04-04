@@ -37,13 +37,13 @@ import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
-import org.testcontainers.containers.MariaDBContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.testcontainers.mariadb.MariaDBContainer;
 
 import java.time.LocalDate;
 
@@ -61,7 +61,7 @@ public class HibernateTcOneTest {
     private static final Logger LOGGER = LoggerFactory.getLogger(HibernateTcOneTest.class);
 
     @Container
-    static MariaDBContainer<?> mariaDB = new MariaDBContainer<>("mariadb:latest");
+    static org.testcontainers.mariadb.MariaDBContainer mariaDB = new MariaDBContainer("mariadb:latest");
 
     @DynamicPropertySource
     static void setUp(DynamicPropertyRegistry registry) {

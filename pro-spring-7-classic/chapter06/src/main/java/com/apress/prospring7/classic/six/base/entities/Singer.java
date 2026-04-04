@@ -60,8 +60,8 @@ import java.util.Set;
 					where s.id = :id
 					"""),
         @NamedQuery(name="Singer.findAllWithAlbum",
-                query="""
-      				select distinct s from Singer s 
+                query= """
+					select distinct s from Singer s
 					left join fetch s.albums a 
 					left join fetch s.instruments i 
 					""")

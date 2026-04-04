@@ -28,13 +28,14 @@ import org.jooq.QueryPart;
 import org.jooq.Record;
 import org.jooq.SQL;
 import org.jooq.Schema;
-import org.jooq.Select;
 import org.jooq.Stringly;
 import org.jooq.Table;
 import org.jooq.TableField;
+import org.jooq.TableLike;
 import org.jooq.TableOptions;
 import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
+import org.jooq.impl.Internal;
 import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
@@ -63,7 +64,7 @@ public class Singer extends TableImpl<SingerRecord> {
     /**
      * The column <code>musicdb.SINGER.ID</code>.
      */
-    public final TableField<SingerRecord, Integer> ID = createField(DSL.name("ID"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
+    public final TableField<SingerRecord, Integer> ID = createField(DSL.name("ID"), SQLDataType.INTEGER.nullable(false).generatedByDefaultAsIdentity(), this, "");
 
     /**
      * The column <code>musicdb.SINGER.VERSION</code>.
@@ -245,7 +246,7 @@ public class Singer extends TableImpl<SingerRecord> {
      */
     @Override
     public Singer where(Condition condition) {
-        return new Singer(getQualifiedName(), aliased() ? this : null, null, condition);
+        return new Singer(getQualifiedName(), aliased() ? this : null, null, Internal.condition(this, condition));
     }
 
     /**
@@ -312,7 +313,7 @@ public class Singer extends TableImpl<SingerRecord> {
      * Create an inline derived table from this table
      */
     @Override
-    public Singer whereExists(Select<?> select) {
+    public Singer whereExists(TableLike<?> select) {
         return where(DSL.exists(select));
     }
 
@@ -320,7 +321,7 @@ public class Singer extends TableImpl<SingerRecord> {
      * Create an inline derived table from this table
      */
     @Override
-    public Singer whereNotExists(Select<?> select) {
+    public Singer whereNotExists(TableLike<?> select) {
         return where(DSL.notExists(select));
     }
 }

@@ -36,7 +36,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 ///
 /// @author iulianacosmina on 29/09/2025
 ///
-public class HibernateDemoV1 {
+class HibernateDemoV1 {
     private static final Logger LOGGER = LoggerFactory.getLogger(HibernateDemoV1.class);
 
     static void main() {

@@ -51,6 +51,12 @@ public class Instrument implements Serializable {
     private String instrumentId;
     private Set<Singer> singers = new HashSet<>();
 
+    public Instrument() { /* needed for JPA */ }
+
+    public Instrument(String instrumentId) {
+        this.instrumentId = instrumentId;
+    }
+
     @Id
     @Column(name = "INSTRUMENT_ID")
     public String getInstrumentId() {

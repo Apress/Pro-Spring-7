@@ -30,6 +30,7 @@ package com.apress.prospring7.classic.six;
 import com.apress.prospring7.classic.six.base.config.HibernateConfig;
 import com.apress.prospring7.classic.six.base.dao.SingerDao;
 import com.apress.prospring7.classic.six.base.entities.Album;
+import com.apress.prospring7.classic.six.base.entities.Instrument;
 import com.apress.prospring7.classic.six.base.entities.Singer;
 import jakarta.annotation.PostConstruct;
 import org.hibernate.cfg.Environment;
@@ -49,9 +50,9 @@ import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.jdbc.SqlGroup;
 import org.springframework.test.context.jdbc.SqlMergeMode;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
-import org.testcontainers.containers.MariaDBContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
+import org.testcontainers.mariadb.MariaDBContainer;
 
 import java.time.LocalDate;
 import java.util.Properties;
@@ -72,7 +73,7 @@ public class HibernateTcTwoTest {
     private static final Logger LOGGER = LoggerFactory.getLogger(HibernateTcTwoTest.class);
 
     @Container
-    static MariaDBContainer<?> mariaDB = new MariaDBContainer<>("mariadb:latest");
+    static MariaDBContainer mariaDB = new MariaDBContainer("mariadb:latest");
 
     @DynamicPropertySource
     static void setUp(DynamicPropertyRegistry registry) {
@@ -124,6 +125,9 @@ public class HibernateTcTwoTest {
         album.setTitle("A Heart Full of Blues");
         album.setReleaseDate(LocalDate.of(1962, 3, 20));
         singer.addAlbum(album);
+
+        singer.addInstrument(new Instrument("Guitar"));
+
         singerDao.save(singer);
 
         assertNotNull(singer.getId());

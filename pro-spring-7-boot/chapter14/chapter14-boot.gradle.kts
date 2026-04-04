@@ -13,7 +13,7 @@ dependencies {
     implementation(libs.springBootStarterWeb)
     implementation(libs.springBootStarterValidation)
     implementation(libs.springBootStarterDataJpa)
-    api(libs.hibernateCore) // to use 7.2.6.Final
+    api(libs.hibernateCore) // to use 7.3.0.Final
     implementation(libs.mariaDB)
     implementation("tools.jackson.dataformat:jackson-dataformat-xml")
 

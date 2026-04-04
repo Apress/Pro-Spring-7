@@ -48,9 +48,9 @@ import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.jdbc.SqlGroup;
 import org.springframework.test.context.jdbc.SqlMergeMode;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
-import org.testcontainers.containers.MariaDBContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
+import org.testcontainers.mariadb.MariaDBContainer;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -74,7 +74,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class JOOQDslTest {
 
     @Container
-    static MariaDBContainer<?> mariaDB = new MariaDBContainer<>("mariadb:latest");
+    static org.testcontainers.mariadb.MariaDBContainer mariaDB = new MariaDBContainer("mariadb:latest");
 
     @DynamicPropertySource // this does the magic
     static void setUp(DynamicPropertyRegistry registry) {
@@ -205,13 +205,13 @@ public class JOOQDslTest {
             executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
     @DisplayName("should delete a singer")
     void testDelete() {
-        // TODO  FAILS with Hibernate 7.2.6.Final
+        // TODO  FAILS with Hibernate 7.3.0.Final
        /* assertThrows(DataAccessException.class, () -> dslContext.deleteFrom(SINGER)
                 .where(SINGER.ID.eq(6))
                 .execute());*/
 
         // in case deletion works
-/*        int deletedRows =   dslContext.deleteFrom(SINGER)
+      /* int deletedRows =   dslContext.deleteFrom(SINGER)
                 .where(SINGER.ID.eq(6))
                 .execute();
         assertEquals(1, deletedRows);*/

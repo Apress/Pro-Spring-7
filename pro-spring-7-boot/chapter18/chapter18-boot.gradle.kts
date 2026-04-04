@@ -14,7 +14,7 @@ dependencies {
     implementation(libs.springBootStarterValidation)
     implementation(libs.springBootStarterDataJpa)
     implementation(libs.springBootStarterActuator)
-    api(libs.hibernateCore) // to use 7.2.6.Final
+    api(libs.hibernateCore) // to use 7.3.0.Final
     implementation(libs.mariaDB)
 
     runtimeOnly("io.micrometer:micrometer-registry-prometheus")

@@ -29,8 +29,8 @@ package com.apress.prospring7.classic.nine;
 
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
-import org.testcontainers.containers.MariaDBContainer;
 import org.testcontainers.junit.jupiter.Container;
+import org.testcontainers.mariadb.MariaDBContainer;
 
 ///
 /// @author iulianacosmina on 04/12/2025
@@ -38,7 +38,7 @@ import org.testcontainers.junit.jupiter.Container;
 public class TestContainersBase {
 
     @Container
-    static MariaDBContainer<?> mariaDB = new MariaDBContainer<>("mariadb:latest");
+    static org.testcontainers.mariadb.MariaDBContainer mariaDB = new MariaDBContainer("mariadb:latest");
 
     @DynamicPropertySource // this does the magic
     static void setUp(DynamicPropertyRegistry registry) {
