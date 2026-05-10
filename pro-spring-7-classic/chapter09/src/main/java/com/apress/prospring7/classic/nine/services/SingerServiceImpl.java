@@ -70,7 +70,7 @@ public class SingerServiceImpl implements SingerService {
     @Transactional(propagation = Propagation.REQUIRES_NEW, label = "modifying")
     @Override
     public Singer updateFirstName(String firstName, Long id) {
-        singerRepository.findById(id).ifPresent(s -> singerRepository.setFirstNameFor(firstName, id));
+        singerRepository.findById(id).ifPresent(_ -> singerRepository.setFirstNameFor(firstName, id));
         return  singerRepository.findById(id).orElse(null);
     }
 
@@ -86,4 +86,9 @@ public class SingerServiceImpl implements SingerService {
         return singerRepository.getFirstNameByIdProc(id);
     }
 
+
+    @Override
+    public int deleteFirstName(String firstName) {
+        return singerRepository.deleteByFirstName(firstName);
+    }
 }

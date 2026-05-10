@@ -48,7 +48,7 @@ import java.util.stream.Stream;
 @Service("jpaSingerService")
 @Repository
 @Transactional
-public class SingerServiceImpl implements SingerService {
+class SingerServiceImpl implements SingerService {
     private static final Logger LOGGER = LoggerFactory.getLogger(SingerServiceImpl.class);
 
     @PersistenceContext

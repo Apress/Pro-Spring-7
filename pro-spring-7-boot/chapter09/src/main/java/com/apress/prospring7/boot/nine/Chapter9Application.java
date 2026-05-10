@@ -32,17 +32,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.persistence.autoconfigure.EntityScan;
 import org.springframework.core.env.AbstractEnvironment;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
  * @author iulianacosmina on 15/12/2025
  */
-@EntityScan(basePackages = {"com.apress.prospring7.boot.nine.entities"})
-@EnableTransactionManagement
-@EnableJpaRepositories("com.apress.prospring7.boot.nine.repos")
+// the following 3 are needed only if the locations are not under the main package
+//@EntityScan(basePackages = {"com.apress.prospring7.boot.nine.entities"})
+//@EnableTransactionManagement
+//@EnableJpaRepositories("com.apress.prospring7.boot.nine.repos")
 @SpringBootApplication
 public class Chapter9Application {
 

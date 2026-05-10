@@ -16,7 +16,7 @@ dependencies {
     implementation(libs.springModulithCore)
     implementation(libs.springModulithJpa)
 
-    api(libs.hibernateCore) // to use 7.3.0.Final
+    api(libs.hibernateCore) // to use 7.3.3.Final
     implementation(libs.mariaDB)
 
     runtimeOnly(libs.springBootStarterActuator)

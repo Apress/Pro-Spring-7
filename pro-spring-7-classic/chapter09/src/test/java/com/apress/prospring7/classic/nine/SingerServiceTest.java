@@ -106,6 +106,22 @@ public class SingerServiceTest extends TestContainersBase {
         );
     }
 
+    @Rollback
+    @Test
+    @SqlGroup({
+            @Sql(scripts = {"classpath:testcontainers/add-dexters.sql"},
+                    executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD),
+    })
+    @DisplayName("should delete all singers with fistName = 'Dexter' ")
+    public void testDeleteAllDexters(){
+        var dexterCnt = singerService.findByFirstName("Dexter").count();
+        assertEquals(2L, dexterCnt);
+
+        var delCnt = singerService.deleteFirstName("Dexter");
+        assertEquals(2L, delCnt);
+    }
+
+
     @Configuration
     @Import(DataJpaCfg.class)
     public static class TestContainersConfig {

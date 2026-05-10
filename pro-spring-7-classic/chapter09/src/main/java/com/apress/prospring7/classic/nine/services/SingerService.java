@@ -49,4 +49,6 @@ public interface SingerService {
     Stream<SingerRepository.FullName> findByLastName(String lastName);
 
     String getFirstNameByIdProc(Long Id);
+
+    int deleteFirstName(String firstName);
 }

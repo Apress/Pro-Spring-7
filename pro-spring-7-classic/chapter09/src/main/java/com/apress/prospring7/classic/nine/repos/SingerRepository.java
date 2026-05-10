@@ -58,6 +58,10 @@ public interface SingerRepository extends CrudRepository<Singer, Long> {
     @Query("update Singer s set s.firstName = ?1 where s.id = ?2")
     int setFirstNameFor(String firstName, Long id);
 
+    @Modifying(flushAutomatically = true)
+    @Query("delete from Singer s where s.firstName = :firstName ")
+    int deleteByFirstName(@Param("firstName")String firstName);
+
     Streamable<FullName> findByLastName(String lastName);
 
 

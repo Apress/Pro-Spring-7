@@ -14,7 +14,7 @@ dependencies {
     implementation(libs.springBootStarterWeb)
     implementation(libs.springBootStarterValidation)
     implementation(libs.springBootStarterDataJpa)
-    api(libs.hibernateCore) // to use 7.3.0.Final
+    api(libs.hibernateCore) // to use 7.3.3.Final
     implementation(libs.mariaDB)
 
     implementation(libs.commonsIO)
