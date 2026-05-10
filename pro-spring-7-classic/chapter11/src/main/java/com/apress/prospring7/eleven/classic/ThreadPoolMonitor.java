@@ -39,8 +39,8 @@ import java.util.concurrent.ThreadPoolExecutor;
 public class ThreadPoolMonitor implements Runnable {
     private static final Logger LOGGER = LoggerFactory.getLogger(ThreadPoolMonitor.class);
 
-    protected ThreadPoolExecutor executor;
-    protected Duration printInterval = Duration.ofMillis(200);
+    ThreadPoolExecutor executor;
+    Duration printInterval = Duration.ofMillis(200);
 
     @Override
     public void run() {

@@ -70,7 +70,8 @@ public class CarServiceImpl implements CarService {
  }
 
  @Override
- @Scheduled(fixedDelay=10000)
+ //@Scheduled(fixedDelay=10000)
+ @Scheduled(cron = "0 * * * * SAT-SUN")
  public void updateCarAgeJob() {
   var cars = findAll();
 

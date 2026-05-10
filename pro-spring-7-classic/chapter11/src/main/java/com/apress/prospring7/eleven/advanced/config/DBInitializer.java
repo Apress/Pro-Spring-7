@@ -40,17 +40,17 @@ import java.time.LocalDate;
 /// @author iulianacosmina on 12/01/2026
 ///
 @Service
-public class DBInitializer {
+class DBInitializer {
     private static final Logger LOGGER = LoggerFactory.getLogger(DBInitializer.class);
 
     private final CarRepository carRepository;
 
-    public DBInitializer(CarRepository carRepository) {
+    DBInitializer(CarRepository carRepository) {
         this.carRepository = carRepository;
     }
 
     @PostConstruct
-    public void initDB() {
+    void initDB() {
         LOGGER.info("Starting database initialization...");
         var car = new Car();
         car.setLicensePlate("GRAVITY-0405");
