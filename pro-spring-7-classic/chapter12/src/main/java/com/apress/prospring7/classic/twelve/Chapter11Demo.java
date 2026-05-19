@@ -35,10 +35,10 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 ///
 /// @author iulianacosmina on 12/01/2026
 ///
-public class Chapter11Demo {
+class Chapter11Demo {
     private static final Logger LOGGER = LoggerFactory.getLogger(Chapter11Demo.class);
 
-    public static void main(String... args) {
+    static void main() {
         try (var ctx = new AnnotationConfigApplicationContext(AppConfig.class)) {
             var springBlogger = ctx.getBean("springBlogger", Blogger.class);
             LOGGER.info("SpringBlogger info: {}" , springBlogger);

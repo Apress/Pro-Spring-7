@@ -12,7 +12,7 @@ dependencies {
     api(libs.commonsLang3)
 
     api(libs.hibernateValidator)
-    //implementation("org.glassfish:jakarta.el:5.0.0-M1")
+    //implementation("org.glassfish.expressly:expressly:6.0.0")
     implementation(libs.tomcatEl)
 
     testImplementation(libs.springTest)

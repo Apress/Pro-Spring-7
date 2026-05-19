@@ -12,7 +12,7 @@ group = "com.apress.prospring7.boot.twelve"
 dependencies {
     implementation(libs.springBootStarterValidation)
 
-    testImplementation(libs.springBootStarterTest)
+    testImplementation(libs.springBootStarterValidatorTest)
     testRuntimeOnly(libs.junitJupiterPlatform)
 }
 
