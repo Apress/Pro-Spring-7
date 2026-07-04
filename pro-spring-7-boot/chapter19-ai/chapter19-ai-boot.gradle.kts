@@ -12,7 +12,7 @@ group = "com.apress.prospring7.boot.nineteen"
 dependencies {
     implementation(libs.springAiOllama)
     implementation(libs.springBootStarterWeb)
-    implementation(libs.springAiVectorStore)
+    //implementation(libs.springAiVectorStore)
 
     // to allow netty on M1 - M4 -- for other operating systems you might need to customise this
     runtimeOnly("io.netty:netty-resolver-dns-native-macos:4.2.9.Final:osx-aarch_64")

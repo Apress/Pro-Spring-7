@@ -27,32 +27,28 @@ SOFTWARE.
 */
 package com.apress.prospring7.classic.fourteen;
 
+import com.apress.prospring7.classic.fourteen.deprecated.RestClientTest;
 import com.apress.prospring7.classic.fourteen.entities.Singer;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.json.JacksonJsonHttpMessageConverter;
 import org.springframework.web.client.HttpClientErrorException;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.web.client.RestClient;
 
-import java.net.URI;
 import java.net.URISyntaxException;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Objects;
 
-import static com.apress.prospring7.classic.fourteen.RestClient2Test.APPLICATION_JSON_UTF8_VALUE;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrowsExactly;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 ///
 /// @author iulianacosmina on 31/01/2026
@@ -61,23 +57,23 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
         " then run each test manually and notice the result!")
 public class RestClient3Test {
     final static Logger LOGGER = LoggerFactory.getLogger(RestClientTest.class);
-    private static final String URL_GET_ALL_SINGERS = "http://localhost:8080/ch14/singer3/";
-    private static final String URL_CREATE_SINGER = "http://localhost:8080/ch14/singer3/";
 
-    RestTemplate restTemplate = new RestTemplate();
+    RestClient restClient = RestClient.builder()
+            .baseUrl("http://localhost:8080/ch14")
+            .configureMessageConverters(cb -> {
+                var conv = new JacksonJsonHttpMessageConverter();
+                conv.setSupportedMediaTypes(List.of(MediaType.parseMediaType("application/json;charset=UTF-8")));
+                cb.addCustomConverter(conv);
+            })
+            .build();
 
     @Test
-    public void testPositiveFindById() throws URISyntaxException {
-        var headers = new HttpHeaders();
-        headers.setAccept(List.of(MediaType.APPLICATION_JSON));
-        RequestEntity<HttpHeaders>  req = new RequestEntity<>(headers, HttpMethod.GET, new URI(URL_GET_ALL_SINGERS + 1));
+    public void testPositiveFindById() {
         LOGGER.info("--> Testing retrieve a singer by id : 1");
 
-        ResponseEntity<Singer> response =  restTemplate.exchange(req, Singer.class);
+        ResponseEntity<Singer> response = restClient.method(HttpMethod.GET).uri("/singers3/1").retrieve().toEntity(Singer.class);
         assertAll("testPositiveFindById",
                 () -> assertEquals(HttpStatus.OK, response.getStatusCode()),
-                () -> assertTrue(Objects.requireNonNull(response.getHeaders().get(HttpHeaders.CONTENT_TYPE))
-                        .contains(APPLICATION_JSON_UTF8_VALUE)),
                 () -> assertNotNull(response.getBody()),
                 () -> assertEquals(Singer.class, response.getBody().getClass())
         );
@@ -87,33 +83,28 @@ public class RestClient3Test {
     @Test
     public void testNegativeFindById() throws URISyntaxException {
         LOGGER.info("--> Testing retrieve a singer by id : 99");
-        RequestEntity<HttpHeaders>  req = new RequestEntity<>(HttpMethod.GET, new URI(URL_GET_ALL_SINGERS + 99));
 
-        assertThrowsExactly(HttpClientErrorException.NotFound.class, () -> restTemplate.exchange(req, HttpStatus.class));
+        assertThrowsExactly(HttpClientErrorException.NotFound.class, () -> restClient.method(HttpMethod.GET).uri("/singers3/99").retrieve().toEntity(Singer.class));
     }
 
     @Test
-    public void testNegativeCreate() throws URISyntaxException {
+    public void testNegativeCreate() {
         LOGGER.info("--> Testing create singer");
         Singer singerNew = new Singer();
         singerNew.setFirstName("Ben");
         singerNew.setLastName("Barnes");
         singerNew.setBirthDate(LocalDate.now());
 
-        RequestEntity<Singer>  req = new RequestEntity<>(singerNew, HttpMethod.POST, new URI(URL_CREATE_SINGER));
-
-        assertThrowsExactly(HttpClientErrorException.BadRequest.class, () -> restTemplate.exchange(req, HttpStatus.class));
+        assertThrowsExactly(HttpClientErrorException.BadRequest.class, () -> restClient.post().uri("/singers3/").body(singerNew).retrieve().body(Singer.class));
     }
 
     @Test
-    public void testNegativeUpdate() throws URISyntaxException {
+    public void testNegativeUpdate() {
         LOGGER.info("--> Testing update singer");
         Singer singerNew = new Singer();
         singerNew.setFirstName("Mimi");
         singerNew.setBirthDate(LocalDate.now());
 
-        RequestEntity<Singer>  req = new RequestEntity<>(singerNew, HttpMethod.PUT, new URI(URL_CREATE_SINGER + 7));
-
-        assertThrowsExactly(HttpClientErrorException.BadRequest.class, () -> restTemplate.exchange(req, HttpStatus.class));
+        assertThrowsExactly(HttpClientErrorException.BadRequest.class, () -> restClient.put().uri("/singers3/7").body(singerNew).retrieve().body(Singer.class));
     }
 }

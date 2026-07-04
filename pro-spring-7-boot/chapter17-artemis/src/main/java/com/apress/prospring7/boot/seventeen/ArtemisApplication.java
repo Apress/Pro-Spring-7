@@ -72,8 +72,8 @@ public class ArtemisApplication {
                 .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
                 .build();
         var converter =  new JacksonJsonMessageConverter(mapper);
-        converter.setTargetType(MessageType.TEXT); // <1>
-        converter.setTypeIdPropertyName("_type"); // <2>
+        converter.setTargetType(MessageType.TEXT);
+        converter.setTypeIdPropertyName("_type");
         return converter;
     }
 

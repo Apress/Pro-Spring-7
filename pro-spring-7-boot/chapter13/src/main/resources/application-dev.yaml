@@ -16,6 +16,7 @@ spring:
     encoding: UTF-8
     always-use-message-format: true
   servlet:
+    # file upload configuration
     multipart:
       enabled: true
       max-file-size: 10MB

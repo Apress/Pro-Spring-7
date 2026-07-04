@@ -30,18 +30,12 @@ package com.apress.prospring7.boot.nineteen;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.ai.chat.client.ChatClient;
-import org.springframework.ai.chat.client.advisor.PromptChatMemoryAdvisor;
 import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor;
-import org.springframework.ai.chat.memory.ChatMemory;
 import org.springframework.ai.chat.messages.UserMessage;
 import org.springframework.ai.chat.prompt.Prompt;
-import org.springframework.ai.chat.prompt.PromptTemplate;
 import org.springframework.ai.content.Media;
-import org.springframework.ai.image.ImageModel;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.MediaType;
 import org.springframework.util.MimeTypeUtils;
@@ -51,10 +45,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import tools.jackson.databind.ObjectMapper;
-import org.springframework.ai.vectorstore.VectorStore;
-
-import java.util.Optional;
 
 ///
 /// @author iulianacosmina on 16/03/2026
@@ -80,17 +70,15 @@ class ChatController {
 
     private final ChatClient chatClient;
 
-    public ChatController(ChatClient.Builder chatClientBuilder, ChatMemory chatMemory) {
+    public ChatController(ChatClient.Builder chatClientBuilder) {
         this.chatClient = chatClientBuilder
-                .defaultAdvisors(PromptChatMemoryAdvisor.builder(chatMemory).build())
+                .defaultSystem("You are an answer provider. Just provide the answers, no additional conversational text.")
                 .build();
     }
 
     @PostMapping(path="/")
     String rnd(@RequestBody PromptHolder input){
-        final var proptTemplate = new PromptTemplate(input.prompt());
-
-        return this.chatClient.prompt(proptTemplate.create())
+        return this.chatClient.prompt(input.prompt())
                 .call()
                 .content();
     }
@@ -101,7 +89,6 @@ class ChatController {
 @RequestMapping("/images")
 class ImageController {
     private final static Logger LOGGER = LoggerFactory.getLogger(ImageController.class);
-    private final ObjectMapper mapper = new ObjectMapper();
 
     private final ChatClient chatClient;
 

@@ -34,8 +34,8 @@ include(":chapter05")
 findProject(":chapter05")?.name = "chapter05-classic"
 include(":chapter06")
 findProject(":chapter06")?.name = "chapter06-classic"
-include(":chapter06-jooq")
-findProject(":chapter06-jooq")?.name = "chapter06-jooq-classic"
+//include(":chapter06-jooq")
+//findProject(":chapter06-jooq")?.name = "chapter06-jooq-classic"
 include(":chapter07")
 findProject(":chapter07")?.name = "chapter07-classic"
 include(":chapter08")

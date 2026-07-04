@@ -44,14 +44,14 @@ import java.util.Optional;
 /// @author iulianacosmina on 31/01/2026
 ///
 @RestController
-@RequestMapping(path = "singer2")
-public class Singer2Controller {
+@RequestMapping(path = "singers2")
+public class SingerControllerV2 {
 
-    final static Logger LOGGER = LoggerFactory.getLogger(Singer2Controller.class);
+    final static Logger LOGGER = LoggerFactory.getLogger(SingerControllerV2.class);
 
     private final SingerRepo singerRepo;
 
-    public Singer2Controller(SingerRepo singerRepo) {
+    public SingerControllerV2(SingerRepo singerRepo) {
         this.singerRepo = singerRepo;
     }
 

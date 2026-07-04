@@ -44,8 +44,8 @@ import java.time.LocalDate;
 public class RestClientTest {
 
     final static Logger LOGGER = LoggerFactory.getLogger(RestClientTest.class);
-    private static final String URI_SINGER_ROOT = "http://localhost:8081/ch18/singer/";
-    private static final String URI_SINGER_WITH_ID = "http://localhost:8081/ch18/singer/{id}";
+    private static final String URI_SINGER_ROOT = "http://localhost:8081/ch18/singers/";
+    private static final String URI_SINGER_WITH_ID = "http://localhost:8081/ch18/singers/{id}";
 
     RestTemplate restTemplate = new RestTemplate();
 

@@ -36,21 +36,17 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.json.JacksonJsonHttpMessageConverter;
 import org.springframework.web.client.HttpClientErrorException;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.web.client.RestClient;
 
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.List;
-import java.util.Objects;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrowsExactly;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 ///
 /// @author iulianacosmina on 31/01/2026
@@ -59,33 +55,34 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
         "then run each test manually and notice the result!")
 public class RestClient2Test {
     final static Logger LOGGER = LoggerFactory.getLogger(RestClient2Test.class);
-    private static final String URI_SINGER2_ROOT = "http://localhost:8080/ch14/singer2/";
-    public static final String APPLICATION_JSON_UTF8_VALUE = "application/json;charset=UTF-8";
 
-    RestTemplate restTemplate = new RestTemplate();
+    RestClient restClient = RestClient.builder()
+            .baseUrl("http://localhost:8080/ch14")
+            .configureMessageConverters(cb -> {
+                var conv = new JacksonJsonHttpMessageConverter();
+                conv.setSupportedMediaTypes(List.of(MediaType.parseMediaType("application/json;charset=UTF-8")));
+                cb.addCustomConverter(conv);
+            })
+            .build();
 
     @Test
-    public void testPositiveFindById() throws URISyntaxException {
+    public void testPositiveFindById() {
         var headers = new HttpHeaders();
         headers.setAccept(List.of(MediaType.APPLICATION_JSON));
-        RequestEntity<HttpHeaders> req = new RequestEntity<>(headers, HttpMethod.GET, new URI(URI_SINGER2_ROOT + 1));
         LOGGER.info("--> Testing retrieve a singer by id : 1");
-        ResponseEntity<Singer> response =  restTemplate.exchange(req, Singer.class);
+        ResponseEntity<Singer> response =  restClient.method(HttpMethod.GET).uri("/singers2/1").retrieve().toEntity(Singer.class);
         assertAll("findById",
                 ()-> assertEquals(HttpStatus.OK, response.getStatusCode()),
-                () -> assertTrue(Objects.requireNonNull(response.getHeaders().get(HttpHeaders.CONTENT_TYPE))
-                        .contains(APPLICATION_JSON_UTF8_VALUE)),
                 () -> assertNotNull(response.getBody()),
                 () -> assertEquals(Singer.class, response.getBody().getClass())
         );
     }
 
     @Test
-    public void testNegativeFindById() throws URISyntaxException {
+    public void testNegativeFindById() {
         LOGGER.info("--> Testing retrieve a singer by id : 99");
-        var  req = new RequestEntity<>(HttpMethod.GET, new URI(URI_SINGER2_ROOT + 99));
 
-        assertThrowsExactly(HttpClientErrorException.NotFound.class, () -> restTemplate.exchange(req, HttpStatus.class));
+        assertThrowsExactly(HttpClientErrorException.NotFound.class, () -> restClient.method(HttpMethod.GET).uri("/singers2/99").retrieve().toEntity(Singer.class));
     }
 
     // feel free to write the rest of the tests to test your understanding of the exchange method

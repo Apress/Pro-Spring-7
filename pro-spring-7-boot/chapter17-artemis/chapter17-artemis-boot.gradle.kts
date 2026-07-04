@@ -13,7 +13,7 @@ dependencies {
     implementation(libs.springBootStarterJson)
     implementation(libs.springBootStarterArtemis)
     // using the same version Spring boot uses
-    implementation("org.apache.artemis:artemis-jakarta-server:2.50.0")
+    implementation("org.apache.artemis:artemis-jakarta-server:2.53.0")
 
     testImplementation(libs.springBootStarterTest)
     testRuntimeOnly(libs.junitJupiterPlatform)

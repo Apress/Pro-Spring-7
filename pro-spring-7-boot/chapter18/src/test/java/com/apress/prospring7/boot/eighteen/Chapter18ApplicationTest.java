@@ -67,7 +67,7 @@ public class Chapter18ApplicationTest {
     @Test
     public void testFindAll() {
         LOGGER.info("--> Testing retrieve all singers");
-        var singers = restTemplate.getForObject("http://localhost:"+port+"/singer/", Singer[].class);
+        var singers = restTemplate.getForObject("http://localhost:"+port+"/singers/", Singer[].class);
         assertTrue( singers.length >= 15);
         Arrays.stream(singers).forEach(s -> LOGGER.info(s.toString()));
     }
@@ -76,7 +76,7 @@ public class Chapter18ApplicationTest {
     public void testPositiveFindById() throws URISyntaxException {
         HttpHeaders headers = new HttpHeaders();
         headers.setAccept(List.of(MediaType.APPLICATION_JSON));
-        RequestEntity<HttpHeaders> req = new RequestEntity<>(headers, HttpMethod.GET, new URI("http://localhost:"+port+"/singer/1"));
+        RequestEntity<HttpHeaders> req = new RequestEntity<>(headers, HttpMethod.GET, new URI("http://localhost:"+port+"/singers/1"));
         LOGGER.info("--> Testing retrieve a singer by id : 1");
         ResponseEntity<Singer> response =  restTemplate.exchange(req, Singer.class);
         assertAll("testPositiveFindById",
@@ -91,7 +91,7 @@ public class Chapter18ApplicationTest {
     @Test
     public void testNegativeFindById() throws URISyntaxException {
         LOGGER.info("--> Testing retrieve a singer by id : 99");
-        RequestEntity<Singer>  req = new RequestEntity<>(HttpMethod.GET, new URI("http://localhost:"+port+"/singer/99"));
+        RequestEntity<Singer>  req = new RequestEntity<>(HttpMethod.GET, new URI("http://localhost:"+port+"/singers/99"));
 
         ResponseEntity<Singer> response = restTemplate.exchange(req, Singer.class);
         assertAll("testNegativeFindById",
@@ -109,7 +109,7 @@ public class Chapter18ApplicationTest {
         singerNew.setLastName("Barnes");
         singerNew.setBirthDate(LocalDate.now());
 
-        RequestEntity<Singer>  req = new RequestEntity<>(singerNew, HttpMethod.POST, new URI("http://localhost:"+port+"/singer/"));
+        RequestEntity<Singer>  req = new RequestEntity<>(singerNew, HttpMethod.POST, new URI("http://localhost:"+port+"/singers/"));
 
         ResponseEntity<String> response =  restTemplate.exchange(req, String.class);
         assertAll("testNegativeCreate",

@@ -41,7 +41,7 @@ import java.util.List;
 /// @author iulianacosmina on 29/01/2026
 ///
 @RestController
-@RequestMapping(path = "singer")
+@RequestMapping(path = "singers")
 public class SingerController {
     final static Logger LOGGER = LoggerFactory.getLogger(SingerController.class);
 

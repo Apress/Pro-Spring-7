@@ -34,8 +34,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.web.client.RestTemplate;
-
 
 ///
 /// @author iulianacosmina on 08/02/2026
@@ -55,11 +53,6 @@ public class SenderApplication {
 
     @Value("${app.correspondent.address}")
     public String correspondentAddress;
-
-    @Bean
-    RestTemplate restTemplate(){
-        return new RestTemplate();
-    }
 
     @Bean
     public CommandLineRunner initCmd(){

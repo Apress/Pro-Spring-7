@@ -41,3 +41,4 @@ logging:
     root: INFO
     org.springframework: DEBUG
     com.apress.prospring7.boot.seventeen: INFO
+    org.hibernate.orm: DEBUG

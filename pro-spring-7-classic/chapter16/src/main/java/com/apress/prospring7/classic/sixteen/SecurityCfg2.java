@@ -83,28 +83,19 @@ class SecurityCfg2 {
 
     @Bean
     UserDetailsManager users(DataSource dataSource) {
-        User.UserBuilder users  = User.builder().passwordEncoder(encoder()::encode);
-        var joe = users
-                .username("john")
-                .password("doe")
-                .roles("USER")
-                .build();
-        var jane = users
-                .username("jane")
-                .password("doe")
-                .roles("USER", "ADMIN")
-                .build();
-        var admin = users
-                .username("admin")
-                .password("admin")
-                .roles("ADMIN")
-                .build();
-        var manager = new JdbcUserDetailsManager(dataSource);
-        manager.createUser(joe);
-        manager.createUser(jane);
-        manager.createUser(admin);
-        return manager;
-
-        //return new JdbcUserDetailsManager(dataSource);
+        final boolean firstTime = false; // set this to false after starting the app first, so on second boot the users are not re-created
+        if (firstTime) {
+            User.UserBuilder users = User.builder().passwordEncoder(encoder()::encode);
+            var joe = users.username("john").password("doe").roles("USER").build();
+            var jane = users.username("jane").password("doe").roles("USER", "ADMIN").build();
+            var admin = users.username("admin").password("admin").roles("ADMIN").build();
+            var manager = new JdbcUserDetailsManager(dataSource);
+            manager.createUser(joe);
+            manager.createUser(jane);
+            manager.createUser(admin);
+            return manager;
+        } else {
+            return new JdbcUserDetailsManager(dataSource);
+        }
     }
 }

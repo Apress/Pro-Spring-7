@@ -50,7 +50,7 @@ import java.util.List;
 /// @author iulianacosmina on 10/02/2026
 ///
 @RestController
-@RequestMapping(path = "singer")
+@RequestMapping(path = "singers")
 public class SingerController {
 
     final Logger LOGGER = LoggerFactory.getLogger(SingerController.class);

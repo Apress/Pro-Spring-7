@@ -29,7 +29,11 @@ package com.apress.prospring7.classic.eighteen.audit;
 
 import com.apress.prospring7.classic.eighteen.entities.Singer;
 import com.apress.prospring7.classic.eighteen.services.SingerService;
-import org.springframework.jmx.export.annotation.*;
+import org.springframework.jmx.export.annotation.ManagedAttribute;
+import org.springframework.jmx.export.annotation.ManagedOperation;
+import org.springframework.jmx.export.annotation.ManagedOperationParameter;
+import org.springframework.jmx.export.annotation.ManagedOperationParameters;
+import org.springframework.jmx.export.annotation.ManagedResource;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

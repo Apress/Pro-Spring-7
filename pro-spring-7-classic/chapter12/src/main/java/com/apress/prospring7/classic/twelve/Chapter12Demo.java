@@ -35,8 +35,8 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 ///
 /// @author iulianacosmina on 12/01/2026
 ///
-class Chapter11Demo {
-    private static final Logger LOGGER = LoggerFactory.getLogger(Chapter11Demo.class);
+class Chapter12Demo {
+    private static final Logger LOGGER = LoggerFactory.getLogger(Chapter12Demo.class);
 
     static void main() {
         try (var ctx = new AnnotationConfigApplicationContext(AppConfig.class)) {

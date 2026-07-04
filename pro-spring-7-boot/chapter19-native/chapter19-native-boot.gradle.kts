@@ -13,8 +13,8 @@ group = "com.apress.prospring7.boot.nineteen"
 dependencies {
     implementation(libs.springBootStarterWeb)
 
-    testImplementation("org.apache.httpcomponents.client5:httpclient5:5.6")
-    testImplementation("org.springframework.boot:spring-boot-restclient:4.1.0-M1")
+    testImplementation("org.apache.httpcomponents.client5:httpclient5:5.6.2")
+    testImplementation("org.springframework.boot:spring-boot-restclient:4.1.0")
     testRuntimeOnly(libs.junitJupiterPlatform)
     testImplementation(libs.springBootStarterTest)
     testImplementation(libs.springBootStarterWebMvcTest)

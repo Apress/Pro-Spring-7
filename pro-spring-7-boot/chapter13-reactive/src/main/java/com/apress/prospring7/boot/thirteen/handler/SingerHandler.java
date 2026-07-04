@@ -130,7 +130,6 @@ public class SingerHandler {
                 .flatMap(singer -> ok().contentType(MediaType.APPLICATION_JSON).bodyValue(singer));
     }
 
-
     public Mono<ServerResponse> search(ServerRequest serverRequest) {
         var criteriaMono = serverRequest.bodyToMono(CriteriaDto.class);
         return criteriaMono.log()

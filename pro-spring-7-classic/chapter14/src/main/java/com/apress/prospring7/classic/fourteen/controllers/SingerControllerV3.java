@@ -49,14 +49,14 @@ import java.util.List;
 /// @author iulianacosmina on 31/01/2026
 ///
 @RestController
-@RequestMapping(path = "singer3")
-public class Singer3Controller {
+@RequestMapping(path = "singers3")
+public class SingerControllerV3 {
 
-    final static Logger LOGGER = LoggerFactory.getLogger(Singer3Controller.class);
+    final static Logger LOGGER = LoggerFactory.getLogger(SingerControllerV3.class);
 
     private final SingerService singerService;
 
-    public Singer3Controller(SingerService singerService) {
+    public SingerControllerV3(SingerService singerService) {
         this.singerService = singerService;
     }
 

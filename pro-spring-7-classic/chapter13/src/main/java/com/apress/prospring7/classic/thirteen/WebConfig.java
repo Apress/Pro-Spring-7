@@ -182,15 +182,10 @@ public class WebConfig implements WebMvcConfigurer , ApplicationContextAware {
         return messageResource;
     }
 
-    @Bean
-    Validator validator() {
+    @Override
+    public Validator getValidator() {
         final var validator = new LocalValidatorFactoryBean();
         validator.setValidationMessageSource(messageSource());
         return validator;
-    }
-
-    @Override
-    public Validator getValidator() {
-        return validator();
     }
 }

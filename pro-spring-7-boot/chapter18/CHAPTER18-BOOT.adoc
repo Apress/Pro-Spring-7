@@ -41,7 +41,7 @@ Start the `chapter18-boot` application, or just run the `Chapter18Application` c
 
 [source]
 ----
-> podman run -d --name=prometheus -p 9090:9090 -v /{your_workspace}/pro-spring-7/pro-spring-7-boot/chapter18/src/main/resources/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus --config.file=/etc/prometheus/prometheus.yml
+> podman run -d --name=prometheus -p 9090:9090 -v /Users/iulianacosmina/Apress/workspace/pro-spring-7/pro-spring-7-boot/chapter18/src/main/resources/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus --config.file=/etc/prometheus/prometheus.yml
 
 > podman pull grafana/grafana
 

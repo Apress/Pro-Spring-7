@@ -94,6 +94,7 @@ public class OneSingerController {
         return "singers/upload";
     }
 
+    //@RequestMapping(path = "/edit", method = RequestMethod.PUT)
     @PutMapping
     public String updateSingerInfo(@Valid Singer singer, BindingResult bindingResult, Model uiModel, Locale locale) {
         if (bindingResult.hasErrors()) {

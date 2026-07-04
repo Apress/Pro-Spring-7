@@ -44,3 +44,9 @@ tasks.register<War>( "fatWar") {
     from(configurations.runtimeClasspath.get().map({ if (it.isDirectory) it else zipTree(it) }))
     with(tasks.war.get() as CopySpec)
 }
+
+// Spring Framework 6.1 removed the fallback to the local variable table for retrieving parameter names, requiring the Java compiler to store this information in the bytecode.
+// It is triggered when you use annotations like @PathVariable or @RequestParam without explicitly specifying the parameter name, and the compiler was not configured to retain parameter metadata.
+tasks.withType<JavaCompile> {
+    options.compilerArgs.add("-parameters")
+}

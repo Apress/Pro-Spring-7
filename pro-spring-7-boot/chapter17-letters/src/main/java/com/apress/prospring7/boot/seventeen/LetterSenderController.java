@@ -30,14 +30,13 @@ package com.apress.prospring7.boot.seventeen;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.web.client.RestClient;
 
 import java.time.LocalDate;
 
@@ -48,14 +47,13 @@ import java.time.LocalDate;
 public class LetterSenderController {
     private static final Logger LOGGER = LoggerFactory.getLogger(LetterSenderController.class);
 
-    private final RestTemplate webClient;
+    private final RestClient restClient;
     private final String correspondentAddress;
     private final String sender;
 
-    public LetterSenderController(RestTemplate webClient,
-                                  @Value("#{senderApplication.correspondentAddress}") String correspondentAddress,
+    public LetterSenderController(@Value("#{senderApplication.correspondentAddress}") String correspondentAddress,
                                   @Value("#{senderApplication.sender}") String sender) {
-        this.webClient = webClient;
+        this.restClient = RestClient.builder().build();
         this.correspondentAddress = correspondentAddress;
         this.sender = sender;
     }
@@ -64,13 +62,13 @@ public class LetterSenderController {
     public void sendLetter(@RequestBody Letter letter){
         letter.setSender(sender);
         letter.setSentOn(LocalDate.now());
-        var request = new HttpEntity<>(letter);
-        webClient.exchange(correspondentAddress +"/letters", HttpMethod.POST, request, Letter.class);
+        var result = restClient.method(HttpMethod.POST).uri(correspondentAddress + "/letters").body(letter).retrieve().toBodilessEntity();
+        LOGGER.info(">> Response is:  {} ", result);
     }
 
     @GetMapping(path = "misc", produces = MediaType.APPLICATION_JSON_VALUE)
     public String getMiscData(){
-        var response = webClient.getForObject("https://jsonplaceholder.typicode.com/users", String.class);
+        var response = restClient.get().uri("https://jsonplaceholder.typicode.com/users").retrieve().body(String.class);
         LOGGER.info("Random info from non-java application: {} ", response);
         return response;
     }

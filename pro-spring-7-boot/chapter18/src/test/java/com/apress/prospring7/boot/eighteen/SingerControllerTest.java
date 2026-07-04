@@ -31,6 +31,7 @@ import com.apress.prospring7.boot.eighteen.entities.Singer;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
@@ -57,9 +58,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @Disabled("Enable this test then run `testCreate()` first, then run the `testPositiveFindById()` to generate Prometheus data.")
 public class SingerControllerTest {
 
-    private static String BASE_URL = "http://localhost:8081/singer/";
+    private static String BASE_URL = "http://localhost:8081/singers/";
 
-    private RestTemplate restTemplate = new RestTemplate();
+    private final RestTemplate restTemplate = new RestTemplate();
 
     @RepeatedTest(500)
     public void testFindAll() {
@@ -84,7 +85,7 @@ public class SingerControllerTest {
     public void testPositiveFindById() throws URISyntaxException {
         final var headers = new HttpHeaders();
         headers.setAccept(List.of(MediaType.APPLICATION_JSON));
-        for (int i = 1; i < 250; i++) {
+        for (int i = 1000; i < 2000; i++) {
             RequestEntity<HttpHeaders> req = new RequestEntity<>(headers, HttpMethod.GET, new URI(BASE_URL + i));
             ResponseEntity<Singer> response =  restTemplate.exchange(req, Singer.class);
             assertAll("testPositiveFindById",
@@ -95,4 +96,16 @@ public class SingerControllerTest {
             );
         }
     }
+
+    @Test
+    public void testDelete() {
+        for (var i = 501; i < 1000; i++) {
+            try {
+                restTemplate.delete(new URI(BASE_URL + i));
+            } catch (Exception e) {
+                // no need for this
+            }
+        }
+    }
+
 }
