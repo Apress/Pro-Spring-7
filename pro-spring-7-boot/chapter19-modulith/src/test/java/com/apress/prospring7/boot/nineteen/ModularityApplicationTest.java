@@ -46,7 +46,7 @@ public class ModularityApplicationTest {
 
     @Test
     void verifiesModularStructure() {
-        for (var m : modules) LOGGER.info("{}:{}", m.getName() , m.getBasePackage());
+        for (var m : modules) LOGGER.info("{}:{}", m.getDisplayName() , m.getBasePackage());
         modules.verify();
     }
 
