@@ -1,33 +1,33 @@
 [versions]
-spring              = "7.1.0-SNAPSHOT"
-springData          = "4.0.1"
-springSecurity      = "7.1.0"
+spring              = "7.0.9"
+springData          = "4.1.1"
+springSecurity      = "7.1.1"
 springDataNoSql     = "5.0.1"
-springKafka         = "4.0.0"
-groovy              = "5.0.0"
-jUnit               = "6.0.2"
-mockito             = "5.21.0"
-logback             = "1.5.22"
+springKafka         = "4.1.1"
+groovy              = "6.0.0"
+mockito             = "5.24.0"
+logback             = "1.6.5"
 jakartaAnnotationApi   = "3.0.0"
 jakartaInjectApi     = "2.0.1"
 aspectj              = "1.9.24"
-mariaDB              = "3.5.7"
+mariaDB              = "3.5.10"
 mariaDBr2dbc         = "1.3.0"
 mongoDB              = "5.6.2"
-c3p0                 = "0.12.0"
-hikari               = "7.0.2"
-h2                   = "2.3.232"
-testcontainers       = "2.0.2"
-hibernate            = "7.4.4.Final"
-hibernateValidator   = "9.1.2.Final"
+c3p0                 = "0.14.2"
+hikari               = "7.1.0"
+h2                   = "2.5.252"
+testcontainers       = "2.0.5"
+hibernate            = "7.4.13.Final"
+hibernateValidator   = "9.1.5.Final"
 jooq                 = "3.21.1"
-jackson              = "3.2.0"
+jackson              = "3.2.3"
 reactor              = "3.8.1"
-lang3Version         = "3.20.0"
+lang3Version         = "3.21.0"
 servletVersion       = "6.2.0-M2"
-thymeleafVersion     = "3.1.3.RELEASE"
+thymeleafVersion     = "3.1.5.RELEASE"
+jUnit               = "6.1.3"
 hamcrestVersion      = "3.0"
-commonsIO            = "2.21.0"
+commonsIO            = "2.22.0"
 
 [plugins]
 jooqPlugin = { id = "org.jooq.jooq-codegen-gradle", version.ref = "jooq"}
@@ -81,7 +81,7 @@ servletApi = {module = "jakarta.servlet:jakarta.servlet-api", version.ref = "ser
 thymeleaf = {module = "org.thymeleaf:thymeleaf-spring6", version.ref = "thymeleafVersion"}
 thymeleafSecurity = {module = "org.thymeleaf.extras:thymeleaf-extras-springsecurity6", version = "3.1.3.RELEASE"}
 thymeleafTime = {module = "org.thymeleaf.extras:thymeleaf-extras-java8time", version = "3.0.4.RELEASE"}
-tomcatEl = {module = "org.apache.tomcat.embed:tomcat-embed-el", version = "11.0.24"}
+tomcatEl = {module = "org.apache.tomcat.embed:tomcat-embed-el", version = "11.0.27"}
 hamcrest = {module = "org.hamcrest:hamcrest", version.ref = "hamcrestVersion"}
-restAssured = {module = "io.rest-assured:rest-assured", version = "6.0.0"}
+restAssured = {module = "io.rest-assured:rest-assured", version = "6.2.0"}
 commonsIO = {module = "commons-io:commons-io", version.ref = "commonsIO"}
