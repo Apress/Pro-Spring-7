@@ -14,7 +14,8 @@ allprojects {
 
     java {
         toolchain {
-            languageVersion = JavaLanguageVersion.of(25)
+            // keeping version 26 here because JDK 27 breaks Modulith for now
+            languageVersion = JavaLanguageVersion.of(26)
         }
         withSourcesJar()
     }
