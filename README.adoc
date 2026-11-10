@@ -12,7 +12,7 @@ NOTE: Please don't skip reading this document https://imgflip.com/i/7sn8ut[befor
 
 *Release v7.0* corresponds to the code in the second edition of the published book, without corrections or updates. There have been small changes in the project configuration files to provide a more stable and a more up-to-date build.
 
-This project was built successfully with *JDK 26*, Gradle *9.4.1* . The syntax is specific to Java versions up to and including 26.
+This project was built successfully with *JDK 27*, Gradle *9.8.1*. The syntax is specific to Java versions up to and including 27.
 
 == Corrections
 
@@ -26,14 +26,16 @@ See the file link:Contributing.adoc[Contributing.adoc] for more information on h
 
 NOTE: This project requires https://podman.io[*Podman*] installed and running. *Chapter 19* also requires https://www.docker.com[*Docker*] for creating a Native image.
 
+IMPORTANT: We need to instruct Testcontainers on how to connect to the Podman socket. This can be done by setting the DOCKER_HOST environment variable. Best instructions https://www.baeldung.com/java-podman-configure-testcontainers[here].
+
 NOTE: Projects `pro-spring-7-classic/chapter06-jooq` and `pro-spring-7-boot/chapter06` were updated to allow for a full build, which requires some changes in the configuration of the Gradle files. However, they are still unpredictable, and sometimes they might fail because the container is not ready in time. I expect this to happen on slower computers. If this is an issue for you, just remove these projects from the general build, or just don't run the full build at all. Instructions on how to do so can be found in the book appendix.
 
 NOTE: For easier Java (and Gradle) versions management, if you are using a Linux/macOS I also recommend installing https://sdkman.io[SDKMAN]. And running the following command, to use the same JDK I used when writing this project:
 
 [source, shell]
 ----
-> sdk install java 26-amzn
-> sdk install gradle 9.4.1
+> sdk install java 27.0.0.0-amzn
+> sdk install gradle 9.8.1
 ----
 
 The project is configured with the following default Gradle tasks:
@@ -58,4 +60,4 @@ Or run Gradle with the following arguments
 > gradle -x test
 ----
 
-IMPORTANT: Since I did not add the Gradle wrapper jar to the repository, download it by running `gradle wrapper --gradle-version 9.4.1` .
+IMPORTANT: Since I did not add the Gradle wrapper jar to the repository, download it by running `gradle wrapper --gradle-version 9.8.1` .
